@@ -3,9 +3,9 @@
   "name": "The Maulik Express",
   "icons": [
     {
-      "src": "https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsoutlined/newspaper/default/512px.png",
+      "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH6gYVDAwzK092OQAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkY21iaQAAAnNJREFUeNrt29tKA0EQRuGvXvD+D6IggiJeiBcM67pYAsYku8mUofpXw97O9Onuqq7p66urq6urq6urq6urq6urq6urf9p9N3AFl8Byv08D98CHu79f6u79gXf3AnwX6m+gB67gCljuwL9/bO30N/vNnZ0CD/AALvO1V66/83UAnvO1v+30GHiDB3CdrwPwnK8XwB16AXZ6AnZ6AnZ6AnZ2Cjzn66UFe9Y7W6vFepY7X9vpkS0X7FnP67Hlepb33I8tO7Dlej7w2MIPYEs/gC38ALbwA9jCD2DLOwE7eQIunYBLJ+DSvYB7B9iz96vFnh1Y7+NqsWdPHbBlB9b7uFrs2VMHbNmB9T6uFnv2VLHlG3DNDbjlBtxya25LgKsn4NIJuHQCLp2ASyfg0rv3XfG/DljtK28HbNkBq/3XWwK27MDV/ustAVt24Gr/9ZaALbfa72tAnu8/gGu+P9fXFvYVsI9b8D7WFrSPW/A+1hYclW/Vf9fXFrSPf3XAtU7Aar/bX78asNoPYEunwHOnwHOnwHOnwHOnwHPfCWz9Mv9XgL3w2AnshcdOYC88dgJ74bETbOnb89Yv838F2DuPnSDA3nnsBAH2zmMndMeen0w9P5F6fiL1/ETq+cnb+R7Y+X7Y+X7Y+X7Y+W7v+V7M7Z6Y2z0xt3tibvfE3F7D2/gO3MZdXMPb+A7cxrd2N9fGN9fGN9fGN9fGN/etfFvnG2DnvM7X+QbYV7/61b9Y9QeupT/wLb3A1/wD6F7N7b+T817t/Z0H/P0AnvO1V26XvgP/PAnX+e+XN7zKz/vWf6fUOf7r6f7rWv8V7v0L6b7G+L7G6P8N9gJ9M4Z4wQAAAABJRU5ErkJggg==",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "96x96"
     }
   ],
   "start_url": "index.html",
