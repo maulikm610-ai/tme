@@ -67,12 +67,12 @@ function openTMEPage() {
     }
 }
 
-// 📱 સુધારેલું સાદું રજિસ્ટ્રેશન (કોઈ પ્રશ્ન વગર ઇન્સ્ટોલ બટન લાવશે)
+// 📱 નવી ફ્રેશ સર્વિસ વર્કર ફાઇલ (sw2.js) નું રજિસ્ટ્રેશન
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', function() {
-        navigator.serviceWorker.register('sw.js')
-        .then(function(reg) { console.log("SW Registered!"); })
-        .catch(function(err) { console.log("SW Failed:", err); });
+        navigator.serviceWorker.register('sw2.js')
+        .then(function(reg) { console.log("New SW2 Registered!"); })
+        .catch(function(err) { console.log("SW2 Failed:", err); });
     });
 }
 </script>
