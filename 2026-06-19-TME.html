@@ -1,0 +1,1818 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>19JuneTME</title>
+    
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>19JuneTME</title>
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="gu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>THE MAULIK EXPRESS - Master Dual-Mode Dashboard (19 June 2026)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght=700&family=Inter:wght=400;500;600;700&family=Noto+Serif+Gujarati:wght=400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --card-bg: #1e293b;
+            --accent: #38bdf8;
+            --highlight-text: #fbbf24;
+            --danger: #f43f5e;
+            --text-muted: #94a3b8;
+            --paper-bg: #f4f4f0;
+            --sheet-bg: #fdfdfa;
+            --text-dark: #1e293b;
+            --border-color: #cbd5e1;
+            --yellow-highlighter: #fff200;
+            --success: #10b981;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Serif Gujarati', serif;
+            background-color: var(--paper-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .hl-yellow {
+            background-color: var(--yellow-highlighter);
+            color: #000000;
+            font-weight: 700;
+            padding: 2px 4px;
+            border-radius: 3px;
+            display: inline;
+        }
+
+        .dashboard-section {
+            background-color: var(--bg-dark);
+            color: #ffffff;
+            padding: 15px;
+            width: 100%;
+        }
+
+        @media (min-width: 600px) {
+            .dashboard-section { padding: 25px; }
+        }
+
+        .header-container {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            border-bottom: 1px solid var(--card-bg);
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        @media (min-width: 600px) {
+            .header-container {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+
+        .main-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .main-title span { color: var(--accent); }
+
+        .meta-info {
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        @media (min-width: 600px) {
+            .main-title { text-align: left; font-size: 2.3rem; }
+            .meta-info { text-align: right; font-size: 0.9rem; }
+        }
+
+        .meta-info strong { color: var(--highlight-text); }
+
+        .section-header {
+            font-family: 'Noto Serif Gujarati', serif;
+            font-size: 1.25rem;
+            margin: 20px 0 12px 0;
+            color: var(--accent);
+            border-left: 4px solid var(--accent);
+            padding-left: 8px;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        @media (min-width: 650px) {
+            .news-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        }
+        @media (min-width: 1000px) {
+            .news-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        .news-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            scroll-margin-top: 15px;
+        }
+
+        .news-card h3 {
+            font-size: 1rem;
+            margin-bottom: 6px;
+            color: #ffffff;
+            line-height: 1.35;
+        }
+
+        .news-card p {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            margin-bottom: 12px;
+            flex-grow: 1;
+            text-align: justify;
+            line-height: 1.4;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 8px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 10px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 8px 10px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.75rem;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+        }
+
+        .btn-flash {
+            background-color: rgba(251, 191, 36, 0.12);
+            color: var(--highlight-text);
+            border: 1px solid rgba(251, 191, 36, 0.25);
+        }
+
+        .btn-flash:hover {
+            background-color: var(--highlight-text);
+            color: var(--bg-dark);
+        }
+
+        .btn-detail {
+            background-color: rgba(56, 189, 248, 0.12);
+            color: var(--accent);
+            border: 1px solid rgba(56, 189, 248, 0.25);
+        }
+
+        .btn-detail:hover {
+            background-color: var(--accent);
+            color: var(--bg-dark);
+        }
+
+        .box-highlight-effect {
+            animation: card-flash-glow 2s cubic-bezier(0.4, 0, 0.2, 1);
+            border-color: var(--accent) !important;
+        }
+
+        @keyframes card-flash-glow {
+            0% { background-color: #1e3a8a; transform: scale(1.02); box-shadow: 0 0 15px rgba(56, 189, 248, 0.5); }
+            50% { transform: scale(1.02); box-shadow: 0 0 15px rgba(56, 189, 248, 0.2); }
+            100% { background-color: var(--card-bg); transform: scale(1); }
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(4px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 10px;
+        }
+
+        .modal-content {
+            background: #ffffff;
+            color: #1e293b;
+            width: 100%;
+            max-width: 600px;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            animation: modalSlideUp 0.2s ease-out;
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.3);
+        }
+
+        @keyframes modalSlideUp {
+            from { opacity: 0; transform: translateY(15px) scale(0.98); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(15, 23, 42, 0.6);
+            border: none;
+            color: #ffffff;
+            font-size: 1.2rem;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        .modal-img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-bottom: 3px solid var(--accent);
+        }
+
+        @media (min-width: 600px) { .modal-img { height: 200px; } }
+
+        .modal-body {
+            padding: 15px;
+            max-height: 60vh;
+            overflow-y: auto;
+        }
+
+        .modal-body h2 {
+            font-family: 'Noto Serif Gujarati', serif;
+            font-size: 1.15rem;
+            margin-bottom: 12px;
+            color: #0f172a;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 6px;
+        }
+
+        .mindmap-node {
+            list-style-type: none;
+            margin-bottom: 12px;
+        }
+
+        .mindmap-node li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            color: #334155;
+            font-size: 0.9rem;
+            text-align: justify;
+            line-height: 1.45;
+        }
+
+        .mindmap-node li::before {
+            content: "⚡";
+            position: absolute;
+            left: 0;
+            top: 1px;
+            font-size: 0.9rem;
+            color: var(--danger);
+        }
+
+        .modal-edge-box {
+            background: #f8fafc;
+            border-left: 4px solid #0f172a;
+            padding: 10px;
+            border-radius: 0 6px 6px 0;
+            margin-top: 12px;
+            font-size: 0.85rem;
+            color: #1e293b;
+        }
+
+        .broadsheet-section {
+            padding: 20px 10px;
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        @media (min-width: 600px) { .broadsheet-section { padding: 30px 20px; } }
+
+        .masthead {
+            text-align: center;
+            border-top: 4px double var(--text-dark);
+            border-bottom: 4px double var(--text-dark);
+            padding: 12px 0;
+            margin-bottom: 25px;
+        }
+
+        .masthead h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            letter-spacing: 1px;
+        }
+
+        @media (min-width: 600px) { .masthead h2 { font-size: 3.5rem; letter-spacing: 2px; } }
+
+        .masthead-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #475569;
+            margin-top: 6px;
+            border-top: 1px solid var(--text-dark);
+            padding-top: 5px;
+        }
+
+        @media (min-width: 600px) {
+            .masthead-meta { flex-direction: row; justify-content: space-between; }
+        }
+
+        .broadsheet-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.25rem;
+            margin-bottom: 15px;
+            border-bottom: 3px solid var(--text-dark);
+            padding-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .article {
+            background: var(--sheet-bg);
+            padding: 15px;
+            border: 1px solid #cbd5e1;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            scroll-margin-top: 15px;
+        }
+
+        @media (min-width: 600px) { .article { padding: 25px; } }
+
+        .article h3 {
+            font-family: 'Noto Serif Gujarati', serif;
+            font-size: 1.15rem;
+            margin-bottom: 8px;
+            color: #0f172a;
+            line-height: 1.35;
+        }
+
+        @media (min-width: 600px) { .article h3 { font-size: 1.5rem; } }
+
+        .article-meta {
+            font-size: 0.7rem;
+            color: #64748b;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+            border-bottom: 1px dashed #e2e8f0;
+            padding-bottom: 4px;
+        }
+
+        .article-content {
+            font-size: 0.95rem;
+            color: #334155;
+            text-align: justify;
+        }
+
+        @media (min-width: 600px) { .article-content { font-size: 1.02rem; } }
+
+        .article-content p {
+            margin-bottom: 12px;
+            text-indent: 15px;
+            line-height: 1.6;
+        }
+
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            margin: 12px 0;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .article-content table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 450px;
+            font-size: 0.85rem;
+        }
+
+        .article-content th, .article-content td {
+            border: 1px solid #cbd5e1;
+            padding: 8px 10px;
+            text-align: left;
+        }
+
+        .article-content th {
+            background-color: #f1f5f9;
+            color: #0f172a;
+        }
+
+        .additional-edge {
+            background-color: #f8fafc;
+            border-left: 4px solid var(--text-dark);
+            border-right: 1px solid #e2e8f0;
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 12px;
+            margin: 15px 0 8px 0;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .additional-edge h4 {
+            margin: 0 0 6px 0;
+            color: #0f172a;
+            font-size: 0.9rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            margin-top: 12px;
+            background: #1e293b;
+            color: #ffffff;
+            font-size: 0.7rem;
+            padding: 6px 10px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .floating-top-btn {
+            position: fixed;
+            bottom: 15px;
+            right: 15px;
+            width: 40px;
+            height: 40px;
+            background-color: var(--accent);
+            color: var(--bg-dark);
+            border: none;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 99;
+        }
+
+        .quiz-start-banner {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 15px 0 25px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            text-align: center;
+            box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.3);
+        }
+
+        .quiz-start-banner h2 {
+            font-size: 1.3rem;
+            color: #ffffff;
+            font-family: 'Noto Serif Gujarati', serif;
+        }
+
+        .quiz-name-input-box {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            width: 100%;
+            max-width: 300px;
+            margin: 5px 0;
+        }
+
+        .quiz-name-input-box input {
+            padding: 10px 14px;
+            border-radius: 6px;
+            border: 2px solid #cbd5e1;
+            font-size: 0.95rem;
+            font-family: 'Inter', sans-serif;
+            text-align: center;
+            outline: none;
+        }
+
+        .quiz-name-input-box input:focus {
+            border-color: var(--accent);
+        }
+
+        .btn-quiz-master {
+            background-color: var(--highlight-text);
+            color: #000000;
+            font-size: 1rem;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.2s, background-color 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-quiz-master:hover {
+            transform: scale(1.03);
+            background-color: #fcd34d;
+        }
+
+        #quiz-view-panel {
+            display: none;
+            background-color: var(--paper-bg);
+            min-height: 100vh;
+            padding: 20px 10px;
+        }
+
+        @media (min-width: 600px) { #quiz-view-panel { padding: 40px 20px; } }
+
+        .quiz-container {
+            max-width: 750px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 14px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            padding: 20px;
+        }
+
+        @media (min-width: 600px) { .quiz-container { padding: 35px; } }
+
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px dashed var(--border-color);
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+
+        .quiz-header h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            color: var(--bg-dark);
+        }
+
+        .score-box {
+            background: var(--bg-dark);
+            color: var(--highlight-text);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .btn-exit-quiz {
+            background: #64748b;
+            color: #ffffff;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        .btn-exit-quiz:hover { background: #475569; }
+
+        .quiz-card-item {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .quiz-question {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .quiz-options-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .option-item {
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            padding: 12px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .option-item:hover {
+            background: #f1f5f9;
+            border-color: #94a3b8;
+        }
+
+        .option-item.correct-state {
+            background-color: rgba(16, 185, 129, 0.15) !important;
+            border-color: var(--success) !important;
+            color: #065f46 !important;
+            font-weight: 600;
+        }
+
+        .option-item.correct-state::after {
+            content: " ✓ (સાચો જવાબ)";
+            color: var(--success);
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .option-item.wrong-state {
+            background-color: rgba(244, 63, 94, 0.15) !important;
+            border-color: var(--danger) !important;
+            color: #9f1239 !important;
+        }
+
+        .option-item.wrong-state::after {
+            content: " ✗ (ખોટો જવાબ)";
+            color: var(--danger);
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .option-disabled {
+            pointer-events: none;
+        }
+
+        .quiz-explanation-box {
+            display: none;
+            background-color: #f0fdf4;
+            border-left: 5px solid var(--success);
+            border-radius: 4px;
+            padding: 15px;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: #166534;
+            line-height: 1.5;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .quiz-explanation-box strong {
+            color: #14532d;
+            text-transform: uppercase;
+        }
+
+        .quiz-action-area {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .btn-next-quiz-step {
+            display: none;
+            background-color: #2563eb;
+            color: white;
+            font-size: 0.9rem;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-next-quiz-step:hover {
+            background-color: #1d4ed8;
+        }
+
+        .quiz-progress-bar {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        #quiz-result-final-pane {
+            display: none;
+            text-align: center;
+            padding: 30px 15px;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        #quiz-result-final-pane h3 {
+            font-family: 'Noto Serif Gujarati', serif;
+            font-size: 1.5rem;
+            color: var(--bg-dark);
+            margin-bottom: 10px;
+        }
+
+        .final-score-display-card {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #2563eb;
+            margin: 15px 0;
+        }
+
+        .btn-submit-whatsapp-final {
+            background-color: #25d366;
+            color: #ffffff;
+            font-size: 1.05rem;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-transform: uppercase;
+            margin-top: 15px;
+        }
+
+        .btn-submit-whatsapp-final:hover {
+            background-color: #20ba56;
+            transform: scale(1.02);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="main-news-page-wrapper">
+        <button class="floating-top-btn" onclick="scrollToDashboard()" title="ડેશબોર્ડ પર જાઓ">↑</button>
+
+        <section class="dashboard-section" id="dashboard">
+            <div class="header-container">
+                <h1 class="main-title">THE MAULIK <span>EXPRESS</span></h1>
+                <div class="meta-info">
+                    Master Exam Ledger & Analytics<br>
+                    તારીખ: <strong>૧૯ જૂન ૨૦૨૬</strong> | કેન્દ્ર: <strong>અમદાવાદ</strong>
+                </div>
+            </div>
+
+            <div class="quiz-start-banner">
+                <h2>📊 આજના કરંટ અફેર્સની લાઇવ ટેસ્ટ આપો (૧૯ જૂન ૨૦૨૬)</h2>
+                <div class="quiz-name-input-box">
+                    <input type="text" id="user-quiz-reg-name" placeholder="અહીં તમારું પૂરું નામ લખો..." autocomplete="off">
+                </div>
+                <button class="btn btn-quiz-master" onclick="switchToQuizMode()">⚡ Start 25 MCQ Quiz</button>
+            </div>
+
+            <h2 class="section-header">મુખ્ય સમાચાર (Main Stories)</h2>
+            <div class="news-grid">
+                <div class="news-card" id="card-m1">
+                    <div>
+                        <h3>ફ્રાન્સના નાઇસમાં UPI સેવાઓનો મોટો વિસ્તાર</h3>
+                        <p>વાણિજ્ય મંત્રી પીયૂષ ગોયલ દ્વારા ફ્રાન્સના 'નાઇસ મસીના' ખાતે ૬૦૦ થી વધુ વૈશ્વિક બ્રાન્ડ ધરાવતા ગેલેરીઝ લફાયેત સ્ટોરમાં UPI ચૂકવણી લોન્ચ કરાઈ.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('m1')">🃏 Flash Card</button>
+                        <a href="#art-m1" class="btn btn-detail" onclick="focusDetail('card-m1')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-m2">
+                    <div>
+                        <h3>UIDAI ગ્લોબલ બાયોમેટ્રિક ચેલેન્જ વિજેતાઓ જાહેર</h3>
+                        <p>ફેસ ચેલેન્જમાં સ્લોવાકિયાની ઇનોવાટ્રિક્સ અને આઇરિસ ચેલેન્જમાં અમેરિકાની આઇડી બાયો કંપની ૫૩૧ રજીસ્ટ્રેશન વચ્ચે પ્રથમ ક્રમે વિજેતા બની.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('m2')">🃏 Flash Card</button>
+                        <a href="#art-m2" class="btn btn-detail" onclick="focusDetail('card-m2')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-m3">
+                    <div>
+                        <h3>WT મારુત સપ્લાય ચેન પોર્ટલ લોન્ચ</h3>
+                        <p>કેન્દ્રીય મંત્રી પ્રહલાદ જોશી દ્વારા પવન ઊર્જા સપ્લાય ચેનને ટ્રેક કરવા દેશનું પ્રથમ સમર્પિત પોર્ટલ લોન્ચ. વર્ષ ૨૦૩૦ માટે ૧૦૦ GW નો લક્ષ્યાંક.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('m3')">🃏 Flash Card</button>
+                        <a href="#art-m3" class="btn btn-detail" onclick="focusDetail('card-m3')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-m4">
+                    <div>
+                        <h3>અનાજ સંગ્રહ માટે દેશની પ્રથમ સ્માર્ટ વેરહાઉસિંગ સિસ્ટમ</h3>
+                        <p>પ્રહલાદ જોશી દ્વારા ભારત મંડપમમાં IoT સેન્સર્સ, AI CCTV અને RFID સંચાલિત અદ્યતન અનાજ સંગ્રહ મોડેલ અને સીલોસ ડિપો સિસ્ટમ લોન્ચ.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('m4')">🃏 Flash Card</button>
+                        <a href="#art-m4" class="btn btn-detail" onclick="focusDetail('card-m4')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-m5">
+                    <div>
+                        <h3>ભારત-UK ઐતિહાસિક મુક્ત વેપાર કરાર (CETA) મંજૂર</h3>
+                        <p>૧૫ જુલાઈ ૨૦૨૬ થી બંને દેશો વચ્ચે વ્યાપક વેપાર કરાર લાગુ થશે. ૯૯% ભારતીય ઉત્પાદનો ડ્યુટી-ફ્રી બનશે અને ૧૮૦૦ સ્પેશિયાલિસ્ટ વિઝા અપાશે.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('m5')">🃏 Flash Card</button>
+                        <a href="#art-m5" class="btn btn-detail" onclick="focusDetail('card-m5')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-m6">
+                    <div>
+                        <h3>ભારતનું સંરક્ષણ ઉત્પાદન ₹૧.૭૮ લાખ કરોડની નવી સપાટીએ</h3>
+                        <p>નાણાકીય વર્ષ ૨૦૨૫-૨૬માં ભારતે ૧૫.૬% ના ગ્રોથ સાથે રેકોર્ડ ઉત્પાદન કર્યું. સંરક્ષણ નિકાસ ₹૩૮,૪૨૪ કરોડના ઐતિહાસિક સ્તરે પહોંચી.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('m6')">🃏 Flash Card</button>
+                        <a href="#art-m6" class="btn btn-detail" onclick="focusDetail('card-m6')">📰 Detailed</a>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="section-header">એક્ઝિક્યુટિવ બ્રીફિંગ્સ (Executive Briefings)</h2>
+            <div class="news-grid">
+                <div class="news-card" id="card-b1">
+                    <div>
+                        <h3>ત્રિપુરાના લોકવાદ્ય 'સરિન્દા' ને મળ્યો સત્તાવાર GI ટેગ</h3>
+                        <p>લાકડાના સળંગ એક જ ટુકડાને કોતરીને બનાવાતા પરંપરાગત સંગીત વાદ્ય 'સરિન્દા' ને જીઓગ્રાફિકલ ઇન્ડિકેશન (GI) ટેગ મળ્યો.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b1')">🃏 Flash Card</button>
+                        <a href="#art-b1" class="btn btn-detail" onclick="focusDetail('card-b1')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b2">
+                    <div>
+                        <h3>મહારાષ્ટ્ર પોલીસ આધુનિકીકરણ સ્કીમ માટે ₹૭૩૩ કરોડ</h3>
+                        <p>કેન્દ્ર સરકાર દ્વારા ૬૦:૪૦ ની ફંડિંગ પેટર્ન હેઠળ મહારાષ્ટ્ર પોલીસની ટેકનોલોજીકલ ક્ષમતા વધારવા માટે મોટી રકમ મંજૂર કરાઈ.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b2')">🃏 Flash Card</button>
+                        <a href="#art-b2" class="btn btn-detail" onclick="focusDetail('card-b2')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b3">
+                    <div>
+                        <h3>અમદાવાદમાં કેમિકલ ઉદ્યોગ માટે VCC જાહેર</h3>
+                        <p>નાર્કોટિક્સ કંટ્રોલ બ્યુરો (NCB) ના ડીજી અનુરાગ ગર્ગ દ્વારા ડ્રગ્સ નિર્માણમાં કેમિકલ્સનો દુરુપયોગ રોકવા આચારસંહિતા લોન્ચ કરાઈ.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b3')">🃏 Flash Card</button>
+                        <a href="#art-b3" class="btn btn-detail" onclick="focusDetail('card-b3')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b4">
+                    <div>
+                        <h3>કિશાઉ મલ્ટિપર્પઝ ડેમ પ્રોજેક્ટને આખરી મંજૂરી</h3>
+                        <p>યમુના નદીના જળ વિતરણ માટે ૬ રાજ્યો સહમત. ટોન્સ નદી પર ૪૨૨ MW ક્ષમતાનો મેગા હાઇડ્રોઇલેક્ટ્રિક પ્રોજેક્ટ સાકાર થશે.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b4')">🃏 Flash Card</button>
+                        <a href="#art-b4" class="btn btn-detail" onclick="focusDetail('card-b4')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b5">
+                    <div>
+                        <h3>UK માં ૧૬ વર્ષથી નાના બાળકો માટે સોશિયલ મીડિયા પ્રતિબંધ</h3>
+                        <p>બાળકોના માનસિક રક્ષણ માટે બ્રિટિશ સરકારનો મોટો આદેશ. ક્રિસમસ પહેલા કાયદો લવાશે, વર્ષ ૨૦૨૭ થી સંપૂર્ણ અમલીકરણ થશે.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b5')">🃏 Flash Card</button>
+                        <a href="#art-b5" class="btn btn-detail" onclick="focusDetail('card-b5')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b6">
+                    <div>
+                        <h3>રાષ્ટ્રીય આંકડાકીય આયોગ (NSC) ના નવા અધ્યક્ષની વરણી</h3>
+                        <p>ડૉ. સાઇબาล ચટ્ટોપાધ્યાય NSC ના નવા પાર્ટ-ટાઇમ ચેરપર્સન બન્યા. શ્રમ આંકડા સમિતિના હેડ તરીકે પ્રો. અલખ શર્મા નિયુક્ત.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b6')">🃏 Flash Card</button>
+                        <a href="#art-b6" class="btn btn-detail" onclick="focusDetail('card-b6')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b7">
+                    <div>
+                        <h3>બૌદ્ધ વિદ્વાન અને પદ્મશ્રી વિજેતા રોબર્ટ થરમનનું નિધન</h3>
+                        <p>પરમ પાવન દલાઈ લામા પાસેથી દીક્ષા મેળવનાર પ્રથમ અમેરિકન બૌદ્ધ ભિક્ષુ રોબર્ટ એ. એફ. થરમનનું ન્યૂયોર્ક ખાતે અવસાન થયું.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b7')">🃏 Flash Card</button>
+                        <a href="#art-b7" class="btn btn-detail" onclick="focusDetail('card-b7')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b8">
+                    <div>
+                        <h3>નવીનતમ પુસ્તક 'અગથિયાર ધ યુનિફાયર' નું વિમોચન</h3>
+                        <p>ઉપરાષ્ટ્રપતિ દ્વારા ઓ. શમા ભટ્ટ અને સુધા જી દ્વારા લિખિત પુસ્તકનું વિમોચન કરાયું. કલ્યાણીજી દ્વારા તમિલ અનુવાદ સંપન્ન.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b8')">🃏 Flash Card</button>
+                        <a href="#art-b8" class="btn btn-detail" onclick="focusDetail('card-b8')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b9">
+                    <div>
+                        <h3>ટેલિગ્રામ પ્રતિબંધ: માહિતી મોકલવા માટે WhatsApp જોડાણ</h3>
+                        <p>૨૨ જૂન સુધી દેશમાં ટેલિગ્રામ સેવાઓ ખોરવાઈ હોવાથી વર્ગોની પીડીએફ અને લિંક્સ મેળવવા વૈકલ્પિક WhatsApp ચેનલ લિંક એક્ટિવેટ કરાઈ.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b9')">🃏 Flash Card</button>
+                        <a href="#art-b9" class="btn btn-detail" onclick="focusDetail('card-b9')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b10">
+                    <div>
+                        <h3>વિશ્વ રણપ્રદેશ અને દુષ્કાળ વિરોધી દિવસ</h3>
+                        <p>૧૭ જૂનના રોજ સત્તાવાર દિવસની ઉજવણી. વર્ષ ૨૦૨૬ માટે 'Rain Lines: Recognize, Respect, and Restore' થીમ જાહેર.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b10')">🃏 Flash Card</button>
+                        <a href="#art-b10" class="btn btn-detail" onclick="focusDetail('card-b10')">📰 Detailed</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="broadsheet-section">
+            <div class="masthead">
+                <h2>THE MAULIK EXPRESS</h2>
+                <div class="masthead-meta">
+                    <span>VOL. II NO. 19 (EXAMINATION SPECIAL - FULL HIGHLIGHTED VERSION)</span>
+                    <span>અમદાવાદ, શુક્રવાર, ૧૯ જૂન ૨૦૨૬</span>
+                    <span>કિંમત: ₹ ૫.૦૦</span>
+                </div>
+            </div>
+
+            <div class="broadsheet-grid-wrapper">
+                <h3 class="broadsheet-title">મુખ્ય સમાચાર વિગતવાર (Main Stories Detail)</h3>
+
+                <article class="article" id="art-m1">
+                    <div class="article-meta">ડિજિટલ ચૂકવણી • વૈશ્વિક જોડાણ • ઇન્ટરનેશનલ ફોરેક્સ બાયપાસ</div>
+                    <h3>૧. ફ્રાન્સના નાઇસમાં UPI સેવાઓનો ઐતિહાસિક વિસ્તાર: ગેલેરીઝ લફાયેત ખાતે ભારતીય રૂપિયામાં ચૂકવણી શરૂ</h3>
+                    <div class="article-content">
+                        <p>ભારતના કેન્દ્રીય વાણિજ્ય અને ઉદ્યોગ મંત્રી <span class="hl-yellow">પીયૂષ ગોયલ</span> ની ફ્રાન્સ મુલાકાત દરમિયાન ભારતની ગ્લોબલ ડિજિટલ ચૂકવણી પ્રણાલી <span class="hl-yellow">UPI (યુનિફાઇડ પેમેન્ટ્સ ઇન્ટરફેસ)</span> નો યુરોપિયન બજારમાં વિસ્તાર કરવા માટે એક મોટું અને ઐતિહાસિક જોડાણ જાહેર કરવામાં આવ્યું છે. ફ્રાન્સના અત્યંત પ્રખ્યાત પ્રવાસી મથક નાઇસ ખાતે આવેલા લક્ઝરી ફ્લેગશિપ બ્રાન્ડ સ્ટોર <span class="hl-yellow">ગેલેરીઝ લફાયેત નાઇસ મસીના (Galeries Lafayette Nice Massena)</span> ખાતે હવે ભારતીય પ્રવાસીઓ સીધા જ પોતાના સત્તાવાર UPI એકાઉન્ટ દ્વારા ભારતીય રૂપિયામાં સ્કેન કરીને ચૂકવણી કરી શકશે. આ મેગા ફ્લેગશિપ સ્ટોરની ખાસિયત એ છે કે ત્યાં વિશ્વભરના <span class="hl-yellow">૬૦૦ થી વધુ પ્રખ્યાત વૈશ્વિક બ્રાન્ડ્સ</span> એક જ જગ્યાએ ઉપલબ્ધ છે.</p>
+                        <p>સામાન્ય રીતે વિદેશ પ્રવાસ દરમિયાન ભારતીય પ્રવાસીઓને ઇન્ટરનેશનલ ક્રેડિટ/ડેબિટ કાર્ડ (જેમાં ભારે ચાર્જ લાગે છે), ફોરેક્સ કાર્ડ અથવા વિદેશી ચલણ કેશ સ્વરૂપે સાથે રાખવું પડતું હતું. પરંતુ આ નવી ટેકનોલોજીકલ ક્રાંતિથી પ્રવાસીઓ સીધું સ્કેનિંગ કરીને ભારતીય ચલણમાં ટ્રાન્ઝેક્શન કરી શકશે અને વિદેશી ચલણ બદલાવવાની ઝંઝટમાંથી મુક્તિ મેળવશે. આ વૈશ્વિક પ્રોજેક્ટના અમલીકરણ માટે NPCI ની આંતરરાષ્ટ્રીય શાખા <span class="hl-yellow">NIPL (NPCI International Payments Limited)</span> એ ફ્રાન્સની અગ્રણી ડિજિટલ પેમેન્ટ સ્પેશિયાલિસ્ટ સંસ્થા <span class="hl-yellow">લયરા કલેક્ટ (Lyra Collect)</span> સાથે વ્યૂહાત્મક ભાગીદારી કરી છે. લયરા કલેક્ટ બેકએન્ડ સ્તરે આ ચૂકવણીને ત્વરિત યુરોમાં કન્વર્ટ કરીને સ્થાનિક ફ્રેન્ચ વેપારીના ખાતામાં જમા કરશે.</p>
+                        <p>ઉલ્લેખનીય છે કે ફ્રાન્સમાં આ અગાઉ <span class="hl-yellow">જાન્યુઆરી ૨૦૨૪ માં પેરિસના આઇફલ ટાવર (Eiffel Tower)</span> ખાતે ટિકિટ બુકિંગ માટે અને ત્યારબાદ પેરિસના ઓસમન સ્ટોર ખાતે UPI સ્વીકૃતિ શરૂ કરવામાં આવી હતી. આ ફ્રાન્સ દેશમાં ત્રીજું મોટું વ્યૂહાત્મક લોકેશન બન્યું છે. આગામી સમયમાં આ સુવિધાનો વિસ્તાર પેરિસના <span class="hl-yellow">ચાર્લ્સ ડી ગોલ એરપોર્ટ અને નાઇસ એરપોર્ટ</span> પર પણ કરવાનું સત્તાવાર આયોજન ચાલી રહ્યું છે. અત્યાર સુધીમાં વિશ્વના કુલ <span class="hl-yellow">૯ દેશોમાં</span> જુદા જુદા સ્તરે UPI સક્રિય કરવામાં આવ્યું છે, જેમાં તાજેતરમાં કમ્બોડિયા અને શ્રીલંકાનો પણ સમાવેશ થાય છે.</p>
+                        <div class="additional-edge">
+                            <h4>📌 Additional Edge: Banking & Digital Forex Strategy</h4>
+                            • <strong>ઇન્ફ્રાસ્ટ્રક્ચર મર્યાદાઓ:</strong> ફ્રાન્સમાં ચોક્કસ સ્થાનો પર જ કેમ સેવા શરૂ કરાય છે? કારણ કે દરેક વેપારી પાસે UPI સ્વીકારવા માટે પીઓએસ (POS) અને કાનૂની સંકલન હોવું જરૂરી છે. જ્યાં સુધી ત્યાંની સરકાર ફરજિયાત નિયમો ન લાવે ત્યાં સુધી ઇન્ફ્રાસ્ટ્રક્ચર સ્થાપવાનો ખર્ચ વેપારીઓ જાતે ઉઠાવતા નથી, જેમ ભારતમાં નોટબંધી પછી જ પેટીએમ ક્યુઆર કોડ દરેક લારી પર ફરજિયાત બન્યા હતા.<br>
+                            • <strong>પરીક્ષાલક્ષી ફેક્ટ્સ:</strong> એક્ઝામ માટે ફ્રેન્ચ કંપની <span class="hl-yellow">'લયરા કલેક્ટ' (Lyra Collect)</span> નું નામ અને એરપોર્ટ એક્સટેન્શન પ્લાન્સ અત્યંત મહત્વપૂર્ણ છે.
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-m1')">Back to Dashboard ↑</button>
+                </article>
+
+                <article class="article" id="art-m2">
+                    <div class="article-meta">બાયોમેટ્રિક ગવર્નન્સ • ટેકનોલોજી બેન્ચમાર્ક • આધાર સિક્યુરિટી</div>
+                    <h3>૨. UIDAI ગ્લોબલ બાયોમેટ્રિક SDK બેન્ચમાર્કિંગ ચેલેન્જ પૂર્ણ: આંતરરાષ્ટ્રીય ટેક જાયન્ટ્સ વિજેતા જાહેર</h3>
+                    <div class="article-content">
+                        <p>ભારતમાં બાર અંકના વિશિષ્ટ આધાર કાર્ડ પ્રોજેક્ટનું સાર્વત્રિક સંચાલન કરતી કેન્દ્રીય સંસ્થા <span class="hl-yellow">UIDAI (યુનિક આઇડેન્ટિફિકેશન ઓથોરિટી ઓફ ઇન્ડિયા)</span> દ્વારા આયોજિત વૈશ્વિક સ્તરની ટેકનોલોજી સ્પર્ધા 'બાયોમેટ્રિક SDK બેન્ચમાર્કિંગ ચેલેન્જ' સફળતાપૂર્વક સંપન્ન થઈ છે. આ પડકારનો મુખ્ય ઉદ્દેશ્ય ચહેરો (Face) અને આંખની કીકી (Iris) બાયોમેટ્રિક ઓળખ ટેકનોલોજીની ચોકસાઈ, સ્મૂથનેસ અને ડિજિટલ સુરક્ષાને આંતરરાષ્ટ્રીય સ્તરે ઉત્કૃષ્ટ બનાવવાનો હતો. આ પ્રતિષ્ઠિત સ્પર્ધામાં સમગ્ર વિશ્વમાંથી <span class="hl-yellow">૫૩૧ સત્તાવાર રજીસ્ટ્રેશન</span> પ્રાપ્ત થયા હતા.</p>
+                        <p>આ કોમ્પિટિશનમાં ટોચના વિજેતાઓની સત્તાવાર જાહેરાત કરવામાં આવી છે. 'ફેસ ચેલેન્જ' (Face Challenge) કેટેગરીમાં સ્લોવાકિયા દેશની જાણીતી ટેક ફર્મ <span class="hl-yellow">ઇનોવાટ્રિક્સ (Innovatrics)</span> પ્રથમ ક્રમે વિજેતા રહી છે, જ્યારે બીજા ક્રમે અમેરિકાની આઇડી બાયો (ID Bio) અને ત્રીજા ક્રમે લિથુઆનિયા દેશની ન્યુરોટેકનોલોજી રહી છે. બીજી તરફ, 'આઇરિસ ચેલેન્જ' (Iris Challenge) કેટેગરીમાં અમેરિકાની <span class="hl-yellow">આઇડી બાયો (ID Bio)</span> પ્રથમ ક્રમે, લિથુઆનિયાની ન્યુરોટેકનોલોજી બીજા ક્રમે અને સ્લોવાકિયાની ઇનોવાટ્રિક્સ કંપની ત્રીજા ક્રમે વિજેતા રહી છે. આ સ્પર્ધામાં અનેક ભારતીય ડેવલપર્સે પણ ભાગ લીધો હતો, જોકે વૈશ્વિક સ્તરે ટોચના ત્રણ ક્રમોમાં કોઈ ભારતીય કંપની એવોર્ડ જીતી શકી નથી.</p>
+                        <div class="additional-edge">
+                            <h4>📌 Additional Edge: Security & Match the Following Matrix</h4>
+                            • <strong>રેગ્યુલેટરી વ્યુ:</strong> આ ક્રાંતિકારી ૧:૧ બાયોમેટ્રિક મેચિંગ સોલ્યુશન્સનો ઉપયોગ ભવિષ્યમાં ભારતના એરપોર્ટ પર <span class="hl-yellow">ડીજીયાત્રા (DigiYatra)</span> અને ડિજીલોકર જેવી અત્યંત સુરક્ષિત એપ્લિકેશન્સમાં ડેટા લીકેજ અને ફ્રોડ રોકવા માટે કરવામાં આવશે. વિજેતા દેશો અને કંપનીઓનું લિસ્ટ 'મેચ ધ ફોલોઇંગ' માટે ખાસ નોંધવું.
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-m2')">Back to Dashboard ↑</button>
+                </article>
+
+                <article class="article" id="art-m3">
+                    <div class="article-meta">રિન્યુએબલ એનર્જી • સપ્લાય ચેન ટ્રેકિંગ • ગોવા વિન્ડ કોન્ફરન્સ લક્ષ્યાંક</div>
+                    <h3>૩. પવન ઊર્જા સપ્લાય ચેનને મજબૂત કરવા કેન્દ્રીય મંત્રી પ્રહલાદ જોશીએ 'WT મારુત' પોર્ટલ લોન્ચ કર્યું</h3>
+                    <div class="article-content">
+                        <p>ગોવા ખાતે હાલમાં જ આયોજિત ગ્લોબલ વિન્ડ કોન્ફરન્સ (વૈશ્વિક પવન ઊર્જા પરિષદ) ના ભવ્ય મંચ પરથી કેન્દ્રીય નવી અને નવીનકરણીય ઊર્જા મંત્રી <span class="hl-yellow">પ્રહલાદ જોશી</span> દ્વારા ભારતનું પ્રથમ અને અદ્યતન સમર્પિત વિન્ડ ટર્બાઇન સપ્લાય ચેન મેનેજમેન્ટ પોર્ટલ લોન્ચ કરવામાં આવ્યું છે, જેનું સત્તાવાર નામ <span class="hl-yellow">WT મારુત (Wind Turbine Materials and Resource Utility Tracker)</span> રાખવામાં આવ્યું છે. આ ડિજિટલ ટ્રેકર પવન ચક્કીઓ (Wind Turbines) ના મેન્યુફેક્ચરિંગ માટે વપરાતા કાચા માલથી લઈને ફેક્ટરી અને છેલ્લે પ્રોજેક્ટ સાઇટ સુધીના એન્ડ-ટુ-એન્ડ સપ્લાય ચેન ટ્રેકિંગને સંપૂર્ણ ઓટોમેટેડ અને પારદર્શક બનાવશે.</p>
+                        <p>આ પોર્ટલ દ્વારા માન્યતા પ્રાપ્ત મોડેલો, સ્થાનિક એન્જિનિયરિંગ સપ્લાયર્સ અને નિર્ણાયક ઉદ્યોગ ડેટા લોકલી ભારતમાં જ સુરક્ષિત રીતે હોસ્ટ કરવામાં આવશે. ભારત સરકારે ક્લાઇમેટ ચેન્જ પ્રોટોકોલ હેઠળ પોતાના રાષ્ટ્રીય લક્ષ્યાંકો પુનઃવ્યાખ્યાયિત કર્યા છે:</p>
+                        <div class="table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>રાષ્ટ્રીય પવન ઊર્જા લક્ષ્યાંક વર્ષ</th>
+                                        <th>નિર્ધારિત ઊર્જા ઉત્પાદન ક્ષમતા લક્ષ્ય (ગીગાવાટમાં)</th>
+                                        <th>મુખ્ય ફોકસ અને વ્યૂહાત્મક અમલીકરણ</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>વર્ષ 2030 સુધીમાં</td>
+                                        <td><span class="hl-yellow">૧૦૦ ગીગાવાટ (GW)</span></td>
+                                        <td>ઓન-શોર પવન ઊર્જા પ્રોજેક્ટ્સ અને દરિયાકાંઠાના વિસ્તારોમાં નવી પવન ચક્કીઓ સ્થાપવી</td>
+                                    </tr>
+                                    <tr>
+                                        <td>વર્ષ 2035 સુધીમાં</td>
+                                        <td><span class="hl-yellow">૧૫૫ ગીગાવાટ (GW)</span></td>
+                                        <td>ડીપ ઓફ-શોર વિન્ડ પ્રોજેક્ટ્સ અને હાઇ-સ્પીડ કોરિડોરનો વિસ્તૃત વિકાસ કરવો</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="additional-edge">
+                            <h4>📌 Additional Edge: Renewable Sector Milestones</h4>
+                            • <strong>પરીક્ષા લક્ષી કેન્દ્રબિંદુ:</strong> WT MARUT નું પૂરું નામ ફેક્ચ્યુઅલ પ્રશ્નો માટે અત્યંત જરૂરી છે. વર્ષ ૨૦૩૦ અને ૨૦૩૫ ના અનુક્રમે ૧૦૦ ગીગાવાટ અને ૧૫૫ ગીગાવાટના આંકડા પાવર સેક્ટર ગવર્નન્સ માટે નોંધી લેવા.
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-m3')">Back to Dashboard ↑</button>
+                </article>
+
+                <article class="article" id="art-m4">
+                    <div class="article-meta">કૃષિ ઈન્ફ્રાસ્ટ્રક્ચર • ફૂડ ગવર્નન્સ • સેન્ટ્રલ ડેપો ઓટોમેશન</div>
+                    <h3>૪. ભારત મંડપમમાં અનાજનો બગાડ અટકાવવા દેશની પ્રથમ 'સ્માર્ટ વેરહાઉસિંગ સિસ્ટમ' નું ઉદ્ઘાટન સંપન્ન</h3>
+                    <div class="article-content">
+                        <p>નવી દિલ્હીના પ્રતિષ્ઠિત ભારત મંડપમ ખાતે કેન્દ્રીય મંત્રી પ્રહલાદ જોશીએ દેશની અનાજ સંગ્રહ અને વિતરણ પ્રણાલીને આધુનિક બનાવવા માટે <span class="hl-yellow">ડિપાર્ટમેન્ટ ઓફ ફૂડ એન્ડ પબ્લિક ડિસ્ટ્રિબ્યુશન</span> દ્વારા તૈયાર કરાયેલી ભારતની સર્વપ્રથમ 'સ્માર્ટ વેરહાઉસિંગ સિસ્ટમ' નું ભવ્ય ઉદ્ઘાટન કર્યું છે. આ પ્રોજેક્ટનો મુખ્ય હેતુ લણણી પછી (Post-Harvest) થતા અનાજના પરંપરાગત બગાડને કાયમી ધોરણે નાબૂદ કરવાનો અને રાષ્ટ્રીય ખાદ્ય સુરક્ષા કાયદા (NFSA) ને અત્યંત ટેકનિકલ રીતે લાગુ કરવાનો છે. આ નવી સિસ્ટમ સેન્ટ્રલ વેરહાઉસિંગ કોર્પોરેશન (CWC) અને <span class="hl-yellow">ફૂડ કોર્પોરેશન ઓફ ઇન્ડિયા (FCI)</span> ના દેશભરમાં આવેલા સરકારી ડેપોમાં લાગુ કરવામાં આવશે.</p>
+                        <p>આ ડિજિટલ પ્લેટફોર્મની મુખ્ય તકનીકી લાક્ષણિકતાઓ નીચે મુજબ છે:</p>
+                        <ul>
+                            <li><strong>IoT સેન્સર્સ કન્ટ્રોલ:</strong> ગોડાઉનની અંદરનું આંતરિક તાપમાન, ભેજ (Humidity) નું ચોક્કસ પ્રમાણ અને કાર્બન ડાયોક્સાઇડ (CO2) ના સ્તર પર ચોવીસ કલાક નજર રાખશે. કીટક નિયંત્રણ માટે થતા ફ્યુમિગેશનમાં વપરાતા ઝેરી <span class="hl-yellow">ફોસ્ફાઇન ગેસ (Phosphine Gas)</span> ના પ્રસરણની ચોકસાઈ પણ ટ્રેક થશે જેથી જંતુનાશક પ્રક્રિયા યોગ્ય રીતે થાય.</li>
+                            <li><strong>AI પાવર્ડ CCTV:</strong> ગોડાઉનની સુરક્ષા માટે આર્ટિફિશિયલ ઇન્ટેલિજન્સ સંચાલિત કેમેરા ગોઠવવામાં આવ્યા છે, જે અનધિકૃત પ્રવેશ અને અનાજની બોરીઓની ગણતરીમાં સહેજ પણ ફેરફાર થાય તો ત્વરિત એલર્ટ જનરેટ કરશે.</li>
+                            <li><strong>RFID બોરીઓ ટેગિંગ:</strong> વેરહાઉસમાં માલની આવક-જાવક અને ટ્રક લોડિંગ-અનલોડિંગ પર કડક દેખરેખ રાખવા માટે અનાજની દરેક બોરી પર <span class="hl-yellow">RFID (રેડિયો ફ્રીક્વન્સી આઇડેન્ટિફિકેશન)</span> ટેકનોલોજીના સ્માર્ટ ટેગ લગાવવામાં આવશે, જે ફાસ્ટ ટેગની જેમ કામ કરશે.</li>
+                            <li><strong>પોર્ટલ સંકલન:</strong> આ સમગ્ર ડિજિટલ ઇકોસિસ્ટમને સેન્ટ્રલાઇઝ્ડ મોનિટરિંગ માટે જાણીતા <span class="hl-yellow">ડેપો દર્પણ પોર્ટલ (Depot Darpan)</span> અને અનાજ પરિવહનના રૂટ ઓપ્ટિમાઇઝેશન માટે તૈયાર કરાયેલા વિશિષ્ટ <span class="hl-yellow">અન્નચક્ર ટૂલ (Annachakra Tool)</span> સાથે લાઈવ કનેક્ટ કરવામાં આવી છે, જેમાં અનાજ સંગ્રહ માટે જૂની પદ્ધતિના બદલે આધુનિક સાયન્ટિફિક સિલોસ (Scientific Silos) નો ઉપયોગ કરાશે.</li>
+                        </ul>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-m4')">Back to Dashboard ↑</button>
+                </article>
+
+                <article class="article" id="art-m5">
+                    <div class="article-meta">દ્વિપક્ષીય વેપાર કરાર • મુક્ત વ્યાપાર • સોશિયલ સિક્યુરિટી ફોર્મ્યુલા</div>
+                    <h3>૫. ભારત-UK વ્યાપક આર્થિક અને વેપાર સમજૂતી (CETA) મંજૂર: ૧૫ જુલાઈ ૨૦૨૬ થી સત્તાવાર અમલીકરણ</h3>
+                    <div class="article-content">
+                        <p>ફ્રાન્સમાં યોજાયેલી G7 વૈશ્વિક શિખર બેઠક દરમિયાન ભારતના વડાપ્રધાન નરેન્દ્ર મોદી અને યુનાઇટેડ કિંગડમ (UK) ના વડાપ્રધાન વચ્ચે થયેલી ઉચ્ચ સ્તરીય મુલાકાત બાદ ભારત અને UK વચ્ચેના ઐતિહાસિક મુક્ત વ્યાપાર કરાર <span class="hl-yellow">CETA (Comprehensive Economic and Trade Agreement)</span> ની સત્તાવાર જાહેરાત કરવામાં આવી છે. આ વ્યૂહાત્મક આર્થિક કરાર આગામી <span class="hl-yellow">૧૫ જુલાઈ, ૨૦૨૬ થી</span> બંને દેશોમાં સત્તાવાર રીતે લાગુ થઈ જશે. આ કરારનો મુખ્ય આર્થિક લક્ષ્યાંક <span class="hl-yellow">વર્ષ ૨૦૩૦ સુધીમાં બંને દેશો વચ્ચેના દ્વિપક્ષીય વેપારને $૧૦૦ બિલિયન (૧૦૦ અબજ ડોલર)</span> સુધી પહોંચાડવાનો નક્કી કરાયો છે.</p>
+                        <p>આ કરાર હેઠળ યુકેના વિશાળ બજારમાં નિકાસ થતા ભારતના <span class="hl-yellow">૯૯% ઉત્પાદનો પર કસ્ટમ ડ્યુટી સંપૂર્ણ નાબૂદ (Duty-Free Access)</span> કરવામાં આવશે, જેનો સીધો જંગી ફાયદો ભારતના શ્રમ-સઘન ક્ષેત્રો જેવા કે ટેક્સટાઇલ (કપડાં), લેધર (ચામડું) અને મરીન પ્રોડક્ટ્સ (દરિયાઈ ઉત્પાદનો) ને મળશે. કરાર અંતર્ગત યુકે સરકાર દર વર્ષે ભારતના <span class="hl-yellow">૧૮૦૦ પ્રમાણિત સ્પેશિયાલિસ્ટ શેફ અને યોગા ઇન્સ્ટ્રક્ટર</span> ને વિશેષ વ્યવસાયિક વિઝા એનાયત કરશે. ભારતના સ્ટીલ નિકાસ માટે ૮૫% હિસ્સો કોટા સિસ્ટમ દ્વારા સુરક્ષિત કરાયો છે. સૌથી મહત્વપૂર્ણ બાબત એ છે કે સોશિયલ સિક્યુરિટી કન્ટ્રિબ્યુશન એગ્રીમેન્ટ હેઠળ, યુકેમાં શોર્ટ ટર્મ માટે કામ કરતા હંગામી ભારતીય કામદારોએ હવે ત્યાં ડબલ સોશિયલ સિક્યુરિટી ટેક્સ (Double Social Security Tax) ચૂકવવો પડશે નહીં, જે ડબલ ટેક્સ મુક્તિની વ્યવસ્થા સત્તાવાર રીતે <span class="hl-yellow">૫ વર્ષ માટે</span> માન્ય રહેશે.</p>
+                        <div class="additional-edge">
+                            <h4>📌 Additional Edge: International Free Trade Matrix</h4>
+                            • <strong>પરીક્ષા લક્ષી કેન્દ્રીય બિંદુ:</strong> તાજેતરમાં આરબીઆઈ ગ્રેડ બી પરીક્ષામાં ઓમાન સાથેના આવા જ કરારનો પ્રશ્ન પૂછાયો હતો. તેથી યુકે સાથેના આ CETA કરારની તારીખ (15 જુલાઈ 2026), વર્ષ 2030 નો $100 Billion નો ટાર્ગેટ અને 1800 શેફ/યોગા વિઝાનો આંકડો બેંક પીઓ (PO) પરીક્ષા માટે મોસ્ટ ઇમ્પોર્ટન્ટ છે.
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-m5')">Back to Dashboard ↑</button>
+                </article>
+
+                <article class="article" id="art-m6">
+                    <div class="article-meta">આત્મનિર્ભર સંરક્ષણ • મેક ઇન ઇન્ડિયા • ડિફેન્સ એક્સપોર્ટ ગ્રોથ</div>
+                    <h3>૬. નાણાકીય વર્ષ ૨૦૨૫-૨૬માં ભારતનું કુલ સંરક્ષણ ઉત્પાદન ₹૧.૭૮ લાખ કરોડની ઐતિહાસિક સર્વોચ્ચ સપાટીએ પહોંચ્યું</h3>
+                    <div class="article-content">
+                        <p>કેન્દ્રીય સંરક્ષણ મંત્રાલય દ્વારા આત્મનિર્ભર ભારત અભિયાન હેઠળ જાહેર કરાયેલા સત્તાવાર વાર્ષિક અહેવાલ અનુસાર, નાણાકીય વર્ષ ૨૦૨૫-૨૬માં ભારતનું કુલ ઘરેલું સંરક્ષણ ઉત્પાદન મૂલ્ય (Defense Production Value) રેકોર્ડ બ્રેક <span class="hl-yellow">₹૧.૭૮ લાખ કરોડ</span> સુધી પહોંચી ગયું છે, જે અગાઉના વર્ષના ₹૧.૫૪ લાખ કરોડની સરખામણીએ <span class="hl-yellow">૧૫.૬% નો વાર્ષિક વૃદ્ધિ દર</span> દર્શાવે છે. છેલ્લા પાંચ વર્ષમાં ભારતના ડિફેન્સ પ્રોડક્શનમાં <span class="hl-yellow">૧૧૦% નો જંગી ગ્રોથ</span> નોંધાયો છે (વર્ષ ૨૦૧૩-૧૪માં દેશનું સંરક્ષણ ઉત્પાદન માત્ર ₹૪૩,૦૦૦ કરોડની આસપાસ હતું).</p>
+                        <p>ભારત સરકારે સ્વદેશી ટેકનોલોજીને વેગ આપતા દેશના સંરક્ષણ નિકાસ (Defense Exports) ને પણ રેકોર્ડ સ્તરે પહોંચાડ્યો છે, જે નાણાકીય વર્ષ ૨૦૨૫-૨૬માં <span class="hl-yellow">₹૩૮,૪૨૪ કરોડ</span> નોંધાયો છે. ભારત હાલમાં વિશ્વના ૮૦ થી ૧૦૦ દેશોમાં સંરક્ષણ સામગ્રી અને હથિયારોની સફળ નિકાસ કરે છે. કુલ ઉત્પાદનમાં જાહેર ક્ષેત્રના ડિફેન્સ પીએસયુ (DPSUs) નો હિસ્સો ૭૬% છે, જ્યારે ખાનગી ક્ષેત્ર (Private Sector) નો હિસ્સો વધીને <span class="hl-yellow">૨૪%</span> થયો છે, જે અગાઉના વર્ષે માત્ર ૨૨% હતો (ખાનગી ક્ષેત્રે અંદાજે ₹૪૨,૦૦૦ કરોડનું ઉત્પાદન કર્યું). સંરક્ષણ મંત્રાલયે <span class="hl-yellow">વર્ષ ૨૦૨૯ સુધીમાં વાર્ષિક સંરક્ષણ ઉત્પાદન ₹૩ લાખ કરોડ</span> અને સંરક્ષણ નિકાસ ₹૫૦,૦૦૦ કરોડ સુધી લઈ જવાનો નવો લક્ષ્યાંક જાહેર કર્યો છે.</p>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-m6')">Back to Dashboard ↑</button>
+                </article>
+
+                <h3 class="broadsheet-title" style="margin-top: 30px;">એક્ઝિક્યુટિવ બ્રીફિંગ્સ વિગતવાર (Executive Briefings Detail)</h3>
+
+                <div class="article" id="art-b1">
+                    <div class="article-meta">ભૌગોલિક સંકેત • લોક કલા સંવર્ધન • ત્રિપુરા કલ્ચર</div>
+                    <h3>૧. ત્રિપુરાના પરંપરાગત ઐતિહાસિક લોકવાદ્ય 'સરિન્દા' (Sarinda) ને સત્તાવાર જીઆઈ ટેગ મળ્યો</h3>
+                    <div class="article-content">
+                        <p>ઉત્તર-પૂર્વ ભારતના <span class="hl-yellow">ત્રિપુરા</span> રાજ્યની સાંસ્કૃતિક ધરોહર સમાન પરંપરાગત તારવાળા સંગીત વાદ્ય <span class="hl-yellow">'સરિન્દા' (Sarinda)</span> ને સત્તાવાર રીતે જીઓગ્રાફિકલ ઇન્ડિકેશન (GI) ટેગ પ્રદાન કરવામાં આવ્યો છે. સરિન્દા એ એક પ્રાચીન લોકવાદ્ય છે જેને વાયોલિનની જેમ ગજ (Bow) ની મદદથી વગાડવામાં આવે છે. આ વાદ્યની મુખ્ય વિશેષતા એ છે કે તેને લાકડાના સળંગ એક જ ટુકડાને અંદરથી કોતરીને (Single block of hollowed wood) ખૂબ જ મહેનતપૂર્વક બનાવવામાં આવે છે.</p>
+                        <p>આ જીઆઈ ટેગ મળવાથી સ્થાનિક કારીગરોને વૈશ્વિક બજાર મળશે. ઉલ્લેખનીય છે કે ત્રિપુરાના અન્ય પ્રખ્યાત ઉત્પાદનો જેવા કે ક્વીન પાઇનેપલ, પરંપરાગત આદિવાસી પોશાક 'રિસા અને પચરા' તેમજ ત્રિપુરા સુંદરી મંદિરના પ્રખ્યાત 'માતાબારી પેડા' ને પણ અગાઉ જીઆઈ ટેગ મળી ચૂકેલો છે.</p>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b1')">Back to Dashboard ↑</button>
+                </div>
+
+                <div class="article" id="art-b2">
+                    <div class="article-meta">આંતરિક સુરક્ષા ફંડ • કેન્દ્રીય ગ્રાન્ટ • પલીસ મોડર્નાઇઝેશન</div>
+                    <h3>૨. મહારાષ્ટ્ર પોલીસ આધુનિકીકરણ સ્કીમ માટે કેન્દ્ર સરકાર દ્વારા ₹૭૩૩ કરોડ મંજૂર કરાયા</h3>
+                    <div class="article-content">
+                        <p>કેન્દ્ર સરકાર દ્વારા મહારાષ્ટ્ર રાજ્યમાં સાયબર ગુનાઓ અને નવીન સુરક્ષા પડકારોને પહોંચી વળવા માટે <span class="hl-yellow">₹૭૩૩ કરોડની આધુનિકીકરણ યોજના</span> ને સત્તાવાર મંજૂરી આપવામાં આવી છે. આ સ્કીમ હેઠળ પોલીસ દળને અદ્યતન ટેકનોલોજીકલ સાધનો અને કમ્યુનિકેશન સિસ્ટમ પૂરી પાડવામાં આવશે. આ નાણાકીય ભંડોળ કેન્દ્ર અને રાજ્ય સરકાર વચ્ચે <span class="hl-yellow">૬૦:૪૦ ની ફંડિંગ પેટર્ન</span> ના આધારે વહેંચવામાં આવશે, જે અંતર્ગત ૬૦% હિસ્સો કેન્દ્ર સરકાર ગ્રાન્ટ સ્વરૂપે આપશે અને બાકીનો ૪૦% હિસ્સો મહારાષ્ટ્ર રાજ્ય સરકાર દ્વારા વહન કરવામાં આવશે.</p>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b2')">Back to Dashboard ↑</button>
+                </div>
+
+                <div class="article" id="art-b3">
+                    <div class="article-meta">ડ્રગ કન્ટ્રોલ • કેમિકલ ઉદ્યોગ નિયમન • અમદાવાદ કોન્ફરન્સ</div>
+                    <h3>૩. NCB દ્વારા કેમિકલ ઉદ્યોગોમાં ડ્રગ્સ નિર્માણ રોકવા અમદાવાદમાં સ્વૈચ્છિક આચારસંહિતા (VCC) લોન્ચ</h3>
+                    <div class="article-content">
+                        <p>નાર્કોટિક્સ કંટ્રોલ બ્યુરો <span class="hl-yellow">(NCB)</span> દ્વારા ગુજરાતના <span class="hl-yellow">અમદાવાદ</span> ખાતે આયોજિત રાષ્ટ્રીય સ્તરની પરિષદમાં કેમિકલ ઉદ્યોગ માટે એક વિશેષ <span class="hl-yellow">સ્વૈચ્છિક આચારસંહિતા (VCC - Voluntary Code of Conduct)</span> બહાર પાડવામાં આવી છે. NCB ના ડાયરેક્ટર જનરલ <span class="hl-yellow">અનુરાગ ગર્ગ</span> દ્વારા આ માર્ગદર્શિકા લોન્ચ કરાઈ છે. તેનો મુખ્ય ઉદ્દેશ્ય ઉદ્યોગોમાં વપરાતા આવશ્યક પ્રીકર્સર્સ રસાયણોનો ગેરકાયદેસર ડાયવર્ઝન અટકાવવાનો છે, જેથી તેનો ઉપયોગ સિન્થેટિક ડ્રગ્સ અને નશીલા પદાર્થો બનાવવામાં ન થઈ શકે. આ નિયમો નિયંત્રિત પદાર્થો (Control Substances) અને બિન-નિયંત્રિત રસાયણો બંને પર સમાન રીતે લાગુ પડશે.</p>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b3')">Back to Dashboard ↑</button>
+                </div>
+
+                <div class="article" id="art-b4">
+                    <div class="article-meta">આંતર-રાજ્ય જળ પ્રોજેક્ટ • કેન્દ્રીય ગ્રાન્ટ • યમુના જળ કરાર</div>
+                    <h3>૪. કિશાઉ મલ્ટિપર્પઝ ડેમ પ્રોજેક્ટ માટે ૬ રાજ્યો વચ્ચે એગ્રીમેન્ટ: ૪૨૨ MW વીજળીનું થશે ઉત્પાદન</h3>
+                    <div class="article-content">
+                        <p>હિમાચલ પ્રદેશ સરકાર દ્વારા લાંબા સમયથી લંબિત <span class="hl-yellow">કિશાઉ મલ્ટિપર્પઝ ડેમ પ્રોજેક્ટ</span> ને આગળ વધારવા માટે આખરી મંજૂરી આપી દેવામાં આવી છે. આ પ્રોજેક્ટમાં કુલ <span class="hl-yellow">૬ ભારતીય રાજ્યો</span> સામેલ છે: <span class="hl-yellow">હિમાચલ પ્રદેશ, ઉત્તરાખંડ, દિલ્હી, ઉત્તર પ્રદેશ, હરિયાણા અને રાજસ્થાન</span>. આ પ્રોજેક્ટ યમુના નદીની મુખ્ય સહાયક એવી <span class="hl-yellow">ટોન્સ નદી (Tons River)</span> પર દેહરાદૂન (ઉત્તરાખંડ) અને સિરમૌર (હિમાચલ પ્રદેશ) ની સરહદ પર સાકાર થશે. આ પ્રોજેક્ટ અંતર્ગત <span class="hl-yellow">૪૨૨ મેગાવાટ (MW)</span> ક્ષમતાનો હાઇડ્રોઇલેક્ટ્રિક પાવર પ્લાન્ટ ઊભો કરાશે. હિમાચલ પ્રદેશ પોતાના હિસ્સાનું પાણી દિલ્હી અને રાજસ્થાનને ફાળવશે અને તેના બદલામાં આ રાજ્યો પાવર કમ્પોનન્ટનો નાણાકીય ખર્ચ ભોગવશે. પ્રોજેક્ટના કુલ ખર્ચના <span class="hl-yellow">૯૦% હિસ્સો કેન્દ્ર સરકાર</span> દ્વારા ગ્રાન્ટ સ્વરૂપે અપાશે.</p>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b4')">Back to Dashboard ↑</button>
+                </div>
+
+                <div class="article" id="art-b5">
+                    <div class="article-meta">બાળ સુરક્ષા કાયદો • સોશિયલ મીડિયા બેન • બ્રિટિશ નીતિ</div>
+                    <h3>૫. યુનાઇટેડ કિંગડમ (UK) નો મોટો કાયદો: ૧૬ વર્ષથી નાની વયના બાળકો માટે સોશિયલ મીડિયા પ્રતિબંધિત</h3>
+                    <div class="article-content">
+                        <p>ઓસ્ટ્રેલિયા બાદ હવે યુનાઇટેડ કિંગડમ <span class="hl-yellow">(UK)</span> સરકારે બાળકોના માનસિક સ્વાસ્થ્યને સુરક્ષિત રાખવા માટે એક કડક કાયદાની જાહેરાત કરી છે. આ નવા નિયમ હેઠળ <span class="hl-yellow">૧૬ વર્ષથી ઓછી ઉંમરના બાળકો</span> પર સોશિયલ મીડિયા પ્લેટફોર્મ્સ વાપરવા પર સંપૂર્ણ પ્રતિબંધ મૂકવામાં આવશે. આ નિયમો સંબંધિત ખરડો ક્રિસમસ પહેલા સંસદમાં રજૂ કરાશે અને આ કાયદો <span class="hl-yellow">વર્ષ ૨૦૨૭ ની વસંત ઋતુ (Spring 2027) થી સંપૂર્ણપણે અમલી</span> બનશે. પ્રતિબંધ હેઠળ TikTok, Instagram, Snapchat, Facebook અને X આવી જશે, જ્યારે શૈક્ષણિક હેતુ માટે <span class="hl-yellow">YouTube Kids</span> ને મુક્તિ અપાઈ છે. ૧૮ વર્ષથી ઓછી ઉંમરના સગીરો માટે ઓવરનાઇટ કરફ્યુ પણ લાદવામાં આવશે.</p>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b5')">Back to Dashboard ↑</button>
+                </div>
+
+                <div class="article" id="art-b6">
+                    <div class="article-meta">રાષ્ટ્રીય આયોગ • નવી નિમણૂકો • શ્રમ આંકડા સમિતિ રોડમેપ</div>
+                    <h3>૬. ડૉ. સાઇબาล ચટ્ટોપાધ્યાય રાષ્ટ્રીય આંકડાકીય આયોગ (NSC) ના નવા ચેરપર્સન નિયુક્ત</h3>
+                    <div class="article-content">
+                        <p>ભારત સરકાર દ્વારા દેશની સર્વોચ્ચ આંકડાકીય સંસ્થા <span class="hl-yellow">NSC (National Statistical Commission)</span> ના પાર્ટ-ટાઇમ ચેરપર્સન તરીકે આઇઆઇએમ કલકત્તાના પૂર્વ ડાયરેક્ટર <span class="hl-yellow">ડૉ. સાઇબาล ચટ્ટોપાધ્યાય</span> ની સત્તાવાર નિમણૂક કરવામાં આવી છે. તેઓ રાજીવા લક્ષ્મણ કરંદીકરનું સ્થાન લેશે. તેમની સાથે અન્ય ત્રણ પાર્ટ-ટાઇમ સભ્યો તરીકે પ્રોફેસર શુભ્રતા દાસ, સત્યેન્દ્ર બહાદુર સિંહ અને માધવન મુકુંદની વરણી કરાઈ છે. બીજી તરફ, દેશમાં શ્રમ આંકડાઓને સુધારવા માટે ગઠિત કરાયેલી નવી હાઇ-લેવલ ટેકનિકલ એક્સપર્ટ કમિટી ઓન લેબર સ્ટેટિસ્ટિક્સના અધ્યક્ષ તરીકે જાણીતા અર્થશાસ્ત્રી પ્રોફેસર <span class="hl-yellow">અલખ એન. શર્મા</span> ની નિમણૂક કરવામાં આવી છે.</p>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b6')">Back to Dashboard ↑</button>
+                </div>
+
+                <div class="article" id="art-b7">
+                    <div class="article-meta">શ્રદ્ધાંજલિ • આંતરરાષ્ટ્રીય બૌદ્ધ વિદ્વાન • પદ્મ પુરસ્કાર યાદી</div>
+                    <h3>૭. પ્રથમ અમેરિકન તિબેટીયન બૌદ્ધ ભિક્ષુ રોબર્ટ એ. એફ. થરમનનું ન્યૂયોર્ક ખાતે અવસાન</h3>
+                    <div class="article-content">
+                        <p>પ્રથમ અમેરિકન તિબેટીયન બૌદ્ધ ભિક્ષુ અને પ્રખ્યાત વિદ્વાન <span class="hl-yellow">રોબર્ટ એ. એફ. થરમન (Robert A. F. Thurman)</span> નું ન્યૂયોર્ક ખાતે અવસાન થયું છે. વડાપ્રધાન નરેન્દ્ર મોદીએ સત્તાવાર પીએમઓ પ્રેસ રિલીઝ દ્વારા તેમના નિધન પર ઊંડો શોક વ્યક્ત કર્યો છે. રોબર્ટે <span class="hl-yellow">વર્ષ ૧૯૬૫ માં પરમ પાવન દલાઈ લામા</span> પાસેથી દીક્ષા મેળવીને ઇતિહાસના પ્રથમ અમેરિકન તિબેટીયન બૌદ્ધ ભિક્ષુ બનવાનું બહુમાન મેળવ્યું હતું. તેમણે કોલંબિયા યુનિવર્સિટીમાં ૩૦ વર્ષ સેવા આપી હતી અને ૧૯૮૭ માં રિચર્ડ ગેર સાથે મળીને <span class="hl-yellow">તિબેટハウス યુએસએ</span> ની સ્થાપના કરી હતી. ભારત સરકાર દ્વારા <span class="hl-yellow">વર્ષ ૨૦૨૦ માં તેમને પદ્મશ્રી</span> પુરસ્કારથી સન્માનિત કર્યા હતા. તેઓ હોલીવુડ બ્યુટી એક્ટ્રેસ ઉમા થરમનના પિતા હતા.</p>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b7')">Back to Dashboard ↑</button>
+                </div>
+
+                <div class="article" id="art-b8">
+                    <div class="article-meta">સાહિત્ય અને પુસ્તકો • વૈદિક સંસ્કૃતિ • તમિલ અનુવાદ રોડમેપ</div>
+                    <h3>૮. વાઇસ પ્રેસિડેન્ટ દ્વારા નવીનતમ આધ્યાત્મિક પુસ્તક 'અગથિયાર ધ યુનિફાયર' નું વિમોચન કરાયું</h3>
+                    <div class="article-content">
+                        <p>ભારતના માનનીય ઉપરાષ્ટ્રપતિ (વાઇસ પ્રેસિડેન્ટ) દ્વારા નવી દિલ્હી ખાતે આયોજિત વિશેષ સાહિત્યિક સમારોહમાં દેશનું નવું આધ્યાત્મિક પુસ્તક <strong>'અગથિયાર ધ યુનિફાયર' (Agathiyar the Unifier)</strong> સત્તાવાર રીતે લોન્ચ કરવામાં આવ્યું છે. આ પુસ્તક જાણીતા લેખકો <span class="hl-yellow">ઓ. શમા ભટ્ટ અને સુધા જી</span> દ્વારા સંયુક્ત રીતે રિસર્ચ કરીને લખવામાં આવ્યું છે. આ પુસ્તકનું તમિલ ભાષામાં સત્તાવાર ભાષાંતર પ્રખ્યાત વિદ્વાન <span class="hl-yellow">કલ્લ્યાણીજી</span> દ્વારા કરવામાં આવ્યું છે અને તેનું પ્રકાશન કલાઈ મગલ મેગેઝીન દ્વારા કરવામાં આવ્યું છે.</p>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b8')">Back to Dashboard ↑</button>
+                </div>
+
+                <div class="article" id="art-b9">
+                    <div class="article-meta">પ્રશાસનિક કમ્યુનિકેશન • ટેકનિકલ ટ્રાન્ઝિશન • સ્ટુડન્ટ ડેટા સિક્યુરિટી</div>
+                    <h3>૯. દેશભરમાં ૨૨ જૂન સુધી ટેલિગ્રામ સેવાઓ ખોરવાતા વિદ્યાર્થીઓ માટે વૈકલ્પિક WhatsApp બ્રોડકાસ્ટ ચેનલ સક્રિય</h3>
+                    <div class="article-content">
+                        <p>સમગ્ર ભારતમાં ટેલિગ્રામ એપ્લિકેશનના સર્વર્સમાં આવેલી મોટી ટેકનિકલ ખામી અથવા વહીવટી કારણોસર આગામી <span class="hl-yellow">૨૨મી જૂન સુધી ટેલિગ્રામ સંપૂર્ણ કે આંશિક રીતે બંધ</span> રહેવાની સત્તાવાર માહિતી વચ્ચે વિદ્યાર્થીઓની દૈનિક કરન્ટ અફેર્સ ક્લાસ પીડીએફ અને લિંક્સ મિસ ન થાય તે માટે નવી અદ્યતન <span class="hl-yellow">WhatsApp ચેનલ સિસ્ટમ</span> શરૂ કરવામાં આવી છે. આ એક વન-વે બ્રોડકાસ્ટ ચેનલ છે જેમાં જોડાનાર વિદ્યાર્થીઓના પર્સનલ મોબાઈલ નંબર સુરક્ષિત અને અદ્રશ્ય રહેશે, જે ૧૦０% ડેટા પ્રાઇવસી પ્રોટોકોલ પૂરો પાડે છે.</p>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b9')">Back to Dashboard ↑</button>
+                </div>
+
+                <div class="article" id="art-b10">
+                    <div class="article-meta">પર્યાવરણ અને ક્લાઇમેટ • વૈશ્વિક દિવસ • યુએન થીમ ૨૦૨૬</div>
+                    <h3>૧૦. ૧૭ જૂન: 'Rain Lines' થીમ સાથે વિશ્વ રણપ્રદેશ અને દુષ્કાળ વિરોધી દિવસની ઉજવણી સંપન્ન</h3>
+                    <div class="article-content">
+                        <p>સમગ્ર વિશ્વમાં જમીનનું ધોવાણ અટકાવવા અને રણપ્રદેશ બનતો રોકવા માટે દર વર્ષે <span class="hl-yellow">૧૭મી જૂનના</span> રોજ યુનાઇટેડ નેશન્સ (UN) ના આદેશથી <strong>વિશ્વ રણપ્રદેશ અને દુષ્કાળ વિરોધી દિવસ (World Day to Combat Desertification and Drought)</strong> સત્તાવાર રીતે ઓબ્ઝર્વ કરવામાં આવે છે. વર્ષ ૨૦૨૬ ના આ ખાસ વૈશ્વિક દિવસની સત્તાવાર થીમ <span class="hl-yellow">"Rain Lines: Recognize, Respect, and Restore"</span> નક્કી કરવામાં આવી છે, જે વોટર હાર્વેસ્ટિંગ અને ઇકોસિસ્ટમ રિસ્ટોરેશન પર ભાર મૂકે છે.</p>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b10')">Back to Dashboard ↑</button>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <div id="quiz-view-panel">
+        <div class="quiz-container">
+            
+            <div id="quiz-active-questions-frame-block">
+                <div class="quiz-header">
+                    <div>
+                        <h2>THE MAULIK EXPRESS QUIZ</h2>
+                        <p style="font-size:0.8rem; color:var(--text-muted);">તારીખ: ૧૯ જૂન ૨૦૨૬</p>
+                    </div>
+                    <div style="display:flex; gap:10px; align-items:center;">
+                        <div class="score-box">Score: <span id="live-score-counter">0</span> / 25</div>
+                        <button class="btn-exit-quiz" onclick="switchBackToNewsMode()">← Exit</button>
+                    </div>
+                </div>
+                
+                <div id="quiz-questions-loader-target"></div>
+
+                <div class="quiz-action-area">
+                    <div class="quiz-progress-bar" id="quiz-step-progress-label">Question 1 of 25</div>
+                    <button class="btn-next-quiz-step" id="quiz-next-action-btn" onclick="goToNextQuizQuestion()">Next Question →</button>
+                </div>
+            </div>
+
+            <div id="quiz-result-final-pane">
+                <h3>🎉 અભિનંદન! તમે ટેસ્ટ પૂર્ણ કરી છે</h3>
+                <p style="color:var(--text-muted); font-size:0.95rem;" id="final-result-user-name-label">👤 વિદ્યાર્થી: Maulik</p>
+                
+                <div class="final-score-display-card">
+                    <span id="final-score-digits">0</span> <span style="font-size:1.5rem; color:#64748b;">/ 25</span>
+                </div>
+                
+                <p style="font-size:0.9rem; color:#475569; max-width:500px; margin:0 auto 15px auto;">તમારું પરિણામ સેવ કરવા અને મોલિક સરના વૉટ્સએપ નંબર પર સબમિટ કરવા નીચેના લીલા બટન પર ક્લિક કરો.</p>
+                
+                <button class="btn-submit-whatsapp-final" onclick="sendResultToWhatsApp()">
+                    💬 Submit Result to WhatsApp
+                </button>
+                
+                <div style="margin-top: 25px;">
+                    <button class="btn-exit-quiz" style="background:var(--bg-dark); padding:10px 20px;" onclick="switchBackToNewsMode()">ન્યૂઝ પેજ પર પાછા જાઓ</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="flash-modal" onclick="closeModal(event)">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModalForce()">×</button>
+            <img src="" alt="Context Visual" class="modal-img" id="modal-img-element">
+            <div class="modal-body" id="modal-body-content"></div>
+        </div>
+    </div>
+
+    <script>
+        const mindmapData = {
+            m1: {
+                title: "France UPI Expansion Nice Massena Mind-Map",
+                img: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "વાણિજ્ય મંત્રી પીયૂષ ગોયલ દ્વારા ફ્રાન્સના નાઇસ મસીના ખાતે UPI ચૂકવણી લોન્ચ કરાઈ.",
+                    "ગ્રાહકો 'ગેલેરીઝ લફાયેત' નાઇસ ફ્લેગશિપ સ્ટોરમાં ૬૦૦ થી વધુ વૈશ્વિક બ્રાન્ડ્સ માટે સ્કેન કરી શકશે.",
+                    "NPCI ની આંતરરાષ્ટ્રીય શાખા NIPL એ ફ્રાન્સની પેમેન્ટ જાયન્ટ 'લયરા કલેક્ટ' (Lyra Collect) સાથે કરાર કર્યો છે.",
+                    "અગાઉ જાન્યુઆરી ૨૦૨૪ માં આઇફલ ટાવર અને પેરિસના ઓસમન સ્ટોરમાં સુવિધા સક્રિય કરાઈ હતી.",
+                    "આગામી સમયમાં ચાર્લ્સ ડી ગોલ એરપોર્ટ (પેરિસ) અને નાઇસ એરપોર્ટ પર પણ સુવિધા શરૂ કરાશે."
+                ],
+                edge: "📌 Strategic Impact: ભારતીય પ્રવાસીઓ હવે ફોરેક્સ કાર્ડ વિના સીધા ભારતીય રૂપિયામાં લક્ઝરી ખરીદી કરી શકશે."
+            },
+            m2: {
+                title: "UIDAI Global Biometric Challenge Mind-Map",
+                img: "https://images.unsplash.com/photo-1507413245164-6160d8298b31?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "UIDAI ગ્લોબલ બાયોમેટ્રિક SDK બેન્ચમાર્કિંગ ચેલેન્જમાં સમગ્ર વિશ્વમાંથી ૫૩૧ નોંધણી પ્રક્રિયાઓ થઈ.",
+                    "ફેસ ચેલેન્જ રેન્કિંગ: ૧. ઇનોવાટ્રિક્સ (સ્લોવાકિયા), ૨. આઇડી બાયો (USA), ૩. ન્યુરોટેકનોલોજી (લિથુઆનિયા).",
+                    "આઇરિસ ચેલેન્જ રેન્કિંગ: ૧. આઇડી બાયો (USA), ૨. ન્યુરોટેકનોલોજી (લિથુઆનિયા), ૩. ઇનોવાટ્રિક્સ (સ્લોવાકિયા).",
+                    "આ ટેક્નોલોજી વન-ટુ-વન હાઇ-પર્ફોર્મિંગ બાયોમેટ્રિક સિક્યુરિટી મેચિંગ સોલ્યુશન્સ પ્રદાન કરે છે."
+                ],
+                edge: "📌 Technology Edge: ભવિષ્યમાં આ સોલ્યુશન્સ આધાર અને ડીજીયાત્રા (DigiYatra) પ્લેટફોર્મને વધુ સખત બનાવશે."
+            },
+            m3: {
+                title: "WT Marut Wind Turbine Supply Chain Tracker Map",
+                img: "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "કેન્દ્રીય મંત્રી પ્રહલાદ જોશી દ્વારા ગોવા ગ્લોબલ વિન્ડ કોન્ફરન્સમાં દેશનું પ્રથમ ટર્બાઇન ટ્રેકિંગ પોર્ટલ લોન્ચ.",
+                    "પોર્ટલ નામ: WT MARUT (Wind Turbine Materials and Resource Utility Tracker).",
+                    "ફેક્ટરીથી લઈને પ્રોજેક્ટ સાઇટ સુધીના તમામ કોમ્પોનન્ટ્સ અને સ્થાનિક એન્જિનિયરિંગ સપ્લાયર્સને લાઈવ ટ્રેક કરશે.",
+                    "રાષ્ટ્રીય લક્ષ્યાંક: ૨૦૩૦ સુધીમાં ૧૦૦ GW અને વર્ષ ૨૦૩૫ સુધીમાં ૧૫૫ GW પવન ઊર્જા કેપેસિટી હાંસલ કરવી."
+                ],
+                edge: "📌 Green Future: પવન ઊર્જા ઇન્ફ્રાસ્ટ્રક્ચર ડેટા સ્થાનિક સ્તરે સુરક્ષિત રાખવા માટે આ પ્રથમ સમર્પિત પોર્ટલ છે."
+            },
+            m4: {
+                title: "India First Smart Warehousing Architecture Map",
+                img: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "ડિપાર્ટમેન્ટ ઓફ ફૂડ એન્ડ પબ્લિક ડિસ્ટ્રિબ્યુશન દ્વારા ભારતની પ્રથમ સ્માર્ટ વેરહાઉસિંગ સિસ્ટમ લોન્ચ કરાઈ.",
+                    "CWC અને FCI ના તમામ સરકારી ગોડાઉનોને IoT સેન્સર્સ અને AI CCTV કેમેરા અલ્ગોરિધમથી સજ્જ કરાશે.",
+                    "સેન્સર્સ દ્વારા ઇન્ડોર તાપમાન, ભેજ, CO2 અને જંતુનાશક પ્રોસેસ માટે ફોસ્ફાઇન ગેસનું લાઈવ મોનિટરિંગ થશે.",
+                    "અનાજની દરેક ગુણી (Bags) નું ટ્રેકિંગ કરવા માટે ફરજિયાત RFID (રેડિયો ફ્રીક્વન્સી) ટેગ્સનો ઉપયોગ થશે.",
+                    "આ સમગ્ર ડેટા સિસ્ટમ 'ડેપો દર્પણ પોર્ટલ' અને 'અન્નચક્ર ટૂલ' (રૂટ ઓપ્ટિમાઇઝેશન) સાથે લાઈવ ઇન્ટિગ્રેટ કરાઈ છે."
+                ],
+                edge: "📌 Agri Innovation: લણણી પછી થતા અનાજના બગાડને નાબૂદ કરી ખાદ્ય સુરક્ષા કાયદા (NFSA) ને મજબૂત બનાવશે."
+            },
+            m5: {
+                title: "India-UK CETA Free Trade Master Map",
+                img: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "ભારત અને UK વચ્ચે વ્યાપક વેપાર કરાર CETA આગામી ૧૫ જુલાઈ, ૨૦૨૬ થી સત્તાવાર રીતે લાગુ થશે.",
+                    "દ્વિપક્ષીય વેપાર લક્ષ્યાંક: વર્ષ ૨૦૩૦ સુધીમાં બંને દેશો વચ્ચે $૧૦૦ બિલિયનનો રેકોર્ડ વ્યાપાર કરવો.",
+                    "યુકે બજારમાં ભારતના ૯૯% ટેક્સટાઇલ, લેધર અને મરીન ઉત્પાદનોને સંપૂર્ણ ડ્યુટી-ફ્રી (Duty-Free) એક્સેસ મળશે.",
+                    "ભારતના ૧૮૦૦ પ્રમાણિત સ્પેશિયાલિસ્ટ શેફ અને યોગા ઇન્સ્ટ્રક્ટર્સને દર વર્ષે વિશેષ વિઝા કોટા અપાશે.",
+                    "હંગામી ભારતીય કામદારો માટે ડબલ સોશિયલ સિક્યુરિટી ટેક્સમાંથી મુક્તિ આપવામાં આવી છે, જે ૫ વર્ષ માટે માન્ય રહેશે."
+                ],
+                edge: "📌 Trade Victory: ફ્રાન્સમાં યોજાયેલી G7 બેઠક દરમિયાન પીએમ મોદી અને બ્રિટિશ વડાપ્રધાન વચ્ચે આખરી મંજૂરી અપાઈ હતી."
+            },
+            m6: {
+                title: "India Defense Production Value Map 2025-26",
+                img: "https://images.unsplash.com/photo-1508162222240-c7321c32416d?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "નાણાકીય વર્ષ ૨૦૨૫-૨૬માં ભારતનું કુલ સંરક્ષણ ઉત્પાદન મૂલ્ય ₹૧.૭૮ લાખ કરોડની નવી ઐતિહાસિક સપાટીએ પહોંચ્યું.",
+                    "વાર્ષિક વૃદ્ધિ દરમાં ૧૫.૬% નો જંગી વધારો થયો અને છેલ્લા ૫ વર્ષમાં કુલ ૧૧૦% નો ગ્રોથ નોંધાયો છે.",
+                    "ભારતનો સત્તાવાર સંરક્ષણ નિકાસ (Defense Exports) પણ વધીને રેકોર્ડ ₹૩૮,૪૨૪ કરોડ થયો છે (૮૦-૧૦૦ દેશોમાં સપ્લાય).",
+                    "ઉત્પાદન હિસ્સો: ડિફેન્સ જાહેર ક્ષેત્ર (DPSUs) નો હિસ્સો ૭૬% અને ખાનગી ક્ષેત્ર (Private Sector) નો હિસ્સો વધીને ૨૪% થયો.",
+                    "રોડમેપ ૨૦૨૯: વાર્ષિક ઉત્પાદન ₹૩ લાખ કરોડ અને વાર્ષિક નિકાસ ₹૫૦,૦૦૦ કરોડ સુધી લઈ જવાનો લક્ષ્યાંક."
+                ],
+                edge: "📌 Aatmanirbhar Bharat: ૨૦૧૩-૧૪ માં માત્ર ₹૪૩,૦૦૦ કરોડના ઉત્પાદનની સરખામણીએ આ રેકોર્ડ બૂમ છે."
+            },
+            b1: {
+                title: "Tripura Sarinda GI Tag Details",
+                img: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "ત્રિપુરાના પરંપરાગત તારવાળા લોક સંગીત વાદ્ય 'સરિન્દા' (Sarinda) ને ભૌગોલિક સંકેત (GI ટેગ) મળ્યો.",
+                    "વાદ્યને વાયોલિનની જેમ ગજ (Bow) વડે વગાડવામાં આવે છે અને તે સિંગલ બ્લોક ઓફ વૂડમાંથી બને છે લાકડાને કોતરીને.",
+                    "ત્રિપુરાના અન્ય પ્રખ્યાત GI ઉત્પાદનો: ક્વીન પાઇનેપલ, રિસા અને પચરા આદિવાસી પોશાક, માતાબારી પેડા."
+                ],
+                edge: ""
+            },
+            b2: {
+                title: "Maharashtra Police Modernization Plan",
+                img: "https://images.unsplash.com/photo-1590674899484-d5640e854abe?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "કેન્દ્ર સરકારે મહારાષ્ટ્ર પોલીસના આધુનિકીકરણ અને સાયબર પડકારો માટે ₹૭૩૩ કરોડ મંજૂર કર્યા છે.",
+                    "આ યોજના માટે ફંડિંગ મોડેલ પેટર્ન કેન્દ્ર અને રાજ્ય વચ્ચે અનુક્રમે ૬૦:૪૦ નો ગુણોત્તર (Ratio) ધરાવે છે."
+                ],
+                edge: ""
+            },
+            b3: {
+                title: "NCB Chemical Industry VCC Ahmedabad",
+                img: "https://images.unsplash.com/photo-1532187643603-ba119ca4109e?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "NCB ના ડીજી અનુરાગ ગર્ગ દ્વારા અમદાવાદ ખાતે રાષ્ટ્રીય પરિષદમાં સ્વૈચ્છિક આચારસંહિતા (VCC) લોન્ચ કરાઈ.",
+                    "મુખ્ય હેતુ: કેમિકલ્સનું પ્રીકર્સર્સ ડાયવર્ઝન રોકી ગેરકાયદેસર સિન્થેટિક ડ્રગ્સ લેબોરેટરીઝ બનતી અટકાવવી.",
+                    "આ કોડ નિયંત્રિત (Control Substances) અને બિન-નિયંત્રિત બંને રસાયણો પર સમાન રીતે લાગુ થશે."
+                ],
+                edge: ""
+            },
+            b4: {
+                title: "Kishau Multipurpose Dam Project Details",
+                img: "td_kishau",
+                img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "યમુના નદીની મુખ્ય સહાયક એવી 'ટોન્સ નદી' (Tons River) પર ઉત્તરાખંડ-હિમાચલ બોર્ડર પર ડેમ બનશે.",
+                    "પ્રોજેક્ટમાં કુલ ૬ રાજ્યો સામેલ: હિમાચલ, ઉત્તરાખંડ, દિલ્હી, ઉત્તર પ્રદેશ, હરિયાણા અને રાજસ્થાન.",
+                    "૪૨૨ મેગાવાટ (MW) હાઇડ્રોઇલેક્ટ્રિક પાવર પ્લાન્ટ બનશે. ૯૦% ખર્ચ કેન્દ્ર સરકાર ગ્રાન્ટ તરીકે ભોગવશે.",
+                    "હિમાચલ દિલ્હી અને રાજસ્થાનને પીવાનું પાણી આપશે અને તેના બદલામાં પાવર કમ્પોનન્ટનો ખર્ચ મેળવશે."
+                ],
+                edge: "📌 Static View: આરબીઆઈ અને એસબીઆઈ જેવી પરીક્ષાઓ માટે ડેમ પ્રોજેક્ટના આંતર-રાજ્ય સભ્યો પૂછાય છે."
+            },
+            b5: {
+                title: "UK Social Media Under 16 Complete Ban",
+                img: "https://images.unsplash.com/photo-1562577309-4932fdd64cd1?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "યુનાઇટેડ કિંગડમ (UK) સરકારે ૧૬ વર્ષથી ઓછી વયના બાળકો પર સોશિયલ મીડિયા વાપરવા પર સંપૂર્ણ પ્રતિબંધ મૂક્યો.",
+                    "ક્રિસમસ પહેલા બિલ રજૂ કરાશે અને વસંત ૨૦૨૭ (Spring 2027) થી કાયદો સંપૂર્ણપણે અમલી બનશે.",
+                    "TikTok, Instagram, Snapchat, Facebook, X પર પ્રતિબંધ રહેશે, જ્યારે YouTube Kids ને મુક્તિ આપવામાં આવી છે."
+                ],
+                edge: ""
+            },
+            b6: {
+                title: "National Statistical Commission New Appointments",
+                img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "ડૉ. સાઇબาล ચટ્ટોપાધ્યાય NSC (National Statistical Commission) ના નવા પાર્ટ-ટાઇમ અધ્યક્ષ નિયુક્ત થયા છે.",
+                    "તેઓ આઇઆઇએમ કલકત્તાના પૂર્વ ડાયરેક્ટર છે અને તેમણે રાજીવા લક્ષ્મણ કરંદીકરનું સ્થાન લીધું છે.",
+                    "લેબર સ્ટેટિસ્ટિક્સ પરની હાઇ-લેવલ ટેકનિકલ એક્સપર્ટ કમિટીના હેડ તરીકે પ્રોફેસર અલખ એન. શર્માની વરણી કરાઈ છે."
+                ],
+                edge: ""
+            },
+            b7: {
+                title: "Robert A. F. Thurman Obituary Details",
+                img: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "ઇતિહાસના પ્રથમ અમેરિકન તિબેટીયન બૌદ્ધ ભિક્ષુ રોબર્ટ એ. એફ. થરમનનું ન્યૂયોર્ક ખાતે નિધન થયું.",
+                    "વર્ષ ૧૯૬૫ માં તેમણે દલાઈ લામા પાસેથી દીક્ષા મેળવી હતી અને ૧૯૮૭ માં રિચર્ડ ગેર સાથે તિબેટ હાઉસ શરૂ કર્યું હતું.",
+                    "બૌદ્ધ સંસ્કૃતિના પ્રસાર બદલ ભારત સરકારે વર્ષ ૨૦૨૦ માં તેમને પ્રતિષ્ઠિત 'પદ્મશ્રી' પુરસ્કાર આપ્યો હતો.",
+                    "બિહારની ઐતિહાસિક નાલાંદા યુનિવર્સિટી (Nalanda University) દ્વારા પણ તેમને વિશેષ સન્માન અપાયું હતું."
+                ],
+                edge: ""
+            },
+            b8: {
+                title: "Agathiyar the Unifier Book Launch",
+                img: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "વાઇસ પ્રેસિડેન્ટ દ્વારા આધ્યાત્મિક પુસ્તક 'અગથિયાર ધ યુનિફાયર' નું સત્તાવાર વિમોચન નવી દિલ્હીમાં કરાયું.",
+                    "આ પુસ્તક ઓ. શમા ભટ્ટ અને સુધા જી દ્વારા લિખિત છે અને કલ્લ્યાણીજી દ્વારા તેનું તમિલ ભાષાંતર કરાયું છે."
+                ],
+                edge: ""
+            },
+            b9: {
+                title: "Telegram Server Crisis & WhatsApp Migration",
+                img: "https://images.unsplash.com/photo-1614680376593-902f74fa0d41?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "ટેકનિકલ ખામી કે પ્રશાસનિક બ્લોકિંગને લીધે ૨૨ જૂન સુધી દેશમાં ટેલિગ્રામ નેટવર્ક સેવાઓ બંધ રહેશે.",
+                    "વિદ્યાર્થીઓની લાઈવ ક્લાસ અપડેટ્સ અને પીડીએફ શેરિંગ માટે નવી 'વન-વે WhatsApp ચેનલ' શરૂ કરાઈ છે.",
+                    "આ હાઇટેક ચેનલમાં વિદ્યાર્થીઓના પર્સનલ નંબર અન્ય યુઝર્સ જોઈ શકતા નથી, જે ૧૦૦% સેફ પ્રાઇવસી પ્રોટોકોલ આપે છે."
+                ],
+                edge: ""
+            },
+            b10: {
+                title: "World Day to Combat Desertification 2026",
+                img: "https://images.unsplash.com/photo-1547036967-23d11aacaee0?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "દર વર્ષે ૧૭ જૂને વિશ્વ રણપ્રદેશ અને દુષ્કાળ વિરોધી દિવસ (Desertification Day) ઓબ્ઝર્વ કરાય છે.",
+                    "વર્ષ ૨૦૨૬ ની સત્તાવાર વૈશ્વિક થીમ: 'Rain Lines: Recognize, Respect, and Restore' નક્કી કરાઈ છે."
+                ],
+                edge: ""
+            }
+        };
+
+        let lastActiveCardId = null;
+
+        function openFlashCard(id) {
+            const data = mindmapData[id];
+            if (!data) return;
+
+            document.getElementById('modal-img-element').src = data.img;
+            
+            let htmlContent = `<h2>${data.title}</h2><ul class="mindmap-node">`;
+            data.nodes.forEach(node => {
+                htmlContent += `<li>${node}</li>`;
+            });
+            htmlContent += `</ul>`;
+
+            if (data.edge) {
+                htmlContent += `<div class="modal-edge-box">${data.edge}</div>`;
+            }
+
+            document.getElementById('modal-body-content').innerHTML = htmlContent;
+            document.getElementById('flash-modal').style.display = 'flex';
+        }
+
+        function closeModal(e) {
+            if (e.target.id === 'flash-modal') {
+                document.getElementById('flash-modal').style.display = 'none';
+            }
+        }
+
+        function closeModalForce() {
+            document.getElementById('flash-modal').style.display = 'none';
+        }
+
+        function focusDetail(cardId) {
+            lastActiveCardId = cardId;
+        }
+
+        function returnToDashboard(targetId) {
+            const currentCardId = targetId || lastActiveCardId;
+            if (!currentCardId) {
+                scrollToDashboard();
+                return;
+            }
+
+            const cardElement = document.getElementById(currentCardId);
+            if (cardElement) {
+                cardElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                cardElement.classList.add('box-highlight-effect');
+                
+                setTimeout(() => {
+                    cardElement.classList.remove('box-highlight-effect');
+                }, 2000);
+            }
+        }
+
+        function scrollToDashboard() {
+            document.getElementById('dashboard').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        const quizDatabase = [
+            {
+                q: "1. કેન્દ્રીય મંત્રી પીયૂષ ગોયલની જાહેરાત મુજબ, ફ્રાન્સના કયા શહેરમાં આવેલા ગેલેરીઝ લફાયેત સ્ટોરમાં ભારતીય UPI લોન્ચ કરવામાં આવ્યું છે?",
+                o: ["પેરિસ", "નાઇસ (Nice)", "લિયોન", "માર્સેલી"],
+                a: 1,
+                exp: "ફ્રાન્સના પ્રખ્યાત પ્રવાસી મથક નાઇસ (Nice) ના નાઇસ મસીના ખાતે આવેલા ગેલેરીઝ લફાયેત સ્ટોરમાં આ સુવિધા લોન્ચ કરાઈ છે."
+            },
+            {
+                q: "2. નાઇસ ફ્રાન્સ સ્થિત ગેલેરીઝ લફાયેત સ્ટોરમાં ભારતીય પ્રવાસીઓ કેટલાથી વધુ વૈશ્વિક બ્રાન્ડ્સ માટે UPI નો ઉપયોગ કરી શકશે?",
+                o: ["૪૦０ બ્રાન્ડ્સ", "૫૦૦ બ્રાન્ડ્સ", "૬૦૦ થી વધુ બ્રાન્ડ્સ", "૧૦૦૦ બ્રાન્ડ્સ"],
+                a: 2,
+                exp: "આ લક્ઝરી ફ્લેગશિપ સ્ટોરની અંદર વિશ્વભરના ૬૦૦ થી વધુ (Over 600) વૈશ્વિક બ્રાન્ડ્સ એક જ જગ્યાએ ઉપલબ્ધ છે."
+            },
+            {
+                q: "3. આંતરરાષ્ટ્રીય સ્તરે UPI ટ્રાન્ઝેક્શન સક્ષમ કરવા NIPL એ ફ્રાન્સની કઈ ડિજિટલ પેમેન્ટ સ્પેશિયાલિસ્ટ કંપની સાથે કરાર કર્યો છે?",
+                o: ["પેસેફ ફ્રાન્સ", "લયરા કલેક્ટ (Lyra Collect)", "વર્લ્ડલાઇન પે", "ફ્રેન્ચ ડિજિટલ કનેક્ટ"],
+                a: 1,
+                exp: "NPCI ની આંતરરાષ્ટ્રીય શાખા NIPL એ ફ્રાન્સની ડિજિટલ પેમેન્ટ એક્સપર્ટ કંપની લયરા કલેક્ટ (Lyra Collect) સાથે ભાગીદારી કરી છે."
+            },
+            {
+                q: "4. ફ્રાન્સમાં ગેલેરીઝ લફાયેત નાઇસ મસીના સ્ટોર અગાઉ કયા બે મુખ્ય સ્થળો પર ભારતીય UPI એક્ટિવેટ કરવામાં આવ્યું હતું?",
+                o: ["લુવર મ્યુઝિયમ અને પેરિસ એરપોર્ટ", "આઇફલ ટાવર (જાન્યુઆરી ૨૦૨૪) અને પેરિસ ઓસમન સ્ટોર", "કાન્સ સિનેમા હોલ અને લિયોન મોલ", "વર્સેલ્સ પેલેસ અને નાઇસ સ્ટેડિયમ"],
+                a: 1,
+                exp: "ફ્રાન્સમાં સૌથી પહેલા જાન્યુઆરી ૨૦૨૪ માં પેરિસના આઇફલ ટાવર ખાતે અને ત્યારબાદ પેરિસના ઓસમન સ્ટોર ખાતે સુવિધા શરૂ થઈ હતી."
+            },
+            {
+                q: "5. UIDAI દ્વારા આયોજિત વૈશ્વિક બાયોમેટ્રિક SDK બેન્ચમાર્કિંગ ચેલેન્જમાં સમગ્ર વિશ્વમાંથી કુલ કેટલા સત્તાવાર રજીસ્ટ્રેશન મળ્યા હતા?",
+                o: ["૩૫૦ નોંધણી", "૪૫૦ નોંધણી", "૫૩૧ નોંધણી", "૬20 નોંધણી"],
+                a: 2,
+                exp: "આ વૈશ્વિક ઉચ્ચ સ્તરીય ટેકનોલોજી સ્પર્ધામાં સમગ્ર વિશ્વમાંથી ૫૩૧ સત્તાવાર રજીસ્ટ્રેશન પ્રાપ્ત થયા હતા."
+            },
+            {
+                q: "6. UIDAI ગ્લોબલ બાયોમેટ્રિક ચેલેન્જની 'ફેસ ચેલેન્જ' (Face Challenge) કેટેગરીમાં કયા દેશની ઇનોવાટ્રિક્સ (Innovatrics) કંપની પ્રથમ ક્રમે વિજેતા બની?",
+                o: ["અમેરિકા (USA)", "લિથુઆનિયા", "સ્લોવાકિયા", "ભારત"],
+                a: 2,
+                exp: "ફેસ ચેલેન્જ કેટેગરીમાં સ્લોવાકિયા (Slovakia) દેશની ઇનોવાટ્રિક્સ કંપની ગ્લોબલ લેવલે પ્રથમ ક્રમે વિજેતા રહી છે."
+            },
+            {
+                q: "7. UIDAI બાયોમેટ્રિક ચેલેન્જ અંતર્ગત 'આઇરિસ ચેલેન્જ' (Iris Challenge) માં કયા દેશની આઇડી બાયો (ID Bio) કંપની પ્રથમ ક્રમે રહી?",
+                o: ["લિથુઆનિયા", "સ્લોવાકિયા", "અમેરિકા (USA)", "જર્મની"],
+                a: 2,
+                exp: "આઇરિસ ચેલેન્જ કેટેગરીમાં અમેરિકા (USA) ની આઇડી બાયો કંપની ગ્લોબલ લિસ્ટમાં પ્રથમ ક્રમાંકે વિજેતા બની છે."
+            },
+            {
+                q: "8. ગોવા ગ્લોબલ વિન્ડ કોન્ફરન્સમાં લોન્ચ કરાયેલ દેશના પ્રથમ વિન્ડ ટર્બાઇન સપ્લાય ચેન પોર્ટલ 'WT મારુત' નું પૂરું નામ શું છે?",
+                o: ["Wind Turbine Management and Resource Utility Tracker", "Wind Turbine Materials and Resource Utility Tracker", "Wind Turbine Monitoring and Regional Utility Tracker", "Wind Technology Materials and Resource Utility Tool"],
+                a: 1,
+                exp: "WT MARUT નું પૂરું નામ 'Wind Turbine Materials and Resource Utility Tracker' છે જે પવન ઊર્જા ઈન્ફ્રાસ્ટ્રક્ચર ટ્રેક કરે છે."
+            },
+            {
+                q: "9. ભારત સરકારના સત્તાવાર નવીનકરણીય ઊર્જા રોડમેપ મુજબ, વર્ષ ૨૦૩૦ સુધીમાં દેશમાં કેટલા ગીગાવાટ (GW) પવન ઊર્જા ક્ષમતાનો લક્ષ્યાંક છે?",
+                o: ["૫૦ ગીગાવાટ", "૧૦૦ ગીગાવાટ (GW)", "૧૫૫ ગીગાવાટ", "૨૦૦ ગીગાવાટ"],
+                a: 1,
+                exp: "ભારત સરકારે વર્ષ ૨૦૩૦ સુધીમાં રાષ્ટ્રીય પવન ઊર્જા ઉત્પાદન ક્ષમતાનો લક્ષ્યાંક ૧૦૦ ગીગાવાટ (100 GW) નક્કી કરેલો છે."
+            },
+            {
+                q: "10. ભારત સરકારે કયા વર્ષ સુધીમાં દેશની કુલ પવન ઊર્જા (Wind Energy) ઉત્પાદન ક્ષમતા ૧૫૫ ગીગાવાટ (GW) સુધી લઈ જવાનો રાષ્ટ્રીય ટાર્ગેટ નક્કી કર્યો છે?",
+                o: ["વર્ષ ૨૦૨૮", "વર્ષ ૨૦૩૦", "વર્ષ ૨૦૩૫", "વર્ષ ૨૦૪૦"],
+                a: 2,
+                exp: "દીર્ઘકાલીન ઊર્જા લક્ષ્યાંકો અનુસાર વર્ષ ૨૦૩context૫ સુધીમાં ૧૫૫ ગીગાવાટ (155 GW) પવન ઊર્જા સ્થાપિત કરવાનો ટાર્ગેટ છે."
+            },
+            {
+                q: "11. નવી દિલ્હીના ભારત મંડપમમાં અનાજનો બગાડ અટકાવવા કયા વિભાગ દ્વારા દેશની પ્રથમ 'સ્માર્ટ વેરહાઉસિંગ સિસ્ટમ' તૈયાર કરાઈ છે?",
+                o: ["ડિપાર્ટમેન્ટ ઓફ એગ્રીકલ્ચર રિસર્ચ", "ડિપાર્ટમેન્ટ ઓફ ફૂડ એન્ડ પબ્લિક ડિસ્ટ્રિબ્યુશન", "નીતિ આયોગ કૃષિ વિંગ", "સેન્ટ્રલ એગ્રી માર્કેટિંગ બોર્ડ"],
+                a: 1,
+                exp: "ડિપાર્ટમેન્ટ ઓફ ફૂડ એન્ડ પબ્લિક ડિસ્ટ્રિબ્યુશન દ્વારા આ અત્યંત હાઇટેક સ્માર્ટ વેરહાઉસિંગ ડિપો મોડેલ તૈયાર કરાયું છે."
+            },
+            {
+                q: "12. પ્રથમ સ્માર્ટ વેરહાઉસિંગ સિસ્ટમમાં કીટક નિયંત્રણ (Past Control) માટે કયા વાયુ (Gas) ના પ્રસરણનું લાઈવ સેન્સર ટ્રેકિંગ કરવામાં આવશે?",
+                o: ["કાર્બન મોનોક્સાઇડ ગેસ", "મિથેન ગેસ", "ફોસ્ફાઇન ગેસ (Phosphine)", "નાઇટ્રસ ઓક્સાઇડ"],
+                a: 2,
+                exp: "ગોડાઉનમાં ફ્યુમિગેશન પ્રોસેસ ચેક કરવા માટે કીમતી 'ફોસ્ફાઇન ગેસ' (Phosphine Gas) ના ડિસ્બર્શનનું ટ્રેકિંગ સેન્સર્સ દ્વારા થશે."
+            },
+            {
+                q: "13. અનાજની બોરીઓની આવક-જાવક અને ચોરી અટકાવવા સ્માર્ટ વેરહાઉસમાં કઈ ડિજિટલ ફાસ્ટ-ટ્રેક તકનીકનો ઉપયોગ કરાયો છે?",
+                o: ["બીકન ટેકનોલોજી", "RFID (રેડિયો ફ્રીક્વન્સી આઇડેન્ટિફિકેશન)", "NFC ટેગ્સ ફરજિયાત", "બારકોડ લેઝર સિસ્ટમ"],
+                a: 1,
+                exp: "અનાજની ગુણીઓ પર RFID (Radio Frequency Identification) ટેગ્સ લગાવાશે, જેથી રજીસ્ટર્ડ માલની ચોક્કસ ગણતરી લાઈવ ડેશબોર્ડ પર થાય."
+            },
+            {
+                q: "14. ભારત અને યુનાઇટેડ કિંગડમ (UK) વચ્ચે વ્યાપક મુક્ત વેપાર કરાર CETA સત્તાવાર રીતે કઈ તારીખથી બંને દેશોમાં અમલી બનશે?",
+                o: ["૧ જુલાઈ, ૨૦૨૬", "૧૫ જુલાઈ, ૨૦૨૬", "૧ ઓગસ્ટ, ૨૦૨૬", "૧ જાન્યુઆરી, ૨૦૨૭"],
+                a: 1,
+                exp: "G7 બેઠકના હકારાત્મક નિર્ણયો બાદ ભારત-UK CETA કરાર આગામી ૧૫ જુલાઈ, ૨૦૨૬ થી સત્તાવાર રીતે અમલી બનશે."
+            },
+            {
+                q: "15. ભારત-UK CETA કરાર હેઠળ યુકે બજારમાં ભારતના કેટલા ટકા નિકાસ ઉત્પાદનો માટે કસ્ટમ ડ્યુટી સંપૂર્ણ નાબૂદ (Duty-Free) કરાઈ છે?",
+                o: ["૭૫%", "૮૫%", "૯૫%", "૯૯%"],
+                a: 3,
+                exp: "આ ઐતિહાસિક કરાર હેઠળ યુકે બજારમાં જતા ભારતના ૯૯% શ્રમ-સઘન ઉત્પાદનો (ટેક્સટાઇલ, લેધર વગેરે) માટે ડ્યુટી-ફ્રી એક્સેસ મંજૂર કરાયો છે."
+            },
+            {
+                q: "16. ભારત-UK કરાર અંતર્ગત બ્રિટિશ સરકાર દર વર્ષે ભારતના કેટલા પ્રમાણિત સ્પેશિયાલિસ્ટ શેફ અને યોગા ઇન્સ્ટ્રક્ટર્સને વિશેષ વિઝા આપશે?",
+                o: ["૧૦૦૦ સ્પેશિયાલિસ્ટ વિઝા", "૧૫૦૦ સ્પેશિયાલિસ્ટ વિઝા", "૧૮૦૦ સ્પેશિયાલિસ્ટ વિઝા", "૨૫૦૦ સ્પેશિયાલિસ્ટ વિઝા"],
+                a: 2,
+                exp: "કરારના વ્યાપક નિયમો હેઠળ યુકે દર વર્ષે ભારતના ૧૮૦૦ પ્રમાણિત રાંધણકળા નિષ્ણાતો (Chefs) અને યોગ શિક્ષકોને એન્ટ્રી આપશે."
+            },
+            {
+                q: "17. નાણાકીય વર્ષ ૨૦૨૫-૨૬ ના સત્તાવાર રિપોર્ટ મુજબ, ભારતનું કુલ ઘરેલું સંરક્ષણ ઉત્પાદન મૂલ્ય કેટલા રૂપિયાના રેકોર્ડ સ્તરે પહોંચ્યું છે?",
+                o: ["₹૧.૫૪ લાખ કરોડ", "₹૧.૭૮ લાખ કરોડ", "₹૨.૧૦ લાખ કરોડ", "₹૩.૦૦ લાખ કરોડ"],
+                a: 1,
+                exp: "નાણાકીય વર્ષ ૨૦૨૫-૨૬માં દેશનું ડિફેન્સ ઉત્પાદન મૂલ્ય રેકોર્ડ બ્રેક ₹૧.૭૮ લાખ કરોડ નોંધાયું છે, જે અગાઉ ₹૧.૫૪ લાખ કરોડ હતું."
+            },
+            {
+                q: "18. નાણાકીય વર્ષ ૨૦૨૫-૨૬માં ભારતે કરેલો ઐતિહાસિક સંરક્ષણ નિકાસ (Defense Exports) કેટલા કરોડે પહોંચ્યો છે જે ૮૦ થી ૧૦૦ દેશોમાં જાય છે?",
+                o: ["₹૧૫,૬૦૦ કરોડ", "₹૨૪,૦૦૦ કરોડ", "₹૩૮,૪૨૪ કરોડ", "₹૫૦,૦૦૦ કરોડ"],
+                a: 2,
+                exp: "ભારતે ઇતિહાસનો સર્વોચ્ચ સંરક્ષણ નિકાસ ગ્રોથ મેળવતા ₹૩૮,૪૨૪ કરોડની કિંમતના હથિયારો અને સાધનોની નિકાસ કરી છે."
+            },
+            {
+                q: "19. ભારતના કુલ સંરક્ષણ ઉત્પાદનમાં ખાનગી ક્ષેત્ર (Private Sector) નો ઉત્પાદન હિસ્સો અગાઉના ૨૨% થી વધીને વર્તમાનમાં કેટલા ટકા થયો છે?",
+                o: ["૨૩%", "૨૪%", "૨૬%", "૩૦%"],
+                a: 1,
+                exp: "આત્મનિર્ભર સંરક્ષણમાં ખાનગી ક્ષેત્રનો ભાગ વધીને ૨૪% (આશરે ₹૪૨,૦૦૦ કરોડ) થયો છે, જ્યારે સાર્વજનિક ક્ષેત્રનો હિસ્સો ૭hex૬% છે."
+            },
+            {
+                q: "20. સંરક્ષણ મંત્રાલયે આત્મનિર્ભર મેક ઇન ઇન્ડિયા રોડમેપ હેઠળ કયા વર્ષ સુધીમાં વાર્ષિક સંરક્ષણ ઉત્પાદન ₹૩ લાખ કરોડ લઈ જવાનો લક્ષ્યાંક રાખ્યો છે?",
+                o: ["વર્ષ ૨૦૨૮ સુધીમાં", "વર્ષ ૨૦૨૯ સુધીમાં", "વર્ષ ૨૦૩૦ સુધીમાં", "વર્ષ ૨૦૩૫ સુધીમાં"],
+                a: 1,
+                exp: "સંરક્ષણ મંત્રાલયના સત્તાવાર રોડમેપ મુજબ વર્ષ ૨૦૨૯ સુધીમાં ઉત્પાદન ₹૩ લાખ કરોડ અને નિકાસ ₹૫૦,૦૦૦ કરોડ સુધી લઈ જવાનો લક્ષ્ય છે."
+            },
+            {
+                q: "21. તાજેતરમાં જીઆઈ ટેગ મેળવનાર તારવાળું પ્રાચીન લોક સંગીત વાદ્ય 'सरिन्દા' (Sarinda) કયા ઉત્તર-પૂર્વ ભારતીય રાજ્યનું ગૌરવ છે?",
+                o: ["આસામ", "મેઘાલય", "ત્રિપુરા", "અરુણાચલ પ્રદેશ"],
+                a: 2,
+                exp: "સરિન્દા એ ત્રિપુરા (Tripura) રાજ્યનું લાકડાના સળંગ એક જ ટુકડામાંથી કોતરીને બનાવાતું પરંપરાગત વાયોલિન શૈલીનું વાદ્ય છે."
+            },
+            {
+                q: "22. કેન્દ્ર સરકાર દ્વારા ૬૦:૪૦ ની નાણાકીય ફંડિંગ પેટર્ન હેઠળ કયા રાજ્યના પોલીસ દળના આધુનિકીકરણ માટે ₹૭૩૩ કરોડ મંજૂર કરાયા છે?",
+                o: ["ગુજરાત પોલીસ", "મહારાષ્ટ્ર પોલીસ", "રાજસ્થાન પોલીસ", "બિહાર પોલીસ"],
+                a: 1,
+                exp: "કેન્દ્ર સરકારે નવી સુરક્ષા ક્ષમતાઓ વધારવા મહારાષ્ટ્ર પોલીસ (Maharashtra Police) ની આધુનિકીકરણ યોજના માટે આ ફંડ પાસ કર્યું છે."
+            },
+            {
+                q: "23. નાર્કોટિક્સ કંટ્રોલ બ્યુરો (NCB) ના ડાયરેક્ટર જનરલ અનુરાગ ગર્ગે કયા શહેરમાં કેમિકલ ઉદ્યોગો માટે સ્વૈચ્છિક આચારસંહિતા (VCC) લોન્ચ કરી?",
+                o: ["ગાંધીનગર", "વડોદરા", "અમદાવાદ", "જામનગર"],
+                a: 2,
+                exp: "ડ્રગ્સના કાળાબજાર અને ઇલલીગલ ડાયવર્ઝન રોકવા માટે અમદાવાદ (Ahmedabad) ખાતે યોજાયેલી નેશનલ કોન્ફરન્સમાં VCC લોન્ચ કરાઈ."
+            },
+            {
+                q: "24. ઐતિહાસિક 'કિશાઉ મલ્ટિપર્પઝ ડેમ પ્રોજેક્ટ' યમુના નદીની કઈ મુખ્ય સહાયક નદી પર ૬ ભાગીદાર રાજ્યો વચ્ચે સાકાર કરવામાં આવશે?",
+                o: ["ગિરી નદી", "હિંડન નદી", "ટોન્સ નદી (Tons River)", "ચંબલ નદી"],
+                a: 2,
+                exp: "આ મેગા ૪૨૨ MW ક્ષમતાનો ડેમ પ્રોજેક્ટ ઉત્તરાખંડ અને હિમાચલ બોર્ડર પર યમુનાની સહાયક નદી એવી ટોન્સ નદી (Tons River) પર સાકાર થશે."
+            },
+            {
+                q: "25. વર્ષ ૧૯૬૫ માં દલાઈ લામા પાસેથી દીક્ષા મેળવનાર પ્રથમ અમેરિકન બૌદ્ધ ભિક્ષુ કોણ હતા, જેમનું તાજેતરમાં ન્યૂયોર્ક ખાતે નિધન થયું છે?",
+                o: ["રિચર્ડ ગેર", "ફિલિપ ગ્લાસ", "રોબર્ટ એ. એફ. થરમન", "ડૉ. સાઇબાલ ચટ્ટોપાધ્યાય"],
+                a: 2,
+                exp: "પ્રખ્યાત બૌદ્ધ વિદ્વાન અને વર્ષ ૨૦૨૦ ના ભારતના 'પદ્મશ્રી' વિજેતા રોબર્ટ એ. એફ. થરમન (Robert A. F. Thurman) નું ન્યૂયોર્કમાં અવસાન થયું છે."
+            }
+        ];
+
+        let currentQuizIndex = 0;
+        let currentQuizScore = 0;
+        let userRegisteredName = "";
+
+        function switchToQuizMode() {
+            const nameInput = document.getElementById('user-quiz-reg-name').value.trim();
+            
+            if(nameInput === "") {
+                alert("⚠️ ક્વિઝ શરૂ કરવા માટે કૃપા કરીને તમારું નામ લખો!");
+                return;
+            }
+            
+            userRegisteredName = nameInput;
+
+            document.getElementById('main-news-page-wrapper').style.display = 'none';
+            document.getElementById('quiz-view-panel').style.display = 'block';
+            
+            document.getElementById('quiz-active-questions-frame-block').style.display = 'block';
+            document.getElementById('quiz-result-final-pane').style.display = 'none';
+            
+            window.scrollTo(0,0);
+            
+            currentQuizIndex = 0;
+            currentQuizScore = 0;
+            document.getElementById('live-score-counter').innerText = currentQuizScore;
+            
+            loadSingleQuizQuestion(currentQuizIndex);
+        }
+
+        function switchBackToNewsMode() {
+            document.getElementById('quiz-view-panel').style.display = 'none';
+            document.getElementById('main-news-page-wrapper').style.display = 'block';
+            window.scrollTo(0,0);
+        }
+
+        function loadSingleQuizQuestion(index) {
+            const container = document.getElementById('quiz-questions-loader-target');
+            container.innerHTML = ""; 
+            
+            document.getElementById('quiz-next-action-btn').style.display = "none";
+            document.getElementById('quiz-step-progress-label').innerText = `Question ${index + 1} of 25`;
+
+            const item = quizDatabase[index];
+
+            const card = document.createElement('div');
+            card.className = "quiz-card-item";
+
+            const qTitle = document.createElement('div');
+            qTitle.className = "quiz-question";
+            qTitle.innerText = item.q;
+            card.appendChild(qTitle);
+
+            const optionsList = document.createElement('ul');
+            optionsList.className = "quiz-options-list";
+            optionsList.id = `single-q-opts-block`;
+
+            item.o.forEach((optText, optIdx) => {
+                const li = document.createElement('li');
+                li.className = "option-item";
+                li.innerText = optText;
+                
+                li.onclick = function() {
+                    evaluateSingleQuestionAnswer(optIdx, item.a, item.exp);
+                };
+
+                optionsList.appendChild(li);
+            });
+
+            card.appendChild(optionsList);
+
+            const expBox = document.createElement('div');
+            expBox.id = "live-explanation-feedback-box";
+            expBox.className = "quiz-explanation-box";
+            card.appendChild(expBox);
+
+            container.appendChild(card);
+        }
+
+        function evaluateSingleQuestionAnswer(selectedIdx, correctIdx, explanationText) {
+            const optionsBlock = document.getElementById('single-q-opts-block');
+            const optionsElements = optionsBlock.getElementsByTagName('li');
+
+            for (let i = 0; i < optionsElements.length; i++) {
+                optionsElements[i].classList.add('option-disabled');
+            }
+
+            if (selectedIdx === correctIdx) {
+                optionsElements[selectedIdx].classList.add('correct-state');
+                currentQuizScore++;
+                document.getElementById('live-score-counter').innerText = currentQuizScore;
+            } else {
+                optionsElements[selectedIdx].classList.add('wrong-state');
+                optionsElements[correctIdx].classList.add('correct-state');
+            }
+
+            const expBox = document.getElementById('live-explanation-feedback-box');
+            expBox.innerHTML = `<strong>💡 ટૂંકી સમજૂતી (Samjooti):</strong> ${explanationText}`;
+            expBox.style.display = "block";
+
+            const nextBtn = document.getElementById('quiz-next-action-btn');
+            if (currentQuizIndex < quizDatabase.length - 1) {
+                nextBtn.innerText = "Next Question →";
+            } else {
+                nextBtn.innerText = "Finish & See Score ✓";
+            }
+            nextBtn.style.display = "block";
+        }
+
+        function goToNextQuizQuestion() {
+            if (currentQuizIndex < quizDatabase.length - 1) {
+                currentQuizIndex++;
+                loadSingleQuizQuestion(currentQuizIndex);
+            } else {
+                showFinalResultsPaneLayout();
+            }
+        }
+
+        function showFinalResultsPaneLayout() {
+            document.getElementById('quiz-active-questions-frame-block').style.display = 'none';
+            document.getElementById('quiz-result-final-pane').style.display = 'block';
+            
+            document.getElementById('final-result-user-name-label').innerText = `👤 વિદ્યાર્થી: ${userRegisteredName}`;
+            document.getElementById('final-score-digits').innerText = currentQuizScore;
+        }
+
+        function sendResultToWhatsApp() {
+            const masterWhatsAppNumber = "916353298168"; 
+            const currentTime = new Date().toLocaleTimeString('gu-IN', { hour: '2-digit', minute: '2-digit' });
+            
+            const messagePayload = `*THE MAULIK EXPRESS QUIZ RESULT* 📊\n\n` +
+                                   `👤 *નામ:* ${userRegisteredName}\n` +
+                                   `📅 *તારીખ:* 19 June 2026\n` +
+                                   `⏱️ *સમય:* ${currentTime}\n` +
+                                   `🎯 *ફાઇનલ સ્કોર:* ${currentQuizScore} / 25\n\n` +
+                                   `📈 _માસ્ટર એક્ઝામ લેજર એન્ડ એનાલિટિક્સ સિસ્ટમ દ્વારા પ્રમાણિત._`;
+            
+            const encodedText = encodeURIComponent(messagePayload);
+            const whatsappWebUrl = `https://api.whatsapp.com/send?phone=${masterWhatsAppNumber}&text=${encodedText}`;
+            
+            window.open(whatsappWebUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
+    
+  </body>
+  
+</html>
+    
+  </body>
+  
+</html>

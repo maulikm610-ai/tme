@@ -1,0 +1,17 @@
+{
+  "short_name": "TME",
+  "name": "The Maulik Express",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/2540/2540832.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "index.html",
+  "scope": "./",
+  "background_color": "#f5f2eb",
+  "theme_color": "#111111",
+  "display": "standalone",
+  "orientation": "portrait"
+}
