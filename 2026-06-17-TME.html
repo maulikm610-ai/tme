@@ -1,0 +1,1811 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>17junefinal2</title>
+    
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="gu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>THE MAULIK EXPRESS - Master Dual-Mode Dashboard (17 June 2026)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@400;500;600;700&family=Noto+Serif+Gujarati:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --card-bg: #1e293b;
+            --accent: #38bdf8;
+            --highlight-text: #fbbf24;
+            --danger: #f43f5e;
+            --text-muted: #94a3b8;
+            --paper-bg: #f4f4f0;
+            --sheet-bg: #fdfdfa;
+            --text-dark: #1e293b;
+            --border-color: #cbd5e1;
+            --yellow-highlighter: #fff200;
+            --success: #10b981;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Serif Gujarati', serif;
+            background-color: var(--paper-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* 📊 YELLOW HIGHLIGHTER STYLING */
+        .hl-yellow {
+            background-color: var(--yellow-highlighter);
+            color: #000000;
+            font-weight: 700;
+            padding: 2px 4px;
+            border-radius: 3px;
+            display: inline;
+        }
+
+        /* 📱 MOBILE OPTIMIZED LAYOUTS */
+        .dashboard-section {
+            background-color: var(--bg-dark);
+            color: #ffffff;
+            padding: 15px;
+            width: 100%;
+        }
+
+        @media (min-width: 600px) {
+            .dashboard-section { padding: 25px; }
+        }
+
+        .header-container {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            border-bottom: 1px solid var(--card-bg);
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        @media (min-width: 600px) {
+            .header-container {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+
+        .main-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .main-title span { color: var(--accent); }
+
+        .meta-info {
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        @media (min-width: 600px) {
+            .main-title { text-align: left; font-size: 2.3rem; }
+            .meta-info { text-align: right; font-size: 0.9rem; }
+        }
+
+        .meta-info strong { color: var(--highlight-text); }
+
+        .section-header {
+            font-family: 'Noto Serif Gujarati', serif;
+            font-size: 1.25rem;
+            margin: 20px 0 12px 0;
+            color: var(--accent);
+            border-left: 4px solid var(--accent);
+            padding-left: 8px;
+        }
+
+        /* Responsive Grid System */
+        .news-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        @media (min-width: 650px) {
+            .news-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        }
+        @media (min-width: 1000px) {
+            .news-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        /* Interactive Dashboard Cards */
+        .news-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            scroll-margin-top: 15px;
+        }
+
+        .news-card h3 {
+            font-size: 1rem;
+            margin-bottom: 6px;
+            color: #ffffff;
+            line-height: 1.35;
+        }
+
+        .news-card p {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            margin-bottom: 12px;
+            flex-grow: 1;
+            text-align: justify;
+            line-height: 1.4;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 8px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 10px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 8px 10px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.75rem;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+        }
+
+        .btn-flash {
+            background-color: rgba(251, 191, 36, 0.12);
+            color: var(--highlight-text);
+            border: 1px solid rgba(251, 191, 36, 0.25);
+        }
+
+        .btn-flash:hover {
+            background-color: var(--highlight-text);
+            color: var(--bg-dark);
+        }
+
+        .btn-detail {
+            background-color: rgba(56, 189, 248, 0.12);
+            color: var(--accent);
+            border: 1px solid rgba(56, 189, 248, 0.25);
+        }
+
+        .btn-detail:hover {
+            background-color: var(--accent);
+            color: var(--bg-dark);
+        }
+
+        /* 🔄 Back to Index Glow Target Action Animation */
+        .box-highlight-effect {
+            animation: card-flash-glow 2s cubic-bezier(0.4, 0, 0.2, 1);
+            border-color: var(--accent) !important;
+        }
+
+        @keyframes card-flash-glow {
+            0% { background-color: #1e3a8a; transform: scale(1.02); box-shadow: 0 0 15px rgba(56, 189, 248, 0.5); }
+            50% { transform: scale(1.02); box-shadow: 0 0 15px rgba(56, 189, 248, 0.2); }
+            100% { background-color: var(--card-bg); transform: scale(1); }
+        }
+
+        /* -----------------------------------------
+           🃏 FLASH CARD SYSTEM (MODAL POPUP)
+           ----------------------------------------- */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(4px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 10px;
+        }
+
+        .modal-content {
+            background: #ffffff;
+            color: #1e293b;
+            width: 100%;
+            max-width: 600px;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            animation: modalSlideUp 0.2s ease-out;
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.3);
+        }
+
+        @keyframes modalSlideUp {
+            from { opacity: 0; transform: translateY(15px) scale(0.98); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(15, 23, 42, 0.6);
+            border: none;
+            color: #ffffff;
+            font-size: 1.2rem;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        .modal-img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-bottom: 3px solid var(--accent);
+        }
+
+        @media (min-width: 600px) { .modal-img { height: 200px; } }
+
+        .modal-body {
+            padding: 15px;
+            max-height: 60vh;
+            overflow-y: auto;
+        }
+
+        .modal-body h2 {
+            font-family: 'Noto Serif Gujarati', serif;
+            font-size: 1.15rem;
+            margin-bottom: 12px;
+            color: #0f172a;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 6px;
+        }
+
+        .mindmap-node {
+            list-style-type: none;
+            margin-bottom: 12px;
+        }
+
+        .mindmap-node li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            color: #334155;
+            font-size: 0.9rem;
+            text-align: justify;
+            line-height: 1.45;
+        }
+
+        .mindmap-node li::before {
+            content: "⚡";
+            position: absolute;
+            left: 0;
+            top: 1px;
+            font-size: 0.9rem;
+            color: var(--danger);
+        }
+
+        .modal-edge-box {
+            background: #f8fafc;
+            border-left: 4px solid #0f172a;
+            padding: 10px;
+            border-radius: 0 6px 6px 0;
+            margin-top: 12px;
+            font-size: 0.85rem;
+            color: #1e293b;
+        }
+
+        /* -----------------------------------------
+           📰 BROADSHEET NEWSPAPER SECTION
+           ----------------------------------------- */
+        .broadsheet-section {
+            padding: 20px 10px;
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        @media (min-width: 600px) { .broadsheet-section { padding: 30px 20px; } }
+
+        .masthead {
+            text-align: center;
+            border-top: 4px double var(--text-dark);
+            border-bottom: 4px double var(--text-dark);
+            padding: 12px 0;
+            margin-bottom: 25px;
+        }
+
+        .masthead h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            letter-spacing: 1px;
+        }
+
+        @media (min-width: 600px) { .masthead h2 { font-size: 3.5rem; letter-spacing: 2px; } }
+
+        .masthead-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #475569;
+            margin-top: 6px;
+            border-top: 1px solid var(--text-dark);
+            padding-top: 5px;
+        }
+
+        @media (min-width: 600px) {
+            .masthead-meta { flex-direction: row; justify-content: space-between; }
+        }
+
+        .broadsheet-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.25rem;
+            margin-bottom: 15px;
+            border-bottom: 3px solid var(--text-dark);
+            padding-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .article {
+            background: var(--sheet-bg);
+            padding: 15px;
+            border: 1px solid #cbd5e1;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            scroll-margin-top: 15px;
+        }
+
+        @media (min-width: 600px) { .article { padding: 25px; } }
+
+        .article h3 {
+            font-family: 'Noto Serif Gujarati', serif;
+            font-size: 1.15rem;
+            margin-bottom: 8px;
+            color: #0f172a;
+            line-height: 1.35;
+        }
+
+        @media (min-width: 600px) { .article h3 { font-size: 1.5rem; } }
+
+        .article-meta {
+            font-size: 0.7rem;
+            color: #64748b;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+            border-bottom: 1px dashed #e2e8f0;
+            padding-bottom: 4px;
+        }
+
+        .article-content {
+            font-size: 0.95rem;
+            color: #334155;
+            text-align: justify;
+        }
+
+        @media (min-width: 600px) { .article-content { font-size: 1.02rem; } }
+
+        .article-content p {
+            margin-bottom: 10px;
+            text-indent: 15px;
+            line-height: 1.6;
+        }
+
+        /* Responsive Setup Tables Mobile-friendly */
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            margin: 12px 0;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .article-content table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 450px;
+            font-size: 0.85rem;
+        }
+
+        .article-content th, .article-content td {
+            border: 1px solid #cbd5e1;
+            padding: 8px 10px;
+            text-align: left;
+        }
+
+        .article-content th {
+            background-color: #f1f5f9;
+            color: #0f172a;
+        }
+
+        /* Additional Information Context Box */
+        .additional-edge {
+            background-color: #f8fafc;
+            border-left: 4px solid var(--text-dark);
+            border-right: 1px solid #e2e8f0;
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 12px;
+            margin: 15px 0 8px 0;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .additional-edge h4 {
+            margin: 0 0 6px 0;
+            color: #0f172a;
+            font-size: 0.9rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            margin-top: 12px;
+            background: #1e293b;
+            color: #ffffff;
+            font-size: 0.7rem;
+            padding: 6px 10px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        /* 🚀 FIXED CIRCLE SHORTCUT PANEL */
+        .floating-top-btn {
+            position: fixed;
+            bottom: 15px;
+            right: 15px;
+            width: 40px;
+            height: 40px;
+            background-color: var(--accent);
+            color: var(--bg-dark);
+            border: none;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 99;
+        }
+
+        /* 👑 QUIZ TRIGGER SYSTEM STYLING */
+        .quiz-start-banner {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 15px 0 25px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            text-align: center;
+            box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.3);
+        }
+
+        .quiz-start-banner h2 {
+            font-size: 1.3rem;
+            color: #ffffff;
+            font-family: 'Noto Serif Gujarati', serif;
+        }
+
+        /* 👤 NAME INPUT FORM STYLING */
+        .quiz-name-input-box {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            width: 100%;
+            max-width: 300px;
+            margin: 5px 0;
+        }
+
+        .quiz-name-input-box input {
+            padding: 10px 14px;
+            border-radius: 6px;
+            border: 2px solid #cbd5e1;
+            font-size: 0.95rem;
+            font-family: 'Inter', sans-serif;
+            text-align: center;
+            outline: none;
+        }
+
+        .quiz-name-input-box input:focus {
+            border-color: var(--accent);
+        }
+
+        .btn-quiz-master {
+            background-color: var(--highlight-text);
+            color: #000000;
+            font-size: 1rem;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.2s, background-color 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-quiz-master:hover {
+            transform: scale(1.03);
+            background-color: #fcd34d;
+        }
+
+        /* 📝 QUIZ INTERFACE VIEW PANEL */
+        #quiz-view-panel {
+            display: none;
+            background-color: var(--paper-bg);
+            min-height: 100vh;
+            padding: 20px 10px;
+        }
+
+        @media (min-width: 600px) { #quiz-view-panel { padding: 40px 20px; } }
+
+        .quiz-container {
+            max-width: 750px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 14px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            padding: 20px;
+        }
+
+        @media (min-width: 600px) { .quiz-container { padding: 35px; } }
+
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px dashed var(--border-color);
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+
+        .quiz-header h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            color: var(--bg-dark);
+        }
+
+        .score-box {
+            background: var(--bg-dark);
+            color: var(--highlight-text);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .btn-exit-quiz {
+            background: #64748b;
+            color: #ffffff;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        .btn-exit-quiz:hover { background: #475569; }
+
+        .quiz-card-item {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .quiz-question {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .quiz-options-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .option-item {
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            padding: 12px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .option-item:hover {
+            background: #f1f5f9;
+            border-color: #94a3b8;
+        }
+
+        /* Answer States */
+        .option-item.correct-state {
+            background-color: rgba(16, 185, 129, 0.15) !important;
+            border-color: var(--success) !important;
+            color: #065f46 !important;
+            font-weight: 600;
+        }
+
+        .option-item.correct-state::after {
+            content: " ✓ (સાચો જવાબ)";
+            color: var(--success);
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .option-item.wrong-state {
+            background-color: rgba(244, 63, 94, 0.15) !important;
+            border-color: var(--danger) !important;
+            color: #9f1239 !important;
+        }
+
+        .option-item.wrong-state::after {
+            content: " ✗ (ખોટો જવાબ)";
+            color: var(--danger);
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .option-disabled {
+            pointer-events: none;
+        }
+
+        /* 💡 LIVE EXPLANATION BOX STYLING */
+        .quiz-explanation-box {
+            display: none;
+            background-color: #f0fdf4;
+            border-left: 5px solid var(--success);
+            border-radius: 4px;
+            padding: 15px;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: #166534;
+            line-height: 1.5;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .quiz-explanation-box strong {
+            color: #14532d;
+            text-transform: uppercase;
+        }
+
+        .quiz-action-area {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .btn-next-quiz-step {
+            display: none;
+            background-color: #2563eb;
+            color: white;
+            font-size: 0.9rem;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-next-quiz-step:hover {
+            background-color: #1d4ed8;
+        }
+
+        .quiz-progress-bar {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        /* 📱 WHATSAPP SUBMIT RESULTS CARD SCREEN */
+        #quiz-result-final-pane {
+            display: none;
+            text-align: center;
+            padding: 30px 15px;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        #quiz-result-final-pane h3 {
+            font-family: 'Noto Serif Gujarati', serif;
+            font-size: 1.5rem;
+            color: var(--bg-dark);
+            margin-bottom: 10px;
+        }
+
+        .final-score-display-card {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #2563eb;
+            margin: 15px 0;
+        }
+
+        .btn-submit-whatsapp-final {
+            background-color: #25d366;
+            color: #ffffff;
+            font-size: 1.05rem;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-transform: uppercase;
+            margin-top: 15px;
+        }
+
+        .btn-submit-whatsapp-final:hover {
+            background-color: #20ba56;
+            transform: scale(1.02);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="main-news-page-wrapper">
+        <button class="floating-top-btn" onclick="scrollToDashboard()" title="ડેશબોર્ડ પર જાઓ">↑</button>
+
+        <section class="dashboard-section" id="dashboard">
+            <div class="header-container">
+                <h1 class="main-title">THE MAULIK <span>EXPRESS</span></h1>
+                <div class="meta-info">
+                    Master Exam Ledger & Analytics<br>
+                    તારીખ: <strong>૧૭ જૂન ૨૦૨૬</strong> | કેન્દ્ર: <strong>અમદાવાદ</strong>
+                </div>
+            </div>
+
+            <div class="quiz-start-banner">
+                <h2>📊 આજના કરંટ અફેર્સની લાઈવ ટેસ્ટ આપો (૧૭ જૂન ૨૦૨૬)</h2>
+                <div class="quiz-name-input-box">
+                    <input type="text" id="user-quiz-reg-name" placeholder="અહીં તમારું પૂરું નામ લખો..." autocomplete="off">
+                </div>
+                <button class="btn btn-quiz-master" onclick="switchToQuizMode()">⚡ Start 25 MCQ Quiz</button>
+            </div>
+
+            <h2 class="section-header">મુખ્ય સમાચાર (Main Stories)</h2>
+            <div class="news-grid">
+                <div class="news-card" id="card-m1">
+                    <div>
+                        <h3>REC અને PFC નો મેગા વિલય મંજૂર</h3>
+                        <p>રાષ્ટ્રપતિ દ્રૌપદી મુર્મુજી દ્વારા કંપની એક્ટ ૨૦૧૩ હેઠળ ઔપચારિક સ્વીકૃતિ. વિલય બાદ સંયુક્ત લોન બુક ₹10.8 લાખ કરોડને વટાવી જશે.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('m1')">🃏 Flash Card</button>
+                        <a href="#art-m1" class="btn btn-detail" onclick="focusDetail('card-m1')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-m2">
+                    <div>
+                        <h3>વર્લ્ડ બેંક: ભારતનો ગ્રોથ રેટ 6.6% અંદાજાયો</h3>
+                        <p>ગ્લોબલ ઈકોનોમિક પ્રોસ્પેક્ટ્સ જૂન રિપોર્ટ જાહેર. ચાલુ નાણાકીય વર્ષ માટે ભારતના જીડીપી ગ્રોથ ટાર્ગેટમાં વધારો, વૈશ્વિક સરેરાશ ૨.૫% રહેશે.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('m2')">🃏 Flash Card</button>
+                        <a href="#art-m2" class="btn btn-detail" onclick="focusDetail('card-m2')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-m3">
+                    <div>
+                        <h3>NPPA: કેન્સરની દવાઓના ભાવોમાં 50% વધારો</h3>
+                        <p>કીમોથેરાપી માટે અતિ ઉપયોગી સિસ્પ્લેટિન અને કાર્બોપ્લેટિન ડ્રગ્સના સીલિંગ પ્રાઈસમાં ડ્રગ્સ ઓર્ડર ૨૦૧૩ હેઠળ વન-ટાઇમ વધારો મંજૂર.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('m3')">🃏 Flash Card</button>
+                        <a href="#art-m3" class="btn btn-detail" onclick="focusDetail('card-m3')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-m4">
+                    <div>
+                        <h3>વૈશ્વિક શાંતિ સૂચકાંક ૨૦૨૬ જાહેર</h3>
+                        <p>ગ્લોબલ પીસ ઇન્ડેક્સમાં ભારત ૧૨૭મા સ્ถาને. વિશ્વમાં બીજા વિશ્વયુદ્ધ પછીના સૌથી વધુ સક્રિય ૫૬ સંઘર્ષો કાર્યરત, આઇસલેન્ડ ટોપ પર.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('m4')">🃏 Flash Card</button>
+                        <a href="#art-m4" class="btn btn-detail" onclick="focusDetail('card-m4')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-m5">
+                    <div>
+                        <h3>MoRTH ભારત માર્ગ અકસ્માત વાર્ષિક રિપોર્ટ</h3>
+                        <p>દેશમાં કુલ ૪.૮૭ લાખ અકસ્માતોમાં ૧.૭૭ લાખ નાગરિકોના કરુણ મોત. તમિલનાડુ અકસ્માતોમાં અને ઉત્તર પ્રદેશ મૃત્યુઆંકમાં મોખરે.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('m5')">🃏 Flash Card</button>
+                        <a href="#art-m5" class="btn btn-detail" onclick="focusDetail('card-m5')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-m6">
+                    <div>
+                        <h3>એલોન મસ્ક વિશ્વના પ્રથમ ટ્રિલિયોનેર બન્યા</h3>
+                        <p>સ્પેસએક્સ (SpaceX) ના ઐતિહાસિક આઈપીઓ (IPO) લોન્ચિંગે બજારમાં ધૂમ મચાવી. ઓન-પેપર નેટવર્થ રેકોર્ડ સ્તરે પહોંચી.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('m6')">🃏 Flash Card</button>
+                        <a href="#art-m6" class="btn btn-detail" onclick="focusDetail('card-m6')">📰 Detailed</a>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="section-header">એક્ઝિક્યુટિવ બ્રીફિંગ્સ (Executive Briefings)</h2>
+            <div class="news-grid">
+                <div class="news-card" id="card-b1">
+                    <div>
+                        <h3>ટેલિગ્રામ બંધ: વૉટ્સએપ ચેનલ ટ્રાન્ઝિશન</h3>
+                        <p>દેશભરમાં ૨૨મી જૂન સુધી ટેલિગ્રામ સેવાઓ ખોરવાઈ. પિરામિડ પ્રાઇવસી સાથે વન-વે વૉટ્સએપ ચેનલ કનેક્ટિવિટી શરૂ.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b1')">🃏 Flash Card</button>
+                        <a href="#art-b1" class="btn btn-detail" onclick="focusDetail('card-b1')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b2">
+                    <div>
+                        <h3>MNIT જયપુરને 'સેમીવર્સ પ્લેટફોર્મ' નો એક્સેસ</h3>
+                        <p>કેન્દ્રીય મંત્રી અશ્વિની વૈષ્ણવની જાહેરાત. લેમ રિસર્ચ દ્વારા સેમિકન્ડક્ટર ડિઝાઈનિંગ અને 3D વર્ચ્યુઅલ ટ્રેનિંગ ઇકોસિસ્ટમ અપાશે.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b2')">🃏 Flash Card</button>
+                        <a href="#art-b2" class="btn btn-detail" onclick="focusDetail('card-b2')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b3">
+                    <div>
+                        <h3>ઇન-સ્પેસ: સ્પેસ Startups ફંડિંગ મંજૂર</h3>
+                        <p>ટેક્નોલોજી એડોપ્શન સ્કીમ (TAF) હેઠળ ૩ પ્રમુખ ભારતીય સ્પેસ સ્ટાર્ટઅપ્સને મહત્તમ ૨૫ કરોડ સુધીની સહાય ફાળવાશે.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b3')">🃏 Flash Card</button>
+                        <a href="#art-b3" class="btn btn-detail" onclick="focusDetail('card-b3')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b4">
+                    <div>
+                        <h3>IIT મદ્રાસ: 'ANCHOR' બ્રેઈન એટલસ રજૂ</h3>
+                        <p>માનવ મગજના સ્ટેમ ન્યુક્લીઆઈ અને ફાઈબર ટ્રેક્સનું સુધા ગોપાલકૃષ્ણન બ્રેઈન સેન્ટર દ્વારા એમઆરઆઈથી ૧૦૦૦ ગણું હાઈ-રેઝોલ્યુશન મેપિંગ.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b4')">🃏 Flash Card</button>
+                        <a href="#art-b4" class="btn btn-detail" onclick="focusDetail('card-b4')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b5">
+                    <div>
+                        <h3>NLCIL અને CSIR-CECRI વચ્ચે વ્યાપારી કરાર</h3>
+                        <p>માઇનિંગ વેસ્ટ સામગ્રીમાંથી રેર અર્થ એલિમેન્ટ્સ (REE) અને ક્રિટિકલ મિનરલ્સ એક્સટ્રેક્શન માટે તમિલનાડુમાં સંયુક્ત ઓપરેશન.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b5')">🃏 Flash Card</button>
+                        <a href="#art-b5" class="btn btn-detail" onclick="focusDetail('card-b5')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b6">
+                    <div>
+                        <h3>સંજય લોહિયા RBI અને SBI બોર્ડમાં નિયુક્ત</h3>
+                        <p>DFS સેક્રેટરી સંજય લોહિયા કેન્દ્ર સરકારના સત્તાવાર નોમિનેટેડ ડિરેક્ટર બન્યા. નાગાજ્જુ (M. Nagaraju) નું સ્થાન લેશે.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b6')">🃏 Flash Card</button>
+                        <a href="#art-b6" class="btn btn-detail" onclick="focusDetail('card-b6')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b7">
+                    <div>
+                        <h3>થાઇલેન્ડના પ્રિન્સેસ બજ્રકિતિયાભાનું અવસાન</h3>
+                        <p>લાંબા સમય સુધી કોમામાં રહ્યા બાદ thાઈ રાજકુમારીનું નિધન. આંતરરાષ્ટ્રીય સ્તરે મહિલા કેદીઓ માટેના બેંગકોક રૂલ્સના તેઓ ચેમ્પિયન હતા.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b7')">🃏 Flash Card</button>
+                        <a href="#art-b7" class="btn btn-detail" onclick="focusDetail('card-b7')">📰 Detailed</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="broadsheet-section">
+            <div class="masthead">
+                <h2>THE MAULIK EXPRESS</h2>
+                <div class="masthead-meta">
+                    <span>VOL. II NO. 17 (EXAMINATION SPECIAL)</span>
+                    <span>અમદાવાદ, બુધવાર, ૧૭ જૂન ૨૦૨૬</span>
+                    <span>કિંમત: ₹ ૫.૦૦</span>
+                </div>
+            </div>
+
+            <div class="broadsheet-grid-wrapper">
+                <h3 class="broadsheet-title">મુખ્ય સમાચાર વિગતવાર (Main Stories Detail)</h3>
+
+                <article class="article" id="art-m1">
+                    <div class="article-meta">કોર્પોરેટ વિલય • પાવર સેક્ટર ફાઇનાન્સ</div>
+                    <h3>૧. રાષ્ટ્રપતિ દ્રૌપદી મુર્મુજીએ REC લિમિટેડના પાવર ફાઇનાન્સ કોર્પોરેશન (PFC) માં વિલીનીકરણને આપી સત્તાવાર મંજૂરી</h3>
+                    <div class="article-content">
+                        <p>પાવર સેક્ટરના ધિરાણ ક્ષેત્રે દેશના કોર્પોરેટ ઇતિહાસનું એક સૌથી મોટું એકત્રીકરણ આખરે સંપન્ન થવા જઈ રહ્યું છે. રાષ્ટ્રપતિ દ્રૌપદી મુર્મુજીએ <span class="hl-yellow">ગ્રામીણ વિદ્યુતીકરણ કોર્પોરેશન (REC લિમિટેડ)</span> ના <span class="hl-yellow">પાવર ફાઇનાન્સ કોર્પોરેશન (PFC)</span> માં મર્જરને સત્તાવાર રીતે મંજૂરી આપી દીધી છે. આ સમગ્ર મર્જર પ્રક્રિયા કંપની અધિનિયમ ૨૦૧૩ ની <span class="hl-yellow">કલમ ૨૩૦ થી ૨૩૨ (Section 230-232)</span> ના કાનૂની દાયરા હેઠળ આખરી ઓપ પામશે.</p>
+                        <p>આ વિલીનીકરણ પૂર્ણ થયા પછી બંને નાણાકીય સંસ્થાઓની સંયુક્ત લોન બુક (Combined Loan Book) <span class="hl-yellow">૧૦.૮ લાખ કરોડ રૂપિયા (₹10.8 Lakh Crore)</span> ને પાર થઈ જશે. લોન બુક એટલે કે બંને સંસ્થાઓ દ્વારા અત્યાર સુધી પાવર, એનર્જી અને ઇન્ફ્રાસ્ટ્રક્ચર ક્ષેત્રે આપવામાં આવેલું કુલ ધિરાણ. આ વિશાળ ભંડોળ સંસ્થાને રાષ્ટ્રીય સ્તરે ઊર્જા ક્ષેત્રે મોનોપોલી અને વિશાળ મૂડી પાયો પૂરો પાડશે.</p>
+                        <p>આ વિલયની પૃષ્ઠભૂમિ ૭ વર્ષ જૂની છે, જ્યારે માર્ચ ૨૦૧૯ માં પાવર ફાઇનાન્સ કોર્પોરેશન (PFC) એ ભારત સરકાર પાસેથી આરઈસી (REC) નો <span class="hl-yellow">૫૨.૬૩% હિસ્સો ૧૪,૫૦૦ કરોડ રૂપિયામાં</span> ખરીદ્યો હતો. તે સમયે આ પ્રક્રિયા માત્ર હિસ્સાનું સંપાદન (Acquisition) હતી, પરંતુ હવે બંનેનું સંપૂર્ણ કાનૂની જોડાણ થતાં REC લિમિટેડનું અસ્તિત્વ સમાપ્ત થશે અને માત્ર પીએફસી (PFC) બ્રાન્ડ જ કાર્યરત રહેશે.</p>
+
+                        <div class="additional-edge">
+                            <h4>📌 Additional Edge: Strategic Financial Impact</h4>
+                            • <strong>લોન બુકનો અર્થ:</strong> આઈબીપીએસ પ્રમોશનલ તેમજ યુપીએસસી મેઈન્સ ઇકોનોમી માટે ખાસ - લોન બુક એ કોઈ પણ બેંક કે NBFC દ્વારા બજારમાં ફાળવેલ કુલ જીવંત લોન એસેટ્સ દર્શાવે છે.<br>
+                            • <strong>મર્જરનો કાનૂની સ્ત્રોત:</strong> કોર્પોરેટ બાબતોના મંત્રાલય હેઠળ નેશનલ કંપની લો ટ્રિબ્યુનલ (NCLT) કંપની એક્ટની કલમ ૨૩૦-૨૩૨ હેઠળ મર્જર સ્કીમોને આખરી મંજૂરી આપે છે.
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-m1')">Back to Dashboard ↑</button>
+                </article>
+
+                <article class="article" id="art-m2">
+                    <div class="article-meta">વૈશ્વિક અર્થતંત્ર • વર્લ્ડ બેંક રિપોર્ટ</div>
+                    <h3>૨. વર્લ્ડ બેંકનો ગ્લોબલ ઇકોનોમિક પ્રોસ્પેક્ટ્સ રિપોર્ટ: ચાલુ નાણાકીય વર્ષ માટે ભારતનો જીડીપી ગ્રોથ રેટ વધારીને 6.6% કરાયો</h3>
+                    <div class="article-content">
+                        <p>વર્લ્ડ બેંક (World Bank) દ્વારા જૂન ૨૦૨૬ નો વૈશ્વિક આર્થિક આઉટલુક રિપોર્ટ <span class="hl-yellow">"Global Economic Prospects"</span> સત્તાવાર રીતે જાહેર કરવામાં આવ્યો છે. આ નવા અહેવાલમાં નાણાકીય વર્ષ ૨૦૨૬-૨૭ (ચાલુ વર્ષ) માટે ભારતનો જીડીપી વૃદ્ધિ દર વધારીને <span class="hl-yellow">૬.૬% (6.6%)</span> રહેવાનો અંદાજ મૂકવામાં આવ્યો છે. આ પૂર્વે જાન્યુઆરીના અહેવાલમાં બેંકે ૬.૫% નો અંદાજ આપ્યો હતો, જ્યારે પાછલા વર્ષોમાં આ પ્રોજેક્શન ૬% આસપાસ હતું.</p>
+                        <p>અહેવાલમાં જણાવ્યા અનુસાર, નાણાકીય વર્ષ ૨૦૨૫-૨૬ માં ભારતે નોંધાવેલા <span class="hl-yellow">૭.૭% ના અંદાજિત જીડીપી વૃદ્ધિ દરની</span> સરખામણીએ આ ૬.૬% નો દર આંશિક ધીમાપણું (Slowdown) દર્શાવે છે. જોકે, આગામી વર્ષો માટે બેંક અત્યંત હકારાત્મક છે અને મજબૂત રીબાઉન્ડ (Rebound) ની અપેક્ષા રાખે છે. આગામી વર્ષોના અંદાજિત ગ્રોથ રેટ આ પ્રમાણે રહેશે:</p>
+                        
+                        <div class="table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>નાણાકીય વર્ષ (Financial Year)</th>
+                                        <th>વર્લ્ડ બેંક જીડીપી ગ્રોથ પ્રોજેક્શન (%)</th>
+                                        <th>સ્થિતિ / આઉટલુક</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>નાણાકીય વર્ષ ૨૦૨૫-૨૬ (FY26)</td>
+                                        <td>7.7%</td>
+                                        <td>ગયા વર્ષની અંદાજિત વાસ્તવિક વૃદ્ધિ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>નાણાકીય વર્ષ ૨૦૨૬-૨૭ (FY27)</td>
+                                        <td><strong class="hl-yellow">6.6%</strong></td>
+                                        <td>ચાલુ જૂન રિપોર્ટનો લેટેસ્ટ અપગ્રેડેડ અંદાજ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>નાણાકીય વર્ષ ૨૦૨૭-૨૮ (FY28)</td>
+                                        <td><strong class="hl-yellow">7.2%</strong></td>
+                                        <td>વિકાસમાં મજબૂત રિકવરી / રીબાઉન્ડ અપેક્ષા</td>
+                                    </tr>
+                                    <tr>
+                                        <td>નાણાકીય વર્ષ ૨૦૨应用-૨૯ (FY29)</td>
+                                        <td><strong class="hl-yellow">7.0%</strong></td>
+                                        <td>સતત સ્થિર આર્થિક ગતિશીલતા</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p>વૈશ્વિક સ્તરે, વર્લ્ડ બેંકે સમગ્ર વિશ્વની આર્થિક વૃદ્ધિનો દર <span class="hl-yellow">૨.૫% (2.5%)</span> પર સીમિત રહેવાની આગાહી કરી છે. અર્થતંત્રો પર ફુગાવો અને ઊંચા વ્યાજદરોના દબાણને લીધે વૈશ્વિક સ્તરે આ સ્થિરતા જોવા મળી રહી છે.</p>
+
+                        <div class="additional-edge">
+                            <h4>📌 Additional Edge: Examination Alert on Data Validity</h4>
+                            • <strong>ડેટાની સમયસીમા:</strong> પરીક્ષાના દ્રષ્ટિકોણથી ખાસ ધ્યાનમાં રાખવું કે આ જૂન મહિનાનો અહેવાલ છે. જો તમારી મુખ્ય પરીક્ષા પહેલા વર્લ્ડ બેંક અન્ય કોઈ નવો ફ્લેશ રિપોર્ટ બહાર પાડે, તો આ જૂનનો ડેટા રદબાતલ (Null & Void) ગણાશે.
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-m2')">Back to Dashboard ↑</button>
+                </article>
+
+                <article class="article" id="art-m3">
+                    <div class="article-meta">ફાર્માસ્યુટિકલ પ્રાઇસિંગ • હેલ્થકેર કાયદો</div>
+                    <h3>૩. NPPA એ કીમોથેરાપી દવાઓ સિસ્પ્લેટિન અને કાર્બોપ્લેટિનના મહત્તમ ભાવોમાં વન-ટાઇમ 50% નો વધારો મંજૂર કર્યો</h3>
+                    <div class="article-content">
+                        <p>દેશમાં જીવનરક્ષક દવાઓનું નિયમન કરતી સંસ્થા <span class="hl-yellow">નેશનલ ફાર્માસ્યુટિકલ પ્રાઇસિંગ ઓથોરિટી (NPPA)</span> એ કેન્સરની કીમોથેરાપી સારવારમાં અનિવાર્ય ગણાતી બે મુખ્ય દવાઓ - <span class="hl-yellow">સિસ્પ્લેટિન (Cisplatin)</span> અને <span class="hl-yellow">કાર્બોપ્લેટિન (Carboplatin)</span> ની સીલિંગ પ્રાઈસ (મહત્તમ કિંમત) માં ૫૦% નો મોટો વધારો મંજૂર કર્યો છે, જે જૂન ૨૦૨૬ થી અમલી બનશે.</p>
+                        <p>આ ફાર્માસ્યુટિકલ નીતિગત ફેરફાર ડ્રગ્સ પ્રાઇસીસ કંટ્રોલ ઓર્ડર (DPCO) ૨૦૧૩ ના <span class="hl-yellow">પેરેગ્રાફ ૧૯ (Paragraph 19)</span> હેઠળ આપવામાં આવેલી અસાધારણ સત્તાઓનો ઉપયોગ કરીને કરવામાં આવ્યો છે. બજારમાં કાચા માલની કિંમતો વધવાને કારણે દવાઓનો સપ્લાય ખોરવાય નહીં તે હેતુથી આ નિર્ણય લેવાયો છે. કિંમતોનું નવું માળખું નીચે મુજબ છે:</p>
+                        
+                        <div class="table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>કેન્સર ડ્રગનું સત્તાવાર નામ</th>
+                                        <th>جૂની મૂળ કિંમત (પ્રતિ મિલીલીટર)</th>
+                                        <th>નવી મંજૂર સીલિંગ પ્રાઈસ (પ્રતિ મિલીલીટર)</th>
+                                        <th>લાગુ થવાનો સમયગાળો</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>સિસ્પ્લેટિન (Cisplatin)</td>
+                                        <td>₹7.26</td>
+                                        <td><strong class="hl-yellow">₹10.89 / ml</strong></td>
+                                        <td>જૂન ૨૦૨૬ થી અસરકારક</td>
+                                    </tr>
+                                    <tr>
+                                        <td>કાર્બોપ્લેટિન (Carboplatin)</td>
+                                        <td>₹60.49</td>
+                                        <td><strong class="hl-yellow">₹90.74 / ml</strong></td>
+                                        <td>જૂન ૨૦૨૬ થી અસરકારક</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="additional-edge">
+                            <h4>📌 Additional Edge: DPCO Paragraph 19 Powers</h4>
+                            • <strong>પેરેગ્રાફ ૧૯ શું છે?:</strong> આ કલમ સરકારને અસાધારણ અથવા ઇમરજન્સી પરિસ્થિતિઓમાં જનહિતને ધ્યાનમાં રાખીને કોઈપણ આવશ્યક દવાની કિંમતોમાં નિયત મર્યાદાથી બહાર જઈને ફેરફાર કરવાની કાનૂની છૂટ આપે છે.
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-m3')">Back to Dashboard ↑</button>
+                </article>
+
+                <article class="article" id="art-m4">
+                    <div class="article-meta">આંતરરાષ્ટ્રીય સુરક્ષા • ગ્લોબલ ઇન્ડેક્સ</div>
+                    <h3>૪. ગ્લોબલ પીસ ઇન્ડેક્સ ૨૦૨૬: વિશ્વમાં રેકોર્ડબ્રેક ૫૬ એક્ટિવ સંઘર્ષો કાર્યરત, ભારત ૧૨૭મા રેન્ક પર સરક્યું</h3>
+                    <div class="article-content">
+                        <p>ઇન્સ્ટિટ્યુટ ફોર ઇકોનોમિક્સ એન્ડ પીસ દ્વારા <span class="hl-yellow">વૈશ્વિક શાંતિ સૂચકાંક ૨૦૨૬ (Global Peace Index 2026)</span> બહાર પાડવામાં આવ્યો છે, જે વિશ્વના ૧૬૩ દેશોની ૯૯% વસ્તીની સલામતીનું મૂલ્યાંકન કરે છે. આ વર્ષના અહેવાલમાં અત્યંત ગંભીર ખુલાસો થયો છે કે હાલમાં વિશ્વભરમાં કુલ <span class="hl-yellow">૫૬ સક્રિય સશસ્ત્ર સંઘર્ષો (Active Conflicts)</span> ચાલી રહ્યા છે, જે દ્વિતીય વિશ્વયુદ્ધ પછીનો સૌથી મોટો આંકડો છે.</p>
+                        <p>આ સૂચકાંકમાં ભારત ચાલુ વર્ષે <span class="hl-yellow">૧૨૭મા (127th)</span> સ્થાન પર પહોંચ્યું છે, જે પાછલા વર્ષના ૧૧૫મા સ્થાનની સરખામણીએ આંશિક ઘટાડો દર્શાવે છે. આ આકલન મુખ્યત્વે <span class="hl-yellow">૩ મુખ્ય ક્ષેત્રો (Domains)</span> ના આધારે કુલ ૨૩ વિશિષ્ટ ઇન્ડિકેટર્સને ટ્રેક કરીને કરવામાં આવ્યું છે:</p>
+                        <ul>
+                            <li>૧. સામાજિક સુરક્ષા અને સલામતીનું સ્તર (Societal Safety and Security)</li>
+                            <li>૨. ચાલુ સ્થાનિક અને આંતરરાષ્ટ્રીય સંઘર્ષો (Ongoing Domestic and International Conflict)</li>
+                            <li>૩. સૈન્યીકરણનું સ્તર (Militarization)</li>
+                        </ul>
+                        <p>રેન્કિંગ ચાર્ટમાં યુરોપિયન દેશ <span class="hl-yellow">આઇસલેન્ડ (Iceland)</span> વિશ્વનો સૌથી શાંતિપ્રિય દેશ તરીકે પ્રથમ ક્રમે યથાવત રહ્યો છે, જ્યારે ન્યુઝીલેન્ડ અને સ્વિટ્ઝર્લેન્ડ અનુક્રમે આગામી સ્થાનો પર છે. બીજી તરફ, રશિયા, યુક્રેન, સુدان અને ઇઝરાયેલ યુદ્ધ અને હિંસાના કારણે ઇન્ડેક્સમાં સૌથી નીચે બોટમ પર છે. પોલેન્ડે વૈશ્વિક સ્તરે પોતાના શાંતિ સ્તરમાં સૌથી મોટો આંકડાકીય સુધારો નોંધાવ્યો છે.</p>
+
+                        <div class="additional-edge">
+                            <h4>📌 Additional Edge: Deep UPSC Prelims Focus</h4>
+                            • <strong>પરીક્ષા લક્ષી કેન્દ્રીય બિંદુ:</strong> વર્તમાન ટ્રેન્ડ મુજબ પરીક્ષકો હવે રેન્કિંગના બદલે તેના 'Domains' એટલે કે કયા મુખ્ય આધારો પર ઇન્ડેક્સ તૈયાર થાય છે તે પૂછે છે, તેથી ઉપર દર્શાવેલા ત્રણ ડોમેન્સ ખાસ પાકા કરવા.
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-m4')">Back to Dashboard ↑</button>
+                </article>
+
+                <article class="article" id="art-m5">
+                    <div class="article-meta">રાષ્ટ્રીય ડેટા એનાલિટિક્સ • સેફ્ટી ઓડિટ</div>
+                    <h3>૫. માર્ગ પરિવહન અને રાજમાર્ગ મંત્રાલયે જાહેર કર્યો સત્તાવાર અહેવાલ: દેશમાં દર ૩ મિનિટે માર્ગ અકસ્માતમાં ૧ મોત</h3>
+                    <div class="article-content">
+                        <p>કેન્દ્રીય માર્ગ પરિવહન અને રાજમાર્ગ મંત્રાલય (MoRTH) દ્વારા ભારતમાં માર્ગ અકસ્માતો અંગેનો વાર્ષિક સત્તાવાર ડેટા રિપોર્ટ ૧૧ જૂન ૨૦૨૬ ના રોજ રીલીઝ કરાયો છે. આ ગંભીર અહેવાલ મુજબ પાછલા વર્ષ દરમિયાન ભારતમાં કુલ <span class="hl-yellow">૪,૮૭,૭૦૭ માર્ગ અકસ્માતો</span> સર્જાયા હતા, જેમાં રેકોર્ડબ્રેક <span class="hl-yellow">૧,૭૭,૧૭૫ નાગરિકોના કરુણ મોત</span> નીપજ્યા છે અને ૪.૪ લાખથી વધુ લોકો ગંભીર ઈજાગ્રસ્ત થયા છે.</p>
+                        <p>અહેવાલનું વિગતવાર સાંખ્યિકીય પૃથ્થકરણ અકસ્માતોની ભયાનકતા દર્શાવે છે:</p>
+                        <ul>
+                            <li><strong>ટાઇમલાઇન રેશિયો:</strong> દેશમાં દર ૧ કલાકે ૨૦ લોકો અકસ્માતમાં જીવ ગુમાવે છે અને દર ૩ મિનિટે સરેરાશ ૧ ડેથ થાય છે. ૧ કલાકમાં સરેરાશ ૫૬ અકસ્માતો બને છે.</li>
+                            <li><strong>વાહનનો પ્રકાર:</strong> સૌથી વધુ અકસ્માતનો ભોગ <span class="hl-yellow">ટુ-વ્હીલર સવારો (46.2%)</span> બન્યા છે, જ્યારે પગપાળા ચાલતા રાહદારીઓનો હિસ્સો ૨૦.૬% છે.</li>
+                            <li><strong>વય જૂધ અને સ્પીડ:</strong> અકસ્માતમાં જીવ ગુમાવનારાઓમાં ૧૮ થી ૪૫ વર્ષના યુવાનોનું પ્રમાણ ૬૬% છે. કુલ અકસ્માતોમાંથી ૭૦% માત્ર <span class="hl-yellow">ઓવર-સ્પીડિંગ (Over-Speeding)</span> ના કારણે થયા છે.</li>
+                            <li><strong>રાજ્યવાર વર્ગીકરણ:</strong> સૌથી વધુ અકસ્માતો <span class="hl-yellow">તમિલનાડુ (67,000+)</span> માં નોંધાયા છે, જ્યારે સૌથી વધુ ફેટાલિટીઝ (મૃત્યુઆંક) <span class="hl-yellow">ઉત્તર પ્રદેશમાં</span> નોંધાયો છે. ગુજરાત, હરિયાણા અને પંજાબ સહિત ૯ રાજ્યોમાં ઘટાડો નોંધાયો છે.</li>
+                        </ul>
+                        <p>સરકારે આ પડકારને ડામવા માટે <span class="hl-yellow">'4E Strategy'</span> અમલી બનાવી છે, જેમાં Education, Engineering, Enforcement અને Emergency Care નો સમાવેશ થાય છે. Emergency Care હેઠળ રાહવીર યોજના જેવી કટોકટીમાં અકસ્માત પીડિતોને ₹1.5 લાખ સુધીની મફત કેશલેસ સારવાર અપાય છે.</p>
+
+                        <div class="additional-edge">
+                            <h4>📌 Additional Edge: Analytical Policy Framework</h4>
+                            • <strong>મેક ઇન ઇન્ડિયા કાર સેફ્ટી:</strong> ઓટોમોબાઈલ ક્ષેત્રે અકસ્માતો દરમિયાન સુરક્ષા માપવા માટે ભારત સરકારે 'Bharat NCAP' (New Car Assessment Program) લોન્ચ કર્યું છે, જે વાહનોને ક્રેશ ટેસ્ટિંગના આધારે સેફ્ટી સ્ટાર રેટિંગ્સ આપે છે.
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-m5')">Back to Dashboard ↑</button>
+                </article>
+
+                <article class="article" id="art-m6">
+                    <div class="article-meta">ગ્લોબલ ફાઇનાન્સિયલ માર્કેટ • ઇક્વિટી વેલ્યુએશન</div>
+                    <h3>૬. સ્પેસએક્સ (SpaceX) ના હિસ્ટોરિક પબ્લિક IPO લોન્ચિંગે રચ્યો ઇતિહાસ: એલોન મસ્ક ઓન-પેપર વિશ્વના પ્રથમ ટ્રિલિયોનેર બન્યા</h3>
+                    <div class="article-content">
+                        <p>એલોન મસ્કની ખાનગી એરોસ્પેસ કંપની <span class="hl-yellow">સ્પેસએક્સ (SpaceX)</span> એ વૈશ્વિક નાણાકીય બજારના ઇતિહાસનો સૌથી મોટો પ્રારંભિક પબ્લિક ઓફરિંગ (IPO) લોન્ચ કરીને નવો કોર્પોરેટ ઇતિહાસ રચી દીધો છે. આ મેગા આઈપીઓ આવતાની સાથે જ સ્પેસએક્સનું માર્કેટ વેલ્યુએશન ૧.7૭ ટ્રિલિયનથી વધીને ૨.૨ ટ્રિલિયન ડોલર આસપાસ આંકવામાં આવ્યું છે. આ અસાધારણ ઇક્વિટી તેજીના લીધે એલોન મસ્ક ઓન-પેપર વિશ્વના સર્વપ્રથમ <span class="hl-yellow">'ટྲિલિયોનેર' (Trillionaire)</span> બન્યા છે, જેમની કુલ નેટવર્થ <span class="hl-yellow">૧.૧૧ ટ્રિલિયન ડોલર</span> નોંધાઈ છે.</p>
+                        <p>શેરબજારના સત્તાવાર ટ્રેડિંગ ડેટા અનુસાર, સ્પેસએક્સ કંપનીનો શેર ૧૩૫ ડોલરની બેઝ પ્રાઈસ સામે બજારમાં ૧૫૦ ડોલર પર લિસ્ટ થયો હતો અને જોતજોતામાં <span class="hl-yellow">૧૬૧ ડોલરની રેકોર્ડ સપાટી પર</span> પહોંચી ગયો હતો. એલોન મસ્ક આ કંપનીમાં આશરે ૪૦% થી ૪૨% નો પર્સનલ ઇક્વિટી હિસ્સો ધરાવે છે, જે મૂલ્યની દ્રષ્ટિએ માત્ર શેર્સના સ્વરૂપમાં જ ૭૬૦ બિલિયન ડોલર થાય છે.</p>
+                        <p>જો કે, નાણાકીય નિષ્ણાતોએ સ્પષ્ટ કર્યું છે કે મસ્કની આ ટ્રિલિયન ડોલરની સંપત્તિ અત્યંત <span class="hl-yellow">'ઇલિક્વિડ' (Highly Illiquid)</span> સ્વરૂપની છે. ઇલિક્વિડ એટલે કે આ સંપત્તિ શેર્સના માર્કેટ ભાવ પર આધારિત હોવાથી તેને તાત્કાલિક રોકડ (Cash) માં ફેરવી શકાતી નથી. તેમના ફોર્ચ્યુનનો ૬૫% થી ૭૦% હિસ્સો માત્ર સ્પેસએક્સ અને તેમની નવી આર્ટિફિશિયલ ઇન્ટેલિજન્સ ફર્મ XAI ના હોલ્ડિંગમાંથી જ આવે છે.</p>
+
+                        <div class="additional-edge">
+                            <h4>📌 Additional Edge: Net Worth Concept & Adani Corporate History</h4>
+                            • <strong>નેટવર્થની ગણતરી:</strong> નેટવર્થ એટલે કોઈ પણ વ્યક્તિ કે કોર્પોરેટની કુલ માલિકીની સંપત્તિ (Assets) માંથી તેની કુલ ઉધારી કે દેવું (Liabilities) બાદ કરતાં બચેલી ચોખ્ખી રકમ. ભૂતકાળમાં અદાણી ગ્રુપના શેરો વધવાને કારણે ગૌતમ અદાણી પણ અંબાણીને પાછળ છોડી એશિયાના સૌથી અમીર વ્યક્તિ બન્યા હતા, જે સંપત્તિની માર્કેટ ઇક્વિટી આધારિત મુવમેન્ટ દર્શાવે છે.
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-m6')">Back to Dashboard ↑</button>
+                </article>
+
+                <h3 class="broadsheet-title" style="margin-top: 30px;">એક્ઝિક્યુટિવ બ્રીફિંગ્સ વિગતવાર (Executive Briefings Detail)</h3>
+
+                <div class="article" id="art-b1">
+                    <div class="article-meta">ઇન્ટરનલ કોમ્યુનિકેશન • પ્રાઇવસી પ્રોટોકોલ</div>
+                    <h3>૧. દેશમાં ટેલિગ્રામ સેવાઓ કામચલાઉ ધોરણે ઠપ્પ: વિદ્યાર્થીઓ માટે વૉટ્સએપ ચેનલ લિંક ટ્રાન્ઝિશન જાહેર</h3>
+                    <div class="article-content">
+                        <p>દેશભરમાં ટેલિગ્રામ એપ્લિકેશન અને તેના સર્વર્સમાં અચાનક ટેકનિકલ અવરોધ આવવાને કારણે આગામી <span class="hl-yellow">૨૨મી જૂન સુધી ટેલિગ્રામ સેવાઓ સંપૂર્ણ કે આંશિક રીતે બંધ</span> થઈ ચૂકી છે. આ કમ્યુનિકેશન કટોકટીને લીધે વિદ્યાર્થીઓની ડેઇલી ક્લાસ અપડેટ્સ કે પીડીએફ સામગ્રી મિસ ન થાય તે માટે વૈકલ્પિક વ્યવસ્થા તરીકે સત્તાવાર વૉટ્સએપ ચેનલ (WhatsApp Channel) લોન્ચ કરવામાં આવી છે.</p>
+                        <p>સ્પષ્ટતા કરવામાં આવી છે કે આ વૉટ્સએપ ગ્રુપ નથી પરંતુ ટેલિગ્રામની જેમ જ 'વન-વે ચેનલ' (One-Way Broadcast) છે. આ સિસ્ટમમાં જોડાનારા વિદ્યાર્થીઓ એકબીજાના મોબાઈલ નંબર, પ્રોફાઇલ પિક્ચર કે અન્ય વિગતો જોઈ શકતા નથી, જે ૧૦૦% પિરામિડ પ્રાઇવસી અને સુરક્ષા પ્રદાન કરે છે. જો લિંક સીધી ઓપન ન થાય, તો મોબાઈલની સેન્ટ્રલ સેટિંગ્સમાં જઈને 'Default Browser App' ચેન્જ કરવાથી લિંક સીધી વૉટ્સએપ એપ્લિકેશનમાં ઓપન થઈ જશે. આગામી ૨૨ તારીખ સુધી તમામ પીડીએફ અને વિડિયો લિંક્સ આ ચેનલ પર જ ઉપલબ્ધ કરાશે.</p>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b1')">Back to Dashboard ↑</button>
+                </div>
+
+                <div class="article" id="art-b2">
+                    <div class="article-meta">સેમિકન્ડક્ટર ટેકનોલોજી • હાઇટેક એકેડેમિક ટ્રેનિંગ</div>
+                    <h3>૨. કેન્દ્રીય મંત્રી અશ્વિની વૈષ્ણવની મોટી જાહેરાત: MNIT જયપુરને મળશે લેમ રિસર્ચના 'સેમીવર્સ પ્લેટફોર્મ' નો સીધો એક્સેસ</h3>
+                    <div class="article-content">
+                        <p>કેન્દ્રીય આઇટી અને ટેલિકોમ મંત્રી અશ્વિની વૈષ્ણવ દ્વારા સેમિકન્ડક્ટર ક્ષેત્રે દેશના યુવાનોને આત્મનિર્ભર બનાવવા માટે એક મહત્વપૂર્ણ જાહેરાત કરવામાં આવી છે. રાજસ્થાનના જયપુરમાં આવેલી પ્રખ્યાત <span class="hl-yellow">માલવીય નેશનલ ઇન્સ્ટિટ્યૂટ ઓફ ટેક્નોલોજી (MNIT Jaipur)</span> ને હવે લેમ રિસર્ચ કંપનીના વિશ્વપ્રસિદ્ધ <span class="hl-yellow">'સેમીવર્સ પ્લેટફોર્મ' (Lam Research Semiverse Platform)</span> નો સીધો એક્સેસ પ્રદાન કરવામાં આવશે.</p>
+                        <p>આ સેમીવર્સ પ્લેટફોર્મ એ માત્ર સામાન્ય સોફ્ટવેર નથી, પરંતુ તે એક અત્યાધુનિક સેમિકન્ડક્ટર ફેબ્રિકેશન પ્લાન્ટ ડિજિટલ ટ્વીન (Digital Twin) અને ટ્રેનિંગ ઇકોસિસ્ટમ છે. આ પ્લેટફોર્મની મદદથી એન્જિનિયરિંગના વિદ્યાર્થીઓ વાસ્તવિક ચિપ મેન્યુફેક્ચરિંગ કેવી રીતે થાય છે તેનું <span class="hl-yellow">3D વિઝ્યુઅલાઈઝેશન અને મેન્યુફેક્ચરિંગ સિમુલેશન</span> વર્ચ્યુઅલ ફોર્મમાં લાઈવ શીખી શકશે. ચિપ સ્ટેક્ટરની આ પ્રકારની હાઇટેક પ્રેક્ટિકલ ટ્રેનિંગ મેળવનાર MNIT દેશની અગ્રણી સંસ્થા બનશે.</p>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b2')">Back to Dashboard ↑</button>
+                </div>
+
+                <div class="article" id="art-b3">
+                    <div class="article-meta">ઇન-સ્પેસ એલોકેશન • સ્પેસ ઇનોવેશન ફંડિંગ</div>
+                    <h3>૩. ટેક્નોલોજી એડોપ્શન સ્કીમ (TAF) હેઠળ ઇન-સ્પેસ (In-Space) દ્વારા દેશના ૩ પ્રમુખ સ્પેસ સ્ટાર્ટઅપ્સને કરોડોનું ફંડિંગ મંજૂર</h3>
+                    <div class="article-content">
+                        <p>ભારતીય રાષ્ટ્રીય અવકાશ પ્રવર્ધન અને અધિકૃતતા કેન્દ્ર (In-Space) એ તેની ફ્લેગશિપ યોજના <span class="hl-yellow">ટેક્નોલોજી એડોપ્શન સ્કીમ - ટૅફ (TAF - Technology Adoption Scheme)</span> હેઠળ ભંડોળ મેળવવા માટે દેશના પ્રથમ ૩ અગ્રણી ભારતીય સ્પેસ સ્ટાર્ટઅપ્સની સત્તાવાર પસંદગી કરી છે. આ યોજના હેઠળ પસંદ થયેલી કંપનીઓ અને તેમના વિશિષ્ટ પ્રોજેક્ટ્સની વિગતો નીચે મુજબ છે:</p>
+                        <ol>
+                            <li><strong>એસ્ટ્રો બેઝ સ્પેસ ટેક્નોલોજીસ (બેંગલુરુ):</strong> આ કંપની અવકાશ મિશનો માટે અત્યંત શક્તિશાળી 800 KN હાઈ-થ્રસ્ટ ક્લોઝ્ડ સાયકલ લિક્વિડ રોકેટ એન્જિન (Liquid Rocket Engine) નું સ્વદેશી નિર્માણ કરશે.</li>
+                            <li><strong>સેટશોર એનાલિટિક્સ ઇન્ડિયા (બેંગલુરુ):</strong> આ કંપની અવકાશમાંથી પૃથ્વીની સચોટ ભૌગોલિક તસવીરો અને ડેટા મેળવવા માટે <span class="hl-yellow">'ધારિણી' (Dharini)</span> નામનું લાર્જ અર્થ ઓબ્ઝર્વેશન મોડેલ પ્લેટફોર્મ તૈયાર કરશે.</li>
+                            <li><strong>ટીએમ ટુ સ્પેસ ટેક્નોલોજીસ (Take Me To Space - હૈદરાબાદ):</strong> આ કંપની સેટેલાઇટ્સના સચોટ નેવિગેશન માટે આર્ટિફિશિયલ ઇન્ટેલિજન્સ આધારિત 'AI Powered Star Tracker System' વિકસાવશે.</li>
+                        </ol>
+                        <p>નાણાકીય શરતો મુજબ, આ યોજના હેઠળ કોઈપણ સ્ટાર્ટઅપને તેના કુલ પ્રોજેક્ટ ખર્ચના <span class="hl-yellow">મહત્તમ ૬૦% (60%) સુધી અથવા વધુમાં વધુ ₹૨૫ કરોડ</span> (Whichever is Less - જે બેમાંથી ઓછું હોય તે) સુધીનું આર્થિક ભંડોળ સરકાર દ્વારા પૂરું પાડવામાં આવશે.</p>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b3')">Back to Dashboard ↑</button>
+                </div>
+
+                <div class="article" id="art-b4">
+                    <div class="article-meta">મેડિકલ સાયન્સ • ન્યુરો-મેપિંગ ટેકનોલોજી</div>
+                    <h3>૪. IIT મદ્રાસના સુધા ગોપાલકૃષ્ણન બ્રેઈન સેન્ટરે માનવ મગજનો સૌથી સચોટ 3D એટલસ 'ANCHOR' લોન્ચ કર્યો</h3>
+                    <div class="article-content">
+                        <p>તબીબી સંશોધન ક્ષેત્રે આઈઆઈટી મદ્રાસ (IIT Madras) ના વૈજ્ઞાનિકોએ એક મોટી વૈશ્વિક સિદ્ધિ હાંસલ કરી છે. સંસ્થા હેઠળ કાર્યરત 'સુધા ગોપાલકૃષ્ણન બ્રેઈન સેન્ટર' દ્વારા માનવ મગજના આંતરિક ભાગોનું અત્યાર સુધીનું સૌથી વિગતવાર 3D મોડેલિંગ એટલસ રજૂ કરવામાં આવ્યું છે, જેને સત્તાવાર રીતે <span class="hl-yellow">'ANCHOR'</span> નામ આપવામાં આવ્યું છે.</p>
+                        <p>ANCHOR નું પૂરું નામ <span class="hl-yellow">Atlas of Neurochemical Characterization of the Human Brain Stem with 3D Reconstruction</span> છે. આ એટલસની વિશેષતા એ છે કે તે માનવ મગજના સ્ટેમને માઇક્રોન લેવલ (Micron Level) પર કેપ્ચર કરે છે, જે સામાન્ય હોસ્પિટલોમાં થતા એમઆરઆઈ (MRI) સ્કેન કરતાં પણ <span class="hl-yellow">૧૦00 ગણું વધારે હાઈ-રેઝોલ્યુશન</span> ધરાવે છે. આ ટેકનોલોજી દ્વારા વૈજ્ઞાનિકોએ ૨૦૦ થી વધુ બ્રેઈન સ્ટેમ ન્યુક્લીઆઈ અને ફાઈબર ટ્રેક્સનું સેંકડો સીરીયલ સેક્શન દ્વારા સફળ પુનઃનિર્માણ કર્યું છે.</p>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b4')">Back to Dashboard ↑</button>
+                </div>
+
+                <div class="article" id="art-b5">
+                    <div class="article-meta">જિયો-માઇનિંગ વેસ્ટ • આત્મનિર્ભર ભારત મિશન</div>
+                    <h3>૫. ખાણકામના કચરામાંથી કિંમતી ખનિજો મેળવવા માટે NLC ઇન્ડિયા લિમિટેડ અને CSIR-CECRI વચ્ચે વ્યાપારી કરાર</h3>
+                    <div class="article-content">
+                        <p>भारत સરકારના ક્રિટિકલ મિનરલ મિશન (Critical Mineral Mission) અને આત્મનિર્ભર ભારત વિઝનને વેગ આપવા માટે બે દેશની સર્વોચ્ચ સંસ્થાઓ એનએલસી ઇન્ડિયા લિમિટેડ (NLCIL) અને સીએસઆઈઆર-સેન્ટ્રલ ઇલેક્ટ્રોકેમિકલ રિસર્ચ ઇન્સ્ટિટ્યૂટ (CSIR-CECRI) વચ્ચે વ્યૂહાત્મક ભાગીદારી કરાર કરવામાં આવ્યા છે.</p>
+                        <p>આ કરારનો મુખ્ય ઉદ્દેશ્ય ખાણકામ દરમિયાન ઉત્પન્ન થતા નકામા કચરા (Mining Waste / Tailing) માંથી અત્યંત કિંમતી અને દુર્લભ એવા <span class="hl-yellow">રેર અર્થ એલિમેન્ટ્સ (Rare Earth Elements - REE)</span> અને અન્ય મહત્વપૂર્ણ ક્રિટિકલ મિનરલ્સનું સફળ એક્સટ્રેક્શન કરવાનું છે. આ પ્રોજેક્ટ હેઠળ પ્રારંભિક તબક્કે તમિલનાડુમાં આવેલી પ્રખ્યાત <span class="hl-yellow">નેયવેલી લિગ્નાઈટ માઈન્સ (Neyveli Lignite Mines)</span> માંથી નીકળતા ઓવરબર્ડન મટિરિયલ્સ અને ટેલિંગ્સ પર વિશેષ ટેકનિકલ ઓપરેશન હાથ ધરીને ખનિજો મેળવવામાં આવશે.</p>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b5')">Back to Dashboard ↑</button>
+                </div>
+
+                <div class="article" id="art-b6">
+                    <div class="article-meta">નાણાકીય રેગ્યુલેશન • બેંકિંગ ગવર્નન્સ આદેશ</div>
+                    <h3>૬. DFS સેક્રેટરી સંજય લોહિયા આરબીઆઈ (RBI) અને સ્ટેટ બેંક ઓફ ઇન્ડિયા (SBI) ના સેન્ટ્રલ બોર્ડમાં ડિરેક્ટર નિયુક્ત</h3>
+                    <div class="article-content">
+                        <p>ભારત સરકાર દ્વારા નાણાકીય સેવાઓ વિભાગ (Department of Financial Services) ના પ્રમુખ સચિવ <span class="hl-yellow">સંજય લોહિયા (Sanjay Lohia)</span> ને દેશની બે સૌથી મોટી નાણાકીય સંસ્થાઓના ગવર્નિંગ બોર્ડમાં મોટી જવાબદારી સોંપવામાં આવી છે. સંજય લોહિયાને ભારતીય રિઝર્વ બેંક (RBI) ના સેન્ટ્રલ બોર્ડ અને સ્ટેટ બેંક ઓફ ઇન્ડિયા (SBI) ના બોર્ડ ઓફ ડિરેક્ટર્સમાં સત્તાવાર રીતે <span class="hl-yellow">સરકારી નોમિનેટેડ ડિરેક્ટર</span> તરીકે નિયુક્ત કરાયા છે.</p>
+                        <p>સંજય લોહિયા આ બોર્ડમાં પૂર્વ ડિરેક્ટર એમ. નાગાજ્જુનું સ્થાન લેશે, જેઓ ૩૧ મેના રોજ નિવૃત્ત થયા છે. કાનૂની જોગવાઈ અનુસાર, આરબીઆઈ બોર્ડમાં આ નિયુક્તિ <span class="hl-yellow">આરબીઆઈ એક્ટ ૧૯૩૪ (RBI Act 1934)</span> હેઠળ અને એસબીઆઈ બોર્ડમાં આ નિમણૂક <span class="hl-yellow">સ્ટેટ બેંક ઓફ ઇન્ડિયા એક્ટ ૧૯૫૫ (SBI Act 1955)</span> ના નિયમો હેઠળ કરવામાં આવી છે.</p>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b6')">Back to Dashboard ↑</button>
+                </div>
+
+                <div class="article" id="art-b7">
+                    <div class="article-meta">આંતરરાષ્ટ્રીય કાનૂન • રોયલ ઓબિચ્યુઅરી</div>
+                    <h3>૭. થાઇલેન્ડના પ્રિન્સેસ અને યુએનના પૂર્વ ગુડવિલ એમ્બેસેડર બજ્રકિતિયાભાનું લાંબી માંદગી બાદ દુઃખદ અવસાન</h3>
+                    <div class="article-content">
+                        <p>થાઇલેન્ડના રાજવી પરિવારમાંથી વર્તમાન રાજા મહા વજિરાલોંગકોર્નના સૌથી મોટા પુત્રી અને રાજગદ્દીના પ્રમુખ દાવેદાર ગણાતા <span class="hl-yellow">પ્રિન્સેસ બજ્રકિતિયાભા મહાદોલ (Princess Bajrakitiyabha)</span> નું લાંબી માંદગી અને કોમા (Coma) ની સ્થિતિમાં રહ્યા બાદ સત્તાવાર રીતે નિધન થયું છે.</p>
+                        <p>તેઓ વર્ષ ૨૦૧૭ માં યુનાઇટેડ નેશન્સ ઓડીસી (UNODC) ના સત્તાવાર ગુડવિલ એમ્બેસેડર તરીકે નિયુક્ત થયા હતા. પ્રતિષ્ઠિત કોર્નલ લો સ્કૂલમાંથી કાનૂન સ્નાતક થયેલા પ્રિન્સેસ આંતરરાષ્ટ્રીય સ્તરે જેલોમાં બંધ મહિલા કેદીઓ માટેના ઐતિહાસિક <span class="hl-yellow">'બેંગકોક રૂલ્સ' (Bangkok Rules)</span> ના મુખ્ય ચેમ્પિયન અને પ્રણેતા માનવામાં આવતા હતા. હવે તેમના નિધન બાદ થાઇલેન્ડના કાયદા મુજબ પ્રિન્સ રશ્મિ જ્યોતિ આગામી ઉત્તરાધિકારી બનશે.</p>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b7')">Back to Dashboard ↑</button>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <div id="quiz-view-panel">
+        <div class="quiz-container">
+            
+            <div id="quiz-active-questions-frame-block">
+                <div class="quiz-header">
+                    <div>
+                        <h2>THE MAULIK EXPRESS QUIZ</h2>
+                        <p style="font-size:0.8rem; color:var(--text-muted);">તારીખ: ૧૭ જૂન ૨૦૨૬</p>
+                    </div>
+                    <div style="display:flex; gap:10px; align-items:center;">
+                        <div class="score-box">Score: <span id="live-score-counter">0</span> / 25</div>
+                        <button class="btn-exit-quiz" onclick="switchBackToNewsMode()">← Exit</button>
+                    </div>
+                </div>
+                
+                <div id="quiz-questions-loader-target"></div>
+
+                <div class="quiz-action-area">
+                    <div class="quiz-progress-bar" id="quiz-step-progress-label">Question 1 of 25</div>
+                    <button class="btn-next-quiz-step" id="quiz-next-action-btn" onclick="goToNextQuizQuestion()">Next Question →</button>
+                </div>
+            </div>
+
+            <div id="quiz-result-final-pane">
+                <h3>🎉 અભિનંદન! તમે ટેસ્ટ પૂર્ણ કરી છે</h3>
+                <p style="color:var(--text-muted); font-size:0.95rem;" id="final-result-user-name-label">👤 વિદ્યાર્થી: Maulik</p>
+                
+                <div class="final-score-display-card">
+                    <span id="final-score-digits">0</span> <span style="font-size:1.5rem; color:#64748b;">/ 25</span>
+                </div>
+                
+                <p style="font-size:0.9rem; color:#475569; max-width:500px; margin:0 auto 15px auto;">તમારું પરિણામ સેવ કરવા અને મોલિક સરના વૉટ્સએપ નંબર પર સબમિટ કરવા નીચેના લીલા બટન પર ક્લિક કરો.</p>
+                
+                <button class="btn-submit-whatsapp-final" onclick="sendResultToWhatsApp()">
+                    💬 Submit Result to WhatsApp
+                </button>
+                
+                <div style="margin-top: 25px;">
+                    <button class="btn-exit-quiz" style="background:var(--bg-dark); padding:10px 20px;" onclick="switchBackToNewsMode()">ન્યૂઝ પેજ પર પાછા જાઓ</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="flash-modal" onclick="closeModal(event)">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModalForce()">×</button>
+            <img src="" alt="Context Visual" class="modal-img" id="modal-img-element">
+            <div class="modal-body" id="modal-body-content">
+                </div>
+        </div>
+    </div>
+
+    <script>
+        const mindmapData = {
+            m1: {
+                title: "REC & PFC Corporate Merger Mind-Map",
+                img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "કંપની એક્ટ ૨૦૧૩ ની કલમ ૨૩૦-૨૩૨ હેઠળ વિલીનીકરણ પ્રક્રિયાને રાષ્ટ્રપતિની સત્તાવાર સ્વીકૃતિ.",
+                    "મર્જર પૂર્ણ થતાં જ સંયુક્ત બનેલી લોન બુક પાવર સેક્ટરમાં ₹૧૦.૮ લાખ કરોડના માઇલસ્ટોનને વટાવી જશે.",
+                    "REC લિમિટેડનું અલગ કાનૂની અસ્તિત્વ હવે સમાપ્ત થશે અને તે સંપૂર્ણ પીએફસી (PFC) બ્રાન્ડ તરીકે કામ કરશે.",
+                    "માર્ચ ૨૦૧૯ માં પીએફસી દ્વારા સરકારી હિસ્સાની ₹૧૪,૫૦૦ કરોડમાં થયેલી ખરીદીથી આ પ્રક્રિયા શરૂ થઈ હતી."
+                ],
+                edge: "📌 Additional Edge: આ મર્જરથી દેશમાં પાવર ઇન્ફ્રાસ્ટ્રક્ચર ધિરાણ ક્ષેત્રે ફંડિંગ મોનોપોલી ઉભી થશે અને ઓપરેશનલ કોસ્ટમાં મોટો ઘટાડો થશે."
+            },
+            m2: {
+                title: "World Bank GDP Report Mind-Map",
+                img: "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "વર્લ્ડ બેંકના જૂન ૨૦૨૬ ના ગ્લોબલ ઇકોનોમિક પ્રોસ્પેક્ટ્સ રિપોર્ટમાં ભારતનો ગ્રોથ રેટ ૬.૬% અંદાજાયો.",
+                    "જાન્યુઆરીમાં ૬.૫% અંદાજ હતો, જ્યારે પાછલા વર્ષે ભારતનો વાસ્તવિક અંદાજિત ગ્રોથ રેટ ૭.૭% ની સપાટીએ હતો.",
+                    "આગામી નાણાકીય વર્ષો માટે રિકવરી પ્રોજેક્શન: FY28 માટે ૭.૨% અને FY29 માટે ૭.૦% નો સ્થિર અંદાજ.",
+                    "સમગ્ર વૈશ્વિક સ્તરે વિશ્વનો સરેરાશ જીડીપી વૃદ્ધિ દર ૨.૫% ની સપાટી પર સીમિત રહેવાની આગાહી કરાઈ છે."
+                ],
+                edge: "📌 Additional Edge: જો પરીક્ષા પહેલા વર્લ્ડ બેંકનો કોઈ નવો ફ્લેશ અહેવાલ આવે, તો આ જૂન મહિનાનો ડેટા પરીક્ષા માટે અમાન્ય (Null & Void) ગણાશે."
+            },
+            m3: {
+                title: "NPPA Cancer Drug Price Revision Mind-Map",
+                img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "કેન્સર સારવારની કીમોથેરાપી દવાઓ સિસ્પ્લેટિન અને કાર્બોપ્લેટિનના ભાવોમાં વન-ટાઇમ ૫૦% નો વધારો.",
+                    "NPPA દ્વારા ડ્રગ્સ પ્રાઇસીસ કંટ્રોલ ઓર્ડર (DPCO) ૨૦૧૩ ના પેરેગ્રાફ ૧૯ ની વિશેષ સત્તા હેઠળ મંજૂરી અપાઈ.",
+                    "સિસ્પ્લેટિન લિક્વિડની નવી કિંમત: ₹૭.૨૬ પ્રતિ મિલીલીટરથી વધીને હવે ₹૧૦.૮૯ પ્રતિ મિલીલીટર થશે.",
+                    "કાર્બોપ્લેટિન ઇન્જેક્શનની નવી કિંમત: ₹૬૦.૪૯ પ્રતિ મિલીલીટરથી વધીને હવે ₹૯૦.૭૪ પ્રતિ મિલીલીટર કરાઈ."
+                ],
+                edge: "📌 Additional Edge: પેરેગ્રાફ ૧૯ સરકારને બજારમાં શોર્ટેજ અટકાવવા કટોકટીમાં કિંમતો વધારવાની અસાધારણ સત્તા આપે છે."
+            },
+            m4: {
+                title: "Global Peace Index 2026 Mind-Map",
+                img: "https://images.unsplash.com/photo-1531266752426-aad472b7bbf4?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "વિશ્વના ૧૬૩ દેશોમાં બીજા વિશ્વયુદ્ધ પછીના સૌથી વધુ - ૫૬ સક્રિય સશસ્ત્ર સંઘર્ષો (Active Conflicts) નોંધાયા.",
+                    "વૈશ્વિક ઇન્ડેક્સમાં ભારત પાછલા વર્ષના ૧૧૫મા સ્થાનથી નીચે સરકીને આ વર્ષે ૧૨૭મા રેન્ક પર પહોંચ્યું.",
+                    "યુરોપિયન દેશ આઇસલેન્ડ (Iceland) વિશ્વનો સૌથી શાંતિપ્રિય દેશોના ચાર્ટમાં પ્રથમ ક્રમે યથાવત રહ્યો છે.",
+                    "આકલનના ૩ મુખ્ય કેન્દ્રીય સ્તંભો: સામાજિક સુરક્ષા, ચાલુ આંતરરાષ્ટ્રીય સંઘર્ષો અને સૈન્યીકરણનું પ્રમાણ."
+                ],
+                edge: "📌 Additional Edge: પોલેન્ડ દેશે આ વર્ષે પોતાના પીસ લેવલમાં કન્ટ્રી-લેવલ પર સૌથી મોટો હકારાત્મક જમ્પ લગાવ્યો છે."
+            },
+            m5: {
+                title: "MoRTH Road Accidents Report Mind-Map",
+                img: "https://images.unsplash.com/photo-1518364538800-6bcb3f25da49?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "ભારતમાં વાર્ષિક ૪,૮૭,૭૦૭ માર્ગ અકસ્માતોમાં કુલ ૧,૭૭,૧૭૫ લોકોએ પોતાના જીવ ગુમાવ્યા હોવાનો ખુલાસો.",
+                    "દેશમાં દર ૧ કલાકે ૨૦ લોકો અને દર ૩ મિનિટે સરેરાશ ૧ વ્યક્તિ અકસ્માતોમાં મૃત્યુ પામે છે.",
+                    "અકસ્માત ભોગ બનનારાઓમાં ૪૬.૨% સાથે ટુ-વ્હીલર સવારો અને ૨૦.૬% પગપાળા ચાલનારા નાગરિકો છે.",
+                    "ઓવર-સ્પીડિંગ (Over-Speeding) ના કારણે સૌથી વધુ ૭૦% એટલે કે આશરે ૧.૨૪ લાખ લોકોના અકાળે મોત થયા.",
+                    "રાજ્યોમાં સૌથી વધુ અકસ્માતો તમિલનાડુમાં અને સૌથી વધુ વાસ્તવિક મૃત્યુઆંક ઉત્તર પ્રદેશમાં નોંધાયો."
+                ],
+                edge: "📌 Additional Edge: સરકારની '4E Strategy' અને રાહવીર સ્કીમ હેઠળ ₹૧.૫ લાખની કેશલેસ સારવાર સામેલ છે."
+            },
+            m6: {
+                title: "Elon Musk: World's First Trillionaire Mind-Map",
+                img: "https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "સ્પેસએક્સ (SpaceX) કંપનીના ઐતિહાસિક IPO એ માર્કેટ વેલ્યુએશન $૨.૨ ટ્રિલિયન ડોલર સુધી પહોંચાડ્યું.",
+                    "એલોન મસ્ક ૪૨% પર્સનલ શેર હોલ્ડિંગ સાથે ઓન-પેપર વિશ્વના સર્વપ્રથમ 'ટ્રિલિયોનેર' બન્યા.",
+                    "કંપનીનો ઇન્ડિવિજ્યુઅલ શેર $૧૩૫ ના બદલે $૧૫૦ પર ઓપન થઈને સીધો $૧૬૧ ની સપાટી પર બંધ થયો.",
+                    "મસ્કની નેટવર્થ $૧.૧૧ ટ્રિલિયન આંકવામાં આવી, જેનો ૭૦% હિસ્સો માત્ર SpaceX અને XAI માંથી આવે છે."
+                ],
+                edge: "📌 Additional Edge: ફાઇનાન્સ લોજિક - આ સંપત્તિ અત્યંત 'ઇલિક્વિડ' (Highly Illiquid) સ્વરૂપની છે, કારણ કે તે માર્કેટના શેરોના દૈનિક ભાવો પર ઉપર-નીચે થાય છે."
+            },
+            b1: {
+                title: "Telegram Interruption & Safe WhatsApp Broadcast",
+                img: "https://images.unsplash.com/photo-1611606648423-7598db4414f2?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "ટેલિગ્રામ નેટવર્ક ૨૨મી જૂન સુધી દેશભરમાં ટેકનિકલ કારણોસર સંપૂર્ણ ખોરવાઈ ગયું છે.",
+                    "વિદ્યાર્થીઓની સુરક્ષા અને પ્રાઇવસી જાળવવા 'વન-વે વૉટ્સએપ ચેનલ' માધ્યમ શરૂ કરાયું.",
+                    "આ ચેનલમાં જોડાનાર વિદ્યાર્થીઓ એકબીજાના મોબાઈલ નંબર કે પર્સનલ આઇડેન્ટિટી જોઈ શકશે નહીં."
+                ],
+                edge: "📌 Default Browser Setting: જો લિંક ઓપન ન થાય, તો ક્રોમ કે સફારીમાં ડિફોલ્ટ એપ્લિકેશન સેટિંગ્સ ચેન્જ કરવી."
+            },
+            b2: {
+                title: "MNIT Jaipur Semiverse Access",
+                img: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "કેન્દ્રીય મંત્રી અશ્વિની વૈષ્ણવ દ્વારા MNIT જયપુર માટે મોટો સેમિકન્ડક્ટર પ્રોજેક્ટ જાહેર કરાયો.",
+                    "લેમ રિસર્ચના અદ્યતન 'સેમીવર્સ પ્લેટફોર્મ' (Semiverse Platform) નો સંસ્થાને સીધો એક્સેસ મળશે.",
+                    "વિદ્યાર્થીઓ ચિપ ફેબ્રિકેશન અને ડિજિટલ ટ્વીન ડિઝાઇનિંગનું 3D વર્ચ્યુઅલ સિમ્યુલેશન લાઈવ શીખશે."
+                ],
+                edge: ""
+            },
+            b3: {
+                title: "In-Space Deep Tech Startup Funding (TAF)",
+                img: "https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "ઇન-સ્પેસ દ્વારા ટેક્નોલોજી એડોપ્શન સ્કીમ હેઠળ ફંડિંગ માટે પ્રથમ ૩ સ્ટાર્ટઅપ્સ પસંદ કરાયો.",
+                    "એસ્ટ્રો બેઝ (રોકેટ એન્જિન), સેટશોર (ધારિણી અર્થ ઓબ્ઝર્વેશન મોડેલ) અને ટીએમ ટુ સ્પેસ (AI સ્ટાર ટ્રેકર).",
+                    "પ્રોજેક્ટ કોસ્ટના મહત્તમ 60% અથવા ₹૨૫ કરોડ સુધીનું નોન-ડાયલ્યુટિવ ભંડોળ પૂરું પાડવામાં આવશે."
+                ],
+                edge: ""
+            },
+            b4: {
+                title: "IIT Madras ANCHOR Brain Atlas",
+                img: "https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "IIT મદ્રાસ ના બ્રેઈન સેન્ટરે માનવ મગજનો હાઈ-ટેક 3D એટલસ 'ANCHOR' લોન્ચ કર્યો.",
+                    "સામાન્ય ક્લિનિકલ એમઆરઆઈ સ્કેન કરતા અંદાજે ૧૦૦૦ ગણું વધારે પાવરફુલ માઇક્રોન લેવલ રેઝોલ્યુશન.",
+                    "સેંકડો સીરીયલ સેક્શનની મદદથી ૨૦૦ થી વધુ બ્રેઈન સ્ટેમ ન્યુક્લીઆઈ અને પાથ ટ્રેક્સ સફળતાપૂર્વક મેપ કરાયા."
+                ],
+                edge: ""
+            },
+            b5: {
+                title: "NLCIL & CSIR-CECRI Rare Minerals Extraction",
+                img: "https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "ખાણકામના નકામા કચરા (Mining Tailing) માંથી રેરે અર્થ એલિમેન્ટ્સ (REE) મેળવવાનો મોટો કરાર.",
+                    "NLC ઇન્ડિયા લિમિટેડ અને સીએસઆઈઆર-સેન્ટર્લ ઇલેક્ટ્રોકેમિકલ રિસર્ચ ઇન્સ્ટિટ્યૂટ વચ્ચે વ્યાપારી જોડાણ.",
+                    "તમિલનાડુમાં આવેલી પ્રખ્યાત નેયવેલી લિગ્નાઈટ માઈન્સની વેસ્ટ સામગ્રી પર આ ઓપરેશન કેન્દ્રિત રહેશે."
+                ],
+                edge: ""
+            },
+            b6: {
+                title: "Sanjay Lohia RBI & SBI Board Appointment",
+                img: "https://images.unsplash.com/photo-1544377193-33dcf4d68fb5?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "DFS સેક્રેટري સંજય લોહિયાને દેશના સર્વોચ્ચ બેંકિંગ નિયમનકારી બોર્ડ્સમાં સ્થાન અપાયું.",
+                    "RBI સેન્ટ્રલ બોર્ડ અને SBI બોર્ડમાં કેન્દ્ર સરકારના ઓફિશિયલ નોમિનેટેડ ડિરેક્ટર બન્યા.",
+                    "નિવૃત્ત થયેલા એમ. નાગાજ્જુના સ્થાને કાનૂની કલમો - RBI એક્ટ ૧૯૩૪ અને એસબીઆઈ એક્ટ ૧૯૫૫ હેઠળ વરણી."
+                ],
+                edge: ""
+            },
+            b7: {
+                title: "Obituary: Thailand Princess Bajrakitiyabha",
+                img: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "થાઇલેન્ડના રાજા મહા વજિરાલોંગકોર્નના સૌથી મોટા પુત્રી પ્રિન્સેસ બજ્રકિતિયાભાનું દુઃખદ નિધન.",
+                    "વર્ષ ૨૦૧૭ માં યુનાઇટેડ નેશન્સ (UNODC) ના સત્તાવાર વૈશ્વિક ગુડવિલ એમ્બેસેડર તરીકે કાર્યરત હતા.",
+                    "જેલોમાં મહિલા કેદીઓ માટે આંતરરાષ્ટ્રીય સ્તરે પ્રખ્યાત 'બેંગકોક રૂલ્સ' ના મુખ્ય ચેમ્પિયન હતા."
+                ],
+                edge: ""
+            }
+        };
+
+        let lastActiveCardId = null;
+
+        function openFlashCard(id) {
+            const data = mindmapData[id];
+            if (!data) return;
+
+            document.getElementById('modal-img-element').src = data.img;
+            
+            let htmlContent = `<h2>${data.title}</h2><ul class="mindmap-node">`;
+            data.nodes.forEach(node => {
+                htmlContent += `<li>${node}</li>`;
+            });
+            htmlContent += `</ul>`;
+
+            if (data.edge) {
+                htmlContent += `<div class="modal-edge-box">${data.edge}</div>`;
+            }
+
+            document.getElementById('modal-body-content').innerHTML = htmlContent;
+            document.getElementById('flash-modal').style.display = 'flex';
+        }
+
+        function closeModal(e) {
+            if (e.target.id === 'flash-modal') {
+                document.getElementById('flash-modal').style.display = 'none';
+            }
+        }
+
+        function closeModalForce() {
+            document.getElementById('flash-modal').style.display = 'none';
+        }
+
+        function focusDetail(cardId) {
+            lastActiveCardId = cardId;
+        }
+
+        function returnToDashboard(targetId) {
+            const currentCardId = targetId || lastActiveCardId;
+            if (!currentCardId) {
+                scrollToDashboard();
+                return;
+            }
+
+            const cardElement = document.getElementById(currentCardId);
+            if (cardElement) {
+                cardElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                cardElement.classList.add('box-highlight-effect');
+                
+                setTimeout(() => {
+                    cardElement.classList.remove('box-highlight-effect');
+                }, 2000);
+            }
+        }
+
+        function scrollToDashboard() {
+            document.getElementById('dashboard').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        /* -------------------------------------------------------------------
+           🧠 AUTOMATED QUIZ SYSTEM ENGINE (ONE BY ONE VIEW + EXPLANTIONS)
+           ------------------------------------------------------------------- */
+        const quizDatabase = [
+            {
+                q: "1. REC લિમિટેડ અને પાવર ફાઇનાન્સ કોર્પોરેશન (PFC) ના મેગા મર્જર બાદ બનેલી સંયુક્ત લોન બુક કેટલા રૂપિયા વટાવી જશે?",
+                o: ["₹૫.૫ લાખ કરોડ", "₹૧૦.૮ લાખ કરોડ", "₹૧૫.૨ લાખ કરોડ", "₹૮.૪ લાખ કરોડ"],
+                a: 1,
+                exp: "મર્જર પૂર્ણ થતાં જ બંને ઊર્જા ફાઇનાન્સ દિગ્ગજોની કમ્બાઈન્ડ લોન એસેટ્સ (Loan Book) ₹10.8 લાખ કરોડના ઐતિહાસિક માઇલસ્ટોનને પાર કરી જશે જે પાવર સેક્ટરમાં મોનોપોલી સર્જશે."
+            },
+            {
+                q: "2. REC અને PFC નું વિલીનીકરણ કંપની અધિનિયમ ૨૦૧૩ ની કઈ કાનૂની કલમો હેઠળ સંપન્ન થશે?",
+                o: ["Section 110-112", "Section 44-48", "Section 230-232", "Section 356-360"],
+                a: 2,
+                exp: "કોર્પોરેટ વિલીનીકરણ (Mergers & Amalgamations) માટે કંપની અધિનિયમ ૨૦૧૩ ની કલમ ૨૩૦ થી ૨૩૨ હેઠળ કાનૂની પ્રક્રિયાઓને રાષ્ટ્રપતિ દ્વારા આખરી મંજૂરી અપાઈ છે."
+            },
+            {
+                q: "3. માર્ચ ૨૦૧૯ માં PFC એ ભારત સરકાર પાસેથી REC લિમિટેડનો કેટલા ટકા હિસ્સો ખરીદ્યો હતો?",
+                o: ["૫૨.६૩%", "૪૯.૦૦%", "૬૧.૨૦%", "૭૫.૦૦%"],
+                a: 0,
+                exp: "માર્ચ ૨૦૧૯ માં PFC એ ભારત સરકાર હસ્તક રહેલો REC નો ૫૨.૬૩% મેજોરિટી કંટ્રોલિંગ હિસ્સો ₹૧૪,૫૦૦ કરોડમાં હસ્તગત કર્યો હતો, જે હવે કાનૂની મર્જરમાં પરિણમ્યો છે."
+            },
+            {
+                q: "4. વર્લ્ડ બેંકના જૂન ૨૦૨૬ ના રિપોર્ટ અનુસાર ચાલુ નાણાકીય વર્ષ ૨૦૨૬-૨૭ માટે ભારતનો જીડીપી ગ્રોથ રેટ કેટલો અંદાજવામાં આવ્યો છે?",
+                o: ["૬.૦%", "૬.૫%", "૬.૬%", "૭.૨%"],
+                a: 2,
+                exp: "વર્લ્ડ બેંકે જૂનના લેટેસ્ટ 'Global Economic Prospects' અહેવાલમાં ભારતના ગ્રોથ અંદાજને જાન્યુઆરીના ૬.૫% થી અપગ્રેડ કરીને ૬.૬% કર્યો છે."
+            },
+            {
+                q: "5. વર્લ્ડ બેંકના ગ્લોબલ ઇકોનોમિક પ્રોસ્પેક્ટ્સ અહેવાલ મુજબ નાણાકીય વર્ષ ૨૦૨૭-૨૮ માં ભારતનો ગ્રોથ રેટ કેટલો રહેવાની અપેક્ષા (Rebound) છે?",
+                o: ["૭.૭%", "૭.૨%", "૭.૦%", "૬.૮%"],
+                a: 1,
+                exp: "અહેવાલ મુજબ ચાલુ વર્ષના ૬.૬% ના સામાન્ય સ્લોડાઉન બાદ, નાણાકીય વર્ષ ૨૦૨૭-૨૮ (FY28) માં ભારતીય ઇકોનોમી ૭.૨% ના જોરદાર દર સાથે રિકવરી કરશે."
+            },
+            {
+                q: "6. વર્લ્ડ બેંકે ચાલુ વર્ષ માટે સમગ્ર વિશ્વની વૈશ્વિક આર્થિક વૃદ્ધિનો સરેરાશ દર કેટલા ટકા પર સીમિત રહેવાની આગાહી કરી છે?",
+                o: ["૨.૫%", "૩.૨%", "૧.૮%", "૪.૦%"],
+                a: 0,
+                exp: "ઊંચા વ્યાજદરો અને વૈશ્વિક ફુગાવાના દબાણ વચ્ચે સમગ્ર વિશ્વની સરેરાશ આર્થિક વૃદ્ધિ (Global GDP Growth) માત્ર ૨.૫% પર સીમિત રહેશે, જેની સામે ભારત મજબૂત સ્થિતિમાં છે."
+            },
+            {
+                q: "7. NPPA દ્વારા તાજેતરમાં કેન્સરની કઈ બે કીમોથેરાપી દવાઓના સીલિંગ ભાવમાં વન-ટાઇમ ૫૦% નો વધારો મંજૂર કરવામાં આવ્યો છે?",
+                o: ["પેરાસીટામોલ અને ક્રોસીન", "સિસ્પ્લેટિન અને કાર્બોપ્લેટિન", "ઇન્સ્યુલિન અને પેનિસિલિન", "મેટોફોર્મિન અને એસ્પિરિન"],
+                a: 1,
+                exp: "કેન્સર કીમોથેરાપી માટે અતિ ઉપયોગી અને જીવનરક્ષક એવી 'સિસ્પ્લેટિન' અને 'કાર્બોપ્લેટિન' દવાઓ માર્કેટમાંથી શોર્ટ ન થાય તે માટે આ નિર્ણય લેવાયો છે."
+            },
+            {
+                q: "8. NPPA એ દવાઓના ભાવો નિયંત્રિત કરવા માટે ડ્રગ્સ પ્રાઇસીસ કંટ્રોલ ઓર્ડર (DPCO) ૨૦૧૩ ના કયા પેરેગ્રાફની અસાધારણ સત્તાનો ઉપયોગ કર્યો?",
+                o: ["Paragraph ૧૨", "Paragraph ૧૫", "Paragraph ૧૯", "Paragraph ૨૫"],
+                a: 2,
+                exp: "DPCO ૨૦૧૩ નો 'પેરેગ્રાફ ૧૯' નિયમનકારી ઓથોરિટીને અસાધારણ ઇમરજન્સી કે જનહિતની સ્થિતિમાં નિર્ધારિત મર્યાદા બહાર જઈ કિંમત વધારવાની વિશેષ કાનૂની છૂટ આપે છે."
+            },
+            {
+                q: "9. ભાવો વધાર્યા બાદ સિસ્પ્લેટિન (Cisplatin) ડ્રગની નવી મહત્તમ સીલિંગ પ્રાઈસ પ્રતિ મિલીલીટર કેટલી મંજૂર થઈ?",
+                o: ["₹૭.૨૬ / ml", "₹૧૦.8૯ / ml", "₹૧૫.૫૦ / ml", "₹૨૦.૦૦ / ml"],
+                a: 1,
+                exp: "સિસ્પ્લેટિન લિક્વિડની કિંમત જૂની મૂળ કિંમત ₹૭.૨૬ પ્રતિ ml થી વધારીને ૫૦% ના ઉછાળા સાથે હવે ₹૧૦.૮૯ પ્રતિ ml મંજૂર કરવામાં આવી છે."
+            },
+            {
+                q: "10. ભાવો વધાર્યા બાદ કાર્બોપ્લેટિન (Carboplatin) ની નવી સીલિંગ પ્રાઈસ પ્રતિ મિલીલીટર કેટલી નક્કી કરાઈ છે?",
+                o: ["₹૬૦.૪૯ / ml", "₹૯૦.૭૪ / ml", "₹૧૨૦.૦૦ / ml", "₹૪૫.૫૦ / ml"],
+                a: 1,
+                exp: "કાર્બોપ્લેટિન ઇન્જેક્શનની સીલિંગ પ્રાઈસ ₹૬૦.૪૯ પ્રતિ ml થી વધારીને હવે મહત્તમ ₹૯૦.૭૪ પ્રતિ ml ફિક્સ કરવામાં આવી છે."
+            },
+            {
+                q: "11. વૈશ્વિક શાંતિ સૂચકાંક ૨૦૨૬ (Global Peace Index 2026) માં કુલ ૧૬૩ દેશોની યાદીમાં ભારત કયા રેન્ક પર સરક્યું છે?",
+                o: ["૧૧૫મા", "૧૨૧મા", "૧૨૭મા", "૧૩૫મા"],
+                a: 2,
+                exp: "ભારત સામાજિક સુરક્ષા અને ચાલુ સંઘર્ષોના આकलनના કારણે પાછલા વર્ષના ૧૧૫મા સ્થાનથી નીચે સરકીને ચાલુ વર્ષે ૧૨૭મા રેન્ક પર પહોંચ્યું છે."
+            },
+            {
+                q: "12. ગ્લોબલ પીસ ઇન્ડેક્સ ૨૦૨૬ ના અહેવાલ મુજબ હાલમાં સમગ્ર વિશ્વમાં બીજા વિશ્વયુદ્ધ પછીના સૌથી વધુ કેટલા સક્રિય સશસ્ત્ર સંઘર્ષો ચાલી રહ્યા છે?",
+                o: ["૩૨", "૪૫", "૫૬", "૬૮"],
+                a: 2,
+                exp: "રિપોર્ટમાં ચિંતાજનક ખુલાસો થયો છે કે વિશ્વમાં હાલમાં રશિયા, યુક્રેન, ઇઝરાયેલ, સુدان સહિત રેકોર્ડબ્રેક ૫૬ સક્રિય સશસ્ત્ર યુદ્ધો/સંઘર્ષો કાર્યરત છે."
+            },
+            {
+                q: "13. ગ્લોબલ પીસ ઇન્ડેક્સ આકલન મુખ્યત્વે કેટલા કેન્દ્રીય ક્ષેત્રો (Domains) ના આધારે તૈયાર થાય છે?",
+                o: ["૩ Domains", "૫ Domains", "૭ Domains", "૧૦ Domains"],
+                a: 0,
+                exp: "આ ઇન્ડેક્સ મુખ્ય ૩ ડોમેન્સ (સામાજિક સલામતી, ચાલુ આંતરિક-આંતરરાષ્ટ્રીય સંઘર્ષ અને સૈન્યીકરણનું સ્તર) ના આધારે ૨૩ ઇન્ડિકેટર્સ ચેક કરીને બને છે."
+            },
+            {
+                q: "14. ગ્લોબલ પીસ ઇન્ડેક્સ ૨૦૨૬ ચાર્ટમાં વિશ્વનો સૌથી શાંતિપ્રિય દેશ તરીકે કયો દેશ પ્રથમ ક્રમે યથાવત રહ્યો છે?",
+                o: ["ન્યુઝીલેન્ડ", "આઇસલેન્ડ", "સ્વિટ્ઝર્લેન્ડ", "પોલેન્ડ"],
+                a: 1,
+                exp: "યુરોપિયન દેશ આઇસલેન્ડ (Iceland) પોતાની શ્રેષ્ઠ આંતરિક સુરક્ષા અને શાંતિપૂર્ણ નીતિઓને કારણે ગ્લોબલ પીસ ચાર્ટમાં ટોચ પર યથાવત છે."
+            },
+            {
+                q: "15. માર્ગ પરિવહન અને રાજમાર્ગ મંત્રાલય (MoRTH) ના રિપોર્ટ મુજબ ભારતમાં સરેરાશ દર કેટલી મિનિટે માર્ગ અકસ્માતમાં ૧ નાગરિકનું મોત થાય છે?",
+                o: ["દર ૧૦ મિનિટે", "દર ૫ મિનિટે", "દર ૩ મિનિટે", "દર ૧ કલાકે"],
+                a: 2,
+                exp: "MoRTH ના સત્તાવાર ડેટા એનાલિટિક્સ મુજબ દેશમાં ૧ કલાકમાં ૨૦ મોતો થાય છે, એટલે કે સરેરાશ દર ૩ મિનિટે અકસ્માતમાં ૧ વ્યક્તિ જીવ ગુમાવે છે."
+            },
+            {
+                q: "16. MoRTH વાર્ષિક અહેવાલ અનુસાર દેશમાં સૌથી વધુ માર્ગ અકસ્માતો (૬૭,૦૦૦+) કયા રાજ્યમાં નોંધાયા છે?",
+                o: ["ઉત્તર પ્રદેશ", "ગુજરાત", "તમિલનાડુ", "મહારાષ્ટ્ર"],
+                a: 2,
+                exp: "સમગ્ર ભારતમાં વાહનોના ક્રેશ અકસ્માતોના વોલ્યુમમાં તમિલનાડુ રાજ્ય ૬૭,૦૦૦થી વધુ અકસ્માતો સાથે દેશમાં પ્રથમ સ્થાને છે."
+            },
+            {
+                q: "17. MoRTH ના સાંખ્યિકીય રિપોર્ટ અનુસાર માર્ગ અકસ્માતોમાં સૌથી વધુ વાસ્તવિક મૃત્યુઆંક (Fatalities) કયા રાજ્યમાં નોંધાયો?",
+                o: ["તમિલનાડુ", "ઉત્તર પ્રદેશ", "પંજાબ", "હરિયાણા"],
+                a: 1,
+                exp: "સૌથી વધુ અકસ્માતો તમિલનાડુમાં છે, પરંતુ હાઇવે પર અકસ્માતો દરમિયાન થતી વાસ્તવિક ફેટાલિટીઝ (મૃત્યુઆંક) માં ઉત્તર પ્રદેશ દેશમાં મોખરે છે."
+            },
+            {
+                q: "18. ભારતમાં કુલ માર્ગ અકસ્માતોમાંથી આશરે ૭૦% અકસ્માતો માત્ર કયા એક મુખ્ય કારણસર થાય છે?",
+                o: ["ખરાબ રસ્તા", "ડ્રિન્ક એન્ડ ડ્રાઇવ", "ઓવર-સ્પીડિંગ (Over-Speeding)", "ખરાબ હવામાન"],
+                a: 2,
+                exp: "સરકારી વિશ્લેષણ દર્શાવે છે કે દેશમાં આશરે ૧.૨૪ લાખ મોતો (૭૦% અકસ્માતો) માત્ર નિર્ધારિત મર્યાદા કરતાં વધુ ઝડપે વાહન ચલાવવા (Over-Speeding) ના લીધે થાય છે."
+            },
+            {
+                q: "19. સ્પેસએક્સ (SpaceX) ના મેગા પબ્લિક IPO લોન્ચિંગ બાદ ઓન-પેપર વિશ્વના સર્વપ્રથમ 'ટ્રિલિયોનેર' બનેલા એલોન મસ્કની નેટવર્થ કેટલી નોંધાઈ?",
+                o: ["$૧.૭૭ ટ્રિલિયન", "$૧.૧૧ ટ્રિલિયન", "$૨.૨૦ ટ્રિલિયન", "$૭૬૦ બિલિયન"],
+                a: 1,
+                exp: "SpaceX નું ઇક્વિટી વેલ્યુએશન $૨.૨ ટ્રિલિયન થતાં ૪૨% પર્સનલ હોલ્ડિંગ સાથે એલોન મસ્ક ઓન-પેપર $૧.૧૧ ટ્રિલિયનની નેટવર્થ સાથે દુનિયાના પ્રથમ ટ્રિલિયોનેર બન્યા."
+            },
+            {
+                q: "20. દેશભરમાં ૨૨મી જૂન સુધી ટેલિગ્રામ સેવાઓ ખોરવાતા વિદ્યાર્થીઓ માટે કઈ ૧૦૦% પ્રાઇવસી પ્રોટોકોલ આધારિત વ્યવસ્થા શરૂ કરાઈ?",
+                o: ["ટેલિગ્રામ ગ્રુપ પ્રો", "ફેસબુક મેસેન્જર", "વન-વે વૉટ્સએપ ચેનલ", "સિગ્નલ પ્રાઇવેટ એપ"],
+                a: 2,
+                exp: "ટેલિગ્રામ બંધ હોવાથી વૈકલ્પિક રૂપે વન-વે વૉટ્સએપ ચેનલ શરૂ કરાઈ છે જે ગ્રુપથી વિપરીત વિદ્યાર્થીઓના મોબાઈલ નંબર હાઇડ રાખી ૧૦૦% પિરામિડ પ્રાઇવસી આપે છે."
+            },
+            {
+                q: "21. કેન્દ્રીય મંત્રી અશ્વિની વૈષ્ણવની જાહેરાત અનુસાર સેમિકન્ડક્ટર ડિઝાઇનિંગ માટે લેમ રિસર્ચના 'સેમીવર્સ પ્લેટફોર્મ' નો સીધો એક્સેસ કઈ ઇન્સ્ટિટ્યૂટને મળશે?",
+                o: ["IIT બોમ્બે", "MNIT જયપુર", "IIT મદ્રાસ", "NIT સુરત"],
+                a: 1,
+                exp: "MNIT જયપુર દેશની પ્રથમ એવી એકેડેમિક ઇન્સ્ટિટ્યૂટ બનશે જેને લેમ રિસર્ચ દ્વારા ચિપ ફેબ્રિકેશન મેન્યુફેક્ચરિંગ ટ્રેનિંગ માટે ડિજિટલ ટ્વીન 'સેમીવર્સ' નો લાઈવ એક્સેસ મળશે."
+            },
+            {
+                q: "22. ઇન-સ્પેસ (In-Space) ની ટેક્નોલોજી એડોપ્શન સ્કીમ (TAF) હેઠળ સ્પેસ સ્ટાર્ટઅપ્સને પ્રોજેક્ટ કોસ્ટના મહત્તમ કેટલા કરોડ સુધીનું ફંડિંગ મળી શકે છે?",
+                o: ["₹૧૦ કરોડ", "₹૨૫ કરોડ", "₹૫૦ કરોડ", "₹૧૫ કરોડ"],
+                a: 1,
+                exp: "In-Space ની TAF સ્કીમ હેઠળ પસંદ થયેલા અગ્રણી ૩ ડીપ-ટેક સ્પેસ સ્ટાર્ટઅપ્સને પ્રોજેક્ટ ખર્ચના ૬૦% અથવા મહત્તમ ₹૨૫ કરોડ સુધીનું આર્થિક ભંડોળ મંજૂર કરાયું છે."
+            },
+            {
+                q: "23. IIT મદ્રાસના સુધા ગોપાલકૃષ્ણન બ્રેઈન સેન્ટરે માનવ મગજનો સામાન્ય MRI સ્કેન કરતા ૧૦00 ગણું હાઈ-રેઝોલ્યુશન ધરાવતો કયો 3D એટલસ લોન્ચ કર્યો?",
+                o: ["BRAIN-MAP", "ANCHOR", "CRADLE", "NEURO-TRACK"],
+                a: 1,
+                exp: "'ANCHOR' બ્રેઈન એટલસ માનવ મગજના સ્ટેમ ન્યુક્લીઆઈ અને ફાઈબર ટ્રેક્સને માઇક્રોન લેવલ પર સેંકડો સીરીયલ સેક્શન દ્વારા અલ્ટ્રા હાઈ-રેઝોલ્યુશન મેપિંગ પૂરું પાડે છે."
+            },
+            {
+                q: "24. માઇનિંગ વેસ્ટ સામગ્રીમાંથી રેર અર્થ એલિમેન્ટ્સ (REE) અને ક્રિટિકલ મિનરલ્સ એક્સટ્રેક્શન માટે NLC ઇન્ડિયા લિમિટેડ (NLCIL) એ કઈ સંસ્થા સાથે કરાર કર્યા?",
+                o: ["ISRO-NRSC", "CSIR-CECRI", "IIT મદ્રાસ", "GSI ઇન્ડિયા"],
+                a: 1,
+                exp: "તમિલનાડુની નેયવેલી લિગ્નાઈટ માઈન્સના કચરામાંથી રેર અર્થ મિનરલ્સ મેળવવા માઇનિંગ જાયન્ટ NLCIL એ CSIR-સેન્ટ્રલ ઇલેક્ટ્રોકેમિકલ રિસર્ચ ઇન્સ્ટિટ્યૂટ સાથે વ્યાપારી જોડાણ કર્યું."
+            },
+            {
+                q: "25. DFS સેક્રેટરી સંજય લોહિયાની તાજેતરમાં કઈ બે સર્વોચ્ચ નાણાકીય સંસ્થાઓના ગવર્નિંગ સેન્ટ્રલ બોર્ડમાં સરકારી નોમિનેટેડ ડિરેક્ટર તરીકે વરણી થઈ છે?",
+                o: ["SEBI અને IRDAI", "RBI અને SBI", "NABARD અને SIDBI", "LIC અને PFRDA"],
+                a: 1,
+                exp: "નાણાકીય સેવાઓ વિભાગના સેક્રેટરી સંજય લોહિયાને કાનૂની જોગવાઈ હેઠળ રિઝર્વ બેંક (RBI) ના સેન્ટ્રલ બોર્ડ અને સ્ટેટ બેંક (SBI) ના સત્તાવાર સરકારી નોમિનેટેડ ડિરેક્ટર બનાવાયા છે."
+            }
+        ];
+
+        let currentQuizIndex = 0;
+        let currentQuizScore = 0;
+        let userRegisteredName = "";
+
+        function switchToQuizMode() {
+            const nameInput = document.getElementById('user-quiz-reg-name').value.trim();
+            
+            if(nameInput === "") {
+                alert("⚠️ ક્વિઝ શરૂ કરવા માટે કૃપા કરીને તમારું નામ લખો!");
+                return;
+            }
+            
+            userRegisteredName = nameInput;
+
+            document.getElementById('main-news-page-wrapper').style.display = 'none';
+            document.getElementById('quiz-view-panel').style.display = 'block';
+            
+            document.getElementById('quiz-active-questions-frame-block').style.display = 'block';
+            document.getElementById('quiz-result-final-pane').style.display = 'none';
+            
+            window.scrollTo(0,0);
+            
+            currentQuizIndex = 0;
+            currentQuizScore = 0;
+            document.getElementById('live-score-counter').innerText = currentQuizScore;
+            
+            loadSingleQuizQuestion(currentQuizIndex);
+        }
+
+        function switchBackToNewsMode() {
+            document.getElementById('quiz-view-panel').style.display = 'none';
+            document.getElementById('main-news-page-wrapper').style.display = 'block';
+            window.scrollTo(0,0);
+        }
+
+        function loadSingleQuizQuestion(index) {
+            const container = document.getElementById('quiz-questions-loader-target');
+            container.innerHTML = ""; 
+            
+            document.getElementById('quiz-next-action-btn').style.display = "none";
+            document.getElementById('quiz-step-progress-label').innerText = `Question ${index + 1} of 25`;
+
+            const item = quizDatabase[index];
+
+            const card = document.createElement('div');
+            card.className = "quiz-card-item";
+
+            const qTitle = document.createElement('div');
+            qTitle.className = "quiz-question";
+            qTitle.innerText = item.q;
+            card.appendChild(qTitle);
+
+            const optionsList = document.createElement('ul');
+            optionsList.className = "quiz-options-list";
+            optionsList.id = `single-q-opts-block`;
+
+            item.o.forEach((optText, optIdx) => {
+                const li = document.createElement('li');
+                li.className = "option-item";
+                li.innerText = optText;
+                
+                li.onclick = function() {
+                    evaluateSingleQuestionAnswer(optIdx, item.a, item.exp);
+                };
+
+                optionsList.appendChild(li);
+            });
+
+            card.appendChild(optionsList);
+
+            const expBox = document.createElement('div');
+            expBox.id = "live-explanation-feedback-box";
+            expBox.className = "quiz-explanation-box";
+            card.appendChild(expBox);
+
+            container.appendChild(card);
+        }
+
+        function evaluateSingleQuestionAnswer(selectedIdx, correctIdx, explanationText) {
+            const optionsBlock = document.getElementById('single-q-opts-block');
+            const optionsElements = optionsBlock.getElementsByTagName('li');
+
+            for (let i = 0; i < optionsElements.length; i++) {
+                optionsElements[i].classList.add('option-disabled');
+            }
+
+            if (selectedIdx === correctIdx) {
+                optionsElements[selectedIdx].classList.add('correct-state');
+                currentQuizScore++;
+                document.getElementById('live-score-counter').innerText = currentQuizScore;
+            } else {
+                optionsElements[selectedIdx].classList.add('wrong-state');
+                optionsElements[correctIdx].classList.add('correct-state');
+            }
+
+            const expBox = document.getElementById('live-explanation-feedback-box');
+            expBox.innerHTML = `<strong>💡 ટૂંકી સમજૂતી (Samjooti):</strong> ${explanationText}`;
+            expBox.style.display = "block";
+
+            const nextBtn = document.getElementById('quiz-next-action-btn');
+            if (currentQuizIndex < quizDatabase.length - 1) {
+                nextBtn.innerText = "Next Question →";
+            } else {
+                nextBtn.innerText = "Finish & See Score ✓";
+            }
+            nextBtn.style.display = "block";
+        }
+
+        function goToNextQuizQuestion() {
+            if (currentQuizIndex < quizDatabase.length - 1) {
+                currentQuizIndex++;
+                loadSingleQuizQuestion(currentQuizIndex);
+            } else {
+                showFinalResultsPaneLayout();
+            }
+        }
+
+        function showFinalResultsPaneLayout() {
+            document.getElementById('quiz-active-questions-frame-block').style.display = 'none';
+            document.getElementById('quiz-result-final-pane').style.display = 'block';
+            
+            document.getElementById('final-result-user-name-label').innerText = `👤 વિદ્યાર્થી: ${userRegisteredName}`;
+            document.getElementById('final-score-digits').innerText = currentQuizScore;
+        }
+
+        /* 🚀 WHATSAPP RESULT DISPATCH FORM FUNCTION INJECTOR ENGINE */
+        function sendResultToWhatsApp() {
+            // YOUR DIRECT WHATSAPP NUMBER LOADED SUCCESSFULLY
+            const masterWhatsAppNumber = "916353298168"; 
+            
+            const currentTime = new Date().toLocaleTimeString('gu-IN', { hour: '2-digit', minute: '2-digit' });
+            
+            const messagePayload = `*THE MAULIK EXPRESS QUIZ RESULT* 📊\n\n` +
+                                   `👤 *નામ:* ${userRegisteredName}\n` +
+                                   `📅 *તારીખ:* 17 June 2026\n` +
+                                   `⏱️ *સમય:* ${currentTime}\n` +
+                                   `🎯 *ફાઇનલ સ્કોર:* ${currentQuizScore} / 25\n\n` +
+                                   `📈 _માસ્ટર એક્ઝામ લેજર એન્ડ એનાલિટિક્સ સિસ્ટમ દ્વારા પ્રમાણિત._`;
+            
+            const encodedText = encodeURIComponent(messagePayload);
+            const whatsappWebUrl = `https://api.whatsapp.com/send?phone=${masterWhatsAppNumber}&text=${encodedText}`;
+            
+            window.open(whatsappWebUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
+    
+  </body>
+  
+</html>

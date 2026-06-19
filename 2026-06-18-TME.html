@@ -1,0 +1,1880 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>18JuneTME</title>
+    
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="gu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>THE MAULIK EXPRESS - Master Dual-Mode Dashboard (18 June 2026)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght=700&family=Inter:wght=400;500;600;700&family=Noto+Serif+Gujarati:wght=400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --card-bg: #1e293b;
+            --accent: #38bdf8;
+            --highlight-text: #fbbf24;
+            --danger: #f43f5e;
+            --text-muted: #94a3b8;
+            --paper-bg: #f4f4f0;
+            --sheet-bg: #fdfdfa;
+            --text-dark: #1e293b;
+            --border-color: #cbd5e1;
+            --yellow-highlighter: #fff200;
+            --success: #10b981;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Serif Gujarati', serif;
+            background-color: var(--paper-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .hl-yellow {
+            background-color: var(--yellow-highlighter);
+            color: #000000;
+            font-weight: 700;
+            padding: 2px 4px;
+            border-radius: 3px;
+            display: inline;
+        }
+
+        .dashboard-section {
+            background-color: var(--bg-dark);
+            color: #ffffff;
+            padding: 15px;
+            width: 100%;
+        }
+
+        @media (min-width: 600px) {
+            .dashboard-section { padding: 25px; }
+        }
+
+        .header-container {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            border-bottom: 1px solid var(--card-bg);
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        @media (min-width: 600px) {
+            .header-container {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+
+        .main-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .main-title span { color: var(--accent); }
+
+        .meta-info {
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        @media (min-width: 600px) {
+            .main-title { text-align: left; font-size: 2.3rem; }
+            .meta-info { text-align: right; font-size: 0.9rem; }
+        }
+
+        .meta-info strong { color: var(--highlight-text); }
+
+        .section-header {
+            font-family: 'Noto Serif Gujarati', serif;
+            font-size: 1.25rem;
+            margin: 20px 0 12px 0;
+            color: var(--accent);
+            border-left: 4px solid var(--accent);
+            padding-left: 8px;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        @media (min-width: 650px) {
+            .news-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        }
+        @media (min-width: 1000px) {
+            .news-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        .news-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            scroll-margin-top: 15px;
+        }
+
+        .news-card h3 {
+            font-size: 1rem;
+            margin-bottom: 6px;
+            color: #ffffff;
+            line-height: 1.35;
+        }
+
+        .news-card p {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            margin-bottom: 12px;
+            flex-grow: 1;
+            text-align: justify;
+            line-height: 1.4;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 8px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 10px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 8px 10px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.75rem;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+        }
+
+        .btn-flash {
+            background-color: rgba(251, 191, 36, 0.12);
+            color: var(--highlight-text);
+            border: 1px solid rgba(251, 191, 36, 0.25);
+        }
+
+        .btn-flash:hover {
+            background-color: var(--highlight-text);
+            color: var(--bg-dark);
+        }
+
+        .btn-detail {
+            background-color: rgba(56, 189, 248, 0.12);
+            color: var(--accent);
+            border: 1px solid rgba(56, 189, 248, 0.25);
+        }
+
+        .btn-detail:hover {
+            background-color: var(--accent);
+            color: var(--bg-dark);
+        }
+
+        .box-highlight-effect {
+            animation: card-flash-glow 2s cubic-bezier(0.4, 0, 0.2, 1);
+            border-color: var(--accent) !important;
+        }
+
+        @keyframes card-flash-glow {
+            0% { background-color: #1e3a8a; transform: scale(1.02); box-shadow: 0 0 15px rgba(56, 189, 248, 0.5); }
+            50% { transform: scale(1.02); box-shadow: 0 0 15px rgba(56, 189, 248, 0.2); }
+            100% { background-color: var(--card-bg); transform: scale(1); }
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(4px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 10px;
+        }
+
+        .modal-content {
+            background: #ffffff;
+            color: #1e293b;
+            width: 100%;
+            max-width: 600px;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            animation: modalSlideUp 0.2s ease-out;
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.3);
+        }
+
+        @keyframes modalSlideUp {
+            from { opacity: 0; transform: translateY(15px) scale(0.98); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(15, 23, 42, 0.6);
+            border: none;
+            color: #ffffff;
+            font-size: 1.2rem;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        .modal-img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-bottom: 3px solid var(--accent);
+        }
+
+        @media (min-width: 600px) { .modal-img { height: 200px; } }
+
+        .modal-body {
+            padding: 15px;
+            max-height: 60vh;
+            overflow-y: auto;
+        }
+
+        .modal-body h2 {
+            font-family: 'Noto Serif Gujarati', serif;
+            font-size: 1.15rem;
+            margin-bottom: 12px;
+            color: #0f172a;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 6px;
+        }
+
+        .mindmap-node {
+            list-style-type: none;
+            margin-bottom: 12px;
+        }
+
+        .mindmap-node li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            color: #334155;
+            font-size: 0.9rem;
+            text-align: justify;
+            line-height: 1.45;
+        }
+
+        .mindmap-node li::before {
+            content: "⚡";
+            position: absolute;
+            left: 0;
+            top: 1px;
+            font-size: 0.9rem;
+            color: var(--danger);
+        }
+
+        .modal-edge-box {
+            background: #f8fafc;
+            border-left: 4px solid #0f172a;
+            padding: 10px;
+            border-radius: 0 6px 6px 0;
+            margin-top: 12px;
+            font-size: 0.85rem;
+            color: #1e293b;
+        }
+
+        .broadsheet-section {
+            padding: 20px 10px;
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        @media (min-width: 600px) { .broadsheet-section { padding: 30px 20px; } }
+
+        .masthead {
+            text-align: center;
+            border-top: 4px double var(--text-dark);
+            border-bottom: 4px double var(--text-dark);
+            padding: 12px 0;
+            margin-bottom: 25px;
+        }
+
+        .masthead h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            letter-spacing: 1px;
+        }
+
+        @media (min-width: 600px) { .masthead h2 { font-size: 3.5rem; letter-spacing: 2px; } }
+
+        .masthead-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #475569;
+            margin-top: 6px;
+            border-top: 1px solid var(--text-dark);
+            padding-top: 5px;
+        }
+
+        @media (min-width: 600px) {
+            .masthead-meta { flex-direction: row; justify-content: space-between; }
+        }
+
+        .broadsheet-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.25rem;
+            margin-bottom: 15px;
+            border-bottom: 3px solid var(--text-dark);
+            padding-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .article {
+            background: var(--sheet-bg);
+            padding: 15px;
+            border: 1px solid #cbd5e1;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            scroll-margin-top: 15px;
+        }
+
+        @media (min-width: 600px) { .article { padding: 25px; } }
+
+        .article h3 {
+            font-family: 'Noto Serif Gujarati', serif;
+            font-size: 1.15rem;
+            margin-bottom: 8px;
+            color: #0f172a;
+            line-height: 1.35;
+        }
+
+        @media (min-width: 600px) { .article h3 { font-size: 1.5rem; } }
+
+        .article-meta {
+            font-size: 0.7rem;
+            color: #64748b;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+            border-bottom: 1px dashed #e2e8f0;
+            padding-bottom: 4px;
+        }
+
+        .article-content {
+            font-size: 0.95rem;
+            color: #334155;
+            text-align: justify;
+        }
+
+        @media (min-width: 600px) { .article-content { font-size: 1.02rem; } }
+
+        .article-content p {
+            margin-bottom: 12px;
+            text-indent: 15px;
+            line-height: 1.6;
+        }
+
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            margin: 12px 0;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .article-content table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 450px;
+            font-size: 0.85rem;
+        }
+
+        .article-content th, .article-content td {
+            border: 1px solid #cbd5e1;
+            padding: 8px 10px;
+            text-align: left;
+        }
+
+        .article-content th {
+            background-color: #f1f5f9;
+            color: #0f172a;
+        }
+
+        .additional-edge {
+            background-color: #f8fafc;
+            border-left: 4px solid var(--text-dark);
+            border-right: 1px solid #e2e8f0;
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 12px;
+            margin: 15px 0 8px 0;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .additional-edge h4 {
+            margin: 0 0 6px 0;
+            color: #0f172a;
+            font-size: 0.9rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            margin-top: 12px;
+            background: #1e293b;
+            color: #ffffff;
+            font-size: 0.7rem;
+            padding: 6px 10px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .floating-top-btn {
+            position: fixed;
+            bottom: 15px;
+            right: 15px;
+            width: 40px;
+            height: 40px;
+            background-color: var(--accent);
+            color: var(--bg-dark);
+            border: none;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 99;
+        }
+
+        .quiz-start-banner {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 15px 0 25px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            text-align: center;
+            box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.3);
+        }
+
+        .quiz-start-banner h2 {
+            font-size: 1.3rem;
+            color: #ffffff;
+            font-family: 'Noto Serif Gujarati', serif;
+        }
+
+        .quiz-name-input-box {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            width: 100%;
+            max-width: 300px;
+            margin: 5px 0;
+        }
+
+        .quiz-name-input-box input {
+            padding: 10px 14px;
+            border-radius: 6px;
+            border: 2px solid #cbd5e1;
+            font-size: 0.95rem;
+            font-family: 'Inter', sans-serif;
+            text-align: center;
+            outline: none;
+        }
+
+        .quiz-name-input-box input:focus {
+            border-color: var(--accent);
+        }
+
+        .btn-quiz-master {
+            background-color: var(--highlight-text);
+            color: #000000;
+            font-size: 1rem;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.2s, background-color 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-quiz-master:hover {
+            transform: scale(1.03);
+            background-color: #fcd34d;
+        }
+
+        #quiz-view-panel {
+            display: none;
+            background-color: var(--paper-bg);
+            min-height: 100vh;
+            padding: 20px 10px;
+        }
+
+        @media (min-width: 600px) { #quiz-view-panel { padding: 40px 20px; } }
+
+        .quiz-container {
+            max-width: 750px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 14px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            padding: 20px;
+        }
+
+        @media (min-width: 600px) { .quiz-container { padding: 35px; } }
+
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px dashed var(--border-color);
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+
+        .quiz-header h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            color: var(--bg-dark);
+        }
+
+        .score-box {
+            background: var(--bg-dark);
+            color: var(--highlight-text);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .btn-exit-quiz {
+            background: #64748b;
+            color: #ffffff;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        .btn-exit-quiz:hover { background: #475569; }
+
+        .quiz-card-item {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .quiz-question {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .quiz-options-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .option-item {
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            padding: 12px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .option-item:hover {
+            background: #f1f5f9;
+            border-color: #94a3b8;
+        }
+
+        .option-item.correct-state {
+            background-color: rgba(16, 185, 129, 0.15) !important;
+            border-color: var(--success) !important;
+            color: #065f46 !important;
+            font-weight: 600;
+        }
+
+        .option-item.correct-state::after {
+            content: " ✓ (સાચો જવાબ)";
+            color: var(--success);
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .option-item.wrong-state {
+            background-color: rgba(244, 63, 94, 0.15) !important;
+            border-color: var(--danger) !important;
+            color: #9f1239 !important;
+        }
+
+        .option-item.wrong-state::after {
+            content: " ✗ (ખોટો જવાબ)";
+            color: var(--danger);
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .option-disabled {
+            pointer-events: none;
+        }
+
+        .quiz-explanation-box {
+            display: none;
+            background-color: #f0fdf4;
+            border-left: 5px solid var(--success);
+            border-radius: 4px;
+            padding: 15px;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: #166534;
+            line-height: 1.5;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .quiz-explanation-box strong {
+            color: #14532d;
+            text-transform: uppercase;
+        }
+
+        .quiz-action-area {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .btn-next-quiz-step {
+            display: none;
+            background-color: #2563eb;
+            color: white;
+            font-size: 0.9rem;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-next-quiz-step:hover {
+            background-color: #1d4ed8;
+        }
+
+        .quiz-progress-bar {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        #quiz-result-final-pane {
+            display: none;
+            text-align: center;
+            padding: 30px 15px;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        #quiz-result-final-pane h3 {
+            font-family: 'Noto Serif Gujarati', serif;
+            font-size: 1.5rem;
+            color: var(--bg-dark);
+            margin-bottom: 10px;
+        }
+
+        .final-score-display-card {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #2563eb;
+            margin: 15px 0;
+        }
+
+        .btn-submit-whatsapp-final {
+            background-color: #25d366;
+            color: #ffffff;
+            font-size: 1.05rem;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-transform: uppercase;
+            margin-top: 15px;
+        }
+
+        .btn-submit-whatsapp-final:hover {
+            background-color: #20ba56;
+            transform: scale(1.02);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="main-news-page-wrapper">
+        <button class="floating-top-btn" onclick="scrollToDashboard()" title="ડેશબોર્ડ પર જાઓ">↑</button>
+
+        <section class="dashboard-section" id="dashboard">
+            <div class="header-container">
+                <h1 class="main-title">THE MAULIK <span>EXPRESS</span></h1>
+                <div class="meta-info">
+                    Master Exam Ledger & Analytics<br>
+                    તારીખ: <strong>૧૮ જૂન ૨૦૨૬</strong> | કેન્દ્ર: <strong>અમદાવાદ</strong>
+                </div>
+            </div>
+
+            <div class="quiz-start-banner">
+                <h2>📊 આજના કરંટ અફેર્સની લાઇવ ટેસ્ટ આપો (૧૮ જૂન ૨૦૨૬)</h2>
+                <div class="quiz-name-input-box">
+                    <input type="text" id="user-quiz-reg-name" placeholder="અહીં તમારું પૂરું નામ લખો..." autocomplete="off">
+                </div>
+                <button class="btn btn-quiz-master" onclick="switchToQuizMode()">⚡ Start 25 MCQ Quiz</button>
+            </div>
+
+            <h2 class="section-header">મુખ્ય સમાચાર (Main Stories)</h2>
+            <div class="news-grid">
+                <div class="news-card" id="card-m1">
+                    <div>
+                        <h3>ADIA દ્વારા લેન્સકાર્ટમાં 2.3% હિસ્સો વેચાયો</h3>
+                        <p>આબુ ધાબી ઇન્વેસ્ટમેન્ટ ઓથોરિટી (ADIA) એ ₹૧,૯૬૦ કરોડમાં પોતાનો ૨.૩% હિસ્સો વેચ્યો. કોટક મહિન્દ્રા એસેટ મેનેજમેન્ટ સૌથી મોટો બાયર બન્યો.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('m1')">🃏 Flash Card</button>
+                        <a href="#art-m1" class="btn btn-detail" onclick="focusDetail('card-m1')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-m2">
+                    <div>
+                        <h3>નવામા વેલ્થને મ્યુચ્યુઅલ ફંડ બિઝનેસની મંજૂરી</h3>
+                        <p>નવામા વેલ્થ મેનેજમેન્ટ લિમિટેડને સેબી (SEBI) તરફથી મ્યુચ્યુઅલ ફંડ કામગીરી અને નવો બિઝનેસ શરૂ કરવા માટે આખરી મંજૂરી મળી ગઈ છે.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('m2')">🃏 Flash Card</button>
+                        <a href="#art-m2" class="btn btn-detail" onclick="focusDetail('card-m2')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-m3">
+                    <div>
+                        <h3>અમરાવતી કેપિટલ માટે ₹૨,૫૩૪ કરોડ મંજૂર</h3>
+                        <p>CCEA દ્વારા આંધ્રપ્રદેશની નવી રાજધાની અમરાવતીમાં સરકારી કચેરીઓ અને રહેણાંક ટાવર્સના નિર્માણ માટે વિશાળ ઇન્ફ્રાસ્ટ્રક્ચર ફંડિંગ પાસ.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('m3')">🃏 Flash Card</button>
+                        <a href="#art-m3" class="btn btn-detail" onclick="focusDetail('card-m3')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-m4">
+                    <div>
+                        <h3>ડྲગ્સ રૂલ્સ ૧૯૪૫ માં મોટો ફેરફાર જાહેર</h3>
+                        <p>કેન્દ્રીય સ્વાસ્થ્ય મંત્રાલય દ્વારા ઓલ સિરપ-બેઝ્ડ દવાઓ માટે ડોક્ટરનું પ્રિસ્ક્રિપ્શન ફરજિયાત. ગામડાઓની મુક્તિ નાબૂદ કરાઈ.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('m4')">🃏 Flash Card</button>
+                        <a href="#art-m4" class="btn btn-detail" onclick="focusDetail('card-m4')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-m5">
+                    <div>
+                        <h3>અશોક લેલેન્ડ: દિલ્હી-NCR મોડર્નાઇઝેશન સ્કીમ</h3>
+                        <p>જૂના ટ્રક-બસ સ્ક્રેપ કરી ઇલેક્ટ્રિક કે BS6 વાહનો અપનાવવા બદલ ૮% ડિસ્કાઉન્ટ આપનાર પ્રથમ વ્યાપારી OEM બન્યા. MoRTH સાથે કરાર સંપન્ન.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('m5')">🃏 Flash Card</button>
+                        <a href="#art-m5" class="btn btn-detail" onclick="focusDetail('card-m5')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-m6">
+                    <div>
+                        <h3>PM मोदीने स्लोवाकियाचे सर्वोच्च राष्ट्रीय सन्मान</h3>
+                        <p>રાષ્ટ્રપતિ પીટર પેલેગ્રીની દ્વારા 'ઓર્ડર ઓફ વ્હાઇટ ડબલ ક્રોસ, ફર્સ્ટ ક્લાસ' એનાયત. વૈશ્વિક સ્તરે પીએમ મોદીના પુરસ્કારોની સંખ્યા ૩૩ થઈ.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('m6')">🃏 Flash Card</button>
+                        <a href="#art-m6" class="btn btn-detail" onclick="focusDetail('card-m6')">📰 Detailed</a>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="section-header">એક્ઝિક્યુટિવ બ્રીફિંગ્સ (Executive Briefings)</h2>
+            <div class="news-grid">
+                <div class="news-card" id="card-b1">
+                    <div>
+                        <h3>ટેલિગ્રામ બેન: વૉટ્સએપ ચેનલ ટ્રાન્ઝિશન</h3>
+                        <p>૨૨ જૂન સુધી દેશભરમાં ટેલિગ્રામ પર પ્રતિબંધની માહિતી વચ્ચે વન-ве વૉટ્સએપ બ્રોડકાસ્ટ ચેનલ સિસ્ટમ પ્રાઇવસી પ્રોટોકોલ સાથે સક્રિય કરાઈ.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b1')">🃏 Flash Card</button>
+                        <a href="#art-b1" class="btn btn-detail" onclick="focusDetail('card-b1')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b2">
+                    <div>
+                        <h3>આયુષ મંત્રાલય: યોગા પાર્ક પોર્ટલ લોન્ચ</h3>
+                        <p>દેશના પબ્લિક પાર્ક્સને કાયમી કમ્યુનિટી વેલનેસ હબ અને બ્રીધિંગ ટેકનિક ટ્રેનિંગ સેન્ટરમાં રૂપાંતરિત કરવા ડિજિટલ નેટવર્ક લોન્ચ.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b2')">🃏 Flash Card</button>
+                        <a href="#art-b2" class="btn btn-detail" onclick="focusDetail('card-b2')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b3">
+                    <div>
+                        <h3>૨ નવા સ્વતંત્ર NCC ડિરેક્ટોરેટ મંજૂર</h3>
+                        <p>રક્ષામંત્રાલયની જાહેરાત: આંધ્રપ્રદેશને તેલંગાણાથી અને ઝારખંડને બિહારથી અલગ કરી સ્વતંત્ર દરજ્જો અપાતા કુલ ડિરેક્ટોરેટ ૧૭ થી વધીને ૧૯ થયા.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b3')">🃏 Flash Card</button>
+                        <a href="#art-b3" class="btn btn-detail" onclick="focusDetail('card-b3')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b4">
+                    <div>
+                        <h3>બિહારના ભોજપુરમાં ઇન્ટિગ્રેટેડ એક્વા પાર્ક</h3>
+                        <p>કેન્દ્રીય મંત્રી રાજીવ રંજન સિંહ દ્વારા ₹૩૧.૨૧ કરોડના પ્રોજેક્ટનું ખાતમુહૂર્ત. પટનામાં NFDB ના પ્રાદેશિક કેન્દ્રની નીવ રખાઈ.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b4')">🃏 Flash Card</button>
+                        <a href="#art-b4" class="btn btn-detail" onclick="focusDetail('card-b4')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b5">
+                    <div>
+                        <h3>ભારત-જાપાન કાર્બન ક્રેડિટ જોડાણ</h3>
+                        <p>પેરિસ કરારના આર્ટિકલ 6.2 હેઠળ જોઈન્ટ ક્રેડિટિંગ મેકેનિઝમ (JCM) ના અમલીકરણના નિયમો અપનાવાયા. લો-કાર્બન ટેક્નોલોજી ટ્રાન્સફર થશે.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b5')">🃏 Flash Card</button>
+                        <a href="#art-b5" class="btn btn-detail" onclick="focusDetail('card-b5')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b6">
+                    <div>
+                        <h3>ASI વિંગ અને ડેનમાર્ક વચ્ચે સત્તાવાર કરાર</h3>
+                        <p>૧૭મી સદીના ઐતિહાસિક ડેનિશ જહાજ 'ઓરેસંત' (Oresund) ની શોધ માટે કરાઇકલ પુડુચેરી નજીક જોઈન્ટ અંડરવોટર ઇન્વેસ્ટિગેશન શરૂ.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b6')">🃏 Flash Card</button>
+                        <a href="#art-b6" class="btn btn-detail" onclick="focusDetail('card-b6')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b7">
+                    <div>
+                        <h3>DRDO: ક્રૂઝ મિઝાઇલ (LRLACM) નું સફળ પરીક્ષણ</h3>
+                        <p>૧૦૦૦ થી ૧૫૦૦ કિલોમીટરની મારક ક્ષમતા ધરાવતી લેન્ડ એટેક મિઝાઇલનું સફળ ટેસ્ટિંગ. 'ઇન્ડિયાઝ ટૉમહૉક' તરીકે ઓળખ મળી.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b7')">🃏 Flash Card</button>
+                        <a href="#art-b7" class="btn btn-detail" onclick="focusDetail('card-b7')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b8">
+                    <div>
+                        <h3>વર્લ્ડ ઇકોનોમિક ફોરમ: પાયોનિયર્સ લિસ્ટ</h3>
+                        <p>WEF દ્વારા ૨૩ દેશોમાંથી ૧૦૦ ઉભરતી ટેકનોલોજી કંપનીઓની યાદી જાહેર. ચાઇના ખાતે વાર્ષિક ન્યૂ ચેમ્પિયન્સ બેઠકમાં ભાગ લેશે.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b8')">🃏 Flash Card</button>
+                        <a href="#art-b8" class="btn btn-detail" onclick="focusDetail('card-b8')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b9">
+                    <div>
+                        <h3>ગૌતમ ડે ને પ્રતિષ્ઠિત EMBO ગોલ્ડ મેડલ</h3>
+                        <p>ભારતીય મૂળના જીવવિજ્ઞાની ગૌતમ ડે ને જર્મનીમાં સંશોધન માટે એવોર્ડ એનાયત. જિનેવા યુનિવર્સિટીના વૈજ્ઞાનિક સાથે પ્રાઈઝ શેર કર્યું.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b9')">🃏 Flash Card</button>
+                        <a href="#art-b9" class="btn btn-detail" onclick="focusDetail('card-b9')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b10">
+                    <div>
+                        <h3>તીરંદાજી: ધીરજ અને કુમકુમને ગોલ્ડ મેડલ</h3>
+                        <p>તુર્કીના અંતાલ્યામાં રિકર્વ મિક્સ ટીમ ઇવેન્ટમાં દક્ષિણ કોરિયાની વર્લ્ડ નંબર-૧ ટીમને હરાવીને ભારતે ઐતિહાસિક સોવર્ણ પદક જીત્યો.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b10')">🃏 Flash Card</button>
+                        <a href="#art-b10" class="btn btn-detail" onclick="focusDetail('card-b10')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b11">
+                    <div>
+                        <h3>AIFF અંડર-17 વિમેન્સ યુથ લીગનું એનાઉન્સમેન્ટ</h3>
+                        <p>૧૮ થી ૨૯ જુલાઈ દરમિયાન છત્તીસગઢના નારાયણપુરમાં અદ્યતન રાષ્ટ્રીય ફૂટબોલ લીગનું આયોજન થશે. મુખ્ય ટીમો જાહેર.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b11')">🃏 Flash Card</button>
+                        <a href="#art-b11" class="btn btn-detail" onclick="focusDetail('card-b11')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b12">
+                    <div>
+                        <h3>વર્લ્ડ બ્લડ ડોનર ડે: ૧૪ જૂન ઓબ્ઝર્વેશન</h3>
+                        <p>'વન ડ્રોપ ઓફ ઈમ્યુનિટી' ની થીમ સાથે રક્તદાન દિવસની ઉજવણી. એબીઓ (ABO) બ્લડ ગ્રુપના શોધક ડૉ. લેન્ડસ્ટીનરની સ્મૃતિમાં ખાસ દિવસ.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b12')">🃏 Flash Card</button>
+                        <a href="#art-b12" class="btn btn-detail" onclick="focusDetail('card-b12')">📰 Detailed</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="broadsheet-section">
+            <div class="masthead">
+                <h2>THE MAULIK EXPRESS</h2>
+                <div class="masthead-meta">
+                    <span>VOL. II NO. 18 (EXAMINATION SPECIAL - FULL HIGHLIGHTED VERSION)</span>
+                    <span>અમદાવાદ, ગુરુવાર, ૧૮ જૂન ૨૦૨૬</span>
+                    <span>કિંમત: ₹ ૫.૦૦</span>
+                </div>
+            </div>
+
+            <div class="broadsheet-grid-wrapper">
+                <h3 class="broadsheet-title">મુખ્ય સમાચાર વિગતવાર (Main Stories Detail)</h3>
+
+                <article class="article" id="art-m1">
+                    <div class="article-meta">ઇક્વિટી ટ્રાન્ઝેક્શન • ગ્લોબલ ફાઇનાન્સ • લેન્સકાર્ટ ઇન્વેસ્ટમેન્ટ પાથ</div>
+                    <h3>૧. આબુ ધાબી ઇન્વેસ્ટિગેશન ઓથોરિટી (ADIA) એ લેન્સકાર્ટમાં પોતાનો ૨.૩% હિસ્સો ₹૧,૯૬૦ કરોડમાં વેચ્યો</h3>
+                    <div class="article-content">
+                        <p>વૈશ્વિક ફાઇનાન્સ માર્કેટના મોટા સમાચાર અનુસાર, <span class="hl-yellow">આબુ ધાબી ઇન્વેસ્ટમેન્ટ ઓથોરિટી (ADIA)</span> એ ઓપ્ટિકલ રિટેલ જાયન્ટ લેન્સકાર્ટ (Lenskart) માં પોતાનો <span class="hl-yellow">૨.૩% (2.3%) હિસ્સો ₹૧,૯૬૦ કરોડમાં</span> સત્તાવાર રીતે વેચી દીધો છે. આ ઇક્વિટી ટ્રાન્ઝેક્શન એવા સમયે એક્ઝિક્યુટ થયું છે જ્યારે કંપની <span class="hl-yellow">મે મહિનામાં</span> પોતાનો મેગા આઈપીઓ (IPO) લાવવાની સંપૂર્ણ યોજના બનાવી રહી હતી, પરંતુ અમુક અગમ્ય કારણોસર તે પાછો ઠેલાયો હતો. અગાઉ <span class="hl-yellow">સોફ્ટબેંક (SoftBank)</span> એ પણ આ જ આઈપીઓ ડિલેને કારણે પોતાનો હિસ્સો આંશિક રીતે વેચીને બહાર નીકળવાનું વલણ અપનાવ્યું હતું.</p>
+                        <p>આ હિસ્સો ખરીદનારા બાયર્સમાં <span class="hl-yellow">૧૯ જેટલી મોટી માર્કેટ સંસ્થાઓ</span> સામેલ છે, જેમાં સૌથી મોટો ખરીદદાર તરીકે ભારતીય મ્યુચ્યુઅલ ફંડ ઉદ્યોગનું જાયન્ટ <span class="hl-yellow">કોટક મહિન્દ્રા એસેટ મેનેજમેન્ટ (Kotak Mahindra AM)</span> ઉભરી આવ્યું છે. કોટક એસેટે <span class="hl-yellow">₹૨૬૬ કરોડનું</span> રોકાણ કરીને લેન્સકાર્ટના <span class="hl-yellow">૧.૨૭ કરોડ શેર્સ</span> સીધા હસ્તગત કર્યા છે. આ સિવાય અન્ય પ્રમુખ વૈશ્વિક ખરીદદારોમાં <span class="hl-yellow">ગોલ્ડમેન સૅક્સ, મોર્ગન સ્ટેનલી, સોસાયટી જનરલ અને ઇન્ટરનેશનલ મોનેટરી ફંડ (IMF)</span> નો પણ સમાવેશ થાય છે. જ્યારે ભારતીય સ્થાનિક બજારમાંથી <span class="hl-yellow">SBI મ્યુચ્યુઅલ ફંડ, ICICI પ્રુડેન્શિયલ અને મિરાઈ એસેટ મ્યુચ્યુઅલ ફંડે</span> પણ આ રોકાણ પ્રક્રિયામાં ભાગ લીધો છે.</p>
+                        <p>આ મોટું વેચાણ પૂર્ણ થયા બાદ પણ, એડીઆઈએ (ADIA) લેન્સકાર્ટ કંપનીમાં <span class="hl-yellow">૯.७૮% (9.78%) ના વિશાળ હિસ્સા સાથે</span> હજુ પણ દ્વિતીય ક્રમનું સૌથી મોટું പબ્લિશેરહોલ્ડિંગ ધરાવે છે, જે લોન્ગ ટર્મ ઇક્વિટી વેલ્યુએશનનો મજબૂત પુરાવો છે.</p>
+                        <div class="additional-edge">
+                            <h4>📌 Additional Edge: Banking Promotional & UPSC Strategy</h4>
+                            • <strong>લોન બુક અને ઇક્વિટી વેલ્યુએશન લિંક:</strong> જ્યારે કોઈ મોટી બ્રાન્ડનો IPO પાછો ઠેલાય છે, ત્યારે પ્રાઇવેટ ઇક્વિટી (PE) પ્લેયર્સ સેકન્ડરી માર્કેટ ટ્રાન્ઝેક્શન દ્વારા નફો બુક (Profit Booking) કરે છે.<br>
+                            • <strong>પરીક્ષાલક્ષી ડેટા:</strong> પરીક્ષા માટે સૌથી મોટા સ્થાનિક ખરીદદાર તરીકે <span class="hl-yellow">'કોટક મહિન્દ્રા એસેટ મેનેજમેન્ટ'</span> નું નામ અને ADIA નું બાકી રહેલું હોલ્ડિંગ <span class="hl-yellow">(9.78%)</span> અત્યંત મહત્વનું છે.
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-m1')">Back to Dashboard ↑</button>
+                </article>
+
+                <article class="article" id="art-m2">
+                    <div class="article-meta">નાણાકીય બજાર • સેબી મંજૂરી આદેશ • એસેટ મેનેજમેન્ટ લાઇસન્સ</div>
+                    <h3>૨. નવામા વેલ્થ મેનેજમેન્ટ લિમિટેડને મ્યુચ્યુઅલ ફંડ બિઝનેસ શરૂ કરવા સેબી (SEBI) નું આખરી એપ્રુવલ મળ્યું</h3>
+                    <div class="article-content">
+                        <p>નાણાકીય ક્ષેત્રની અગ્રણી કંપની <strong>નવામા વેલ્થ મેનેજમેન્ટ લિમિટેડ (Nuvama Wealth Management)</strong> ને દેશના કેપિટલ માર્કેટ રેગ્યુલેટર <span class="hl-yellow">સેબી (SEBI)</span> તરફથી તેમના એસેટ મેનેજમેન્ટ ઓપરેશન્સ અને મ્યુચ્યુઅલ ફંડ બિઝનેસ સત્તાવાર રીતે શરૂ કરવા માટે ફાઇનલ એપ્રુવલ મળી ગયું છે. આ મંજૂરી <span class="hl-yellow">જૂન ૨૦૨૬ ના મધ્યમાં</span> આપવામાં આવી છે.</p>
+                        <p>આ મંજૂરી બાદ નવામા વેલ્થ હવે ભારતીય મ્યુચ્યુઅલ ફંડ ઉદ્યોગમાં નવી <span class="hl-yellow">એસેટ મેનેજમેન્ટ કંપની (AMC)</span> તરીકે સત્તાવાર પ્રવેશ કરશે. તે આગામી સમયમાં રિટેલ રોકાણકારો અને સંસ્થાકીય ક્લાયન્ટ્સ માટે વિશિષ્ટ ઇક્વિટી, ડેટ અને હાઇબ્રિડ ફંડ સ્કીમો <span class="hl-yellow">(NFO)</span> લોન્ચ કરીને દેશના નાણાકીય બજારમાં પોતાની પકડ મજબૂત કરશે.</p>
+                        <div class="additional-edge">
+                            <h4>📌 Additional Edge: SEBI AMC Regulations</h4>
+                            • <strong>રેગ્યુલેટરી માળખું:</strong> ભારતમાં નવો મ્યુચ્યુઅલ ફંડ બિઝનેસ શરૂ કરવા માટે <span class="hl-yellow">SEBI (Mutual Funds) Regulations, 1996</span> હેઠળ કડક માપદંડો પૂર્ણ કરવા ફરજિયાત છે. સ્પોન્સર કંપની પાસે પાંચ વર્ષની નાણાકીય સેવાઓનો સકારાત્મક ટ્રેક રેકોર્ડ હોવો અનિવાર્ય છે.
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-m2')">Back to Dashboard ↑</button>
+                </article>
+
+                <article class="article" id="art-m3">
+                    <div class="article-meta">કેપિટલ ઇન્ફ્રાસ્ટ્રક્ચર • કેબિનેટ નિર્ણયો • સીપીડબ્લ્યુડી આદેશ</div>
+                    <h3>૩. આંધ્રપ્રદેશની નવી રાજધાની અમરાવતીના વિકાસ માટે કેબિનેટ સમિતિ (CCEA) દ્વારા ₹૨,૫૩૪ કરોડનું ફંડ મંજૂર</h3>
+                    <div class="article-content">
+                        <p>કેન્દ્રીય કેબિનેટ કમિટી ઓન ઇકોનોમિક અફેર્સ (CCEA) એ આંધ્રપ્રદેશની નવી રાજધાની <strong>અમરાવતી (Amaravati)</strong> ના વહીવટી ઇન્ફ્રાસ્ટ્રક્ચરના સાર્વત્રિક વિકાસ માટે <span class="hl-yellow">₹૨,૫૩૪ કરોડના</span> મેગા ફંડિંગ પ્રસ્તાવને સત્તાવાર સ્વીકૃતિ આપી દીધી છે. આ સમગ્ર પ્રોજેક્ટનું નિર્માણ કેન્દ્રીય સંસ્થા <span class="hl-yellow">સેન્ટ્રલ પબ્લિક વર્ક્સ ડિપાર્ટમેન્ટ (CPWD)</span> દ્વારા <span class="hl-yellow">મિનિસ્ટ્રી ઓફ હાઉસિંગ એન્ડ અર્બન અફેર્સ</span> હેઠળ સખત સમયમર્યાદામાં હાથ ધરવામાં આવશે.</p>
+                        <p>આ વિશાળ ભંડોળને વહીવટી અને રહેણાંક જરૂરિયાતોને ધ્યાનમાં રાખીને બે મુખ્ય ભાગોમાં વિભાજિત કરવામાં આવ્યું છે:</p>
+                        <div class="table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>પ્રોજેક્ટ સેગમેન્ટ વર્ગીકરણ</th>
+                                        <th>ફાળવેલ રકમ (કરોડ રૂપિયામાં)</th>
+                                        <th>ક્ષમતા / મુખ્ય લક્ષણો અને ઇન્ફ્રાસ્ટ્રક્ચર</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>સેન્ટ્રલ ગવર્નમેન્ટ જનરલ પૂલ ઓફિસ અકોમોડેશન (GPRA Office)</td>
+                                        <td><span class="hl-yellow">₹૧,૨૯૯ કરોડ</span></td>
+                                        <td><span class="hl-yellow">૮,૦૦૦ (8000)</span> સરકારી ઓફિશિયલ્સ અને સ્ટાફ મેમ્બર્સ માટે આધુનિક વહીવટી વર્કિંગ સ્પેસ ક્ષમતા</td>
+                                    </tr>
+                                    <tr>
+                                        <td>જનરલ પૂલ રેસિડેન્શિયલ અકોમોડેશન (GPRA Housing)</td>
+                                        <td><span class="hl-yellow">₹૧,૨૩૫ કરોડ</span></td>
+                                        <td><span class="hl-yellow">૧૧ ભવ્ય રેસિડેન્શિયલ ટાવર્સ</span> નું નિર્માણ, જેમાં કુલ <span class="hl-yellow">૧,૫૦૪ ડ્વેલિંગ યુનિટ્સ</span> (રહેણાંક ઘરો) તૈયાર કરાશે</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="additional-edge">
+                            <h4>📌 Additional Edge: AP Reorganization Act History</h4>
+                            • <strong>ઐતિહાસિક પૃષ્ઠભૂમિ:</strong> આંધ્રપ્રદેશ અને તેલંગાણાના વિભાજન <span class="hl-yellow">(આંધ્રપ્રદેશ પુનર્ગઠન અધિનિયમ, ૨૦૧૪)</span> વખતે જોગવાઈ હતી કે ૧૦ વર્ષ સુધી હૈદરાબાદ સંયુક્ત પાટનગર રહેશે. હવે ૧૦ વર્ષની અવધિ પૂર્ણ થતાં જ અમરાવતીને વહીવટી કેન્દ્ર બનાવવા માટે આ કેન્દ્રીય ફંડિંગ એન્જિન સમાન સાબિત થશે.
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-m3')">Back to Dashboard ↑</button>
+                </article>
+
+                <article class="article" id="art-m4">
+                    <div class="article-meta">હેલ્થકેર કાયદો • ડ્રગ સેફ્ટી રેગ્યુલેશન • શિડ્યુલ કે અમેન્ડમેન્ટ</div>
+                    <h3>૪. કેન્દ્રીય સ્વાસ્થ્ય મંત્રાલયે ડ્રગ્સ રૂલ્સ ૧૯૪૫ માં સુધારો કર્યો: તમામ સિરપ દવાઓ માટે પ્રિસ્ક્રિપ્શન ફરજિયાત</h3>
+                    <div class="article-content">
+                        <p>દેશમાં વિવિધ કફ સિરપ અને સિરપ-બેઝ્ડ મેડિસિન્સના નશા તરીકે થતા દુરુપયોગને કાયમી ધોરણે ડામવા માટે કેન્દ્રીય સ્વાસ્થ્ય અને પરિવાર કલ્યાણ મંત્રાલયે મોટો નીતિગત નિર્ણય લીધો છે. મંત્રાલયે દાયકાઓ જૂના <span class="hl-yellow">ડ્રગ્સ રૂલ્સ ૧૯૪૫ (Drug Rules 1945)</span> માં સુધારો કરીને <span class="hl-yellow">અમેન્ડમેન્ટ રૂલ્સ ૨૦૨૬</span> નો નવો આદેશ સત્તાવાર રીતે લાગુ કરી દીધો છે.</p>
+                        <p>આ નવા નિયમ હેઠળ, <span class="hl-yellow">૧,૦૦૦ થી ઓછી વસ્તી</span> ધરાવતા નાના અંતરિયાળ ગામડાઓમાં સામાન્ય કરિયાણાની દુકાનો કે લોકલ વન્ડર પર કડક લાયસન્સ વગર સિરપ વેચવાની જે કાનૂની મુક્તિ હતી, તેને સંપૂર્ણપણે પાછી ખેંચી લેવામાં આવી છે. આ તમામ દવાઓને હવે કડક દેખરેખ હેઠળ <span class="hl-yellow">શિડ્યુલ કે (Schedule K)</span> ના કાયદાકીય દાયરામાં લાવી દેવાઈ છે. હવેથી કફ સિરપ સહિતની કોઈપણ સિરપ-બેઝ્ડ મેડિસિન માત્ર ઓથોરાઇઝ્ડ અને લાયસન્સ ધરાવતી ફાર્મસી પરથી અને માત્ર રજિસ્ટર્ડ ક્લિનિકલ ડૉક્ટરના <span class="hl-yellow">વેલિડ પ્રિસ્ક્રિપ્શન</span> સાથે જ વેચી શકાશે. બજારમાં <span class="hl-yellow">ઓવર ધ કાઉન્ટર (OTC)</span> વેચાણ સિસ્ટમ સિરપ માટે સંપૂર્ણપણે નાબૂદ કરાઈ છે.</p>
+                        <div class="additional-edge">
+                            <h4>📌 Additional Edge: Global Drug Safety Crisis & DEG Contamination</h4>
+                            • <strong>નીતિગત પૃષ્ઠભૂમિ (UPSC Focus):</strong> ગત વર્ષોમાં આંતરરાષ્ટ્રીય સ્તરે ભારતીય બનાવટના કફ સિરપમાં <span class="hl-yellow">ડાયઇથિલિન ગ્લાયકોલ (DEG) અને ઇથિલિન ગ્લાયકોલ (EG)</span> ના ઝેરી તત્વોના દૂષણને લીધે વિદેશોમાં બાળકોના મોતના કિસ્સા સામે આવ્યા હતા. ભારતીય ફાર્મા ઉદ્યોગની વૈશ્વિક શાખ બચાવવા માટે ફાર્માસ્યુટિકલ ગવર્નન્સ મજબૂત કરવાનો આ પ્રયાસ છે.
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-m4')">Back to Dashboard ↑</button>
+                </article>
+
+                <article class="article" id="art-m5">
+                    <div class="article-meta">પરિવહન નીતિ • ક્લીન એનર્જી ઇન્સેન્ટિવ • ઓટોમોબાઈલ ગ્રીન ઓડિટ</div>
+                    <h3>૫. અશોક લેલેન્ડ દિલ્હી-NCR ટ્રક અને બસ સ્ક્રેપેજ સ્કીમ હેઠળ ૮% ડિસ્કાઉન્ટ આપનારી દેશની પ્રથમ OEM કંપની બની</h3>
+                    <div class="article-content">
+                        <p>દેશની અગ્રણી વ્યાપારી વાહન નિર્માતા કંપની <strong>અશોક લેલેન્ડ (Ashok Leyland)</strong> અને તેની ઇલેક્ટ્રિક અલ્ટ્રા-મોડર્ન પેટા કંપની <strong>સ્વિચ મોબિલિટી (Switch Mobility)</strong> એ દિલ્હી-NCR માં જૂના પ્રદૂષિત વ્યાપારી વાહનોના સ્થાને ગ્રીન ક્લીન એનર્જી વ્હીકલ્સને પ્રોત્સાહન આપવા માટે મોટો કરાર કર્યો છે. કંપનીએ મિનિસ્ટ્રી ઓફ રોડ ટ્રાન્સપોર્ટ એન્ડ હાઇવેઝ (MoRTH) ની <span class="hl-yellow">₹૯,૫૮૫ કરોડની</span> દિલ્હી વાહન આધુનિકીકરણ યોજના હેઠળ ભાગીદારી કરી છે.</p>
+                        <p>આ યોજના હેઠળ, જો કોઈ ગ્રાહક પોતાના <span class="hl-yellow">BS4 (Bharat Stage 4) કે તેનાથી જૂના</span> એમિશન સ્ટાન્ડર્ડના કમર્શિયલ ટ્રક અથવા બસને સત્તાવાર સ્ક્રેપ સેન્ટરમાં સ્ક્રેપ કરીને નવું આધુનિક BS6 કમ્પ્લાયન્ટ કે સંપૂર્ણ ઇલેક્ટ્રિક વાહન ખરીદશે, તો અશોક લેલેન્ડ વાહનની મૂળ કિંમત પર <span class="hl-yellow">૮% (8%) નું સીધું એક્સ્ટ્રા ડિસ્કાઉન્ટ</span> આપશે. આવી જાહેરાત કરનાર તે દેશની સર્વપ્રથમ ઓટોમોબાઈલ જાયન્ટ બની છે.</p>
+                        <p>આ કંપની ડિસ્કાઉન્ટ ઉપરાંત, દિલ્હી સરકાર અને કેન્દ્ર સરકાર દ્વારા નીચે મુજબના ક્રાંતિકારી આર્થિક પ્રોત્સાહનો (Incentives) પૂરા પાડવામાં આવશે:</p>
+                        <ul>
+                            <li><strong>વ્યાજ સબવેન્શન:</strong> નવા વાહનની લોન પર સતત <span class="hl-yellow">૫ વર્ષ માટે ૫% (5%) નું</span> ઇન્ટરેસ્ટ સબવેન્શન (વ્યાજ સબસીડી).</li>
+                            <li><strong>રોડ ટેક્સ કન્સેશન:</strong> સંપૂર્ણ <span class="hl-yellow">૧૦ વર્ષના</span> લાંબા ગાળા માટે <span class="hl-yellow">૧૦０% રોડ ટેક્સ માફી</span>.</li>
+                            <li><strong>રજીસ્ટ્રેશન ફી વેવર:</strong> નવા વાહનના રજીસ્ટ્રેશન પર વાહન વ્યવહાર વિભાગ દ્વારા <span class="hl-yellow">૧૦૦% પર્સનલ ફી વેવર</span> (માફી).</li>
+                            <li><strong>ફ્યુઅલ વાઉચર્સ:</strong> ક્લીન રનિંગ સપોર્ટ માટે સરકાર દ્વારા <span class="hl-yellow">૫ વર્ષ સુધી દર મહિને ફ્રી મંથલી ફ્યુઅલ વાઉચર્સ</span> પણ ફાળવવામાં આવશે.</li>
+                        </ul>
+                        <div class="additional-edge">
+                            <h4>📌 Additional Edge: OEM Universal Concept & NGT Rules</h4>
+                            • <strong>OEM એટલે શું?:</strong> OEM એટલે <span class="hl-yellow">'Original Equipment Manufacturer'</span>. આ એક જનરિક ગ્લોબલ ટર્મ છે જે વાહનના મૂળ સ્પેરપાર્ટ્સ અને એન્જિન પોતે જ ઇન-હાઉસ ડિઝાઇન અને મેન્યુફેક્ચર કરતી કંપનીઓ માટે વપરાય છે. દિલ્હી-NCR માં શિયાળા દરમિયાન થતા ભયાનક સ્મોગને રોકવા માટે <span class="hl-yellow">નેશનલ ગ્રીન ટ્રિબ્યુનલ (NGT)</span> ના વાહન સ્ક્રેપેજ ઓર્ડર્સને સપોર્ટ કરવા આ સ્કીમ લાવી છે.
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-m5')">Back to Dashboard ↑</button>
+                </article>
+
+                <article class="article" id="art-m6">
+                    <div class="article-meta">આંતરરાષ્ટ્રીય સંબંધો • રોયલ સન્માન • ડિપ્લોમેટિક એવોર્ડ્સ કાઉન્ટર</div>
+                    <h3>૬. પીએમ નરેન્દ્ર મોદીને સ્લોવાકિયા દેશનું સર્વોચ્ચ રાષ્ટ્રીય સન્માન એનાયત કરાયું</h3>
+                    <div class="article-content">
+                        <p>ઇટાલી ખાતે યોજાનારી પ્રખ્યાત જી-૭ (G7) વૈશ્વિક શિખર બેઠકમાં ભાગ લેતા પૂર્વે દેશના વડાપ્રધાન નરેન્દ્ર મોદી સેન્ટ્રલ યુરોપના મહત્વપૂર્ણ દેશ <strong>સ્લોવાકિયાની</strong> સત્તાવાર મુલાકાતે પહોંચ્યા હતા. સ્લોવાકિયાના પાટનગર <span class="hl-yellow">બ્રાતિસ્લાવા (Bratislava)</span> ના પ્રેસિડેન્શિયલ પેલેસ ખાતે આયોજિત ભવ્ય આંતરરાષ્ટ્રીય સમારોહમાં ત્યાંના વર્તમાન રાષ્ટ્રપતિ <span class="hl-yellow">પીટર પેલેગ્રીની (Peter Pellegrini)</span> દ્વારા પીએમ મોદીને સ્લોવાકિયા દેશનું સર્વોચ્ચ નાગરિક સન્માન <span class="hl-yellow">'ઓર્ડર ઓફ વ્હાઇટ ડબલ ક્રોસ, ફર્સ્ટ કલાસ' (Order of the White Double Cross, First Class)</span> સત્તાવાર રીતે એનાયત કરવામાં આવ્યું છે.</p>
+                        <p>આ અત્યંત પ્રતિષ્ઠિત આંતરરાષ્ટ્રીય સન્માન મળવાની સાથે જ, વડાપ્રધાન નરેન્દ્ર મોદીને વૈશ્વિક સ્તરે વિવિધ વિદેશી સરકારો દ્વારા મળેલા કુલ સર્વોચ્ચ રાષ્ટ્રીય પુરસ્કારોની સંખ્યા વધીને <span class="hl-yellow">૩૩ (33) ના ઐતિહાસિક આંકડા પર</span> પહોંચી ગઈ છે, જે ગ્લોબલ ફોરમ પર ભારતીય મુત્સદ્દીગીરીની મોટી જીત દર્શાવે છે.</p>
+                        <div class="additional-edge">
+                            <h4>📌 Additional Edge: Deep UPSC Prelims Focus on Royal Honors</h4>
+                            • <strong>પરીક્ષા લક્ષી કેન્દ્રીય બિંદુ:</strong> તાજેતરમાં બેંકિંગ પ્રમોશનલ અને UPSC પરીક્ષાઓમાં પીએમ મોદીને મળેલા વિશિષ્ટ આંતરરાષ્ટ્રીય એવોર્ડ્સના નામો વિશે પ્રશ્નો પૂછાયા છે (જેમ કે ઇજિપ્તનો ઓર્ડર ઓફ નાઇલ, ફ્રાન્સનો ગ્રાન્ડ ક્રોસ ઓફ લીજન ઓફ ઓનર). સેન્ટ્રલ યુરોપિયન દેશો સાથે દ્વિપક્ષીય વેપાર મજબૂત કરવાના ભારતના એજન્ડા હેઠળ આ એવોર્ડનું વિશેષ મહત્વ છે.
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-m6')">Back to Dashboard ↑</button>
+                </article>
+
+                <h3 class="broadsheet-title" style="margin-top: 30px;">એક્ઝિક્યુટિવ બ્રીફિંગ્સ વિગતવાર (Executive Briefings Detail)</h3>
+
+                <div class="article" id="art-b1">
+                    <div class="article-meta">ઇન્ટરનલ કોમ્યુનિકેશન • டிજિટલ ટ્રાન્ઝિશન • પ્રાઇવસી પ્રોટોકોલ</div>
+                    <h3>૧. દેશમાં ૨૨ જૂન સુધી ટેલિગ્રામ સેવાઓ ખોરવાતા વિદ્યાર્થીઓ માટે કટોકટી વૉટ્સએપ ચેનલ લિંક જાહેર</h3>
+                    <div class="article-content">
+                        <p>દેશભરમાં ટેલિગ્રામ (Telegram) એપ્લિકેશનના નેટવર્ક સર્વર્સમાં અચાનક આવેલી ટેકનિકલ ખામી અથવા કામચલાઉ સરકારી પ્રશાસનિક બ્લોકિંગને કારણે આગામી <span class="hl-yellow">૨૨મી જૂન સુધી ટેલિગ્રામ સેવાઓ સંપૂર્ણ કે આંશિક રીતે બંધ</span> થઈ ચૂકી છે. આ કમ્યુનિકેશન કટોકટીને લીધે વિદ્યાર્થીઓની રોજેરોજની લાઇવ ક્લાસ અપડેટ્સ કે મહત્વપૂર્ણ સ્પેશિયલ કરન્ટ અફેર્સ પીડીએફ મટીરીયલ મિસ ન થાય તે માટે વૈકલ્પિક વ્યવસ્થા તરીકે નવી સત્તાવાર <span class="hl-yellow">વૉટ્સએપ ચેનલ (WhatsApp Channel)</span> સિસ્ટમ લોન્ચ કરવામાં આવી છે.</p>
+                        <p>પ્રશાસન દ્વારા સ્પષ્ટતા કરવામાં આવી છે કે આ કોઈ સામાન્ય વૉટ્સએપ ગ્રુપ નથી, પરંતુ ટેલિગ્રામ બ્રોડકાસ્ટની જેમ જ સંપૂર્ણ <span class="hl-yellow">'વન-વે બ્રોડકાસ્ટ ચેનલ' (One-Way Broadcast)</span> છે. આ હાઇટેક પ્રોટોકોલ સિસ્ટમમાં જોડાનાર કોઈપણ વિદ્યાર્થી અન્ય વિદ્યાર્થીઓના પર્સનલ મોબાઈલ નંબર ક્યારેય જોઈ શકશે નહીં, જે <span class="hl-yellow">૧૦૦% પિરામિડ પ્રાઇવસી</span> અને ડેટા સિક્યુરિટી પ્રોટોકોલ પૂરો પાડે છે.</p>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b1')">Back to Dashboard ↑</button>
+                </div>
+
+                <div class="article" id="art-b2">
+                    <div class="article-meta">જાહેર આરોગ્ય • કમ્યુનિટી વેલネス હબ • ડિજિટલ આયુષ ઇકોસિસ્ટમ</div>
+                    <h3>૨. આયુષ મંત્રાલયે સાર્વજનિક બગીચાઓને વેલネス સેન્ટર બનાવવા 'યોગા પાર્ક પોર્ટલ' લોન્ચ કર્યું</h3>
+                    <div class="article-content">
+                        <p>નાગરિકોના શારીરિક અને માનસિક સ્વાસ્થ્યને પ્રોત્સાહન આપવા માટે <span class="hl-yellow">આયુષ મંત્રાલય (Ministry of Ayush)</span> દ્વારા દેશભરમાં આવેલા તમામ એક્ઝિસ્ટિંગ પબ્લિક પાર્ક્સને કાયમી કમ્યુનિટી વેલનેસ હબમાં રૂપાંતરિત કરવા માટે એક અદ્યતન ઓનલાઇન <span class="hl-yellow">'યોગા પાર્ક પોર્ટલ'</span> લોન્ચ કરાયું છે.</p>
+                        <p>આ ડિજિટલ પોર્ટલ દેશભરની સ્થાનિક કમ્યુનિટી સંસ્થાઓ અને સત્તામંડળો સાથે કનેક્ટિવિટી સ્થાપશે. આ નેટવર્ક દ્વારા બગીચાઓમાં આવતા સામાન્ય નાગરિકોને સાચી <span class="hl-yellow">બ્રીધિંગ ટેકનિક (પ્રાણાયામ)</span>, મેડિટેશન પોશ્ચર્સ અને યોગાસન પદ્ધતિઓ ડિજિટલી લાઈવ પૂરી પાડવામાં આવશે.</p>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b2')">Back to Dashboard ↑</button>
+                </div>
+
+                <div class="article" id="art-b3">
+                    <div class="article-meta">સંરક્ષણ મંત્રાલય આદેશ • NCC પુનર્ગઠન • પ્રાદેશિક સંતુલન ઓડિટ</div>
+                    <h3>૩. રક્ષામંત્રાલયે દેશમાં ૨ નવા સ્વતંત્ર NCC સ્ટેટ ડિરેક્ટોરેટની સ્થાપનાને આપી મંજૂરી</h3>
+                    <div class="article-content">
+                        <p>કેન્દ્રીય સંરક્ષણ મંત્રાલય (Ministry of Defence) દ્વારા મોટો સંગઠનાત્મક નિર્ણય લેવાયો છે. મંત્રાલયે વહીવટી પુનર્ગઠન હેઠળ <span class="hl-yellow">આંધ્રપ્રદેશને તેલંગાણાથી</span> અને <span class="hl-yellow">ઝારખંડને બિહારથી</span> સંપૂર્ણપણે અલગ કરીને સ્વતંત્ર એનસીસી સ્ટેટ ડિરેક્ટોરેટ (NCC State Directorate) બનાવવાની મંજૂરી આપી દીધી છે.</p>
+                        <p>આ બે નવા સ્વતંત્ર સ્ટેટ ડિરેક્ટોરેટ ઉમેરાતાની સાથે જ, હવે દેશમાં કુલ NCC સ્ટેટ ડિરેક્ટોરેટની સંખ્યા <span class="hl-yellow">૧૭ થી વધીને ૧૯ પર</span> પહોંચી ગઈ છે, જેનાથી કેડેટ્સ ટ્રેનિંગ ઓપરેશન વધુ મજબૂત બનશે.</p>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b3')">Back to Dashboard ↑</button>
+                </div>
+
+                <div class="article" id="art-b4">
+                    <div class="article-meta">બ્લુ ઇકોનોમી • મત્સ્ય પાલન વિકાસ યોજના • પીએમએમએસવાય ફંડિંગ ઓડિટ</div>
+                    <h3>૪. બિહારના ભોજપુરમાં ₹૩૧.૨૧ કરોડના ઇન્ટિગ્રેટેડ એક્વા પાર્કની સત્તાવાર નીવ રખાઈ</h3>
+                    <div class="article-content">
+                        <p>કેન્દ્રીય મંત્રી <span class="hl-yellow">રાજીવ રંજન સિંહ (લલ્લન સિંહ)</span> અને બિહારના નાયબ મુખ્યમંત્રી સમ્રાટ ચૌધરી દ્વારા <span class="hl-yellow">પ્રધાનમંત્રી મત્સ્ય સંપદા યોજના (PMMSY)</span> હેઠળ ભોજપુર જિલ્લાના ઉદવંતનગર બ્લોકમાં <span class="hl-yellow">₹૩૧.૨૧ કરોડના</span> ખર્ચે દેશના અત્યાધુનિક <strong>ઇન્ટિગ્રેટેડ એક્વા પાર્ક (Integrated Aqua Park)</strong> નું ખાતમુહૂર્ત કર્યું છે.</p>
+                        <p>આ મેગા પાર્ક ઉપરાંત, મત્સ્ય પાલન ઉદ્યોગના ટેકનિકલ મોનિટરિંગ માટે પટનાના મીઠાપુર ખાતે <span class="hl-yellow">નેશનલ ફિશરીઝ ડેવલપમેન્ટ બોર્ડ (NFDB)</span> ના પ્રાદેશિક કેન્દ્ર (Regional Center) ની પણ ભવ્ય નીવ રાખવામાં આવી છે.</p>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b4')">Back to Dashboard ↑</button>
+                </div>
+
+                <div class="article" id="art-b5">
+                    <div class="article-meta">ક્લાઇમેટ પોલિસી • પેરિસ કરાર જોઇન્ટ ક્રેડિટ • આર્ટિકલ 6.2 ગાઈડલાઈન્સ</div>
+                    <h3>૫. ભારત અને જાપાને પેરિસ કરારના આર્ટિકલ 6.2 હેઠળ જોઇન્ટ ક્રેડિટિંગ મેકેનિઝમ (JCM) સ્વીકાર્યું</h3>
+                    <div class="article-content">
+                        <p>વૈશ્વિક પર્યાવરણ અને ગ્રીનહાઉસ ગેસ ઉત્સર્જન ઘટાડવાના લક્ષ્યાંકો હેઠળ ભારત અને જાપાન વચ્ચે વ્યૂહાત્મક આંતરરાષ્ટ્રીય કરાર સંપન્ન થયા છે. બંને દેશોએ પ્રતિષ્ઠિત પેરિસ ક્લાઇમેટ કરારના <span class="hl-yellow">આર્ટિકલ ૬.૨ (Article 6.2)</span> ના કાનૂની માળખા હેઠળ <span class="hl-yellow">જોઇન્ટ ક્રેડિટિંગ મેકેનિઝમ (JCM - Joint Crediting Mechanism)</span> ના અમલીકરણના નિયમો સત્તાવાર રીતે અપનાવી લીધા છે.</p>
+                        <p>આ જોડાણ હેઠળ, અદ્યતન જાપાનીઝ સંસ્થાઓ ભારતમાં મોટા ગ્રીન પ્રોજેક્ટ્સ માટે ફંડિંગ પૂરું પાડશે અને હાઇટેક એડવાન્સ લો-કાર્બન ટેક્નોલોજી ટ્રાન્સફર કરશે. આ ટેક્નોલોજીની મદદથી ભવિષ્યના કિંમતી <span class="hl-yellow">કાર્બન ક્રેડિટ્સ (Carbon Credits)</span> બંને દેશો વચ્ચે વહેંચણી કરવામાં આવશે. નાણાકીય બજારમાં કાર્બન ક્રેડિટ્સને ભવિષ્યની 'સૌથી મોટી ગોલ્ડ માઇન' (Gold Mine) માનવામાં આવે છે, જેમાં રિલાયન્સનું વંતારા મોડેલ પણ ગ્રીન ક્રેડિટ અર્નિંગ માટે ચર્ચામાં છે.</p>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b5')">Back to Dashboard ↑</button>
+                </div>
+
+                <div class="article" id="art-b6">
+                    <div class="article-meta">અંડરવોટર આર્કિઓલોજી • ઐતિહાસિક શોધખોળ • કરાઇકલ પુડુચેરી મિશન</div>
+                    <h3>૬. ૧૭મી સદીના ડેનિશ જહાજ 'ઓરેસંત' ને શોધવા ASI અને ડેનમાર્કના રાષ્ટ્રીય મ્યુઝિયમ વચ્ચે કરાર</h3>
+                    <div class="article-content">
+                        <p>ભારતના ભવ્ય સમુદ્રી ઇતિહાસને બહાર લાવવા માટે <strong>આર્કિઓલોજિકલ策 સર્વે ઓફ ઇન્ડિયા (ASI) ના અંડરવોટર આર્કિઓલોજી વિંગે</strong> ડેનમાર્કના નેશનલ મ્યુઝિયમ સાથે હાથ મિલાવ્યા છે. બંને આંતરરાષ્ટ્રીય સંસ્થાઓ સંયુક્ત રીતે ૧૭મી સદીના સુપ્રસિદ્ધ ડેનિશ જહાજ <span class="hl-yellow">'ઓરેસંત' (Oresund)</span> ની શોધ માટે <span class="hl-yellow">કરાઇકલ, પુડુચેરી</span> ના દરિયાકાંઠા નજીક હિસ્ટોરિક જોઈન્ટ અંડરવોટર ઇન્વેસ્ટિગેશન ઓપરેશન શરૂ કરશે.</p>
+                        <p>જહાજ 'ઓરેસંત' નું નિર્માણ વર્ષ <span class="hl-yellow">૧૬૧૯ માં</span> થયું હતું અને તે ભારતીય સમુદ્રી ક્ષેત્રમાં પ્રવેશેલું ઇતિહાસનું સર્વપ્રથમ ઓફિશિયલ ડેનિશ શિપ (Danish Ship) છે, જે પાછળથી વર્ષ <span class="hl-yellow">૧૬૨૦ ની આસપાસ</span> પુડુચેરીના કરાઇકલ દરિયામાં ડૂબી ગયું હતું. વર્ષ <span class="hl-yellow">૨૦૦૧ માં</span> એએસઆઈ (ASI) ની અંડરવોટર વિંગ બન્યા પછી વૈશ્વિક સ્તરે સાઇન થયેલો આ સર્વોચ્ચ પ્રથમ અંડરવોટર પ્રોજેક્ટ છે.</p>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b6')">Back to Dashboard ↑</button>
+                </div>
+
+                <div class="article" id="art-b7">
+                    <div class="article-meta">ડિફેન્સ ટેકનોલોજી • મિસાઇલ પરીક્ષણ • એડીઈ બેંગલુરુ એન્જિનિયરિંગ</div>
+                    <h3>૭. DRDO એ ૧,૫૦૦ કિમી સુધીની મારક ક્ષમતા ધરાવતી લાંબી દૂરીની લેન્ડ એટેક ક્રૂઝ મિસાઇલો (LRLACM) નું કર્યું સફળ પરીક્ષણ</h3>
+                    <div class="article-content">
+                        <p>સંરક્ષણ ક્ષેત્રે ભારતને આત્મનિર્ભર બનાવવા માટે <strong>ડિફેન્સ રિસર્ચ એન્ડ ડેવલપમેન્ટ ઓર્ગેનાઇઝેશન (DRDO)</strong> અને તેની બેંગલુરુ સ્થિત પ્રયોગશાળા <span class="hl-yellow">એરોનોટિકલ ડેવલપમેન્ટ એસ્ટાબ્લિશમેન્ટ (ADE)</span> એ મોટી રાષ્ટ્રીય સિદ્ધિ હાસલ કરી છે. વૈજ્ઞાનિકોએ સંપૂર્ણ સ્વદેશી ટેકનોલોજીથી બનેલી <strong>લોંગ રેન્જ લેન્ડ એટેક ક્રૂઝ મિસાઇલ (LRLACM)</strong> નું સફળ ઉડાન પરીક્ષણ સંપન્ન કર્યું છે.</p>
+                        <p>આ અદ્યતન મિસાઇલ સિસ્ટમની મુખ્ય તકનીકી લાક્ષણિકતાઓ નીચે મુજબ છે:</p>
+                        <ul>
+                            <li><strong>મારક રેન્જ ક્ષમતા:</strong> જમીન પરથી અથવા નેવલ શિપ પરથી છોડ્યા બાદ <span class="hl-yellow">૧,૦૦૦ થી ૧,૫૦૦ કિલોમીટર</span> દૂર રહેલા દુશ્મનના સેન્ટ્રલ બંકરો પર સચોટ એટેક કરવાની ક્ષમતા.</li>
+                            <li><strong>વોરહેડ પેલોડ કેપેસિટી:</strong> પોતાની સાથે અંદાજે <span class="hl-yellow">૪૫૦ કિગ્રા (450 kg)</span> વજનના જીવંત બોમ્બ સામગ્રી સરળતાથી લઈ જઈ શકે છે.</li>
+                            <li><strong>એન્ટી-રડાર ક્રૂઝ ટેકનોલોજી:</strong> આ મિસાઇલની સૌથી મોટી खासિયત એ છે કે તે દુશ્મનના રડાર નેટવર્કથી બચવા માટે ખૂબ જ <span class="hl-yellow">નીચી ઊંચાઈ પર (Low Altitude Flying)</span> લાંબી સફર ખેડે છે. આ વિશિષ્ટ ગુણોને કારણે સંરક્ષણ ક્ષેત્રે તેને <span class="hl-yellow">'ઇન્ડિયાની ટૉમહૉક' (India's Tomahawk)</span> નામ આપવામાં આવ્યું છે. ભવિષ્યમાં તેને વાયુસેનાના <span class="hl-yellow">સુખોઈ (Su-30 MKI)</span> ફાઇટર જેટ્સ પરથી પણ ફાયર કરવા અપગ્રેડ કરાઈ રહી છે.</li>
+                        </ul>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b7')">Back to Dashboard ↑</button>
+                </div>
+
+                <article class="article" id="art-b8">
+                    <div class="article-meta">વૈશ્વિક અર્થતંત્ર • ટેકનોલોજી ઇનોવેશન • WEF કોહોર્ટ ઓડિટ</div>
+                    <h3>૮. વર્લ્ડ ઇકોનોમિક ફોરમ (WEF) દ્વારા વર્ષ ૨૦૨૬ ના 'ટેકનોલોજી પાયોનિયર્સ કોહોર્ટ' ની સત્તાવાર જાહેરાત</h3>
+                    <div class="article-content">
+                        <p>વર્લ્ડ ઇકોનોમિક ફોરમ (World Economic Forum) એ વૈશ્વિક સ્તરે ક્રાંતિકારી ટેકનોલોજી કંપનીઓને પ્રોત્સાહન આપવા માટે <strong>૨૦૨૬ ટેકનોલોજી પાયોનિયર્સ કોહોર્ટ (Technology Pioneers Cohort)</strong> ની સત્તાવાર જાહેરાત કરી છે. ફોરમ દ્વારા સમગ્ર વિશ્વના <span class="hl-yellow">૨૩ દેશોમાંથી ૧૦૦ ઉભરતી કંપનીઓની</span> પસંદગી આ પ્રતિષ્ઠિત લિસ્ટમાં કરવામાં આવી છે.</p>
+                        <p>આ કંપનીઓની પસંદગી મુખ્યત્વે ૬ ક્રાંતિકારી ક્ષેત્રોના આધારે કરવામાં આવી છે, જેમાં AI ઇન્ફ્રાસ્ટ્રક્ચર, એનર્જી-ક્લાઇમેટ, સ્પેસ ટેક, રોબોટિક્સ, ક્વોન્ટમ અને હેલ્થકેર સિસ્ટમનો સમાવેશ થાય છે. આ લિસ્ટમાં પસંદ થયેલી કંપનીઓ આગામી ૨ વર્ષ સુધી WEF ના ગ્લોબલ ઇનિશિએટિવ્સમાં સીધું યોગદાન આપશે. આ તમામ કંપનીઓના પ્રતિનિધિઓ ચાઇનાના <span class="hl-yellow">દલિયાન (Dalian, China)</span> ખાતે યોજાનારી ફોરમની પ્રતિષ્ઠિત <span class="hl-yellow">'એન્યુઅલ મીટિંગ ઓફ ન્યૂ ચેમ્પિયન્સ ૨૦૨૬'</span> માં સત્તાવાર ભાગ લેશે.</p>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b8')">Back to Dashboard ↑</button>
+                </article>
+
+                <article class="article" id="art-b9">
+                    <div class="article-meta">મોલેક્યુલર બાયોલોજી • વૈજ્ઞાનિક પુરસ્કાર • એમ્બો ગોલ્ડ મેડલ</div>
+                    <h3>૯. ભારતીય મૂળના વૈજ્ઞાનિક ગૌતમ ડે ને પ્રતિષ્ઠિત 'EMBO ગોલ્ડ મેડલ ૨૦૨૬' એનાયત કરાયો</h3>
+                    <div class="article-content">
+                        <p>જીવવિજ્ઞાન સંશોધન ક્ષેત્રે આંતરરાષ્ટ્રીય સ્તરે ભારતનું નામ રોશન કરતા, ભારતીય મૂળના પ્રખ્યાત વૈજ્ઞાનિક <span class="hl-yellow">ગૌતમ ડે (Gautam Dey)</span> ને વર્ષ ૨૦૨૬ ના પ્રતિષ્ઠિત <span class="hl-yellow">એમ્બો ગોલ્ડ મેડલ (EMBO Gold Medal)</span> થી સન્માનિત કરવામાં આવ્યા છે. ડૉ. ગૌતમ ડે જર્મનીના હેડલબર્ગ સ્થિત <span class="hl-yellow">'યુરોપિયન મોલેક્યુલર બાયોલોજી લેબોરેટરી' (EMBL)</span> માં એક સક્રિય ગ્રુપ લીડર તરીકે કોષ જીવવિજ્ઞાન પર સંશોધન કરી રહ્યા છે.</p>
+                        <p>આ સર્વોચ્ચ પુરસ્કાર તેમણે યુનિવર્સિટી ઓફ જિનેવાના પ્રખ્યાત વૈજ્ઞાનિક <span class="hl-yellow">હુમાયા દુદિની (Humaya Dudini)</span> સાથે સંયુક્ત રીતે શેર કર્યો છે. આ મેડલ સાથે વિજેતાઓને <span class="hl-yellow">૧૦,૦૦0 યુરો (Euro)</span> ની આર્થિક પ્રોત્સાહન પ્રાઇઝ મની પણ એનાયત કરવામાં આવી છે.</p>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b9')">Back to Dashboard ↑</button>
+                </article>
+
+                <article class="article" id="art-b10">
+                    <div class="article-meta">આંતરરાષ્ટ્રીય સ્પોર્ટ્સ ઓડિટ • આર્ચરી વર્લ્ડ કપ • ગોલ્ડ મેડલ ટેલી</div>
+                    <h3>૧૦. અંતાલ્યા આર્ચરી વર્લ્ડ કપમાં ભારતની રિકર્વ મિક્સ ટીમે જીત્યો ઐતિહાસિક સોવર્ણ પદક</h3>
+                    <div class="article-content">
+                        <p>તુર્કીના પ્રખ્યાત શહેર <span class="hl-yellow">અંતાલ્યા (Antalya, Turkey)</span> ખાતે યોજાયેલી આંતરરાષ્ટ્રીય આર્ચરી (તીરંદાજી) વર્લ્ડ કપ સ્પર્ધામાં ભારતના સ્ટાર આર્ચર <span class="hl-yellow">ધીરજ બોમ્માદેવરા (Dheeraj Bommadevara)</span> અને ૧૭ વર્ષની અદ્ભુત યુવા ખેલાડી <span class="hl-yellow">કુમકુમ મહોદ (Kumkum Mahod)</span> ની જોડીએ ઇતિહાસ રચી દીધો છે. આ ભારતીય જોડીએ રિકર્વ મિક્સ ટીમ (Recurve Mix Team) ઇવેન્ટમાં શાનદાર પ્રદર્શન કરીને <strong>ગોલ્ડ મેડલ (સુવર્ણ પદક)</strong> પોતાના નામે કર્યો છે.</p>
+                        <p>આ જીત એટલા માટે ખાસ છે કારણ કે ભારતીય ટીમ આ સ્પર્ધામાં <span class="hl-yellow">'થર્ડ સીડેડ' (Third Seeded)</span> હતી, તેમ છતાં તેમણે ફાઇનલમાં વિશ્વની સર્વોચ્ચ 'નંબર વન સીડેડ' મજબૂત <span class="hl-yellow">દક્ષિણ કોરિયા (South Korea)</span> ની ટીમને ધૂળ ચટાવીને આ મેડલ જીત્યો છે. ભારતે <span class="hl-yellow">વર્ષ ૨૦૨૨ માં</span> પણ આ જ મેદાન પર આ ઇવેન્ટમાં ગોલ્ડ જીત્યો હતો, જે સફળતા ૪ વર્ષ બાદ ફરી દોહરાવવામાં આવી છે.</p>
+                        <div class="additional-edge">
+                            <h4>📌 Additional Edge: Sports Terminology Concept</h4>
+                            • <strong>'Seed' શબ્દનો અર્થ:</strong> રમતગમતના ક્ષેત્રમાં (ખાસ કરીને ટેનિસ, આર્ચરી) 'Seed' કે 'Seeded' શબ્દનો અર્થ બીજ નથી થતો, પરંતુ ટૂર્નામેન્ટમાં ખેલાડી કે ટીમની સત્તાવાર <span class="hl-yellow">'ઓફિશિયલ રેન્કિંગ' (Official Ranking Status)</span> દર્શાવે છે. થર્ડ સીડેડ એટલે ટોપ-૩ રેન્કિંગની ટીમ.
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b10')">Back to Dashboard ↑</button>
+                </article>
+
+                <article class="article" id="art-b11">
+                    <div class="article-meta">વુમન એમ્પાવરમેન્ટ સ્પોર્ટ્સ • રાષ્ટ્રીય ફૂટબોલ • AIFF એજન્ડા</div>
+                    <h3>૧૧. ઓલ ઇન્ડિયા ફૂટબોલ ફેડરેશન (AIFF) દ્વારા અંડર-૧૭ વિમેન્સ યુથ લીગ ૨૦૨૬ ની જાહેરાત</h3>
+                    <div class="article-content">
+                        <p>દેશમાં મહિલા ફૂટબોલ ક્ષેત્રે નવી પ્રતિભાઓને બહાર લાવવા માટે <strong>ઓલ ઇન્ડિયા ફૂટબોલ ફેડરેશન (AIFF)</strong> દ્વારા સત્તાવાર જાહેરાત કરવામાં આવી છે કે, આગામી <span class="hl-yellow">૧૮ જુલાઈ થી ૨૯ જુલાઈ ૨૦૨૬</span> દરમિયાન ભારતમાં 'ઓલ ઇન્ડિયા અંડર-૧૭ વિમેન્સ યુથ લીગ' નું ભવ્ય આયોજન કરવામાં આવશે.</p>
+                        <p>આ નેશનલ લીગના તમામ મેચો છત્તીસગઢના નારાયણપુર સ્થિત <span class="hl-yellow">આરકેએમ ફૂટબોલ એકેડેમી (RKM Football Academy, Narayanpur, Chhattisgarh)</span> ખાતે લાઈવ રમાડવામાં આવશે.</p>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b11')">Back to Dashboard ↑</button>
+                </article>
+
+                <article class="article" id="art-b12">
+                    <div class="article-meta">ગ્લોબલ હેલ્થ ડેઝ • મેડિકલ ડિસ્કવરી • બ્લડ ગ્રુપ હિસ્ટ્રી</div>
+                    <h3>૧૨. ૧૪ જૂન: 'વન ડ્રોપ ઓફ ઇમ્યુનિટી' થીમ સાથે વિશ્વ રક્તદાતા દિવસ (World Blood Donor Day) ની ઉજવણી</h3>
+                    <div class="article-content">
+                        <p>સમગ્ર વિશ્વમાં રક્તદાનના મહત્વ વિશે જાગૃતિ ફેલાવવાના ઉદ્દેશ્યથી દર વર્ષે <span class="hl-yellow">૧૪મી જૂનના</span> રોજ <strong>વિશ્વ રક્તદાતા દિવસ (World Blood Donor Day)</strong> સત્તાવાર રીતે ઓબ્ઝર્વ કરવામાં આવે છે. વર્ષ ૨૦૨૬ ના આ खास દિવસની સત્તાવાર વૈશ્વિક થીમ <span class="hl-yellow">"One Drop of Immunity, Give Blood, Save Lives"</span> રાખવામાં આવી છે.</p>
+                        <p>આ દિવસ ૧૪ જૂને જ કેમ ઉજવાય છે? તેની પાછળનું વૈજ્ઞાનિક કારણ એ છે કે આ દિવસે વર્ષ ૧૮૬૮ માં જન્મેલા મહાન નોબેલ પુરસ્કાર વિજેતા ફિઝિશિયન <span class="hl-yellow">ડૉ. કાર્લ લેન્ડસ્ટીનર (Dr. Karl Landsteiner)</span> નો જન્મદિવસ છે. તેમણે જ વૈજ્ઞાનિક જગતમાં માનવ શરીરના <strong>ABO બ્લડ ગ્રુપ સિસ્ટમ (ABO Blood Grouping)</strong> ની ક્રાંતિકારી શોધ કરી હતી. આ દિવસની સર્વપ્રથમ ઉજવણી <span class="hl-yellow">વર્ષ ૨૦૦٤ માં</span> વર્લ્ડ હેલ્થ ઓર્ગેનાઇઝેશન (WHO) દ્વારા શરૂ કરવામાં આવી હતી.</p>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b12')">Back to Dashboard ↑</button>
+                </article>
+
+            </div>
+        </section>
+    </div>
+
+    <div id="quiz-view-panel">
+        <div class="quiz-container">
+            
+            <div id="quiz-active-questions-frame-block">
+                <div class="quiz-header">
+                    <div>
+                        <h2>THE MAULIK EXPRESS QUIZ</h2>
+                        <p style="font-size:0.8rem; color:var(--text-muted);">તારીખ: ૧૮ જૂન ૨૦૨૬</p>
+                    </div>
+                    <div style="display:flex; gap:10px; align-items:center;">
+                        <div class="score-box">Score: <span id="live-score-counter">0</span> / 25</div>
+                        <button class="btn-exit-quiz" onclick="switchBackToNewsMode()">← Exit</button>
+                    </div>
+                </div>
+                
+                <div id="quiz-questions-loader-target"></div>
+
+                <div class="quiz-action-area">
+                    <div class="quiz-progress-bar" id="quiz-step-progress-label">Question 1 of 25</div>
+                    <button class="btn-next-quiz-step" id="quiz-next-action-btn" onclick="goToNextQuizQuestion()">Next Question →</button>
+                </div>
+            </div>
+
+            <div id="quiz-result-final-pane">
+                <h3>🎉 અભિનંદન! તમે ટેસ્ટ પૂર્ણ કરી છે</h3>
+                <p style="color:var(--text-muted); font-size:0.95rem;" id="final-result-user-name-label">👤 વિદ્યાર્થી: Maulik</p>
+                
+                <div class="final-score-display-card">
+                    <span id="final-score-digits">0</span> <span style="font-size:1.5rem; color:#64748b;">/ 25</span>
+                </div>
+                
+                <p style="font-size:0.9rem; color:#475569; max-width:500px; margin:0 auto 15px auto;">તમારું પરિણામ સેવ કરવા અને મોલિક સરના વૉટ્સએપ નંબર પર સબમિટ કરવા નીચેના લીલા બટન પર ક્લિક કરો.</p>
+                
+                <button class="btn-submit-whatsapp-final" onclick="sendResultToWhatsApp()">
+                    💬 Submit Result to WhatsApp
+                </button>
+                
+                <div style="margin-top: 25px;">
+                    <button class="btn-exit-quiz" style="background:var(--bg-dark); padding:10px 20px;" onclick="switchBackToNewsMode()">ન્યૂઝ પેજ પર પાછા જાઓ</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="flash-modal" onclick="closeModal(event)">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModalForce()">×</button>
+            <img src="" alt="Context Visual" class="modal-img" id="modal-img-element">
+            <div class="modal-body" id="modal-body-content"></div>
+        </div>
+    </div>
+
+    <script>
+        const mindmapData = {
+            m1: {
+                title: "ADIA Lenskart Equity Sale Mind-Map",
+                img: "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "આબુ ધાબી ઇન્વેસ્ટમેન્ટ ઓથોરિટી (ADIA) એ લેન્સકાર્ટમાં ૨.૩% હિસ્સો ₹૧,૯૬૦ કરોડમાં વેચ્યો.",
+                    "કોટક મહિન્દ્રા એસેટ મેનેજમેન્ટે સૌથી વધુ ₹૨૬૬ કરોડનું રોકાણ કરી ૧.૨૭ કરોડ શેર્સ હસ્તગત કર્યા.",
+                    "અન્ય વૈશ્વિક ખરીદદારોમાં ગોલ્ડમેન સૅક્સ, મોર્ગન સ્ટેનલી, સોસાયટી જનરલ અને આઇએમફ (IMF) સામેલ છે.",
+                    "આ ટ્રાન્ઝેક્શન બાદ પણ ADIA લેન્સકાર્ટમાં ૯.૭૮% હિસ્સા સાથે દ્વિતીય ક્રમનું સૌથી મોટું શેરહોલ્ડિંગ ધરાવે છે."
+                ],
+                edge: "📌 Strategic Impact: આઈપીઓ પાછો ઠેલાતા સોફ્ટબેંક બાદ હવે એડીઆઈએ એ પણ આંશિક હિસ્સો વેચી નફો બુક કર્યો છે."
+            },
+            m2: {
+                title: "Nuvama Wealth SEBI Approval Mind-Map",
+                img: "https://images.unsplash.com/photo-1544377193-33dcf4d68fb5?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "નવામા વેલ્થ મેનેજમેન્ટ લિમિટેડને સેબી (SEBI) તરફથી સત્તાવાર ફાઇનલ એપ્રુવલ મળી ગયું છે.",
+                    "કંપની ભારતીય બજારમાં હવે નવો મ્યુચ્યુઅલ ફંડ (Mutual Fund) બિઝનેસ સત્તાવાર શરૂ કરી શકશે.",
+                    "તેનાથી ફાઇનાન્સ માર્કેટ અને એસેટ મેનેજમેન્ટ (AMC) ક્ષેત્રે નવી સ્પર્ધાત્મક તકો ઉભી થશે."
+                ],
+                edge: "📌 Regulatory Edge: સેબી દ્વારા કડક તપાસ અને ધોરણો પૂર્ણ કર્યા બાદ જ જૂન ૨૦૨૬ માં આ મંજૂરી અપાઈ છે."
+            },
+            m3: {
+                title: "Amaravati Capital CCEA Allocation Mind-Map",
+                img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "આંધ્રપ્રદેશની નવી કેપિટલ અમરાવતી માટે આર્થિક બાબતોની કેબિનેટ સમિતિ દ્વારા ₹૨,૫૩૪ કરોડ મંજૂર.",
+                    "પ્રોજેક્ટનું નિર્માણ કેન્દ્રીય પબ્લિક વર્ક્સ ડિપાર્ટમેન્ટ (CPWD) દ્વારા હાઉસિંગ મંત્રાલય હેઠળ થશે.",
+                    "વહીવટી ઓફિસ બ્લોક માટે ₹૧,૨૯૯ કરોડ ફાળવાયા, જેમાં ૮,૦૦૦ અધિકારીઓ બેસી શકશે.",
+                    "રેસિડેન્શિયલ હાઉસિંગ સેક્ટર માટે ₹૧,૨૩૫ કરોડ ફાળવાયા, જેમાં ૧૧ ટાવર્સમાં ૧,૫૦૪ ઘરો બનશે."
+                ],
+                edge: "📌 Infrastructure View: તેલંગાણા વિભાજનના ૧૦ વર્ષ બાદ હૈદરાબાદથી અમરાવતી સંપૂર્ણ ટ્રાન્સફર માટે આ અત્યંત મહત્વનું ફંડિંગ છે."
+            },
+            m4: {
+                title: "Drug Rules 1945 Amendment Mind-Map",
+                img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "કેન્દ્રીય સ્વાસ્થ્ય મંત્રાલય દ્વારા ઓલ સિરપ-બેઝ્ડ મેડિસિન્સ માટે ડોક્ટરનું પ્રિસ્ક્રિપ્શન ૧૦૦% ફરજિયાત કરાયું.",
+                    "૧,૦૦૦ થી ઓછી વસ્તીવાળા નાના ગામડાઓમાં લાયસન્સ વગર સિરપ વેચવાની પરવાનગી પાછી ખેંચી લેવાઈ છે.",
+                    "આ દવાઓને હવે ડ્રગ્સ રૂલ્સ ૧૯૪૫ ના વિશિષ્ટ શિડ્યુલ કે (Schedule K) હેઠળ લાવી દેવામાં આવી છે."
+                ],
+                edge: "📌 Medical Alert: નશાખોરી અને દૂષિત કફ સિરપથી થતા બાળકોના મોતો અટકાવવા આ કડક કાનૂની જોગવાઈ કરાઈ છે."
+            },
+            m5: {
+                title: "Ashok Leyland Delhi-NCR Scrappage Scheme",
+                img: "https://images.unsplash.com/photo-1518364538800-6bcb3f25da49?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "MoRTH ની વાહન આધુનિકીકરણ યોજના હેઠળ અશોક લેલેન્ડ અને સ્વિચ મોબિલિટી પ્રથમ OEM બન્યા.",
+                    "જૂના BS4 કે તેનાથી ઓલ્ડ ટ્રક-બસ સ્ક્રેપ કરવા બદલ કંપની નવા વાહન પર ૮% નું ડિસ્કાઉન્ટ આપશે.",
+                    "સરકાર તરફથી વાહન લોન પર ૫ વર્ષ માટે ૫% વ્યાજ સબવેન્શન અને ૧૦ વર્ષ સુધી ૧૦૦% રોડ ટેક્સ માફી મળશે."
+                ],
+                edge: "📌 Environment Policy: દિલ્હી-NCR માં વાયુ પ્રદૂષણ ઘટાડવા અને ઇલેક્ટ્રિક વાહનોને પ્રોત્સાહન આપવા આ સિસ્ટમ લવાઈ છે."
+            },
+            m6: {
+                title: "PM Modi Slovakia National Honor Mind-Map",
+                img: "https://images.unsplash.com/photo-1531266752426-aad472b7bbf4?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "જી-૭ બેઠક પૂર્વે સ્લોવાકિયાની મુલાકાતે ગયેલા પીએમ મોદીને સર્વોચ્ચ એવોર્ડથી સન્માનિત કરાયા.",
+                    "રાષ્ટ્રપતિ પીટર પેલેગ્રીનીએ 'ઓર્ડર ઓફ વ્હાઇટ ડબલ ક્રોસ, ફર્સ્ટ ક્લાસ' એવોર્ડ એનાયત કર્યો.",
+                    "પીએમ નરેન્દ્ર મોદીને વિદેશી દેશો દ્વારા મળેલા કુલ આંતરરાષ્ટ્રીય એવોર્ડ્સની સંખ્યા ૩૩ પર પહોંચી ગઈ છે."
+                ],
+                edge: "📌 Diplomatic Note: સેન્ટ્રલ યુરોપમાં ભારતની આ મોટી ડિપ્લોમેટિક સિદ્ધિ છે."
+            },
+            b1: {
+                title: "Telegram Restriction & Safe WhatsApp Transition",
+                img: "https://images.unsplash.com/photo-1611606648423-7598db4414f2?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "દેશભરમાં ૨૨ જૂન સુધી ટેલિગ્રામ નેટવર્ક સેવાઓ કામચલાઉ પ્રતિબંધ હેઠળ ખોરવાઈ ગઈ છે.",
+                    "વિદ્યાર્થીઓની ક્લાસ લિંક્સ અને પીડીએફ સપ્લાય માટે નવી વન-વે વૉટ્સએપ ચેનલ સિસ્ટમ શરૂ થઈ.",
+                    "આ સેટઅપમાં વિદ્યાર્થીઓના મોબાઈલ નંબર અન્ય લોકોને દેખાતા નથી, જે ૧૦૦% પ્રાઇવસી આપે છે."
+                ],
+                edge: "📌 Tip: જો લિંક સીધી એપ્લિકેશનમાં ન ખુલે તો મોબાઈલ બ્રાઉઝરમાં ડીફોલ્ટ સેટિંગ્સ બદલવી."
+            },
+            b2: {
+                title: "Yoga Park Portal Launch",
+                img: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "આયુષ મંત્રાલયે પબ્લિક બગીચાઓને ડિજિટલ વેલનેસ હબ બનાવવા યોગા પાર્ક પોર્ટલ લોન્ચ કર્યું.",
+                    "સ્થાનિક કમ્યુનિટી સંસ્થાઓ નાગરિકોને સાચી બ્રીધિંગ અને મેડિટેશન ટેકનિકની માહિતી શેર કરશે."
+                ],
+                edge: ""
+            },
+            b3: {
+                title: "New Independent NCC State Directorates",
+                img: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "સંરક્ષણ મંત્રાલયે તેલંગાણાથી આંધ્રપ્રદેશને અને બિહારથી ઝારખંડને સંપૂર્ણ અલગ એનસીસી દરજ્જો આપ્યો.",
+                    "બે નવા સ્વતંત્ર ડાયરેક્ટોરેટ બનતાની સાથે જ દેશમાં કુલ સંખ્યા ૧૭ થી વધીને ૧૯ થઈ ગઈ છે."
+                ],
+                edge: ""
+            },
+            b4: {
+                title: "Bhojpur Integrated Aqua Park Project",
+                img: "https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "કેન્દ્રીય મંત્રી રાજીવ રંજન સિંહ (લલ્લન સિંહ) દ્વારા ભોજપુર બિહારમાં ₹૩૧.૨૧ કરોડના એક્વા પાર્કની નીવ રખાઈ.",
+                    "મત્સ્ય પાલન ઉદ્યોગના વિકાસ માટે પટનાના મીઠાપુરમાં NFDB ના પ્રાદેશિક કેન્દ્રનું ખાતમુહૂર્ત સંપન્ન."
+                ],
+                edge: ""
+            },
+            b5: {
+                title: "India-Japan JCM Paris Agreement",
+                img: "https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "પેરિસ કરારના આર્ટિકલ ૬.૨ હેઠળ જોઈન્ટ ક્રેડિટિંગ મેકેનિઝમ (JCM) ના નિયમો સ્વીકારાયા.",
+                    "જાપાન ભારતમાં ગ્રીન ટેક્નોલોજી ટ્રાન્સફર કરશે અને તેના બદલામાં કાર્બન ક્રેડિટ શેરિંગ થશે."
+                ],
+                edge: ""
+            },
+            b6: {
+                title: "ASI Underwater Investigation - Oresund",
+                img: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "૧૬૧૯ માં બનેલું અને ૧૬૨૦ માં ડૂબેલું પ્રથમ ડેનિશ જહાજ 'ઓરેસંત' શોધવા કરાઇકલ પુડુચેરીમાં અભિયાન શરૂ.",
+                    "ASI ના અંડરવોટર આર્કિઓલોજી વિંગ અને ડેનમાર્કના રાષ્ટ્રીય મ્યુઝિયમ વચ્ચે આ ઐતિહાસિક સંયુક્ત ઓપરેશન છે."
+                ],
+                edge: ""
+            },
+            b7: {
+                title: "DRDO Cruise Missile LRLACM Test",
+                img: "https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "DRDO અને ADE બેંગલુરુ દ્વારા લોંગ રેન્જ લેન્ડ એટેક ક્રૂઝ મિસાઇલ (LRLACM) નું સફળ ઉડાન ટેસ્ટિંગ.",
+                    "મારક ક્ષમતા ૧૦૦૦ થી ૧૫૦૦ કિલોમીટર અને તે ૪૫૦ કિલો સુધીના બોમ્બ (Warhead) સાથે નીચી ઉડાન ભરી શકે છે."
+                ],
+                edge: ""
+            },
+            b8: {
+                title: "WEF Technology Pioneers Cohort 2026",
+                img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "વર્લ્ડ ઇકોનોમિક ફોરમ દ્વારા ૨૩ દેશોમાંથી ૧૦૦ ઉભરતી ટેકનોલોજી કંપનીઓની વરણી કરાઈ.",
+                    "આ કંપનીઓ આગામી ૨ વર્ષ સુધી ડબલ્યુઈએફ ના આંતરરાષ્ટ્રીય પ્લેટફોર્મ પર સક્રિય યોગદાન આપશે.",
+                    "વાર્ષિક ન્યૂ ચેમ્પિયન્સ સમીટ ૨૦૨૬ દલિયાન ચાઇના ખાતે યોજાશે જેમાં આ ફર્મ્સ ભાગ લેશે."
+                ],
+                edge: "📌 Global Event: વૈશ્વિક બજારમાં આ કંપનીઓને પાયોનિયર સ્તરનું પ્રોત્સાહન પૂરું પાડવામાં આવે છે."
+            },
+            b9: {
+                title: "Gautam Dey EMBO Gold Medal 2026",
+                img: "https://images.unsplash.com/photo-1507413245164-6160d8298b31?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "ભારતીય મૂળના મોલેક્યુલર બાયોલોજી સાયન્ટિસ્ટ ગૌતમ ડે ને EMBO ગોલ્ડ મેડલથી સન્માનિત કરાયા.",
+                    "તેઓ જર્મનીની EMBL લેબોરેટરીમાં અદ્યતન સેલ રિસર્ચના પ્રમુખ લીડર છે.",
+                    "આ એવોર્ડ તેમણે જિનેવા યુનિવર્સિટીના વૈજ્ઞાનિક હુમાયા દુદિની સાથે સંયુક્ત રીતે મેળવ્યો છે."
+                ],
+                edge: ""
+            },
+            b10: {
+                title: "Antalya Archery World Cup Gold Match",
+                img: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "ભારતના ધીરજ બોમ્માદેવરા અને કુમકુમ મહોદે રિકર્વ મિક્સ આર્ચરીમાં ગોલ્ડ મેડલ જીત્યો.",
+                    "ભારતીય જોડીએ ફાઇનલમાં વિશ્વની નંબર વન સીડેડ સાઉથ કોરિયાની ટીમને મ્હાત આપી.",
+                    "રમતગમતમાં 'Seed' શબ્દનો અર્થ બીજ નથી, પરંતુ ટૂર્નામેન્ટમાં પ્લેયરની ઓફિશિયલ રેન્કિંગ દર્શાવે છે."
+                ],
+                edge: "📌 Historical Data: ભારતે વર્ષ ૨૦૨૨ બાદ ફરી આ સેમ વેન્યુ પર આ પદક મેળવી ઇતિહાસ દોહરાવ્યો છે."
+            },
+            b11: {
+                title: "AIFF Under-17 Women's Youth League 2026",
+                img: "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "ઓલ ઇન્ડિયા ફૂટબોલ ફેડરેશન દ્વારા વુમન્સ અંડર-૧૭ લીગની સત્તાવાર તારીખો જાહેર કરાઈ.",
+                    "લીગનું આયોજન ૧૮ થી ૨૯ જુલાઈ ૨૦૨૬ દરમિયાન નારાયણપુર છત્તીસગઢ ખાતે કરવામાં આવશે.",
+                    "આરકેએમ ફૂટબોલ એકેડેમી આ મેગા નેશનલ સ્પોર્ટ્સ ઇવેન્ટનું ઓફિશિયલ વેન્યુ હોસ્ટ બનશે."
+                ],
+                edge: ""
+            },
+            b12: {
+                title: "World Blood Donor Day - 14 June",
+                img: "https://images.unsplash.com/photo-1615461066841-6116cecdc300?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "દર વર્ષે ૧૪ જૂને વિશ્વ રક્તદાતા દિવસ મનાવાય છે, ૨૦૨૬ ની થીમ 'One Drop of Immunity' છે.",
+                    "આ દિવસ ABO બ્લડ ગ્રુપ સિસ્ટમના મહાન શોધક ડૉ. કાર્લ લેન્ડસ્ટીનરની સ્મૃતિમાં ઉજવાય છે.",
+                    "ડબલ્યુએચઓ (WHO) દ્વારા વર્ષ ૨૦૦૪ માં આ દિવસની ઉજવણી સત્તાવાર રીતે શરૂ કરવામાં આવી હતી."
+                ],
+                edge: ""
+            }
+        };
+
+        let lastActiveCardId = null;
+
+        function openFlashCard(id) {
+            const data = mindmapData[id];
+            if (!data) return;
+
+            document.getElementById('modal-img-element').src = data.img;
+            
+            let htmlContent = `<h2>${data.title}</h2><ul class="mindmap-node">`;
+            data.nodes.forEach(node => {
+                htmlContent += `<li>${node}</li>`;
+            });
+            htmlContent += `</ul>`;
+
+            if (data.edge) {
+                htmlContent += `<div class="modal-edge-box">${data.edge}</div>`;
+            }
+
+            document.getElementById('modal-body-content').innerHTML = htmlContent;
+            document.getElementById('flash-modal').style.display = 'flex';
+        }
+
+        function closeModal(e) {
+            if (e.target.id === 'flash-modal') {
+                document.getElementById('flash-modal').style.display = 'none';
+            }
+        }
+
+        function closeModalForce() {
+            document.getElementById('flash-modal').style.display = 'none';
+        }
+
+        function focusDetail(cardId) {
+            lastActiveCardId = cardId;
+        }
+
+        function returnToDashboard(targetId) {
+            const currentCardId = targetId || lastActiveCardId;
+            if (!currentCardId) {
+                scrollToDashboard();
+                return;
+            }
+
+            const cardElement = document.getElementById(currentCardId);
+            if (cardElement) {
+                cardElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                cardElement.classList.add('box-highlight-effect');
+                
+                setTimeout(() => {
+                    cardElement.classList.remove('box-highlight-effect');
+                }, 2000);
+            }
+        }
+
+        function scrollToDashboard() {
+            document.getElementById('dashboard').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        const quizDatabase = [
+            {
+                q: "1. આબુ ધાબી ઇન્વેસ્ટમેન્ટ ઓથોરિટી (ADIA) એ ઓપ્ટિકલ જાયન્ટ લેન્સકાર્ટમાં પોતાનો કેટલા ટકા હિસ્સો તાજેતરમાં વેચી દીધો છે?",
+                o: ["૧.૫%", "૨.૩%", "૪.૫%", "૯.૭૮%"],
+                a: 1,
+                exp: "ADIA એ લેન્સકાર્ટમાં પોતાનો ૨.૩% હિસ્સો ₹૧,૯૬૦ કરોડમાં વેચ્યો છે, પરંતુ હજુ પણ તે ૯.૭૮% સાથે બીજા ક્રમનો મોટો પબ્લિક શેરહોલ્ડર છે."
+            },
+            {
+                q: "2. લેન્સકાર્ટ ઇક્વિટી વેચાણ ટ્રાન્ઝેક્શનમાં ₹૨૬૬ કરોડના રોકાણ સાથે સૌથી મોટો ખરીદદાર (Largest Buyer) કોણ બન્યું છે?",
+                o: ["SBI મ્યુચ્યુઅલ ફંડ", "ગોલ્ડમેન સૅક્સ", "કોટક મહિન્દ્રા એસેટ મેનેજમેન્ટ", "મોર્ગન સ્ટેનલી"],
+                a: 2,
+                exp: "કોટક મહિન્દ્રા એસેટ મેનેજમેન્ટે સૌથી વધુ ₹૨૬૬ કરોડનું ભંડોળ લગાવીને ૧.૨૭ કરોડ શેર ખરીદ્યા છે."
+            },
+            {
+                q: "3. જૂન ૨૦૨૬ માં સેબી (SEBI) તરફથી કઈ કંપનીને નવો મ્યુચ્યુઅલ ફંડ બિઝનેસ સત્તાવાર રીતે શરૂ કરવાનું ફાઇનલ એપ્રુવલ મળ્યું છે?",
+                o: ["અદાણી કેપિટલ", "નવામા વેલ્થ મેનેજમેન્ટ લિમિટેડ", "જીઓ ફાઇનાન્સિયલ", "મોતીલાલ ઓસ્વાલ"],
+                a: 1,
+                exp: "નવામા વેલ્થ મેનેજમેન્ટ લિમિટેડને સેબી (SEBI) તરફથી મ્યુચ્યુઅલ ફંડ કામગીરી શરૂ કરવા માટે આખરી મંજૂરી આપવામાં આવી છે."
+            },
+            {
+                q: "4. આર્થિક બાબતોની કેબિનેટ સમિતિ (CCEA) એ આંધ્રપ્રદેશની નવી રાજધાની અમરાવતીના ઇન્ફ્રાસ્ટ્રક્ચર માટે કેટલા કરોડનું ભંડોળ મંજૂર કર્યું છે?",
+                o: ["₹૧,૨૯૯ કરોડ", "₹૨,૫૩૪ કરોડ", "₹३,૫૦૦ કરોડ", "₹૯,૫٨૫ કરોડ"],
+                a: 1,
+                exp: "કેન્દ્રીય કેબિનેટ (CCEA) દ્વારા અમરાવતી કેપિટલ સિટીના સરકારી બિલ્ડીંગ્સ અને રહેણાંક ટાવર્સ માટે ₹૨,૫૩૪ કરોડની મંજૂરી અપાઈ છે."
+            },
+            {
+                q: "5. અમરાવતી કેપિટલ પ્રોજેક્ટ હેઠળ સેન્ટ્રલ ગવર્નમેન્ટ જનરલ પૂલ ઓફિસ બ્લોકમાં કેટલા વહીવટી સ્ટાફ/અધિકારીઓની ક્ષમતા બનાવવામાં આવશે?",
+                o: ["૫,૦૦૦ અધિકારીઓ", "૮,૦૦૦ અધિકારીઓ", "૧,૫૦૪ અધિકારીઓ", "૧૦,૦૦૦ અધિકારીઓ"],
+                a: 1,
+                exp: "₹૧,૨૯૯ કરોડના ખર્ચે બનનારા ઓફિસ કોમ્પ્લેક્સમાં ૮,૦૦૦ (8000) સરકારી ઓફિશિયલ્સ અને સ્ટાફ માટે વહીવટી ક્ષમતા ઉભી કરાશે."
+            },
+            {
+                q: "6. અમરાવતી જનરલ પૂલ રેસિડેન્શિયલ કોમ્પ્લેક્સ પ્રોજેક્ટ હેઠળ ૧૧ ટાવર્સમાં કેટલા ડ્વેલિંગ યુનિટ્સ (ઘરો) નું નિર્માણ કરવામાં આવશે?",
+                o: ["૮,૦૦૦ ઘરો", "૧,૫૦૪ ઘરો", "૨,૫૩૪ ઘરો", "૧,૨૩૫ ઘરો"],
+                a: 1,
+                exp: "રેસિડેન્શિયલ ટાવર્સ સેગમેન્ટ હેઠળ વહીવટી સ્ટાફના રહેવા માટે ૧,૫૦૪ ડ્વેલિંગ યુનિટ્સ (ક્વાર્ટર્સ/ઘરો) બનાવવામાં આવશે."
+            },
+            {
+                q: "7. કેન્દ્રીય સ્વાસ્થ્ય મંત્રાલય દ્વારા ઓલ સિરપ-બેઝ્ડ દવાઓ માટે ડ્રગ્સ રૂલ્સ ૧૯૪૫ ના કયા શિડ્યુલમાં ફેરફાર કરાયો છે?",
+                o: ["Schedule H", "Schedule K", "Schedule X", "Schedule G"],
+                a: 1,
+                exp: "નવા અમેન્ડમેન્ટ રૂલ્સ ૨૦ારે૬ હેઠળ સિરપ દવાઓની ઓવર-ધ-કાઉન્ટર મુક્તિ પાછી ખેંચી તેને 'શિડ્યુલ કે' (Schedule K) હેઠળ લાવી દેવાઈ છે."
+            },
+            {
+                q: "8. ડ્રગ્સ રૂલ્સ ૧૯૪૫ ના નવા સુધારા મુજબ, કઈ પોપ્યુલેશનથી ઓછી વસ્તીવાળા ગામડાઓમાં પણ હવે લાયસન્સ વિના સિરપ વેચી શકાશે નહીં?",
+                o: ["૫,૦૦૦ થી ઓછી", "૨,૦૦૦ થી ઓછી", "૧,૦૦૦ થી ઓછી", "૫૦૦ થી ઓછી"],
+                a: 2,
+                exp: "અગાઉ ૧,૦૦૦ થી ઓછી વસ્તીવાળા ગામડાઓમાં સામાન્ય વેરહાઉસ કે કરિયાણાની દુકાનોને મુક્તિ હતી જે હવે નાબૂદ કરી લાયસન્સ ફાર્મસી ફરજિયાત કરાઈ છે."
+            },
+            {
+                q: "9. દિલ્હી-NCR વાહન આધુનિકીકરણ અને સ્ક્રેપેજ યોજના હેઠળ પોતાના વાહનો બદલવા બદલ ગ્રાહકોને ૮% ડિસ્કાઉન્ટ આપનારી પ્રથમ વ્યાપારી OEM કંપની કઈ બની છે?",
+                o: ["ટાટા મોટર્સ", "મહિન્દ્રા એન્ડ મહિન્દ્રા", "અશોક લેલેન્ડ", "આઈશર મોટર્સ"],
+                a: 2,
+                exp: "અશોક લેલેન્ડ (Ashok Leyland) અને તેની પેટા કંપની સ્વિચ મોબિલિટી MoRTH ની યોજના હેઠળ ગ્રાહકોને ૮% એક્સ્ટ્રા ડિસ્કાઉન્ટ આપનાર પ્રથમ કંપની બની છે."
+            },
+            {
+                q: "10. અશોક લેલેન્ડ ડિસ્કાઉન્ટ સ્કીમનો લાભ મેળવવા માટે ગ્રાહકોએ કયા એમિશન સ્ટાન્ડર્ડ અથવા તેનાથી જૂના ટ્રક-બસને સ્ક્રેપ કરવા પડશે?",
+                o: ["BS6 કમ્પ્લાયન્ટ", "BS4 અથવા તેનાથી જૂના", "BS3 માત્ર", "માત્ર ઇલેક્ટ્રિક વાહનો"],
+                a: 1,
+                exp: "ગ્રાહકોએ તેમના જૂના BS4 (Bharat Stage 4) અથવા તેનાથી વધુ જૂના એમિશન સ્ટાન્ડર્ડ ધરાવતા વ્યાપારી વાહનોને સ્ક્રેપ કરવા પડશે."
+            },
+            {
+                q: "11. વડાપ્રધાન નરેન્દ્ર મોદીને તાજેતરમાં કયા યુરોપિયન દેશ દ્વારા તેમનું સર્વોચ્ચ રાષ્ટ્રીય સન્માન 'ઓર્ડર ઓફ વ્હાઇટ ડબલ ક્રોસ' આપવામાં આવ્યું છે?",
+                o: ["નોર્વે", "ડેનમાર્ક", "સ્લોવાકિયા", "જર્મની"],
+                a: 2,
+                exp: "સ્લોવાકિયાના રાષ્ટ્રપતિ પીટર પેલેગ્રીનીએ પીએમ મોદીને બ્રાતિસ્લાવા ખાતે દેશનું સર્વોચ્ચ રાષ્ટ્રીય સન્માન એનાયત કર્યું હતું."
+            },
+            {
+                q: "12. સ્લોવાકિયાના સર્વોચ્ચ સન્માન સાથે જ વડાપ્રધાન નરેન્દ્ર મોદીને વિદેશી દેશો દ્વારા મળેલા કુલ આંતરરાષ્ટ્રીય પુરસ્કારોની સંખ્યા કેટલી થઈ છે?",
+                o: ["૧૫ એવોર્ડ", "૨૫ એવોર્ડ", "૩૩ એવોર્ડ", "૪૨ એવોર્ડ"],
+                a: 2,
+                exp: "સ્લોવાકિયાના મેડલ સાથે પીએમ મોદીને મળેલા વૈશ્વિક આંતરરાષ્ટ્રીય એવોર્ડ્સ અને સન્માનોની કુલ સંખ્યા ૩૩ (33) પર પહોંચી ગઈ છે."
+            },
+            {
+                q: "13. દેશભરમાં ૨૨ જૂન સુધી ટેલિગ્રામ સેવાઓ ખોરવાતા વિદ્યાર્થીઓની સુરક્ષા માટે કયું ડિજિટલ પ્રાઇવસી પ્લેટફોર્મ શરૂ કરાયું છે?",
+                o: ["વૉટ્સએપ ઓપન ગ્રુપ", "વન-વે વૉટ્સએપ ચેનલ", "ફેસબુક મેસેન્જર બ્રોડકાસ્ટ", "સિગ્નલ પ્રાઇવેટ ગ્રુપ"],
+                a: 1,
+                exp: "ટેલિગ્રામના વિકલ્પ તરીકે ૧૦૦% પિરામિડ પ્રાઇવસી પ્રોટોકોલ ધરાવતી 'વન-વે વૉટ્સએપ ચેનલ' શરૂ કરાઈ છે જે મોબાઈલ નંબર સુરક્ષિત રાખે છે."
+            },
+            {
+                q: "14. આયુષ મંત્રાલય દ્વારા સાર્વજનિક બગીચાઓને વેલનેસ હબ તરીકે કનેક્ટ કરવા માટે તાજેતરમાં કયું ડિજિટલ પોર્ટેલ લોન્ચ કરાયું છે?",
+                o: ["веલનેસ પાર્ક ઓનલાઇન", "બ્રીધિંગ ઇન્ડિયા પોર્ટલ", "योगા પાર્ક પોર્ટલ", "આયુષ ડિજિટલ નેટવર્ક"],
+                a: 2,
+                exp: "આયુષ મંત્રાલયે પબ્લિક બગીચાઓમાં સાચી મેડિટેશન, પોશ્ચર્સ અને ટ્રેનિંગ પૂરી પાડવા 'योगા પાર્ક પોર્ટલ' લોન્ચ કર્યું છે."
+            },
+            {
+                q: "15. રક્ષામંત્રાલયના તાજેતરના નિર્ણય મુજબ દેશમાં ૨ નવા સ્વતંત્ર NCC ડાયરેક્ટોરેટ બનતા હવે કુલ સંખ્યા કેટલી થઈ છે?",
+                o: ["૧૫ ડાયરેક્ટોરેટ", "૧૭ ડાયરેક્ટોરેટ", "૧૯ ડાયરેક્ટોરેટ", "૨૧ ડાયરેક્ટોરેટ"],
+                a: 2,
+                exp: "આંધ્રપ્રદેશ-તેલંગાણા અને બિહાર-ઝારખંડના વિભાજન બાદ નવા ૨ સ્વતંત્ર કેન્દ્રો બનતા દેશમાં કુલ એનસીસી ડાયરેક્ટોરેટની સંખ્યા ૧૭ થી વધીને ૧૯ થઈ છે."
+            },
+            {
+                q: "16. કેન્દ્રીય મંત્રી લલ્લન સિંહ દ્વારા બિહારના કયા જિલ્લામાં ₹૩૧.૨૧ કરોડના ખર્ચે ઇન્ટિગ્રેટેડ એક્વા પાર્કનું ખાતમુહૂર્ત કરાયું છે?",
+                o: ["પટના", "ભોજપુર", "મીઠાપુર", "ગયા"],
+                a: 1,
+                exp: "બિહારના ભોજપુર જિલ્લાના ઉદવંતનગર બ્લોકમાં વનસ્વર ફિશ સીડ ફાર્મ ખાતે આ એક્વા પાર્કની નીવ રખાઈ છે."
+            },
+            {
+                q: "17. નેશનલ ફિશરીઝ ડેવલપમેન્ટ બોર્ડ (NFDB) ના નવા પ્રાદેશિક કાર્યાલય (Regional Center) ની સ્થાપના બિહારમાં કઈ જગ્યાએ કરાઈ છે?",
+                o: ["ભોજપુર", "મીઠાપુર (પટના)", "ભાગલપુર", "મુઝફ્ફરપુર"],
+                a: 1,
+                exp: "બિહારમાં કેન્દ્રીય યોજનાઓની મોનિટરિંગ માટે પટનાના મીઠાપુર ખાતે એનએફડીબી પ્રાદેશિક કેન્દ્રની નીવ રાખવામાં આવી છે."
+            },
+            {
+                q: "18. ભારત અને જાપાને પર્યાવરણ અને લો-કાર્બન ટેક્નોલોજી ટ્રાન્સફર માટે પેરિસ કરારના કયા આર્ટિકલ હેઠળ નિયમો અપનાવ્યા છે?",
+                o: ["Article 4.2", "Article 6.2", "Article 12.5", "Article 21.1"],
+                a: 1,
+                exp: "ભારત અને જાપાને પેરિસ કરારના આર્ટિકલ ૬.૨ (Article 6.2) હેઠળ જોઈન્ટ ક્રેડિટિંગ મેકેનિઝમ (JCM) સ્વીકાર્યું છે."
+            },
+            {
+                q: "19. ૧૭મી સદીનું ઐતિહાસિક જહાજ 'ઓરેસંત' (Oresund) જે ૧૬૨૦ માં ડૂબી ગયું હતું, તે કયા દેશનું પ્રથમ શિપ હતું જેની શોધ માટે ASI એ કરાર કર્યા છે?",
+                o: ["જર્મની", "નોર્વે", "ડેનમાર્ક", "જાપાન"],
+                a: 2,
+                exp: "ઓરેસંત એ ડેનમાર્કનું જહાજ હતું જે ૧૬૧૯ માં ભારતીય સમુદ્રમાં પ્રવેશનાર પ્રથમ ડેનિશ શિપ હતું, જે કરાઇકલ પુડુચેરી નજીક વિલુપ્ત થયું હતું."
+            },
+            {
+                q: "20. ASI ના અંડરવોટર આર્કિઓલોજી વિંગની સ્થાપના કયા વર્ષમાં થઈ હતી, જેના પછી ડેનમાર્ક સાથેનો પ્રોજેક્ટ આ પ્રકારનો પ્રથમ આંતરરાષ્ટ્રીય પ્રોજેક્ટ છે?",
+                o: ["વર્ષ ૧૯૯૫", "વર્ષ ૨૦૦૧", "વર્ષ ૨૦૧૦", "વર્ષ ૨૦૧૫"],
+                a: 1,
+                exp: "ASI ના અંડરવોટર આર્કિઓલોજી વિંગની સ્થાપના વર્ષ ૨૦０૧ માં થઈ હતી, ત્યારબાદ ડેનમાર્ક સાથેનો આ પ્રથમ વિદેશી કરાર છે."
+            },
+            {
+                q: "21. વર્લ્ડ ઇકોનોમિક ફોરમ (WEF) દ્વારા વર્ષ ૨૦૨૬ ના ટેકનોલોજી પાયોનિયર્સ લિસ્ટમાં કેટલા દેશોમાંથી ૧૦૦ નવતર કંપનીઓની પસંદગી કરવામાં આવી છે?",
+                o: ["૧૫ દેશો", "૨૩ દેશો", "૪૫ દેશો", "૧૦ દેશો"],
+                a: 1,
+                exp: "WEF દ્વારા ૨૩ વિવિધ દેશોમાંથી ૧૦૦ અદ્યતન સ્ટાર્ટઅપ કંપનીઓની યાદી ગ્લોબલ ટ્રેકિંગ માટે જાહેર કરાઈ છે."
+            },
+            {
+                q: "22. ભારતીય મૂળના કયા પ્રખ્યાત જીવવિજ્ઞાનીને જર્મનીમાં મોલેક્યુલર બાયોલોજી સંશોધન માટે EMBO ગોલ્ડ મેડલ ૨૦૨૬ મળ્યો છે?",
+                o: ["ગૌતમ ડે", "રાજીવ રંજન", "कાર્લ લેન્ડસ્ટીનર", "પીટર પેલેગ્રીની"],
+                a: 0,
+                exp: "ગૌતમ ડે (Gautam Dey) ને EMBL જર્મનીમાં તેમના સેલ રિસર્ચ માટે EMBO ગોલ્ડ મેડલ એનાયત કરાયો છે."
+            },
+            {
+                q: "23. તુર્કીના અંતાલ્યા વર્લ્ડ કપમાં દક્ષિણ કોરિયાની વર્લ્ડ નંબર-૧ ટીમને હરાવીને ગોલ્ડ મેડલ જીતનાર ભારતીય આર્ચરી જોડી કઈ છે?",
+                o: ["精度 અને સાક્ષી", "ધીરજ બોમ્માદેવરા અને કુમકુમ મહોદ", "અભિષેક અને કુમકુમ", "ધીરજ અને દીપિકા"],
+                a: 1,
+                exp: "ધીરજ બોમ્માદેવરા અને ૧૭ વર્ષીય કુમકુમ મહોદે રિકર્વ મિક્સ આર્ચરીમાં શાનદાર રીતે ગોલ્ડ પદક જીત્યો છે."
+            },
+            {
+                q: "24. AIFF અંડર-૧૭ વિમેન્સ યુથ લીગ ૨૦૨૬ નું સત્તાવાર આયોજન જુલાઈ મહિનામાં કયા રાજ્યના નારાયણપુરમાં કરવામાં આવશે?",
+                o: ["બિહાર", "છત્તીસગઢ", "ઝારખંડ", "આંધ્રપ્રદેશ"],
+                a: 1,
+                exp: "છત્તીસગઢના નારાયણપુર સ્થિત આરકેએમ (RKM) ફૂટબોલ એકેડેમી ખાતે ૧૮ થી ૨૯ જુલાઈ દરમિયાન આ મેગા ઇવેન્ટ યોજાશે."
+            },
+            {
+                q: "25. ABO બ્લડ ગ્રુપ સિસ્ટમના મહાન શોધક કોણ છે, જેમના જન્મદિવસ નિમિત્તે દર વર્ષે ૧૪ જૂને વિશ્વ રક્તદાતા દિવસ મનાવાય છે?",
+                o: ["ડૉ. ગૌતમ ડે", "ડૉ. કાર્લ લેન્ડસ્ટીનર", "પીટર પેલેગ્રીની", "ડૉ. રોબર્ટ કોચ"],
+                a: 1,
+                exp: "ડૉ. કાર્લ લેન્ડસ્ટીનરના જન્મદિવસ નિમિત્તે વિશ્વ રક્તદાતા દિવસ મનાવાય છે. ૨૦૨૬ ની થીમ 'One Drop of Immunity' છે."
+            }
+        ];
+
+        let currentQuizIndex = 0;
+        let currentQuizScore = 0;
+        let userRegisteredName = "";
+
+        function switchToQuizMode() {
+            const nameInput = document.getElementById('user-quiz-reg-name').value.trim();
+            
+            if(nameInput === "") {
+                alert("⚠️ ક્વિઝ શરૂ કરવા માટે કૃપા કરીને તમારું નામ લખો!");
+                return;
+            }
+            
+            userRegisteredName = nameInput;
+
+            document.getElementById('main-news-page-wrapper').style.display = 'none';
+            document.getElementById('quiz-view-panel').style.display = 'block';
+            
+            document.getElementById('quiz-active-questions-frame-block').style.display = 'block';
+            document.getElementById('quiz-result-final-pane').style.display = 'none';
+            
+            window.scrollTo(0,0);
+            
+            currentQuizIndex = 0;
+            currentQuizScore = 0;
+            document.getElementById('live-score-counter').innerText = currentQuizScore;
+            
+            loadSingleQuizQuestion(currentQuizIndex);
+        }
+
+        function switchBackToNewsMode() {
+            document.getElementById('quiz-view-panel').style.display = 'none';
+            document.getElementById('main-news-page-wrapper').style.display = 'block';
+            window.scrollTo(0,0);
+        }
+
+        function loadSingleQuizQuestion(index) {
+            const container = document.getElementById('quiz-questions-loader-target');
+            container.innerHTML = ""; 
+            
+            document.getElementById('quiz-next-action-btn').style.display = "none";
+            document.getElementById('quiz-step-progress-label').innerText = `Question ${index + 1} of 25`;
+
+            const item = quizDatabase[index];
+
+            const card = document.createElement('div');
+            card.className = "quiz-card-item";
+
+            const qTitle = document.createElement('div');
+            qTitle.className = "quiz-question";
+            qTitle.innerText = item.q;
+            card.appendChild(qTitle);
+
+            const optionsList = document.createElement('ul');
+            optionsList.className = "quiz-options-list";
+            optionsList.id = `single-q-opts-block`;
+
+            item.o.forEach((optText, optIdx) => {
+                const li = document.createElement('li');
+                li.className = "option-item";
+                li.innerText = optText;
+                
+                li.onclick = function() {
+                    evaluateSingleQuestionAnswer(optIdx, item.a, item.exp);
+                };
+
+                optionsList.appendChild(li);
+            });
+
+            card.appendChild(optionsList);
+
+            const expBox = document.createElement('div');
+            expBox.id = "live-explanation-feedback-box";
+            expBox.className = "quiz-explanation-box";
+            card.appendChild(expBox);
+
+            container.appendChild(card);
+        }
+
+        function evaluateSingleQuestionAnswer(selectedIdx, correctIdx, explanationText) {
+            const optionsBlock = document.getElementById('single-q-opts-block');
+            const optionsElements = optionsBlock.getElementsByTagName('li');
+
+            for (let i = 0; i < optionsElements.length; i++) {
+                optionsElements[i].classList.add('option-disabled');
+            }
+
+            if (selectedIdx === correctIdx) {
+                optionsElements[selectedIdx].classList.add('correct-state');
+                currentQuizScore++;
+                document.getElementById('live-score-counter').innerText = currentQuizScore;
+            } else {
+                optionsElements[selectedIdx].classList.add('wrong-state');
+                optionsElements[correctIdx].classList.add('correct-state');
+            }
+
+            const expBox = document.getElementById('live-explanation-feedback-box');
+            expBox.innerHTML = `<strong>💡 ટૂંકી સમજૂતી (Samjooti):</strong> ${explanationText}`;
+            expBox.style.display = "block";
+
+            const nextBtn = document.getElementById('quiz-next-action-btn');
+            if (currentQuizIndex < quizDatabase.length - 1) {
+                nextBtn.innerText = "Next Question →";
+            } else {
+                nextBtn.innerText = "Finish & See Score ✓";
+            }
+            nextBtn.style.display = "block";
+        }
+
+        function goToNextQuizQuestion() {
+            if (currentQuizIndex < quizDatabase.length - 1) {
+                currentQuizIndex++;
+                loadSingleQuizQuestion(currentQuizIndex);
+            } else {
+                showFinalResultsPaneLayout();
+            }
+        }
+
+        function showFinalResultsPaneLayout() {
+            document.getElementById('quiz-active-questions-frame-block').style.display = 'none';
+            document.getElementById('quiz-result-final-pane').style.display = 'block';
+            
+            document.getElementById('final-result-user-name-label').innerText = `👤 વિદ્યાર્થી: ${userRegisteredName}`;
+            document.getElementById('final-score-digits').innerText = currentQuizScore;
+        }
+
+        function sendResultToWhatsApp() {
+            const masterWhatsAppNumber = "916353298168"; 
+            const currentTime = new Date().toLocaleTimeString('gu-IN', { hour: '2-digit', minute: '2-digit' });
+            
+            const messagePayload = `*THE MAULIK EXPRESS QUIZ RESULT* 📊\n\n` +
+                                   `👤 *નામ:* ${userRegisteredName}\n` +
+                                   `📅 *તારીખ:* 18 June 2026\n` +
+                                   `⏱️ *સમય:* ${currentTime}\n` +
+                                   `🎯 *ફાઇનલ સ્કોર:* ${currentQuizScore} / 25\n\n` +
+                                   `📈 _માસ્ટર એક્ઝામ લેજર એન્ડ એનાલિટિક્સ સિસ્ટમ દ્વારા પ્રમાણિત._`;
+            
+            const encodedText = encodeURIComponent(messagePayload);
+            const whatsappWebUrl = `https://api.whatsapp.com/send?phone=${masterWhatsAppNumber}&text=${encodedText}`;
+            
+            window.open(whatsappWebUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
+    
+  </body>
+  
+</html>
