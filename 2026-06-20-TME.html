@@ -1,0 +1,2062 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>20june</title>
+    
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="gu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>THE MAULIK EXPRESS - Master Dual-Mode Dashboard (20 June 2026)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght=700&family=Inter:wght=400;500;600;700&family=Noto+Serif+Gujarati:wght=400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --card-bg: #1e293b;
+            --accent: #38bdf8;
+            --highlight-text: #fbbf24;
+            --danger: #f43f5e;
+            --text-muted: #94a3b8;
+            --paper-bg: #f4f4f0;
+            --sheet-bg: #fdfdfa;
+            --text-dark: #1e293b;
+            --border-color: #cbd5e1;
+            --yellow-highlighter: #fff200;
+            --success: #10b981;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Serif Gujarati', serif;
+            background-color: var(--paper-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .hl-yellow {
+            background-color: var(--yellow-highlighter);
+            color: #000000;
+            font-weight: 700;
+            padding: 2px 4px;
+            border-radius: 3px;
+            display: inline;
+        }
+
+        .dashboard-section {
+            background-color: var(--bg-dark);
+            color: #ffffff;
+            padding: 15px;
+            width: 100%;
+        }
+
+        @media (min-width: 600px) {
+            .dashboard-section { padding: 25px; }
+        }
+
+        .header-container {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            border-bottom: 1px solid var(--card-bg);
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        @media (min-width: 600px) {
+            .header-container {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+
+        .main-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .main-title span { color: var(--accent); }
+
+        .meta-info {
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        @media (min-width: 600px) {
+            .main-title { text-align: left; font-size: 2.3rem; }
+            .meta-info { text-align: right; font-size: 0.9rem; }
+        }
+
+        .meta-info strong { color: var(--highlight-text); }
+
+        .top-action-bar {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin: 15px 0 25px 0;
+            width: 100%;
+        }
+
+        @media (min-width: 650px) {
+            .top-action-bar {
+                flex-direction: row;
+                justify-content: center;
+                align-items: stretch;
+            }
+        }
+
+        .quiz-start-banner {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            border-radius: 12px;
+            padding: 20px;
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            text-align: center;
+            box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.3);
+        }
+
+        .quiz-start-banner h2 {
+            font-size: 1.2rem;
+            color: #ffffff;
+            font-family: 'Noto Serif Gujarati', serif;
+        }
+
+        .oneliner-banner {
+            background: linear-gradient(135deg, #854d0e, #a16207);
+            border-radius: 12px;
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            text-align: center;
+            box-shadow: 0 10px 15px -3px rgba(234, 179, 8, 0.2);
+        }
+
+        .oneliner-banner h2 {
+            font-size: 1.2rem;
+            color: #ffffff;
+            font-family: 'Noto Serif Gujarati', serif;
+        }
+
+        .quiz-name-input-box {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            width: 100%;
+            max-width: 260px;
+            margin: 0;
+        }
+
+        .quiz-name-input-box input {
+            padding: 10px 14px;
+            border-radius: 6px;
+            border: 2px solid #cbd5e1;
+            font-size: 0.9rem;
+            font-family: 'Inter', sans-serif;
+            text-align: center;
+            outline: none;
+        }
+
+        .quiz-name-input-box input:focus {
+            border-color: var(--accent);
+        }
+
+        .btn-quiz-master {
+            background-color: var(--highlight-text);
+            color: #000000;
+            font-size: 0.95rem;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.2s, background-color 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-quiz-master:hover {
+            transform: scale(1.03);
+            background-color: #fcd34d;
+        }
+
+        .btn-oneliner-master {
+            background-color: #ffffff;
+            color: #854d0e;
+            font-size: 0.95rem;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.2s, background-color 0.2s;
+            text-transform: uppercase;
+            width: 100%;
+            max-width: 220px;
+        }
+
+        .btn-oneliner-master:hover {
+            transform: scale(1.03);
+            background-color: #f8fafc;
+        }
+
+        .section-header {
+            font-family: 'Noto Serif Gujarati', serif;
+            font-size: 1.25rem;
+            margin: 20px 0 12px 0;
+            color: var(--accent);
+            border-left: 4px solid var(--accent);
+            padding-left: 8px;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        @media (min-width: 650px) {
+            .news-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        }
+        @media (min-width: 1000px) {
+            .news-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        .news-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            scroll-margin-top: 15px;
+        }
+
+        .news-card h3 {
+            font-size: 1rem;
+            margin-bottom: 6px;
+            color: #ffffff;
+            line-height: 1.35;
+        }
+
+        .news-card p {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            margin-bottom: 12px;
+            flex-grow: 1;
+            text-align: justify;
+            line-height: 1.4;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 8px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 10px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 8px 10px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.75rem;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+        }
+
+        .btn-flash {
+            background-color: rgba(251, 191, 36, 0.12);
+            color: var(--highlight-text);
+            border: 1px solid rgba(251, 191, 36, 0.25);
+        }
+
+        .btn-flash:hover {
+            background-color: var(--highlight-text);
+            color: var(--bg-dark);
+        }
+
+        .btn-detail {
+            background-color: rgba(56, 189, 248, 0.12);
+            color: var(--accent);
+            border: 1px solid rgba(56, 189, 248, 0.25);
+        }
+
+        .btn-detail:hover {
+            background-color: var(--accent);
+            color: var(--bg-dark);
+        }
+
+        .box-highlight-effect {
+            animation: card-flash-glow 2s cubic-bezier(0.4, 0, 0.2, 1);
+            border-color: var(--accent) !important;
+        }
+
+        @keyframes card-flash-glow {
+            0% { background-color: #1e3a8a; transform: scale(1.02); box-shadow: 0 0 15px rgba(56, 189, 248, 0.5); }
+            50% { transform: scale(1.02); box-shadow: 0 0 15px rgba(56, 189, 248, 0.2); }
+            100% { background-color: var(--card-bg); transform: scale(1); }
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(4px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 10px;
+        }
+
+        .modal-content {
+            background: #ffffff;
+            color: #1e293b;
+            width: 100%;
+            max-width: 630px;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            animation: modalSlideUp 0.2s ease-out;
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.3);
+        }
+
+        @keyframes modalSlideUp {
+            from { opacity: 0; transform: translateY(15px) scale(0.98); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(15, 23, 42, 0.6);
+            border: none;
+            color: #ffffff;
+            font-size: 1.2rem;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        .modal-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-bottom: 3px solid var(--accent);
+        }
+
+        @media (min-width: 600px) { .modal-img { height: 220px; } }
+
+        .modal-body {
+            padding: 20px;
+            max-height: 55vh;
+            overflow-y: auto;
+        }
+
+        .modal-body h2 {
+            font-family: 'Noto Serif Gujarati', serif;
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            color: #0f172a;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 6px;
+        }
+
+        .mindmap-node {
+            list-style-type: none;
+            margin-bottom: 12px;
+        }
+
+        .mindmap-node li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 10px;
+            color: #334155;
+            font-size: 0.92rem;
+            text-align: justify;
+            line-height: 1.5;
+        }
+
+        .mindmap-node li::before {
+            content: "⚡";
+            position: absolute;
+            left: 0;
+            top: 1px;
+            font-size: 0.9rem;
+            color: var(--danger);
+        }
+
+        .oneliner-node {
+            list-style-type: none;
+            margin-bottom: 10px;
+        }
+
+        .oneliner-node li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 12px;
+            color: #1e293b;
+            font-size: 0.92rem;
+            text-align: justify;
+            line-height: 1.5;
+            border-bottom: 1px dashed #e2e8f0;
+            padding-bottom: 8px;
+        }
+
+        .oneliner-node li::before {
+            content: "📌";
+            position: absolute;
+            left: 0;
+            top: 1px;
+            font-size: 0.95rem;
+        }
+
+        .modal-edge-box {
+            background: #f8fafc;
+            border-left: 4px solid #0f172a;
+            padding: 10px;
+            border-radius: 0 6px 6px 0;
+            margin-top: 12px;
+            font-size: 0.85rem;
+            color: #1e293b;
+        }
+
+        .broadsheet-section {
+            padding: 20px 10px;
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        @media (min-width: 600px) { .broadsheet-section { padding: 30px 20px; } }
+
+        .masthead {
+            text-align: center;
+            border-top: 4px double var(--text-dark);
+            border-bottom: 4px double var(--text-dark);
+            padding: 12px 0;
+            margin-bottom: 25px;
+        }
+
+        .masthead h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            letter-spacing: 1px;
+        }
+
+        @media (min-width: 600px) { .masthead h2 { font-size: 3.5rem; letter-spacing: 2px; } }
+
+        .masthead-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #475569;
+            margin-top: 6px;
+            border-top: 1px solid var(--text-dark);
+            padding-top: 5px;
+        }
+
+        @media (min-width: 600px) {
+            .masthead-meta { flex-direction: row; justify-content: space-between; }
+        }
+
+        .broadsheet-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.25rem;
+            margin-bottom: 15px;
+            border-bottom: 3px solid var(--text-dark);
+            padding-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .article {
+            background: var(--sheet-bg);
+            padding: 15px;
+            border: 1px solid #cbd5e1;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            scroll-margin-top: 15px;
+        }
+
+        @media (min-width: 600px) { .article { padding: 25px; } }
+
+        .article h3 {
+            font-family: 'Noto Serif Gujarati', serif;
+            font-size: 1.15rem;
+            margin-bottom: 8px;
+            color: #0f172a;
+            line-height: 1.35;
+        }
+
+        @media (min-width: 600px) { .article h3 { font-size: 1.5rem; } }
+
+        .article-meta {
+            font-size: 0.7rem;
+            color: #64748b;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+            border-bottom: 1px dashed #e2e8f0;
+            padding-bottom: 4px;
+        }
+
+        .article-content {
+            font-size: 0.95rem;
+            color: #334155;
+            text-align: justify;
+        }
+
+        @media (min-width: 600px) { .article-content { font-size: 1.02rem; } }
+
+        .article-content p {
+            margin-bottom: 12px;
+            text-indent: 15px;
+            line-height: 1.6;
+        }
+
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            margin: 12px 0;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .article-content table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 450px;
+            font-size: 0.85rem;
+        }
+
+        .article-content th, .article-content td {
+            border: 1px solid #cbd5e1;
+            padding: 8px 10px;
+            text-align: left;
+        }
+
+        .article-content th {
+            background-color: #f1f5f9;
+            color: #0f172a;
+        }
+
+        .additional-edge {
+            background-color: #f8fafc;
+            border-left: 4px solid var(--text-dark);
+            border-right: 1px solid #e2e8f0;
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 12px;
+            margin: 15px 0 8px 0;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .additional-edge h4 {
+            margin: 0 0 6px 0;
+            color: #0f172a;
+            font-size: 0.9rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            margin-top: 12px;
+            background: #1e293b;
+            color: #ffffff;
+            font-size: 0.7rem;
+            padding: 6px 10px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .floating-top-btn {
+            position: fixed;
+            bottom: 15px;
+            right: 15px;
+            width: 40px;
+            height: 40px;
+            background-color: var(--accent);
+            color: var(--bg-dark);
+            border: none;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 99;
+        }
+
+        #quiz-view-panel {
+            display: none;
+            background-color: var(--paper-bg);
+            min-height: 100vh;
+            padding: 20px 10px;
+        }
+
+        @media (min-width: 600px) { #quiz-view-panel { padding: 40px 20px; } }
+
+        .quiz-container {
+            max-width: 750px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 14px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            padding: 20px;
+        }
+
+        @media (min-width: 600px) { .quiz-container { padding: 35px; } }
+
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px dashed var(--border-color);
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+
+        .quiz-header h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            color: var(--bg-dark);
+        }
+
+        .score-box {
+            background: var(--bg-dark);
+            color: var(--highlight-text);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .btn-exit-quiz {
+            background: #64748b;
+            color: #ffffff;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        .btn-exit-quiz:hover { background: #475569; }
+
+        .quiz-card-item {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .quiz-question {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .quiz-options-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .option-item {
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            padding: 12px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .option-item:hover {
+            background: #f1f5f9;
+            border-color: #94a3b8;
+        }
+
+        .option-item.correct-state {
+            background-color: rgba(16, 185, 129, 0.15) !important;
+            border-color: var(--success) !important;
+            color: #065f46 !important;
+            font-weight: 600;
+        }
+
+        .option-item.correct-state::after {
+            content: " ✓ (સાચો જવાબ)";
+            color: var(--success);
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .option-item.wrong-state {
+            background-color: rgba(244, 63, 94, 0.15) !important;
+            border-color: var(--danger) !important;
+            color: #9f1239 !important;
+        }
+
+        .option-item.wrong-state::after {
+            content: " ✗ (ખોટો જવાબ)";
+            color: var(--danger);
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .option-disabled {
+            pointer-events: none;
+        }
+
+        .quiz-explanation-box {
+            display: none;
+            background-color: #f0fdf4;
+            border-left: 5px solid var(--success);
+            border-radius: 4px;
+            padding: 15px;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: #166534;
+            line-height: 1.5;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .quiz-explanation-box strong {
+            color: #14532d;
+            text-transform: uppercase;
+        }
+
+        .quiz-action-area {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .btn-next-quiz-step {
+            display: none;
+            background-color: #2563eb;
+            color: white;
+            font-size: 0.9rem;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-next-quiz-step:hover {
+            background-color: #1d4ed8;
+        }
+
+        .quiz-progress-bar {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        #quiz-result-final-pane {
+            display: none;
+            text-align: center;
+            padding: 30px 15px;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        #quiz-result-final-pane h3 {
+            font-family: 'Noto Serif Gujarati', serif;
+            font-size: 1.5rem;
+            color: var(--bg-dark);
+            margin-bottom: 10px;
+        }
+
+        .final-score-display-card {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #2563eb;
+            margin: 15px 0;
+        }
+
+        .btn-submit-whatsapp-final {
+            background-color: #25d366;
+            color: #ffffff;
+            font-size: 1.05rem;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-transform: uppercase;
+            margin-top: 15px;
+        }
+
+        .btn-submit-whatsapp-final:hover {
+            background-color: #20ba56;
+            transform: scale(1.02);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="main-news-page-wrapper">
+        <button class="floating-top-btn" onclick="scrollToDashboard()" title="ડેશબોર્ડ પર જાઓ">↑</button>
+
+        <section class="dashboard-section" id="dashboard">
+            <div class="header-container">
+                <h1 class="main-title">THE MAULIK <span>EXPRESS</span></h1>
+                <div class="meta-info">
+                    Master Exam Ledger & Analytics<br>
+                    તારીખ: <strong>૨૦ જૂન ૨૦૨૬</strong> | કેન્દ્ર: <strong>અમદાવાદ</strong>
+                </div>
+            </div>
+
+            <div class="top-action-bar">
+                <div class="quiz-start-banner">
+                    <h2>📊 આજના કરંટ અફેર્સની લાઇવ ટેસ્ટ આપો (૨૦ જૂન ૨૦૨૬)</h2>
+                    <div style="display:flex; gap:10px; width:100%; justify-content:center; align-items:center; flex-wrap:wrap;">
+                        <div class="quiz-name-input-box">
+                            <input type="text" id="user-quiz-reg-name" placeholder="અહીં તમારું પૂરું નામ લખો..." autocomplete="off">
+                        </div>
+                        <button class="btn btn-quiz-master" onclick="switchToQuizMode()">⚡ Start 25 MCQ Quiz</button>
+                    </div>
+                </div>
+
+                <div class="oneliner-banner">
+                    <h2>⚡ Quick Revision</h2>
+                    <button class="btn-oneliner-master" onclick="openOneLinerModal()">📋 View 14 One-Liners</button>
+                </div>
+            </div>
+
+            <h2 class="section-header">મુખ્ય સમાચાર (Main Stories)</h2>
+            <div class="news-grid">
+                <div class="news-card" id="card-m1">
+                    <div>
+                        <h3>RBI એ લોન્ચ કર્યો 'RBI રેલેથોન 2026' અવેરનેસ કેમ્પેઈન</h3>
+                        <p>ત્રિરુવનંતપુરમ ક્ષેત્રીય ઓફિસ દ્વારા કેરળની ૧૫૦ કોલેજોમાં શોર્ટ વીડિયો રીલ્સના માધ્યમથી ફાયનાન્શિયલ ફ્રોડ અટકાવવા ક્રાંતિકારી પહેલ.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('m1')">🃏 Flash Card</button>
+                        <a href="#art-m1" class="btn btn-detail" onclick="focusDetail('card-m1')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-m2">
+                    <div>
+                        <h3>BoB દ્વારા નવી 'ગોલ્ડન ગોલ્ડ ડિપોઝિટ સ્કીમ' જાહેર</h3>
+                        <p>ફિફા વર્લ્ડ કપ ટ્રેન્ડ સાથે અલાઇન કરી ૫૫૫ દિવસની ખાસ એફડી યોજના. સુપર સિનિયર સિટીઝન માટે ૭.૪૦% સુધીનું વ્યાજ અને કોલેબલ શરતો.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('m2')">🃏 Flash Card</button>
+                        <a href="#art-m2" class="btn btn-detail" onclick="focusDetail('card-m2')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-m3">
+                    <div>
+                        <h3>સર્વમ AI (Sarvam AI) બન્યો દેશનો ૧૩૦મો સત્તાવાર યુનિકોર્ન</h3>
+                        <p>બેંગલુરુ બેઝ્ડ ફુલ-સ્ટેક સોવરિન એઆઈ સ્ટાર્ટઅપે $૨૩૪ મિલિયન એકત્ર કરી ગ્લોબલ લેવલે $૧ બિલિયનનું મૂલ્યાંકન હાંસલ કર્યું.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('m3')">🃏 Flash Card</button>
+                        <a href="#art-m3" class="btn btn-detail" onclick="focusDetail('card-m3')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-m4">
+                    <div>
+                        <h3>യエス બેંક અને નોર્ધન આર્ક કેપિટલ વચ્ચે વ્યૂહાત્મક જોધાણ</h3>
+                        <p>સુમિતોમોની મધ્યસ્થીથી ગ્રામીણ માઇક્રો એન્ટરપ્રાઇઝ અને એમએસએમઈ (MSME) સુધી લોન ક્રેડિટ ફ્લો વધારવા કો-લેન્ડિંગ કરાર સંપન્ન.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('m4')">🃏 Flash Card</button>
+                        <a href="#art-m4" class="btn btn-detail" onclick="focusDetail('card-m4')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-m5">
+                    <div>
+                        <h3>IIT હૈદરાબાદે સ્થાપ્યું દેશનું પ્રથમ 'Code-NE' ન્યુક્લિયર સેન્ટર</h3>
+                        <p>Ф્રાન્સની કંપની સાથે મળી સેન્ટર ફોર ડિઝાઇન એન્ડ એન્જિનિયરિંગ ઇન ન્યુક્લિયર એનર્જી સ્થાપ્યું. ૨૦૪૭ સુધીમાં ૧૦૦ GW નો લક્ષ્યાંક.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('m5')">🃏 Flash Card</button>
+                        <a href="#art-m5" class="btn btn-detail" onclick="focusDetail('card-m5')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-m6">
+                    <div>
+                        <h3>દિલ્હી NCR વિસ્તારમાં ૪ નવી 'નમો સિટીઝ' ડેવલપ કરાશે</h3>
+                        <p>NCRPB દ્વારા ૨૦૪૧ ના માસ્ટર પ્લાન હેઠળ મંજૂરી. સેટેલાઇટ શહેરો દ્વારા દિલ્હીનું વસ્તી ભારણ ઘટાડવા ₹૫,૦૦૦ કરોડ ફાળવાશે.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('m6')">🃏 Flash Card</button>
+                        <a href="#art-m6" class="btn btn-detail" onclick="focusDetail('card-m6')">📰 Detailed</a>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="section-header">એક્ઝિક્યુટિવ બ્રીફિંગ્સ (Executive Briefings)</h2>
+            <div class="news-grid">
+                <div class="news-card" id="card-b1">
+                    <div>
+                        <h3>ગ્રીન હાઇડ્રોજન સર્ટિફિકેશન પોર્ટલ લોન્ચ</h3>
+                        <p>કેન્દ્રીય મંત્રી પ્રહલાદ જોશી દ્વારા નેશનલ મિશનના ટ્રેકિંગ અને પારદર્શિતા માટે સત્તાવાર ડિજિટલ પોર્ટલ જાહેર કરાયું.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b1')">🃏 Flash Card</button>
+                        <a href="#art-b1" class="btn btn-detail" onclick="focusDetail('card-b1')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b2">
+                    <div>
+                        <h3>ઇન્ડિયન આર્મી અને ભારતીય એરટેલ વચ્ચે મોટો કરાર</h3>
+                        <p>Аરુણાચલ પ્રદેશ લાઇન ઓફ એક્ચ્યુઅલ કન્ટ્રોલ (LAC) પર સૈન્ય કમ્યુનિકેશન ઇન્ફ્રાસ્ટ્રક્ચર અને ગજરાજ કોપ્સ નેટવર્ક મજબૂત કરાશે.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b2')">🃏 Flash Card</button>
+                        <a href="#art-b2" class="btn btn-detail" onclick="focusDetail('card-b2')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b3">
+                    <div>
+                        <h3>ઓઇલ ઇન્ડિયા લિમિટેડ અને કેનેડાના PTRC વચ્ચે એમઓયુ</h3>
+                        <p>Каર્બન કેપ્ચર, જીઓથર્મલ એનર્જી અને ક્લીન ટેકનોલોજીના સંશોધન ક્ષેત્રે ઐતિહાસિક વૈશ્વિક ભાગીદારી સંપન્ન.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b3')">🃏 Flash Card</button>
+                        <a href="#art-b3" class="btn btn-detail" onclick="focusDetail('card-b3')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b4">
+                    <div>
+                        <h3>QCI અને FDDI વચ્ચે લેધર-ફૂટવેર ગુણવત્તા કરાર</h3>
+                        <p>К્વોલિટી કાઉન્સિલ ઓફ ઇન્ડિયા સ્કીલિંગ, વૈશ્વિક સર્ટિફિકેશન અને ટેસ્ટિંગ લેબોરેટરીઝ મજબૂત કરવા સંયુક્ત કાર્ય કરશે.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b4')">🃏 Flash Card</button>
+                        <a href="#art-b4" class="btn btn-detail" onclick="focusDetail('card-b4')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b5">
+                    <div>
+                        <h3>ન્યૂ ડેવલપમેન્ટ બેંક (NDB) માં ઉઝબેકિસ્તાન જોડાયું</h3>
+                        <p>Шаંઘાઈ હેડક્વાર્ટર ધરાવતી બ્રિક્સ બેંકમાં સામેલ થનાર પ્રથમ મધ્ય એશિયાઈ (Central Asian) દેશ બનવાનું બહુમાન.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b5')">🃏 Flash Card</button>
+                        <a href="#art-b5" class="btn btn-detail" onclick="focusDetail('card-b5')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b6">
+                    <div>
+                        <h3>Times 100 મોસ્ટ ઇન્ફ્લુએન્શિયલ પીપલ ઇન સ્પોર્ટ્સ યાદી</h3>
+                        <p>Лીસ્ટમાં સ્થાન મેળવનાર એકમાત્ર ભારતીય એથ્લીટ બન્યા સ્મૃતિ મંધાના (ક્રિકેટ). બાસ્કેટબોલ પ્લેયર લીબ્રોન જેમ્સ ટોચ પર.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b6')">🃏 Flash Card</button>
+                        <a href="#art-b6" class="btn btn-detail" onclick="focusDetail('card-b6')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b7">
+                    <div>
+                        <h3>વિશાલ કુમારને આઇએમએ પરેડમાં સર્વોચ્ચ 'સ્વોર્ડ ઓફ ઓનર'</h3>
+                        <p>૧૫૦મા રેગ્યુલર બેચની પરેડમાં રાષ્ટ્રપતિ દ્વારા મેડલ એનાયત. ઇતિહાસમાં પ્રથમવાર ૯ મહિલા કેડેટ્સ પણ સફળતાપૂર્વક પાસ આઉટ.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b7')">🃏 Flash Card</button>
+                        <a href="#art-b7" class="btn btn-detail" onclick="focusDetail('card-b7')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b8">
+                    <div>
+                        <h3>સુદર્શન પટનાયકે રશિયામાં જીત્યો સેન્ડ માસ્ટર કપ 2026</h3>
+                        <p>К્લાઇમેટ ચેન્જ થીમ પર 'બે ફેસવાળી પૃથ્વી' નું રેતીનું અદભુત આર્ટવર્ક બનાવી પદ્મશ્રી સન્માનિત કલાકારે ગ્લોબલ એવોર્ડ જીત્યો.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b8')">🃏 Flash Card</button>
+                        <a href="#art-b8" class="btn btn-detail" onclick="focusDetail('card-b8')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b9">
+                    <div>
+                        <h3>હિતેશ રામેશચંદ્ર જોશી GIC Re ના નવા સીએમડી નિયુક્ત</h3>
+                        <p>ઇન્સ્યોરન્સ ક્ષેત્રમાં અગ્રણી નિમણૂક. નારાયણ રામાસ્વામીનું સ્થાન લઈ ૩૦ સપ્ટેમ્બર ૨૦૨૮ સુધી પદ સંભાળશે.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b9')">🃏 Flash Card</button>
+                        <a href="#art-b9" class="btn btn-detail" onclick="focusDetail('card-b9')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b10">
+                    <div>
+                        <h3>IIT કાનપુરમાં સ્થાપાશે ₹૫૦૦ કરોડનું મિલิต્રી ડ્રોન હબ</h3>
+                        <p>Сંરક્ષણ મંત્રાલય દ્વારા ઇન-પ્રિન્સિપલ મંજૂરી. આર્મી ડિઝાઇન બ્યુરો અને યુપી ડિફેન્સ કોરિડોર સાથે મળી એડવાન્સ રિસર્ચ થશે.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b10')">🃏 Flash Card</button>
+                        <a href="#art-b10" class="btn btn-detail" onclick="focusDetail('card-b10')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b11">
+                    <div>
+                        <h3>સેનાને મળ્યા ૧૦૬ એડવાન્સ કામિકાઝે ડ્રોન્સ (Kamikaze)</h3>
+                        <p>'પીસકીપર' અગ્નિવેગ ટર્બોજેટ પાવાર્ડ ડ્રોન્સનો જથ્થો સૈન્યમાં સામેલ. ભારતીય SMPP એ બેલારુસની કંપની સાથે મળી બનાવ્યા.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b11')">🃏 Flash Card</button>
+                        <a href="#art-b11" class="btn btn-detail" onclick="focusDetail('card-b11')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b12">
+                    <div>
+                        <h3>નેવી દ્વારા સી-કિંગ હેલિકોપ્ટર ફ્લીટ ડી-કમિશન કરાયો</h3>
+                        <p>આઇએનએસ શિકરા મુંબઈ ખાતે યોજાયેલા ભવ્ય સમારોહમાં ૩૬ વર્ષની ભવ્ય સૈન્ય સેવા બાદ સત્તાવાર વિદાય અપાઈ.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b12')">🃏 Flash Card</button>
+                        <a href="#art-b12" class="btn btn-detail" onclick="focusDetail('card-b12')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b13">
+                    <div>
+                        <h3>પૂર્વ વાઇસ ચીફ લેફ્ટનન્ટ જનરલ વિજય ઓબેરોયનું નિધન</h3>
+                        <p>Мરાઠા લાઇટ ઇન્ફન્ટ્રી (જંગી પલટન) ના વીર યોદ્ધા અને કારગિલ બાદ સૈન્ય સિદ્ધાંતો ફરીથી લખનાર પ્રખર સૈનિક સ્કોલરની ચિરવિદાય.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b13')">🃏 Flash Card</button>
+                        <a href="#art-b13" class="btn btn-detail" onclick="focusDetail('card-b13')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b14">
+                    <div>
+                        <h3>વિખ્યાત માંડ ગાયિકા ગાવરી દેવીનું ઐતિહાસિક અવસાન</h3>
+                        <p>Рાજસ્થાનના આઇકોનિક 'કેસરિયા બાલમ' ગીતની પ્રખર ગાયિકા અને વીર દુર્ગાદાસ રાઠોડ લાઇફટાઇમ એવોર્ડ વિજેતાનું નિધન.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b14')">🃏 Flash Card</button>
+                        <a href="#art-b14" class="btn btn-detail" onclick="focusDetail('card-b14')">📰 Detailed</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="broadsheet-section">
+            <div class="masthead">
+                <h2>THE MAULIK EXPRESS</h2>
+                <div class="masthead-meta">
+                    <span>VOL. II NO. 20 (EXAMINATION SPECIAL - FULL MASTER VERSION)</span>
+                    <span>અમદાવાદ, શનિવાર, ૨૦ જૂન ૨૦૨૬</span>
+                    <span>કિંમત: ₹ ૫.૦૦</span>
+                </div>
+            </div>
+
+            <div class="broadsheet-grid-wrapper">
+                <h3 class="broadsheet-title">મુખ્ય સમાચાર વિગતવાર (Main Stories Detail)</h3>
+
+                <article class="article" id="art-m1">
+                    <div class="article-meta">નાણાકીય જાગૃતિ • શોર્ટ રીલ્સ અલ્ગોરિધમ • કેરળ પોલીસ સંકલન</div>
+                    <h3>૧. આરબીઆઈએ કેરળના ૧૫૦ કોલેજોમાં ફ્રોડ અવેરનેસ માટે 'RBI રેલેથોન 2026' અભિયાન શરૂ કર્યું</h3>
+                    <div class="article-content">
+                        <p>રિઝર્વ બેંક ઓફ ઇન્ડિયા (RBI) ની <span class="hl-yellow">તિરુવનંતપુરમ ક્ષેત્રીય કચેરી</span> દ્વારા કેરળ રાજ્યમાં વ્યાપી રહેલા ઓનલાઈન ડિજિટલ બેન્કિંગ ફ્રોડ અને ઇલલીગલ એપ્સના દૂષણને રોકવા માટે કોલેજના વિદ્યાર્થીઓ માટે એક અનોખું અભિયાન <span class="hl-yellow">RBI રેલેથોન 2026 (RBI Realthon 2026)</span> લોન્ચ કર્યું છે. આ અભિયાન અંદાજે ૧૫૦ કોલેજોમાં ૩ તબક્કામાં ચલાવવામાં આવશે. આજના યુવાનોના ટૂંકા અટેન્શન સ્પેન (Attention Span) ને ધ્યાનમાં રાખીને અવેરનેસ ફેલાવવા માટે ૧ મિનિટની સોશિયલ મીડિયા શોર્ટ વીડિયો રીલ્સનો મુખ્ય માધ્યમ તરીકે ઉપયોગ કરાશે.</p>
+                        <p>પ્રથમ ફેઝ હેઠળ વિદ્યાર્થીઓને સ્માર્ટ બોરોઇંગ પ્રેક્ટિસ અને સેફ ડિજિટલ બેન્કિંગ હાઈજીનની માસ ટ્રેનિંગ અપાશે. બીજા ફેઝ હેઠળ ફ્રોડ પ્રિવેન્શન થીમ પર શોર્ટ રીલ્સ સબમિશન સ્પર્ધા યોજાશે અને ત્રીજા ફેઝ હેઠળ પસંદગી પામેલી રીલ્સને આરબીઆઈ, કેરળ પોલીસ, કોમર્શિયલ બેંકો અને શૈક્ષણિક સંસ્થાઓના સત્તાવાર સોશિયલ મીડિયા હેન્ડલ્સ પર પબ્લિશ કરાશે. આ સ્પર્ધાની મુખ્ય થીમ્સમાં ઇલલીગલ લોન એપ્લિકેશન્સ, મ્યુલ એકાઉન્ટ્સ, ડિજિટલ અરેસ્ટ સ્કેમ્સ, ફેક જોબ ઓફર્સ, ઇન્વેસ્ટમેન્ટ સ્કેમ્સ અને ઓનલાઈન ફ્રોડ થયાના ૧ કલાકની અંદર થતા 'ગોલ્ડન અવર' (Golden Hour) રિપોર્ટિંગનો સમાવેશ થાય છે. આ અવેરનેસ સ્પર્ધામાં પ્રથમ વિજેતાને <span class="hl-yellow">₹૭૫,૦૦૦</span>, બીજાને ₹૫૦,૦૦૦ અને ત્રીજા વિજેતાને ₹૨૫,૦૦૦ નું રોકડ ઇનામ પ્રદાન કરાશે.</p>
+                        <div class="additional-edge">
+                            <h4>📌 Additional Information & Exam Edge</h4>
+                            • <strong>રેગ્યુલેટરી વ્યુ:</strong> આ આરબીઆઈનું રાષ્ટ્રીય કક્ષાનું અવેરનેસ કેમ્પેઈન નથી, પરંતુ ત્રિરુવનંતપુરમ ઓફિસનું પ્રાદેશિક અભિયાન છે. સાયબર હાઈજીન પ્રોટોકોલ હેઠળ ગ્રાહકોને 'ટૂ-ફેક્ટર ઓથેન્ટિકેશન' (2FA) રાખવા, ઓટીપી (OTP) શેર ન કરવા અને પાસવર્ડ મજબૂત રાખવા અપીલ કરાઈ છે. બેંક પીઓ (PO) પરીક્ષાઓ માટે મુખ્ય થીમ્સના ટાઇટલ્સ અત્યંત મહત્વપૂર્ણ છે.
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-m1')">Back to Dashboard ↑</button>
+                </article>
+
+                <article class="article" id="art-m2">
+                    <div class="article-meta">રિટેલ ટર્મ ડિપોઝિટ • માર્કેટિંગ અલાઇનમેન્ટ • પેનલ્ટી કેલ્ક્યુલેશન</div>
+                    <h3>૨. બેંક ઓફ બરોડા (BoB) એ ગોઠવી નવી 'ગોલ્ડન ગોલ્ડ ડિપોઝિટ સ્કીમ': ૫૫૫ દિવસની એફડી પર મોટું વ્યાજ</h3>
+                    <div class="article-content">
+                        <p>જાહેર ક્ષેત્રની અગ્રણી બેંક ઓફ બરોડાએ ગ્લોબલ ફિફા (FIFA) વર્લ્ડ કપના માર્કેટિંગ ટ્રેન્ડ સાથે અલાઇન કરીને રિટેલ ગ્રાહકો માટે એક ખાસ ફિક્સ ડિપોઝિટ યોજના <span class="hl-yellow">ગોલ્ડન ગોલ્ડ ડિપોઝિટ સ્કીમ (Golden Gold Deposit Scheme)</span> લોન્ચ કરી છે. આ યોજના હેઠળ ગ્રાહકોને <span class="hl-yellow">૫૫૫ દિવસની એફડી (FD)</span> પર આકર્ષક વ્યાજ મળશે. ગ્રાહકોને મહત્તમ <span class="hl-yellow">૭.४૦% સુધીનું વ્યાજ</span> મળી શકશે, જે ૮૦ વર્ષથી વધુ ઉંમર ધરાવતા સુપર સિનિયર સિટીઝન (Super Senior Citizens) માટે નોન-કોલેબલ ડિપોઝિટ પર મળવાપાત્ર છે. સામાન્ય રિટેલ ગ્રાહકો માટે કોલેબલ વ્યાજ દર ૬.૭૫% અને નોન-કોલેબલ વ્યાજ દર ૬.૮૦% આસપાસ ઓફર કરાયો છે.</p>
+                        <p>Aા સ્કીમની બે મુખ્ય શરતો છે: 'કોલેબલ એફડી' (Callable) જેમાં ગ્રાહક સમય પહેલાં પૈસા ઉપાડી શકે છે અને બેંક નિયમ મુજબ ૧% થી ૧.૫% ની પેનલ્ટી વસૂલે છે. બીજી 'નોન-કોલેબલ એફડી' (Non-Callable) જેમાં મુદત પહેલાં પૈસા ઉપાડવાની મંજૂરી હોતી નથી. નોન-કોલેબલનો આ વિકલ્પ ઓછામાં ઓછા ₹૧ કરોડથી મહત્તમ ₹૩ કરોડ સુધીના રોકાણ માટે જ ઉપલબ્ધ છે, જેને બેન્કિંગ નિયમો અનુસાર <span class="hl-yellow">રિટેલ ટર્મ ડિપોઝિટ</span> કહેવામાં આવે છે. ₹૩ કરોડથી ઉપરની ડિપોઝિટને બલ્ક ડિપોઝિટ (Bulk Deposit) ની શ્રેણીમાં ગણવામાં આવે છે.</p>
+                        <div class="additional-edge">
+                            <h4>📌 Additional Information & Exam Edge</h4>
+                            • <strong>પેનલ્ટી કેલ્ક્યુલેશન રૂલ:</strong> જો ગ્રાહક સમય પહેલાં એફડી તોડે છે, તો બેંક ઓરિજિનલ કમિટમેન્ટેડ વ્યાજ દર (૬.૭૫%) માંથી ડાયરેક્ટ ૧% નથી કાપતી. પરંતુ, જે દિવસે એફડી કરાવી હતી તે દિવસે જે તે ટૂંકી મુદતનો (દા.ત. ૬ મહિના) જે રેટ ચાલતો હોય, તે રેટને બેઝ માની તેમાંથી ૧% પેનલ્ટી માઇનસ કરીને વ્યાજ ચૂકવવામાં આવે છે.
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-m2')">Back to Dashboard ↑</button>
+                </article>
+
+                <article class="article" id="art-m3">
+                    <div class="article-meta">એઆઈ સ્ટાર્ટઅપ ઇકોસિસ્ટમ • મૂલ્યાંકન મોડેલ • પ્રાઇવેટ ઇન્વેસ્ટમેન્ટ</div>
+                    <h3>૩. સર્વમ AI (Sarvam AI) બન્યો ભારતનો ૧૩૦મો યુનિકોર્ન: $૨૩૪ મિલિયનની મેળવી સીડ ફંડિંગ</h3>
+                    <div class="article-content">
+                        <p>બેંગલુરુ સ્થિત આર્ટિફિશિયલ ઇન્ટેલિજન્સ ક્ષેત્રની અગ્રણી કંપની <span class="hl-yellow">સર્વમ AI (Sarvam AI)</span> એ વિવિધ વૈશ્વિક વેન્ચર રોકાણકારો જેવા કે HCL ટેક, પીક XV પાર્ટનર્સ, બેસેમર વેન્ચર અને ખોસલા વેન્ચર્સ પાસેથી કુલ <span class="hl-yellow">$૨૩૪ મિલિયન</span> નું મોટું સીડ ફંડિંગ એકત્ર કરીને સત્તાવાર રીતે ભારતની ૧૩૦મી યુનિકોર્ન કંપની બનવાનું ગૌરવ પ્રાપ્ત કર્યું છે. આ ફંડિંગમાં અંદાજે $૧૫૦ મિલિયન અન્ય ગ્લોબલ ઇન્વેસ્ટર્સ પાસેથી મેળવવામાં આવ્યા છે.</p>
+                        <p>ટેકનિકલ વ્યાખ્યા મુજબ, PCઆર જ્યારે કોઈપણ ખાનગી માલિકીના સ્ટાર્ટઅપ (Private Startup) ની બજાર કિંમત એટલે કે વેલ્યુએશન <span class="hl-yellow">$૧ બિલિયન (૧ અબજ ડોલર)</span> ને પાર કરી જાય, ત્યારે તેને સત્તાવાર રીતે 'યુનિકોર્ન' જાહેર કરવામાં આવે છે. આ એક ફૂલ-સ્ટેક સોવરિન એઆઈ સ્ટાર્ટઅપ છે જે સ્થાનિક ભારતીય ભાષાઓના ડેટા મોડેલ્સ પર કાર્ય કરે છે.</p>
+                        <div class="additional-edge">
+                            <h4>📌 Additional Information & Exam Edge</h4>
+                            • <strong>વેલ્યુએશન વિ. માર્કેટ કેપ:</strong> માર્કેટ કેપિટલાઇઝેશન પબ્લિક લિસ્ટેડ કંપનીઓ માટે હોય છે (നંબર ઓફ શેર્સ × વર્તમાન શેર પ્રાઇસ), જ્યારે યુનિકોર્ન એ કંપનીના વાસ્તવિક પ્રોજેક્શન અને રોકાણકારો વચ્ચે શાર્ક ટેન્કની જેમ નેગોશિયેટ થયેલ પર-શેર પ્રાઇસ આધારિત 'વેલ્યુએશન' મોડેલ છે. એક્ઝામ માટે ફંડિંગની કુલ રકમ અને રોકાણકાર કંપનીઓના નામ મહત્વના છે.
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-m3')">Back to Dashboard ↑</button>
+                </article>
+
+                <article class="article" id="art-m4">
+                    <div class="article-meta">કો-લેન્ડિંગ એમઓયુ • માઇક્રો ક્રેડિટ બૂસ્ટ • નાણાકીય સમાવેશન</div>
+                    <h3>૪. યエス બેંક અને નોર્ધન આર્ક કેપિટલ વચ્ચે વ્યૂહાત્મક જોડાણ: ગ્રામીણ MSME ને મળશે મોટી રાહત</h3>
+                    <div class="article-content">
+                        <p>ખાનગી ક્ષેત્રની જાણીતી <span class="hl-yellow">યエス બેંક (Yes Bank)</span> અને અગ્રણી એનબીએફસી <span class="hl-yellow">નોર્ધન આર્ક કેપિટલ (Northern Arc Capital)</span> વચ્ચે ગ્રામીણ અને અર્ધ-શહેરી વિસ્તારોમાં ધિરાણ વધારવા માટે એક વ્યાપક સહ-ધિરાણ (Co-Lending Agreement) કરાર કરવામાં આવ્યો છે. આ મહત્વપૂર્ણ નાણાકીય ભાગીદારીના જોડાણમાં જાપાનની પ્રતિષ્ઠિત <span class="hl-yellow">સુમિતોમો તોમો બેન્કિંગ કોર્પોરેશન</span> એ ઓફિશિયલ એરેન્જર અને મધ્યસ્થી (Mediator) ની મહત્વની ભૂમિકા ભજવી છે.</p>
+                        <p>આ કરાર હેઠળ નોર્ધન આર્ક કેપિટલ ડેટા એનાલิตિક્સ અને ફંડ એકત્ર કરવામાં સહયોગ કરશે, જ્યારે યエス બેંક પોતાના વિશાળ બેન્કિંગ નેટવર્ક દ્વારા ગ્રામીણ વિસ્તારોમાં રહેતા નાના વેપારીઓ, <span class="hl-yellow">માઇક્રો એન્ટરપ્રાઇઝ અને એમએસએમઈ (MSME)</span> સેક્ટર સુધી વ્યાજબી દરે લોન સુવિધા પહોંચાડશે.</p>
+                        <div class="additional-edge">
+                            <h4>📌 Additional Information & Exam Edge</h4>
+                            • <strong>બેન્કિંગ વ્યૂહરચના:</strong> કો-લેન્ડિંગ મોડેલ દ્વારા આરબીઆઈના પ્રાયોરિટી સેક્ટર લેન્ડિંગ (PSL) ના ટાર્ગેટ્સ પૂરા કરવામાં બેંકોને મોટી મદદ મળે છે. આ ડીલના મુખ્ય સૂત્રધાર તરીકે જાપાનીઝ બેંક 'સુમિતોમો' નું નામ બેન્કિંગ એક્ઝામ્સની કરંટ અફેર્સ સેક્શન માટે મોસ્ટ ઇમ્પોર્ટન્ટ ફેક્ટ છે.
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-m4')">Back to Dashboard ↑</button>
+                </article>
+
+                <article class="article" id="art-m5">
+                    <div class="article-meta">ન્યુક્લિયર એન્જિનિયરિંગ • આત્મનિર્ભર ઉર્જા પ્લાન • ભારત ઇનોવેટ્સ ૨૦૨૬</div>
+                    <h3>૫. IIT હૈદરાબાદે દેશનું પ્રથમ ન્યુક્લિયર ડિઝાઇન એક્સીલન્સ સે突ન્ટર 'Code-NE' સ્થાપિત કર્યું</h3>
+                    <div class="article-content">
+                        <p>અણુ ઊર્જા ક્ષેત્રે સ્વદેશી ડિઝાઇન અને એન્જિનિયરિંગ ક્ષમતા વિકસાવવા માટે <span class="hl-yellow">IIT હૈદરાબાદે</span> ફ્રાન્સની વિશ્વવિખ્યાત કંપની 'દિસોલ્ટ સિસ્ટમ્સ' (Dassault Systems) અને CEPL ઇન્ડિયા સાથે મળીને ભારતનું પ્રથમ અદ્યતન ન્યુક્લિયર સેન્ટર <span class="hl-yellow">Code-NE (Center for Design and Engineering in Nuclear Energy)</span> સ્થાપિત કરવાની સત્તાવાર જાહેરાત કરી છે. આ સેન્ટરની સ્થાપના અંગેની જાહેરાત ફ્રાન્સના નાઇસ (Nice) ખાતે આયોજિત 'ભારત ઇનોવેટ્સ 2026' ગ્લોબલ ઇવેન્ટ દરમિયાન કરવામાં આવી હતી.</p>
+                        <p>આ કેન્દ્ર હેઠળ ૩ મહિનાનો ખાસ રેસિડેન્શિયલ ટ્રેનિંગ પ્રોગ્રામ <span class="hl-yellow">अनुज्ञान (Anugyan Program)</span> શરૂ કરવામાં આવશે, જેમાં IIT હૈદરાબાદની અગ્રણી ફેકલ્ટી તેમજ ભાભા એટૉમિક રિસર્ચ સેન્ટર (BARC) અને ન્યુક્લિયર પાવર કોર્પોરેશન ઓફ ઇન્ડિયા (NPCIL) ના નિવૃત્ત વરિષ્ઠ વૈજ્ઞાનિકો દેશના પ્રતિભાવંત યુવાનોને ન્યુક્લિયર ડિઝાઇન સ્ટાન્ડર્ડ્સની સખત તાલીમ આપશે.</p>
+                        <div class="additional-edge">
+                            <h4>📌 Additional Information & Exam Edge</h4>
+                            • <strong>નેશનલ ટાર્ગેટ:</strong> ભારત સરકારનો સત્તાવાર મહત્વાકાંક્ષી લક્ષ્યાંક <span class="hl-yellow">વર્ષ ૨૦૪૭ સુધીમાં દેશમાં ૧૦૦ GW ન્યુક્લિયર પાવર કેપેસિટી</span> સ્થાપિત કરવાનો છે. ફ્રાન્સના નાઇસ ખાતે યોજાયેલ ઇવેન્ટમાં ફ્રેન્ચ પ્રેસિડેન્ટ ઇમેન્યુઅલ મેક્રોને પીએમ મોદી સાથે મુલાકાત કરી પોતાના સત્તાવાર ઇન્સ્ટાગ્રામ પેજ પર મૂવી સોન્ગ બેકગ્રાઉન્ડ સાથે રીલ પણ અપલોડ કરી હતી, જે ભારે વાયરલ થઈ હતી.
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-m5')">Back to Dashboard ↑</button>
+                </article>
+
+                <article class="article" id="art-m6">
+                    <div class="article-meta">અર્બન સેટેલાઇટ પ્લાનિંગ • વસ્તી નિયંત્રણ રોડમેપ • ઈન્ફ્રાસ્ટ્રક્ચર ગ્રાન્ટ</div>
+                    <h3>૬. દિલ્હી NCR ના વિકાસ માટે મોટો માસ્ટર પ્લાન: ₹૫,૦૦૦ કરોડના ખર્ચે ૪ નવી 'નમો સિટીઝ' સાકાર થશે</h3>
+                    <div class="article-content">
+                        <p>નેશનલ કેપિટલ રીજન પ્લાનિંગ બોર્ડ <span class="hl-yellow">(NCRPB)</span> ની ઉચ્ચ સ્તરીય બેઠકમાં દિલ્હી કેપિટલ રીજન પર વધી રહેલું અતિશય વસ્તીનું ભારણ ઓછું કરવા માટે માસ્ટર ફ્રેમવર્ક ૨૦૪૧ હેઠળ <span class="hl-yellow">૪ નવી નમો સિટીઝ (Namo Cities)</span> વિકસાવવાના માસ્ટર પ્લાનને સત્તાવાર મંજૂરી આપવામાં આવી છે. દિલ્હી અને આસપાસના ક્ષેત્રની વસ્તી જે વર્ષ ૨૦૪૧ સુધીમાં વધીને ૧૪.૭૩ કરોડ થવાનો અંદાજ છે (વર્તમાન આશરે ૭.8૬ કરોડથી વધુ), તેને આધુનિક સુવિધાયુક્ત સેટેલાઇટ શહેરોમાં અબ્સોર્બ કરવા માટે આ ક્રાંતિકારી રોડમેપ ઘડવામાં આવ્યો છે.</p>
+                        <p>આ નવી નમો સિટીઝને રીજનલ રેપિડ ટ્રાન્ઝિટ સિસ્ટમ (RRTS) અને એક્સપ્રેસ-વે કોરિડોર સાથે એવી રીતે જોડવામાં આવશે કે જેથી ગ્રાહકો માત્ર ૩૦ મિનિટની અંદર સેન્ટ્રલ દિલ્હી સુધી કનેક્ટ થઈ શકે. આ પ્રોજેક્ટ માટે કેન્દ્ર સરકાર આગામી ૫ વર્ષમાં <span class="hl-yellow">₹૫,૦૦૦ કરોડનું વિશેષ પેકેજ</span> આપશે, જેમાં ₹૧,૦૦૦ કરોડની ડાયરેક્ટ ગ્રાન્ટ અને બાકીની રકમ લોન ગેરંટી સ્વરૂપે રહેશે. હજુ સુધી શહેરોગા ચોક્કસ લોકેશન ફ્રીઝ કરાયા નથી.</p>
+                        <div class="additional-edge">
+                            <h4>📌 Additional Information & Exam Edge</h4>
+                            • <strong>સરહદી માળખું:</strong> NCRPB એ સ્પષ્ટ કર્યું છે કે વર્તમાન ૨૭ પાડોશી જિલ્લાઓ ધરાવતી હરિયાણા, ઉત્તર પ્રદેશ અને રાજસ્થાનની સત્તાવાર એનસીઆર બાઉન્ડ્રી (કુલ ૫૫,૮૩૧ સ્ક્વેર કિમી એરિયા) માં કોઈ શ્રિંકેજ કે ફેરફાર કરાયો નથી. ઉત્તર પ્રદેશે નોઇડા, દાદરી, જેવર અને બુલંદશહર નજીકના સાઇટ પ્રપોઝલ આપ્યા છે. દરેક રાજ્યે ફરજિયાત ૩ સાઇટ પ્રપોઝલ આપવાના રહેશે, જેમાંથી કોમ્પિટિશન ચેલેન્જ બેઝ મેટ્રિક્સ દ્વારા આખરી ૪ નમો સિટીઝ નક્કી થશે.
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-m6')">Back to Dashboard ↑</button>
+                </article>
+
+                <h3 class="broadsheet-title" style="margin-top: 30px;">એક્ઝિક્યુટિવ બ્રીફિંગ્સ વિગતવાર (Executive Briefings Detail)</h3>
+
+                <div class="article" id="art-b1">
+                    <div class="article-meta">ગ્રીન એનર્જી ગવર્નન્સ • મિનિસ્ટ્રી ટ્રેકર • ક્લીન પ્રોડક્શન</div>
+                    <h3>૧. કેન્દ્રીય મંત્રી પ્રહલાદ જોશીએ 'ગ્રીન હાઇડ્રોજન સર્ટિફિકેશન પોર્ટલ' ખુલ્લું મૂક્યું</h3>
+                    <div class="article-content">
+                        <p>કેન્દ્રીય નવી અને નવીનકરણીય ઊર્જા મંત્રી પ્રહલાદ જોશી દ્વારા રાષ્ટ્રીય વર્કશોપ દરમિયાન દેશનું પ્રથમ સત્તાવાર <span class="hl-yellow">ગ્રીન હાઇડ્રોજન સર્ટિફિકેશન પોર્ટલ (GHCI)</span> લોન્ચ કરવામાં આવ્યું છે. આ અદ્યતન ડિજિટલ પોર્ટલ મિનિસ્ટ્રી ઓફ ન્યૂ એન્ડ રીન્યુએબલ એનર્જી (MNRE) દ્વારા ડેવલપ કરાયું છે, જેનો મુખ્ય હેતુ દેશમાં ઉત્પાદિત થતો હાઇડ્રોજન સંપૂર્ણપણે ક્લીન અને રીન્યુએબલ ઊર્જા સોર્સ દ્વારા જ બને છે તેનું એન્ડ-ટુ-એન્ડ વેરિફિકેશન, ટ્રેકિંગ અને રેગ્યુલેટરી કમ્પ્લાયન્સ સુનિશ્ચિત કરવાનો છે.</p>
+                        <div class="additional-edge">
+                            <h4>📌 Additional Information</h4>
+                            આ પોર્ટલ વૈશ્વિક રોકાણકારોને ભારતીય ગ્રીન હાઇડ્રોજન ઉત્પાદનની ગુણવત્તા અને આંતરરાષ્ટ્રીય સ્ટાન્ડર્ડ કમ્પ્લાયન્સ ડેટા સિંગલ વિન્ડો પર ઓનલાઈન ટ્રેક કરવાની સુવિધા આપશે.
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b1')">Back to Dashboard ↑</button>
+                </div>
+
+                <div class="article" id="art-b2">
+                    <div class="article-meta">સરહદી સુરક્ષા નેટવર્ક • ભારતીય એરટેલ ભાગીદારી • LAC ડિજિટલ મિશન</div>
+                    <h3>૨. સરહદી મોબાઇલ કનેક્ટિવિટી માટે ઇન્ડિયન આર્મી અને ભારતીય એરટેલ વચ્ચે મોટો કરાર</h3>
+                    <div class="article-content">
+                        <p>અરુણાચલ પ્રદેશ સેક્ટરમાં ચીન સાથેની લાઇન ઓફ એક્ચ્યુઅલ કન્ટ્રોલ (LAC) સરહદ પર તૈનાત ભારતીય સૈન્યના જવાનો અને કમાન્ડ સેન્ટર્સ વચ્ચે મોબાઇલ જોડાણ વધુ અભેદ્ય બનાવવા <span class="hl-yellow">ઇન્ડિયન આર્મીએ ભારતીય એરટેલ</span> સાથે સત્તાવાર ડિજિટલ ભાગીદારી કરી છે. આ કરાર હેઠળ ભારતીય એરટેલ સરહદી દુર્ગમ વિસ્તારોની આર્મી કોપ્સ, ગજરાજ કોપ્સ અને દાઓ ડિવિઝનના સૈનિકો માટે હાઇ-સ્પીડ એન્ક્રિપ્ટેડ મોબાઇલ કનેક્ટિવિટી અને મજબૂત નેટવર્ક ઇન્ફ્રાસ્ટ્રક્ચર સ્થાપિત કરશે.</p>
+                        <div class="additional-edge">
+                            <h4>📌 Additional Information</h4>
+                            સંરક્ષણ મંત્રાલયના વ્યૂહાત્મક નેટવર્ક પ્રોગ્રામ હેઠળ દુર્ગમ પર્વતીય ખીણોમાં સેનાની ગુપ્ત કમ્યુનિકેશન લાઇન્સને આધુનિક 5G સપોર્ટ આપવા આ ભાગીદારી અત્યંત નિર્ણાયક છે.
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b2')">Back to Dashboard ↑</button>
+                </div>
+
+                <div class="article" id="art-b3">
+                    <div class="article-meta">ક્લીન એનર્જી સંશોધન • นવરત્ન પીએસયુ ભાગીદારી • કાર્બન કેપ્ચર</div>
+                    <h3>૩. ઓઇલ ઇન્ડિયા લિમિટેડ (OIL) અને કેનેડાની PTRC સંસ્થા વચ્ચે ગ્લોબલ રિસર્ચ કરાર</h3>
+                    <div class="article-content">
+                        <p>ભારત સરકારની જાહેર ક્ષેત્રની અગ્રણી નવરત્ન કંપની <span class="hl-yellow">ઓઇલ ઇન્ડિયા લિમિટેડ</span> એ કેનેડા દેશની પ્રતિષ્ઠિત સંસ્થા <span class="hl-yellow">PTRC (Petroleum Technology Research Centre)</span> સાથે એક વ્યાપક વૈશ્વિક રિસર્ચ કરાર પર સહી કરી છે. આ ઐતિહાસિક સમજૂતી કરાર હેઠળ બંને દેશોના વૈજ્ઞાનિકો સંયુક્ત રીતે કાર્બન કેપ્ચર સ્ટોરેજ, જીઓથર્મલ એનર્જી (ભૂ-તાપીય ઊર્જા) અને નેક્સ્ટ જનરેશન ક્લીન એનર્જી ટેકનોલોજીના સેક્ટરમાં હાઇ-લેવલ સંશોધન હાથ ધરશે.</p>
+                        <div class="additional-edge">
+                            <h4>📌 Additional Information</h4>
+                            કેનેડા સ્થિત PTRC વૈશ્વિક સ્તરે અંડરગ્રાઉન્ડ કાર્બન સ્ટોરેજ ક્ષેત્રે મોટો અનુભવ ધરાવે છે, જેનો સીધો લાભ ઓઇલ ઇન્ડિયાને ભારતના ક્ષીણ થતા તેલના કૂવાઓમાંથી ગ્રીન એનર્જી કાઢવામાં મળશે.
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b3')">Back to Dashboard ↑</button>
+                </div>
+
+                <div class="article" id="art-b4">
+                    <div class="article-meta">લેધર સેક્ટર ગુણવત્તા • FDDI ટ્રેનિંગ • નેશનલ સ્ટાન્ડર્ડ્સ</div>
+                    <h3>૪. QCI અને FDDI વચ્ચે ફૂટવેર ઉદ્યોગના ગ્લોબલ સ્કીલિંગ અને ક્વોલિટી બૂસ્ટિંગ માટે કરાર</h3>
+                    <div class="article-content">
+                        <p>ભારતમાં બનેલા જૂતા અને ચામડાના ઉત્પાદનોને આંતરરાષ્ટ્રીય સ્તરે સ્પર્ધાત્મક બનાવવા માટે <span class="hl-yellow">QCI (Quality Council of India)</span> એ દેશની અગ્રણી સંસ્થા <span class="hl-yellow">FDDI (Footwear Design and Development Institute)</span> સાથે સત્તાવાર જોડાણ કર્યું છે. આ કરાર હેઠળ લેધર અને ફૂટવેર સેક્ટરમાં ટેકનિકલ ક્વોલિટી વધારવા, લેબોરેટરી ટેસ્ટિંગ પ્રક્રિયા મજબૂત કરવા, એડવાન્સ સર્ટિફિકેશન આપવા અને કામદારો માટે વિશેષ સ્કાઇલિંગ ટ્રેનિંગ પ્રોગ્રામ શરૂ કરાશે.</p>
+                        <div class="additional-edge">
+                            <h4>📌 Additional Information</h4>
+                            આ ભાગીદારી દ્વારા ભારતીય ફૂટવેર બ્રાન્ડ્સને યુરોપિયન અને અમેરિકન બજારોના કડક ક્વોલિટી સ્ટાન્ડર્ડ પાસ કરવામાં મોટી વહીવટી અને ટેકનિકલ મદદ મળશે.
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b4')">Back to Dashboard ↑</button>
+                </div>
+
+                <div class="article" id="art-b5">
+                    <div class="article-meta">બ્રિક્સ બેંક વિસ્તરણ • મધ્ય એશિયા ગેટવે • શાંઘાઈ હેડક્વાર્ટર</div>
+                    <h3>૫. ન્યૂ ડેવલપમેન્ટ બેંક (NDB) માં જોડાનાર પ્રથમ મધ્ય એશિયાઈ દેશ બન્યો ઉઝબેકિસ્તાન</h3>
+                    <div class="article-content">
+                        <p>બ્રિક્સ (BRICS) ફાઉન્ડિંગ દેશો દ્વારા વર્ષ ૨૦૧૫ માં શાંઘાઈ (ચીન) ખાતે સ્થાપિત કરાયેલી ગ્લોબલ બેંક <span class="hl-yellow">ન્યૂ ડેવલપમેન્ટ બેંક (NDB)</span> ના સત્તાવાર નવા સભ્ય તરીકે <span class="hl-yellow">ઉઝબેકિસ્તાન</span> નો સમાવેશ કરવામાં આવ્યો છે. ઉઝબેકિસ્તાન આ વૈશ્વિક બેંકમાં જોડાનાર સર્વપ્રથમ સેન્ટ્રલ એશિયન (મધ્ય એશિયાઈ) દેશ બન્યો છે. બેંકના મૂળ ફાઉન્ડિંગ મેમ્બર્સ બ્રાઝિલ, रશિયા, ઇન્ડિયા, ચાઇના અને સાઉથ આફ્રિકા સિવાય અત્યાર સુધીમાં બાંગ્લાદેશ, યુએઈ, ઇજિપ્ત અને અલ્જીરિયા પણ આ બેંકમાં સભ્યપદ મેળવી ચૂક્યા છે.</p>
+                        <div class="additional-edge">
+                            <h4>📌 Additional Information</h4>
+                            NDB ના વર્તમાન પ્રેસિડેન્ટ દિલ્મા રુસેફ (Dilma Rousseff) છે. બ્રિક્સ દેશો લાંબા સમયથી ડોલરના વર્ચસ્વ સામે પોતાના આંતરરાષ્ટ્રીય વેપાર માટે એક સ્વતંત્ર 'બ્રિક્સ કરન્સી' (BRICS Currency) લૉન્ચ કરવાનો પ્લાન ઘડી રહ્યા છે, જેને પગલે યુએસએના પ્રેસિડેન્ટે ટેરિફ લાદવાની પણ ચીમકી આપી હતી.
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b5')">Back to Dashboard ↑</button>
+                </div>
+
+                <div class="article" id="art-b6">
+                    <div class="article-meta">ટાઇમ્સ ગ્લોબલ લિસ્ટ • ઇકલૌતા ભારતીય એથ્લીટ • બાસ્કેટબોલ આઇકોન</div>
+                    <h3>૬. Times 100 ઇન્ફ્લુએન્શિયલ પીપલ ઇન સ્પોર્ટ્સ યાદી જાહેર: સ્મૃતિ મંધાનાએ દેશનું નામ રોશન કર્યું</h3>
+                    <div class="article-content">
+                        <p>પ્રતિષ્ઠિત ટાઇમ્સ મેગેઝીન દ્વારા વર્ષ ૨૦૨૬ ની '૧૦૦ મોસ્ટ ઇન્ફ્લુએન્શિયલ પીપલ ઇન સ્પોર્ટ્સ' ની ગ્લોબલ યાદી જાહેર કરવામાં આવી છે. આ યાદીમાં સ્થાન મેળવનાર એકમાત્ર ભારતીય એથ્લીટ તરીકે મહિલા ક્રિકેટર <span class="hl-yellow">સ્મૃતિ મંધાના (Smriti Mandhana)</span> નું નામ સામેલ છે. આ આખી વૈશ્વિક યાદી મુખ્યત્વે ચાર કેટેગરી (Icons, Titans, Innovators, Leaders) માં વહેંચાયેલી છે, જેમાં અમેરિકાના સુપરસ્ટાર બાસ્કેટબોલ પ્લેયર <span class="hl-yellow">લીબ્રોન જેમ્સ (LeBron James)</span> ને આઇકોન શ્રેણીમાં વૈશ્વિક સ્તરે સર્વોચ્ચ સ્થાન મળ્યું છે.</p>
+                        <div class="additional-edge">
+                            <h4>📌 Additional Information</h4>
+                            ક્રિકેટ જગતમાંથી સાઉથ આફ્રિકાની રાષ્ટ્રીય ટીમના પ્રખ્યાત કેપ્ટન ટેમ્બા બાવુમા (Temba Bavuma) નું નામ પણ આ પ્રતિષ્ઠિત લિસ્ટમાં સામેલ છે. સાઉથ આફ્રિકાની ક્રિકેટ ટીમને સત્તાવાર રીતે 'પ્રોટીઝ' (Proteas) ના નામે ઓળખવામાં આવે છે, જે પ્રશ્ન અગાઉ પરીક્ષાઓમાં પૂછાયેલો છે. આ લિસ્ટની સેરેમની ૧૬ જુલાઈએ ન્યૂયોર્ક ખાતે યોજાશે.
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b6')">Back to Dashboard ↑</button>
+                </div>
+
+                <div class="article" id="art-b7">
+                    <div class="article-meta">આઇએમએ દેહરાદૂન પરેડ • સૈન્ય સર્વોચ્ચ એવોર્ડ • મહિલા સશક્તિકરણ માઈલસ્ટોન</div>
+                    <h3>૭. આઇએમએ (IMA) પૂર્ણાહુતિ પરેડ: લેફ્ટનન્ટ વિશાલ કુમારને 'સ્વોર્ડ ઓફ ઓનર' અને ગોલ્ડ મેડલ મળ્યો</h3>
+                    <div class="article-content">
+                        <p>દેહરાદૂન ખાતે આયોજિત ઇન્ડિયન મિલિટ્રી એકેડેમી (IMA) ના ૧૫૦મા રેગ્યુલર કોર્સની ભવ્ય પાસિંગ આઉટ પરેડ સફળતાપૂર્વક સંપન્ન થઈ છે. આ પરેડમાં એકેડેમી કેડેટ એડજ્યુટન્ટ <span class="hl-yellow">લેફ્ટનન્ટ વિશાલ કુમારે</span> ઓલરાઉન્ડ સર્વશ્રેષ્ઠ પ્રદર્શન બદલ સૈન્યનું સર્વોચ્ચ બહુમાન <span class="hl-yellow">'સ્વોર્ડ ઓફ ઓનર' (Sword of Honor)</span> અને ઓવરઓલ મેરિટમાં પ્રથમ સ્થાન મેળવવા માટે 'પ્રેસિડેન્ટ ગોલ્ડ મેડલ' એમ બંને પ્રતિષ્ઠિત પુરસ્કારો જીતીને ડબલ ગ્લોરી હાંસલ કરી છે. આ મેડલ ભારતના રાષ્ટ્રપતિ દ્વારા રૂબરૂ એનાયત કરાયા હતા.</p>
+                        <div class="additional-edge">
+                            <h4>📌 Additional Information</h4>
+                            આ પરેડના ઇતિહાસમાં પ્રથમવાર ૯ મહિલા કેડેટ્સ પણ પુરુષ સમકક્ષો સાથે સત્તાવાર રીતે પાસ આઉટ થઈને ભારતીય સેનાના ઓફિસર્સ રેન્કમાં સામેલ થઈ છે. કુલ ૫૧૫ કેડેટ્સમાંથી ૪૮૧ ભારતીય અને ૨૫ વિદેશી કેડેટ્સ હતા, જેમાં બાંગ્લાદેશના કેડેટને બેસ્ટ ફોરેન કેડેટનો એવોર્ડ મળ્યો. સિલ્વર મેડલ પ્રિન્સ રાજ અને બ્રોન્ઝ મેડલ તેજસ ભટ્ટને એનાયત થયો હતો.
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b7')">Back to Dashboard ↑</button>
+                </div>
+
+                <div class="article" id="art-b8">
+                    <div class="article-meta">રેતી શિલ્પ મહોત્સવ • ગ્લોબલ વોર્મિંગ થીમ • પદ્મશ્રી કલાકાર વિજય</div>
+                    <h3>૮. સુદર્શન પટનાયકે રશિયામાં ઇતિહાસ રચ્યો: રશિયન ગ્રાન્ડ સેન્ડ માસ્ટર કપ 2026 જીત્યો</h3>
+                    <div class="article-content">
+                        <p>ભારતના સુપ્રસિદ્ધ રેતી શિલ્પકાર અને વર્ષ ૨૦૧૪ ના પદ્મશ્રી એવોર્ડ વિજેતા <span class="hl-yellow">सुदर्शन પટનાયક</span> રશિયામાં આયોજિત પ્રતિષ્ઠિત 'रશિયન ગ્રાન્ડ સેન્ડ માસ્ટર કપ ૨૦૨૬' ની વૈશ્વિક ટ્રોફી જીતનારા પ્રથમ ભારતીય કલાકાર બન્યા છે. આ વૈશ્વિક સ્પર્ધામાં વિશ્વભરના ૧૨ શ્રેષ્ઠ રેતી શિલ્પકારોએ ભાગ લીધો હતો. સુદર્શન પટનાયકે ક્લાઇમેટ ચેન્જ અને ગ્લોબલ વોર્મિંગના ગંભીર પડકારને પૃથ્વીના મુખર્જી 'બે વિરોધાભાસી ચહેરા ધરાવતી પૃથ્વી' (Two Contrasting Faces of Earth) નું અદભુત શિલ્પ બનાવ્યું હતું.</p>
+                        <div class="additional-edge">
+                            <h4>📌 Additional Information</h4>
+                            તેમના આ કલાત્મક શિલ્પમાં એક તરફ પર્યાવરણીય વિનાશને લીધે સુકાઈ ગયેલો પ્લાનેટ અને બીજી તરફ વૃક્ષારોપણ દ્વારા હરિયાળી સસ્ટેનેબલ પૃથ્વીની આશા દર્શાવવામાં આવી હતી. અગાઉ તેમણે વિશ્વનો સૌથી ઊંચો રેતીનો કિલ્લો (Sand Castle) બનાવી ગિનીઝ વર્લ્ડ રેકોર્ડ પણ દેશને નામે કરેલો છે.
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b8')">Back to Dashboard ↑</button>
+                </div>
+
+                <div class="article" id="art-b9">
+                    <div class="article-meta">ઇન્સ્યોરન્સ સેક્ટર નિમણૂક • પીએસયુ ગવર્નન્સ • રાષ્ટ્રીય પુનઃવીમો</div>
+                    <h3>૯. હિતેશ રામેશચંદ્ર જોશી જનરલ ઇન્સ્યોરન્સ કોર્પોરેશન ઓફ ઇન્ડિયા (GIC Re) ના નવા CMD નિયુક્ત</h3>
+                    <div class="article-content">
+                        <p>ભારતના સરકારી વીમા ક્ષેત્રમાં થયેલા મોટા પ્રશાસનિક ફેરફાર હેઠળ વરિષ્ઠ અધિકારી <span class="hl-yellow">હિતેશ રામેશચંદ્ર જોશી</span> ની જનરલ ઇન્સ્યોરન્સ કોર્પોરેશન ઓફ ઇન્ડિયા <span class="hl-yellow">(GIC Re)</span> ના નવા ચેરમેન અને મેનેજિંગ ડિરેક્ટર (CMD) તરીકે સત્તાવાર નિમણૂક કરવામાં આવી છે. તેઓ અગાઉ કંપનીમાં એક્ઝિક્યુટિવ ડિરેક્ટર (ED) તરીકે સેવા આપી રહ્યા હતા અને ૧ ઓક્ટોબર ૨૦૨૫ થી ઇન્ટરિમ ચાર્જ સંભાળતા હતા. તેઓ નારાયણ રામાસ્વામીનું સ્થાન લેશે અને તેમનો આ સત્તાવાર કાર્યકાળ <span class="hl-yellow">૩૦ સપ્ટેમ્બર ૨૦૨८ સુધી</span> કન્ફર્મ કરવામાં આવ્યો છે.</p>
+                        <div class="additional-edge">
+                            <h4>📌 Additional Information</h4>
+                            GIC Re એ ભારતની સત્તાવાર નેશનલ રી-ઇન્સ્યોરર (પુનઃવીમો આપતી) કંપની છે, જે દેશની અન્ય તમામ વીમા કંપનીઓને નાણાકીય સુરક્ષા બેકઅપ પૂરું પાડે છે. ઇન્સ્યોરન્સ સેક્ટરની પરીક્ષાઓ માટે આ એપોઇન્ટમેન્ટ મોસ્ટ ઇમ્પોર્ટન્ટ છે.
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b9')">Back to Dashboard ↑</button>
+                </div>
+
+                <div class="article" id="art-b10">
+                    <div class="article-meta">ડિફેન્સ ઇન્ડસ્ટ્રિયલ કોરિડોર • યુપી સંરક્ષણ હબ • ડ્રોન આધુનિકીકરણ</div>
+                    <h3>૧૦. IIT કાનપુર ખાતે ₹૫૦૦ કરોડના ખર્ચે '네શનલ મિલિટ્રી ડ્રોન ટેકનોલોજી હબ' સ્થાપવાની મંજૂરી</h3>
+                    <div class="article-content">
+                        <p>કેન્દ્રીય સંરક્ષણ મંત્રાલય દ્વારા ભારતીય સેનાના ડ્રોન આધુનિકીકરણ માટે <span class="hl-yellow">IIT કાનપુર</span> ખાતે <span class="hl-yellow">₹૫૦૦ કરોડ</span> ના અંદાજિત ખર્ચે '네શનલ મિલિટ્રી ડ્રોન ટેકનોલોજી હબ' સ્થાપવા માટે ઇન-પ્રિન્સિપલ (સૈદ્ધાંતિક) મંજૂરી આપી દેવામાં આવી છે. આ પ્રોજેક્ટ આર્મી ડિઝાઇન બ્યુરો (ADB) અને ઉત્તર પ્રદેશ ડિફેન્સ ઇન્ડસ્ટ્રિયલ કોરિડોર ફ્રેમવર્ક હેઠળ સંયુક્ત રીતે ઓપરેટ કરવામાં આવશે.</p>
+                        <div class="additional-edge">
+                            <h4>📌 Additional Information</h4>
+                            આ મિલિટ્રી ડ્રોન હબનું મુખ્ય સંચાલન IIT કાનપુર કરશે, પરંતુ તેની એડવાન્સ ટેકનોલોજીનું ટેસ્ટિંગ અને મેન્યુફેક્ચરિંગ ઇન્ટિગ્રેશન ઉત્તર પ્રદેશના અલગ-અલગ વ્યૂહાત્મક લોકેશન્સ જેવા કે અલીગઢ, આગ્રા, ઝાંસી, ચિત્રકૂટ અને લખનૌ ખાતેના ડિફેન્સ નોડ્સ સાથે કનેક્ટ કરીને કરવામાં આવશે.
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b10')">Back to Dashboard ↑</button>
+                </div>
+
+                <div class="article" id="art-b11">
+                    <div class="article-meta">સ્વદેશી સંરક્ષણ સામગ્રી • ટર્બોજેટ ડ્રોન્સ • એડવાન્સ સપ્લાય</div>
+                    <h3>૧૧. ઇન્ડિયન આર્મીને મળ્યા ૧૦૬ નંગ એડવાન્સ 'પીસકીપર' કામિકાઝે ડ્રોન્સ (Kamikaze Drones)</h3>
+                    <div class="article-content">
+                        <p>ભારતીય સૈન્યની ઓપરેશનલ હુમલાની ક્ષમતા વધારવા માટે આર્મીને <span class="hl-yellow">૧૦૬ નંગ 'પીસકીપર' (Peacekeeper)</span> કામિકાઝે ડ્રોન્સનો પ્રથમ સત્તાવાર જથ્થો સોંપવામાં આવ્યો છે. આ ડ્રોન્સ અગ્નિવેગ ટર્બોજેટ પાવર્ડ શક્તિ ધરાવે છે. કામિકાઝે ડ્રોન્સ એટલે કે જે પોતે બોમ્બ બનીને દુશ્મનના ટાર્ગેટ સાથે સીધા અથડાઈને બ્લાસ્ટ (Boom-Baam) કરી દે છે. આ એડવાન્સ ડ્રોન્સ ભારતીય કંપની <span class="hl-yellow">SMPP ઇન્ડિયા</span> એ બેલારુસ દેશની પ્રખ્યાત કંપની <span class="hl-yellow">KB Indela</span> સાથે ટેકનિકલ કરાર કરીને સંયુક્ત રીતે બનાવ્યા છે.</p>
+                        <div class="additional-edge">
+                            <h4>📌 Additional Information</h4>
+                            આ ડ્રોન્સની ક્ષમતા ૪૫૦ કિમી પ્રતિ કલાકની પ્રચંડ ઝડપે ઉડવાની છે અને તે ૧૮૦ કિમી સુધીના અંતરે આવેલા દુશ્મનના ઠેકાણાને માત્ર ૫ મીટરની અંદરની સચોટતા (Pinpoint Accuracy) સાથે તોડી પાડવા સક્ષમ છે. કુલ ૧૦૬ માંથી ૧૦૦ ડ્રોન્સ ઓપરેશનલ હહુમલા માટે અને ૬ ડ્રોન્સ જવાનોની ટ્રેનિંગ માટે વપરાશે.
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b11')">Back to Dashboard ↑</button>
+                </div>
+
+                <div class="article" id="art-b12">
+                    <div class="article-meta">નૌસેના વિદાય સમારોહ • એન્ટી-સબમરીન હેલિકોપ્ટર્સ • આઇએનએસ શિકરા માઈલસ્ટોન</div>
+                    <h3>૧૨. ઇન્ડિયન નેવીએ સી-કિંગ (Sea King MK42B) હેલિકોપ્ટર ફ્લીટને સત્તાવાર રીતે ડી-કમિશન કર્યો</h3>
+                    <div class="article-content">
+                        <p>ભારતીય નૌસેનાએ તેના ગૌરવશાળી ઇતિહાસના અત્યંત શક્તિશાળી એન્ટી-સબમરીન હેલિકોપ્ટર્સ <span class="hl-yellow">シー-કિંગ (Sea King MK42B Bravo)</span> ના આખા ફ્લીટને સત્તાવાર રીતે સૈન્ય સેવામાંથી નિવૃત્ત (Decommissioned) કર્યો છે. મુંબઈ સ્થિત નેવલ એર સ્ટેશન <span class="hl-yellow">આઇએનએસ શિકરા (INS Shikra)</span> ખાતે આયોજિત એક ભવ્ય અને લાગણીસભર સૈન્ય સેરેમની દરમિયાન આ હેલિકોપ્ટર્સ અને તેની સાથે સંકળાયેલી પ્રખ્યાત નેવલ એર સ્ક્વાડ્રન <span class="hl-yellow">INAS 330 (Harpoons)</span> ને સત્તાવાર વિદાય આપવામાં આવી હતી.</p>
+                        <div class="additional-edge">
+                            <h4>📌 Additional Information</h4>
+                            આ સી-કિંગ હેલિકોપ્ટર્સે ભારતીય નૌસેનાની સરહદો પર સતત ૩६ વર્ષ સુધી અજોડ સેવા આપી હતી. સ્ક્વાડ્રન INAS 330 ની સ્થાપના મૂળ વર્ષ ૧૯૭૧ માં આઇએનએસ ગરુડ કોચી ખાતે થઈ હતી, જેણે દેશના વિવિધ દરિયાઈ યુદ્ધોમાં સબમરીનોને તોડી પાડવામાં નિર્ણાયક ભૂમિકા ભજવી છે.
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b12')">Back to Dashboard ↑</button>
+                </div>
+
+                <div class="article" id="art-b13">
+                    <div class="article-meta">સૈન્ય સ્કોલર શ્રદ્ધાંજલિ • મરાઠા લાઇટ ઇન્ફન્ટ્રી યોદ્ધા • અદભુત ઇચ્છાશક્તિ</div>
+                    <h3>૧૩. પૂર્વ વાઇસ ચીફ ઓફ આર્મી સ્ટાફ લેફ્ટનન્ટ જનરલ વિજય ઓબેરોયનું દુઃખદ અવસાન</h3>
+                    <div class="article-content">
+                        <p>ભારતીય સેનાના પૂર્વ વાઇસ ચીફ ઓફ આર્મી સ્ટાફ (VCOAS) અને દેશના અત્યંત આદરણીય સૈન્ય સ્કોલર <span class="hl-yellow">લેફ્ટનન્ટ જનરલ વિજય ઓબેરોય (Vijay Oberoi)</span> નું લાંબી માંદગી બાદ અવસાન થયું છે. તેઓ જૂન ૧૯૬૧ માં સેનાની પ્રતિષ્ઠિત મરાઠા લાઇટ ઇન્ફન્ટ્રી (જેને સત્તાવાર 'જંગી પલટન' કહેવામાં આવતી) માં સામેલ થયા હતા. વર્ષ ૧૯૬૫ ના ભારત-પાકિસ્તાન યુદ્ધ દરમિયાન જમ્મુ-કાશ્મીર સેક્ટરમાં લડતા તેમને ગંભીર ઇજાઓ થઈ હતી, જેને પગલે તેમનો જમણો પગ કાપવો પડ્યો હતો.</p>
+                        <div class="additional-edge">
+                            <h4>📌 Additional Information</h4>
+                            શારીરિક અક્ષમતાને માત આપીને તેઓ કૃત્રિમ પગ (Prosthetic Leg) સાથે આર્મીના સર્વોચ્ચ કમાન્ડ સ્તર એટલે કે વાઇસ ચીફ પદ સુધી પહોંચ્યા હતા. ૧૯૯૯ ના કારગિલ યુદ્ધ બાદ બદલાયેલા આધુનિક યુદ્ધના સિદ્ધાંતો અને આર્મી ડોક્ટ્રિન્સ (Doctrinal Concepts) ને ફરીથી લખવાનો મુખ્ય શ્રેય જનરલ ઓબેરોયને ફાળે જાય છે. તેઓ મિલિટ્રી થિંક ટેન્ક 'CLAWS' ના ફાઉન્ડર ડિરેક્ટર હતા અને ૭૨ વર્ષની ઉંમરે કૃત્રિમ પગે મુંબઈ મેરેથોન દોડીને અજોડ ઉદાહરણ બેસાડ્યું હતું.
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b13')">Back to Dashboard ↑</button>
+                </div>
+
+                <div class="article" id="art-b14">
+                    <div class="article-meta">मांड ગાયન શૈલી ધરોહર • લોક કલા ક્ષતિ • સાંસ્કૃતિક સન્માન</div>
+                    <h3>૧૪. 'કેસરિયા બાલમ' ગીતના પ્રખ્યાત લોક ગાયિકા ગાવરી દેવીનું રાજસ્થાનમાં અવસાન</h3>
+                    <div class="article-content">
+                        <p>રાજસ્થાનની લોક સંસ્કૃતિ અને વૈશ્વિક ઓળખ સમાન સુપ્રસિદ્ધ ગીત 'કેસરિયા બાલમ પધારો મારે દેશ' ની પરંપરાગત માંડ ગાયન શૈલી (Mand Singing Style) ના જનક અને દેશના સૌથી વરિષ્ઠ લોક ગાયિકા <span class="hl-yellow">ગાવરી દેવી (Gavari Devi)</span> નું અવસાન થયું છે. પશ્ચિમી રાજસ્થાની પ્રાદેશિક ફોક મ્યુઝિક અને વાર્તા કહેવાની મધુર સંગીત કલાને રાષ્ટ્રીય અને આંતરરાષ્ટ્રીય સ્ટેજ સુધી પહોંચાડવા બદલ તેમને પ્રતિષ્ઠિત <span class="hl-yellow">'વીર દુર્ગાદાસ રાઠોડ લાઇફટાઇમ અચીવમેન્ટ એવોર્ડ'</span> થી સન્માનિત કરવામાં આવ્યા હતા.</p>
+                        <div class="additional-edge">
+                            <h4>📌 Additional Information</h4>
+                            ગાવરી દેવીએ પોતાના સ્વર્ગસ્થ પતિ મિશ્રીલાલ રાવજી સાથે મળીને દેશભરમાં માંડ ગાયકીના સેંકડો સફળ કાર્યક્રમો આપ્યા હતા. તેમની આ શાસ્ત્રીય લોક ધરોહરને હવે તેમની પુત્રવધૂ સુંદરી દેવી અને પૌત્રીઓ ગંગા, નીતુ સંગીત જગતમાં આગળ ધપાવી રહ્યા છે. સાંસ્કૃતિક ઇતિહાસના પ્રશ્નો માટે આ મોસ્ટ ઇમ્પોર્ટન્ટ ઓબિચ્યુઅરી છે.
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b14')">Back to Dashboard ↑</button>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <div id="quiz-view-panel">
+        <div class="quiz-container">
+            
+            <div id="quiz-active-questions-frame-block">
+                <div class="quiz-header">
+                    <div>
+                        <h2>THE MAULIK EXPRESS QUIZ</h2>
+                        <p style="font-size:0.8rem; color:var(--text-muted);">તારીખ: ૨૦ જૂન ૨૦૨૬</p>
+                    </div>
+                    <div style="display:flex; gap:10px; align-items:center;">
+                        <div class="score-box">Score: <span id="live-score-counter">0</span> / 25</div>
+                        <button class="btn-exit-quiz" onclick="switchBackToNewsMode()">← Exit</button>
+                    </div>
+                </div>
+                
+                <div id="quiz-questions-loader-target"></div>
+
+                <div class="quiz-action-area">
+                    <div class="quiz-progress-bar" id="quiz-step-progress-label">Question 1 of 25</div>
+                    <button class="btn-next-quiz-step" id="quiz-next-action-btn" onclick="goToNextQuizQuestion()">Next Question →</button>
+                </div>
+            </div>
+
+            <div id="quiz-result-final-pane">
+                <h3>🎉 અભિનંદન! તમે ટેસ્ટ પૂર્ણ કરી છે</h3>
+                <p style="color:var(--text-muted); font-size:0.95rem;" id="final-result-user-name-label">👤 વિદ્યાર્થી: Maulik</p>
+                
+                <div class="final-score-display-card">
+                    <span id="final-score-digits">0</span> <span style="font-size:1.5rem; color:#64748b;">/ 25</span>
+                </div>
+                
+                <p style="font-size:0.9rem; color:#475569; max-width:500px; margin:0 auto 15px auto;">તમારું પરિણામ સેવ કરવા અને મોલિક સરના વૉટ્સએપ નંબર પર સબમિટ કરવા નીચેના લીલા બટન પર ક્લિક કરો.</p>
+                
+                <button class="btn-submit-whatsapp-final" onclick="sendResultToWhatsApp()">
+                    💬 Submit Result to WhatsApp
+                </button>
+                
+                <div style="margin-top: 25px;">
+                    <button class="btn-exit-quiz" style="background:var(--bg-dark); padding:10px 20px;" onclick="switchBackToNewsMode()">ન્યૂઝ પેજ પર પાછા જાઓ</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="flash-modal" onclick="closeModal(event)">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModalForce()">×</button>
+            <img src="" alt="Context Visual" class="modal-img" id="modal-img-element">
+            <div class="modal-body" id="modal-body-content"></div>
+        </div>
+    </div>
+
+    <script>
+        const mindmapData = {
+            m1: {
+                title: "RBI Realthon 2026 Awareness Mind-Map",
+                img: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "आरબીઆઈ થિરuવનંતપુરમ ઓફિસ દ્વારા કેરળની ૧૫૦ કોલેજોમાં માસ રીલ્સ કેમ્પેઈન શરૂ.",
+                    "યુવાનોના ટૂંકા અટેન્શન સ્પેનને ટાર્ગેટ કરી ૩-ફેઝ અવેરનેસ મોડેલ ડિઝાઇન કરાયું.",
+                    "મુખ્ય થીમ્સ: ઇલલીગલ લોન એપ્સ, મ્યુલ એકાઉન્ટ્સ, ડિજિટલ અરેસ્ટ સ્કેમ્સ અને ગોલ્ડન અવર રિપોર્ટિંગ.",
+                    "પ્રાઇઝ મની મેટ્રિક્સ: પ્રથમ વિજેતા ₹૭૫,૦૦૦, દ્વિતીય ₹૫૦,૦૦૦, તૃતીય ₹૨૫,૦૦૦."
+                ],
+                edge: "📌 Core Message: સાયબર હાઇજીન, ટૂ-ફેક્ટર ઓથેન્ટિકેશન અને મજબૂત પાસવર્ડ દ્વારા ડિજિટલ ફ્રોડ રોકવા કેમ્પેઈન."
+            },
+            m2: {
+                title: "BoB Golden Gold Deposit Scheme Matrix",
+                img: "https://images.unsplash.com/photo-1565514020179-026b92b84bb6?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "બેંક ઓફ બરોડાએ ફિફા વર્લ્ડ કપ ટ્રેન્ડ સાથે અલાઇન કરીને ૫૫૫ દિવસની એફડી લૉન્ચ કરી.",
+                    "મહત્તમ વ્યાજ દર: સુપર સિનિયર સિટીઝન (૮૦+ વય) માટે ૭.૪૦% વ્યાજ દર નક્કી કરાયો.",
+                    "નોન-કોલેબલ શરત: ₹૧ કરોડથી ₹૩ કરોડ સુધીની રિટેલ ટર્મ ડિપોઝિટ માટે જ પ્રીમેચ્યોર વિડ્રોઅલ પ્રતિબંધિત.",
+                    "પેનલ્ટી રૂલ: સમય પહેલાં એફડી તોડવા પર ઓરિજિનલ રેટ નહીં, પણ હિસ્ટોરિકલ શોર્ટ મુદતના રેટ પર ડિડક્શન થશે."
+                ],
+                edge: "📌 Financial View: ₹૩ કરોડથી ઉપરના રોકાણને બલ્ક ડિપોઝિટ ગણાય છે જેના પર રિટેલ રેટ લાગુ થતા નથી."
+            },
+            m3: {
+                title: "Sarvam AI - India 130th Unicorn Milestone",
+                img: "https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "બેંગલુરુ સ્થિત સોવરિન એઆઈ સ્ટાર્ટઅપ સર્વમ AI એ $૨૩૪ મિલિયનનું મોટું ફંડિંગ રેઝ કર્યું.",
+                    "HCL ટેક, પીક XV અને ખોસલા વેન્ચર્સના રોકાણ સાથે કંપની $૧ બિલિયન વેલ્યુએશન ક્લબમાં સામેલ.",
+                    "веલ્યુએશન વિ. માર્કેટ કેપ: માર્કેટ કેપ પબ્લિક શેર્સ માટે છે, જ્યારે યુનિકોર્ન વેલ્યુએશન પ્રાઇવેટ પ્લેયર્સ વચ્ચે નેગોશિયેટેડ પર-શેર પ્રાઇસ છે."
+                ],
+                edge: "📌 Tech Growth: ભારતીય એઆઈ ઇકોસિસ્ટમ માટે આ ૧૩૦મો સત્તાવાર માઈલસ્ટોન છે."
+            },
+            m4: {
+                title: "Yes Bank & Northern Arc Co-Lending Map",
+                img: "https://images.unsplash.com/photo-1601597111158-2fceff292cdc?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "યエス બેંક અને એનબીએફસી નોર્ધન આર્ક કેપિટલ વચ્ચે વ્યૂહાત્મક કો-લેન્ડિંગ એમઓયુ.",
+                    "જાપાનની નામાંકિત સુમિતોમો તોમો બેન્કિંગ કોર્પોરેશન આ ડીલમાં ઓફિશિયલ મધ્યસ્થી બની છે.",
+                    "મુખ્ય ફોકસ: ગ્રામીણ વિસ્તારોમાં રૂરલ બોરોઅર્સ, માઇક્રો એન્ટરપ્રાઇઝ અને એમએસએમઈ (MSME) ને ક્રેડિટ ફ્લો વધારવો."
+                ],
+                edge: "📌 Inclusive Banking: નોર્ધન આર્કના ડેટા કેપિટલ અને યエス બેંકના ફંડિંગનું પરફેક્ટ કમ્બિનેશન."
+            },
+            m5: {
+                title: "IIT Hyderabad Code-NE Nuclear Center Map",
+                img: "https://images.unsplash.com/photo-1517089596392-db9a5e9478cc?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "IIT હૈદરાબાદે ફ્રાન્સની દિસોલ્ટ સિસ્ટમ્સ સાથે મળી 'Code-NE' ડિઝાઇન સેન્ટર સ્થાપિત કર્યું.",
+                    "રાષ્ટ્રીય લક્ષ્યાંક: વર્ષ ૨૦૪૭ સુધીમાં ભારતમાં ૧૦૦ GW અણુ ઉર્જા (Nuclear Capacity) હાંસલ કરવી.",
+                    "અનુજ્ઞાન પ્રોગ્રામ (Anugyan): ૩ મહિનાનો ખાસ રેસિડેન્શિયલ ટ્રેનિંગ પ્રોગ્રામ, જેમાં BARC અને NPCIL ના નિવૃત્ત વૈજ્ઞાનિકો તાલીમ આપશે."
+                ],
+                edge: "📌 Global Fact: ફ્રાન્સના નાઇસમાં યોજાયેલ 'ભારત ઇનોવેટ્સ ૨૦૨૬' માં ઇમેન્યુઅલ મેક્રોને પીએમ મોદી સાથે રીલ શેર કરી હતી."
+            },
+            m6: {
+                title: "Delhi NCR 4 Namo Cities Infrastructure Plan",
+                img: "https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "NCRPB દ્વારા ૨૦૪૧ ના માસ્ટર પ્લાન હેઠળ દિલ્હી આસપાસ ૪ નવી 'નમો સિટીઝ' વિકસાવાશે.",
+                    "વસ્તી ભારણ: દિલ્હી ક્ષેત્રની ૧૪.૭૩ કરોડ સંભવિત વસ્તીને સેટેલાઇટ શહેરોમાં અબ્સોર્બ કરવાનો ગોલ.",
+                    "ઇન્ફ્રાસ્ટ્રક્ચર સ્કેલ: કેન્દ્ર સરકાર ૫ વર્ષમાં ₹૫,૦૦0 કરોડનું આર્થિક પેકેજ (ગ્રાન્ટ અને લોન ગેરંટી) આપશે.",
+                    "સરહદ સ્થિતિ: ૨૭ ડિસ્ટ્રિક્ટ્સ ધરાવતી વર્તમાન એનસીઆર બાઉન્ડ્રીમાં કોઈ ફેરફાર કે શ્રિંકેજ કરાયું નથી."
+                ],
+                edge: "📌 Site Challenge: યુપીના નોઇડા, દાદરી, જેવર, બુલંદશહર સહિતના પ્રપોઝલમાંથી ચેલેન્જ બેઝ મેટ્રિક્સથી લોકેશન ફ્રીઝ થશે."
+            },
+            b1: {
+                title: "Green Hydrogen Certification Portal",
+                img: "https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "મંત્રી પ્રહલાદ જોશી દ્વારા ગ્રીન હાઇડ્રોજન સર્ટિફિકેશન પોર્ટલ (GHCI) લૉન્ચ કરાયું.",
+                    "હેતુ: દેશમાં બનતો હાઇડ્રોજન સંપૂર્ણ ક્લીન એનર્જી સોર્સથી જ બને છે તેનું ટ્રાન્સપરન્ટ ટ્રેકિંગ કરવું."
+                ],
+                edge: "📌 Department: રિન્યુએબલ એનર્જી મિનિસ્ટ્રી દ્વારા ડેવલપ કરાયેલ પોર્ટલ."
+            },
+            b2: {
+                title: "Indian Army & Bharti Airtel LAC Telecom Deal",
+                img: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "ઇન્ડિયન આર્મીએ અરુણાચલ પ્રદેશ LAC પર કમ્યુનિકેશન વધારવા ભારતીય એરટેલ સાથે કરાર કર્યો.",
+                    "આર્મીની ગજરાજ કોપ્સ અને દાઓ ડિવિઝનના સરહદી જવાનો માટે મોબાઇલ નેટવર્ક લાઇન્સ મજબૂત કરાશે."
+                ],
+                edge: "📌 Defense Sync: સરહદી વિસ્તારોમાં હાઇટેક ડિજિટલ નેટવર્ક સ્થાપવાનો લક્ષ્યાંક."
+            },
+            b3: {
+                title: "Oil India & Canada PTRC Research MOU",
+                img: "https://images.unsplash.com/photo-1413882353014-a7ef6a2c38ae?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "ઓઇલ ઇન્ડિયા લિમિટેડ અને કેનેડાની PTRC સંસ્થા વચ્ચે ક્લીન ટેકનોલોજી એમઓયુ સંપન્ન.",
+                    "સંયુક્ત ફોકસ ક્ષેત્રો: કાર્બન કેપ્ચર સ્ટોરેજ, જીઓથર્મલ એનર્જી અને એડવાન્સ સસ્ટેનેબલ સંશોધનો."
+                ],
+                edge: "📌 Tech Source: કેનેડા સ્થિત પીટીઆરસી અંડરગ્રાઉન્ડ સ્ટોરેજનો મોટો ગ્લોબલ અનુભવ ધરાવે છે."
+            },
+            b4: {
+                title: "QCI & FDDI Leather Footwear Quality Boost",
+                img: "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "ક્વોલિટી કાઉન્સイル ઓફ ઇન્ડિયા (QCI) અને FDDI વચ્ચે ફૂટવેર સેક્ટર માટે એગ્રીમેન્ટ.",
+                    "લેધર ઉદ્યોગમાં ક્વોલિટી સ્ટાન્ડર્ડ્સ, લેબ ટેસ્ટિંગ, વર્કર્સ સ્કાઇલિંગ અને વૈશ્વિક સર્ટિફિકેશન મજબૂત કરાશે."
+                ],
+                edge: "📌 Export Scope: ભારતીય બ્રાન્ડ્સને યુરોપિયન સ્ટાન્ડર્ડ પાસ કરવામાં મદદ મળશે."
+            },
+            b5: {
+                title: "New Development Bank (NDB) Uzbekistan Entry",
+                img: "https://images.unsplash.com/photo-1621416894569-0f39ed31d247?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "બ્રિક્સ બેંક (NDB) માં જોડાનાર પ્રથમ સેન્ટ્રલ એશિયન દેશ બન્યો ઉઝબેકિસ્તાન.",
+                    "બેંક સ્થાપના ૨૦૧૫, હેડક્વાર્ટર શાંઘાઈ. બાંગ્લાદેશ, યુએઈ, ઇજિપ્ત અને અલ્જીરિયા પણ સભ્યો છે."
+                ],
+                edge: "📌 Current Head: એનડીબીના વર્તમાન પ્રેસિડેન્ટ દિલ્મા રુસેફ છે."
+            },
+            b6: {
+                title: "Times 100 Influential People In Sports 2026",
+                img: "https://images.unsplash.com/photo-1519766304817-4f37bda74a27?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "ટાઇમ્સ સ્પોર્ટ્સ લિસ્ટમાં ઇકલૌતા ભારતીય એથ્લીટ તરીકે મહિલા ક્રિકેટર સ્મૃતિ મંધાના સામેલ.",
+                    "બાસ્કેટબોલના આઇકોન લીબ્રોન જેમ્સ યાદીમાં ટોચ પર. સાઉથ આફ્રિકાના ટેમ્બા બાવુમા પણ લિસ્ટમાં છે."
+                ],
+                edge: "📌 Proteas Fact: સાઉથ આફ્રિકા ટીમને સત્તાવાર રીતે 'પ્રોટીઝ' કહેવામાં આવે છે."
+            },
+            b7: {
+                title: "IMA Passing Out Parade 2026 - Sword of Honor",
+                img: "https://images.unsplash.com/photo-1624555130581-1d9cca783bc0?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "૧૫૦મા આઇએમએ રેગ્યુલર કોર્સમાં લેફ્ટનન્ટ વિશાલ કુમારને 'સ્વોર્ડ ઓફ ઓનર' અને પ્રેસિડેન્ટ મેડલ મળ્યો.",
+                    "ઇતિહાસમાં પ્રથમવાર ૯ મહિલા કેડેટ્સ સત્તાવાર રીતે પરેડ પાસ આઉટ કરી આર્મી રેન્કમાં સામેલ થઈ."
+                ],
+                edge: "📌 Medals: સિલ્વર મેડલ પ્રિન્સ રાજ અને બ્રોન્ઝ મેડલ તેજસ ભટ્ટને એનાયત કરાયો."
+            },
+            b8: {
+                title: "Sudarshan Patnaik Russia Sand Master Cup 2026",
+                img: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "સુદર્શન પટનાયકે రશિયન ગ્રાન્ડ સેન્ડ માસ્ટર કપ ૨૦૨૬ જીતી પ્રથમ ભારતીય બનવાનું બહુમાન મેળવ્યું.",
+                    "શિલ્પ થીમ: ગ્લોબલ વોર્મિંગ અટકાવવા 'બે વિરોધાભાસી ચહેરાવાળી પૃથ્વી' ની અદભુત રેતી પ્રતિકૃતિ બનાવી."
+                ],
+                edge: "📌 History: પદ્મશ્રી સન્માનિત કલાકારે અગાઉ ટોલેસ્ટ સેન્ડ કાસ્ટલનો વર્લ્ડ રેકોર્ડ બનાવ્યો હતો."
+            },
+            b9: {
+                title: "Hitesh Joshi CMD Appointment GIC Re",
+                img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "હિતેશ રામેશચંદ્ર જોશી GIC Re ના નવા સીએમડી (CMD) તરીકે સત્તાવાર નિયુક્ત થયા છે.",
+                    "તેઓ નારાયણ રામાસ્વામીનું સ્થાન લેશે અને તેમનો કાર્યકાળ ૩૦ સપ્ટેમ્બર ૨૦૨८ સુધી રહેશે."
+                ],
+                edge: "📌 Identity: GIC Re એ ભારતની સત્તાવાર નેશનલ રી-ઇન્સ્યોરર (પુનઃવીમો આપતી) પીએસયુ કંપની છે."
+            },
+            b10: {
+                title: "National Military Drone Hub IIT Kanpur",
+                img: "https://images.unsplash.com/photo-1527977966376-1c8408f9f108?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "IIT કાનપુરમાં ₹૫૦૦ કરોડના ખર્ચે 'નેશનલ મિલિટ્રી ડ્રોન ટેકનોલોજી હબ' સ્થાપવાની સંરક્ષણ મંત્રાલયની મંજૂરી.",
+                    "આર્મી ડિઝાઇન બ્યુરો અને યુપી ડિફેન્સ ઇન્ડસ્ટ્રિયલ કોરિડોર ફ્રેમવર્ક આ પ્રોજેક્ટ ચલાવશે."
+                ],
+                edge: "📌 Nodes: અલીગઢ, આગ્રા, ઝાંસી, ચિત્રકૂટ અને લખનૌ ડિફેન્સ નોડ્સ આ હબ સાથે ઇન્ટિગ્રેટ કરાશે."
+            },
+            b11: {
+                title: "106 Kamikaze Drones Indian Army",
+                img: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "ભારતીય સેનાને ૧૦૬ નંગ 'પીસકીપર' અગ્નિવેગ ટર્બોજેટ પાવાર્ડ કામિકાઝે ડ્રોન્સનો જથ્થો સોંપાયો.",
+                    "આ ડ્રોન્સ ભારતીય કંપની SMPP એ બેલારુસની KB Indela સાથે મળી સંયુક્ત રીતે બનાવ્યા છે."
+                ],
+                edge: "📌 Capacity: ૪૫૦ કિમી/કલાકની સ્પીડ ધરાવતા આ ડ્રોન્સ ૧૦૦ હુમલા અને ૬ ટ્રેનિંગ માટે વપરાશે."
+            },
+            b12: {
+                title: "Sea King Helicopter Fleet Decommissioned",
+                img: "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "નેવીએ તેના સી-કિંગ (Sea King MK42B) હેલિકોપ્ટર ફ્લીટને સત્તાવાર રીતે વિદાય આપી છે.",
+                    "આઇએનએસ શિકરા મુંબઈ ખાતે સ્ક્વાડ્રન INAS 330 (Harpoons) ને ૩૬ વર્ષની સેવા બાદ ડી-કમિશન કરાઈ."
+                ],
+                edge: "📌 History: આ સ્ક્વાડ્રનની સ્થાપના મૂળ વર્ષ ૧૯૭૧ માં આઇએનએસ ગરુડ કોચી ખાતે થઈ હતી."
+            },
+            b13: {
+                title: "Lt General Vijay Oberoi Obituary Map",
+                img: "https://images.unsplash.com/photo-1590674899484-d5640e854abe?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "પૂર્વ વાઇસ ચીફ ઓફ આર્મી સ્ટાફ લેફ્ટનન્ટ જનરલ વિજય ઓબેરોયનું લાંબી બીમારી બાદ અવસાન થયું.",
+                    "૧૯૬૫ યુદ્ધમાં પગ ગુમાવ્યા બાદ પણ કૃત્રિમ પગે સેનાના સર્વોચ્ચ વાઇસ ચીફ પદ સુધી પહોંચ્યા.",
+                    "૧૯૯૯ કારગિલ યુદ્ધ બાદ ભારતીય સેનાના ઓપરેશનલ સિદ્ધાંતો ફરીથી લખવાનો મુખ્ય શ્રેય તેમને ફાળે જાય છે."
+                ],
+                edge: "📌 Identity: તેઓ મિલિટ્રી થિંક ટેન્ક 'CLAWS' ના ફાઉન્ડર ડિરેક્ટર હતા અને જંગી પલટન સાથે જોડાયેલા હતા."
+            },
+            b14: {
+                title: "Gavari Devi Mand Singing Obituary Details",
+                img: "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "રાજસ્થાનના આઇકોનિક 'કેસરિયા બાલમ' માંડ ગાયન શૈલીના જનક ગાવરી દેવીનું નિધન થયું છે.",
+                    "લોક સંગીતમાં અમૂલ્ય યોગદાન બદલ પ્રતિષ્ઠિત વીર દુર્ગાદાસ રાઠોડ લાઇફટાઇમ એચીવમેન્ટ એવોર્ડ વિજેતા."
+                ],
+                edge: "📌 Legacy: તેમની પુત્રવધૂ સુંદરી દેવી અને પૌત્રીઓ ગંગા-નીતુ આ ગાયન શૈલીને આગળ ધપાવી રહ્યા છે."
+            }
+        };
+
+        const onelinerData = [
+            "RBI એ ઓનલાઈન ફ્રોડ રોકવા કેરળની ૧૫૦ કોલેજોમાં શોર્ટ રીલ્સ માટે 'RBI રેલેથોન 2026' લોન્ચ કર્યું છે.",
+            "બેંક ઓફ બરોડા (BoB) એ ફિફા વર્લ્ડ કપ ટ્રેન્ડ સાથે અલાઇન કરી ૫૫૫ દિવસની નવી 'ગોલ્ડન ગોલ્ડ એફડી' લોન્ચ કરી છે.",
+            "બેંગલુરુ બેઝ્ડ સર્વમ AI (Sarvam AI) કંપની સીડ ફંડિંગમાં $૨૩૪ મિલિયન મેળવી દેશનો ૧૩૦મો યુનિકોર્ન બની છે.",
+            "યエス બેંક અને નોર્ધન આર્ક કેપિટલે ગ્રામીણ MSME ધિરાણ વધારવા જાપાનની સુમિતોમો તોમોની મધ્યસ્થીથી કરાર કર્યો છે.",
+            "IIT હૈદરાબાદે ૨૦૪૭ સુધીમાં ૧૦૦ GW ન્યુક્લિયર પાવરના લક્ષ્ય સાથે ડિઝાઇન એક્સીલન્સ સેન્ટર 'Code-NE' સ્થાપ્યું છે.",
+            "દિલ્હી NCRPB દ્વારા વધતું વસ્તી ભારણ ઘટાડવા માસ્ટર પ્લાન ૨૦૪૧ હેઠળ ૪ નવી 'નમો સિટીઝ' ડેવલપ કરાશે.",
+            "કેન્દ્રીય મંત્રી પ્રહલાદ જોશીએ ગ્રીન હાઇડ્રોજનના પારદર્શક ટ્રેકિંગ માટે રાષ્ટ્રીય 'GHCI ડિજિટલ પોર્ટલ' ખુલ્લું મૂક્યું છે.",
+            "ઇન્ડિયન આર્મીએ અરુણાચલ પ્રદેશ LAC બોર્ડર પર કમ્યુનિકેશન સુધારવા ભારતીય એરટેલ સાથે ટેલિકોમ ડીલ કરી છે.",
+            "ઓઇલ ઇન્ડિયા લિમિટેડ (OIL) એ કાર્બન કેપ્ચર અને ક્લીન એનર્જી સંશોધન માટે કેનેડાની PTRC સંસ્થા સાથે એમઓયુ કર્યા છે.",
+            "QCI અને FDDI વચ્ચે લેધર-ફૂટવેર સેક્ટરમાં ગ્લોબલ સ્કીલિંગ, સર્ટિફિકેશન અને સ્ટાન્ડર્ડ્સ વધારવા સંયુક્ત કરાર થયો છે.",
+            "બ્રિક્સ (BRICS) બેંક એટલે કે ન્યૂ ડેવલપમેન્ટ બેંક (NDB) માં સામેલ થનાર પ્રથમ મધ્ય એશિયાઈ દેશ ઉઝબેકિસ્તાન બન્યો છે.",
+            "Times 100 ઇન્ફ્લુએન્શિયલ પીપલ ઇન સ્પોર્ટ્સ યાદીમાં સ્થાન મેળવનાર ઇકલૌતા ભારતીય એથ્લીટ સ્મૃતિ મંધાના બન્યા છે.",
+            "IMA દેહરાદૂનની ૧૫૦મી પરેડમાં લેફ્ટનન્ટ વિશાલ કુમારને 'સ્વોર્ડ ઓફ ઓનર' અને ઇતિહાસમાં પ્રથમવાર ૯ મહિલા કેડેટ્સ પાસ આઉટ થયા.",
+            "પદ્મશ્રી કલાકાર સુદર્શન પટનાયકે ક્લાઇમેટ ચેન્જ થીમ પર રેતીનું અદભુત આર્ટવર્ક બનાવી રશિયામાં સેન્ડ માસ્ટર કપ જીત્યો છે.",
+            "હિતેશ રામેશચંદ્ર જોશીની જનરલ ઇન્સ્યોરન્સ કોર્પોરેશન ઓફ ઇન્ડિયા (GIC Re) ના નવા CMD તરીકે વરણી કરાઈ છે.",
+            "સંરક્ષણ મંત્રાલયે ડ્રોન આધુનિકીકરણ માટે IIT કાનપુર ખાતે ₹૫૦૦ કરોડનું 'નેશનલ મિલિટ્રી ડ્રોન ટેકનોલોજી હબ' મંજૂર કર્યું છે.",
+            "ભારતીય સેનાને SMPP ઇન્ડિયા દ્વારા ઉત્પાદિત ૧૦૬ નંગ એડવાન્સ 'પીસકીપર' અગ્નિવેગ ટર્બોજેટ કામિકાઝે ડ્રોન્સ સોંપાયા છે.",
+            "ઇન્ડિયન નેવીએ મુંબઈ આઇએનએસ શિકરા ખાતેથી ૩૬ વર્ષ જૂના સી-કિંગ હેલિકોપ્ટર ફ્લીટ અને INAS 330 ને ડી-કમિશન કર્યા છે.",
+            "મરાઠા લાઇટ ઇન્ફન્ટ્રીના યોદ્ધા અને કારગિલ બાદ ભારતીય સેનાના ઓપરેશનલ સિદ્ધાંતો લખનાર લેફ્ટનન્ટ જનરલ વિજય ઓબેરોયનું નિધન થયું.",
+            "રાજસ્થાનની સુપ્રસિદ્ધ 'કેસરિયા બાલમ' માંડ ગાયન શૈલીની જનક ગાવરી દેવીનું કલા જગતમાં અમૂલ્ય વારસો છોડી અવસાન થયું છે."
+        ];
+
+        function openOneLinerModal() {
+            document.getElementById('modal-img-element').src = "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=600&q=80";
+            
+            let htmlContent = `<h2>⚡ TME Quick One-Liners Bulletins</h2><ol class="oneliner-node">`;
+            onelinerData.forEach(bullet => {
+                htmlContent += `<li>${bullet}</li>`;
+            });
+            htmlContent += `</ol>`;
+
+            document.getElementById('modal-body-content').innerHTML = htmlContent;
+            document.getElementById('flash-modal').style.display = 'flex';
+        }
+
+        function openFlashCard(id) {
+            const data = mindmapData[id];
+            if (!data) return;
+
+            document.getElementById('modal-img-element').src = data.img;
+            
+            let htmlContent = `<h2>${data.title}</h2><ul class="mindmap-node">`;
+            data.nodes.forEach(node => {
+                htmlContent += `<li>${node}</li>`;
+            });
+            htmlContent += `</ul>`;
+
+            if (data.edge) {
+                htmlContent += `<div class="modal-edge-box">${data.edge}</div>`;
+            }
+
+            document.getElementById('modal-body-content').innerHTML = htmlContent;
+            document.getElementById('flash-modal').style.display = 'flex';
+        }
+
+        function closeModal(e) {
+            if (e.target.id === 'flash-modal') {
+                document.getElementById('flash-modal').style.display = 'none';
+            }
+        }
+
+        function closeModalForce() {
+            document.getElementById('flash-modal').style.display = 'none';
+        }
+
+        function focusDetail(cardId) {
+            lastActiveCardId = cardId;
+        }
+
+        function returnToDashboard(targetId) {
+            const currentCardId = targetId || lastActiveCardId;
+            if (!currentCardId) {
+                scrollToDashboard();
+                return;
+            }
+
+            const cardElement = document.getElementById(currentCardId);
+            if (cardElement) {
+                cardElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                cardElement.classList.add('box-highlight-effect');
+                
+                setTimeout(() => {
+                    cardElement.classList.remove('box-highlight-effect');
+                }, 2000);
+            }
+        }
+
+        function scrollToDashboard() {
+            document.getElementById('dashboard').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        const quizDatabase = [
+            {
+                q: "1. RBI ની કઈ પ્રાદેશિક કચેરીએ કેરળમાં નાણાકીય છેતરપિંડી રોકવા માટે 'RBI રેલેથોન 2026' અવેરનેસ ઝુંબેશ શરૂ કરી છે?",
+                o: ["કોચી ઓફિસ", "કોઝીકોડ ઓફિસ", "તિરુવનંતપુરમ ઓફિસ", "બેંગલુરુ ઓફિસ"],
+                a: 2,
+                exp: "RBI ની તિરuવનંતપુરમ (Thiruvananthapuram) ક્ષેત્રીય ઓફિસ દ્વારા કેરળની ૧૫૦ કોલેજોમાં આ અવેરનેસ કેમ્પેઈન લોન્ચ કરાયો છે."
+            },
+            {
+                q: "2. 'RBI રેલેથોન 2026' અંતર્ગત ફ્રોડ પ્રિવેન્શન વિશે શ્રેષ્ઠ વીડિયો રીલ્સ બનાવવા બદલ પ્રથમ વિજેતાને કેટલું રોકડ ઇનામ મળશે?",
+                o: ["₹૨૫,૦૦૦", "₹૫૦,૦૦૦", "₹૭૫,૦૦૦", "₹૧,૦૦,૦૦૦"],
+                a: 2,
+                exp: "આ અવેરનેસ ચેલેન્જમાં પ્રથમ વિજેતાને ₹૭૫,૦૦૦, બીજાને ₹૫૦,૦૦૦ અને ત્રીજાને ₹૨૫,૦૦૦ મળવાપાત્ર છે."
+            },
+            {
+                q: "3. બેંક ઓફ બરોડા (BoB) ની નવી 'ગોલ્ડન ગોલ્ડ ડિપોઝિટ સ્કીમ' ની વિશેષ મુદત કેટલા દિવસની નક્કી કરવામાં આવી છે?",
+                o: ["૩૬૫ દિવસ", "૪૪૪ દિવસ", "૫૫૫ દિવસ", "૬૬૬ દિવસ"],
+                a: 2,
+                exp: "બેંક ઓફ બરોડાએ ફિફા વર્લ્ડ કપ સાથે અલાઇન કરીને આ ખાસ ૫૫૫ દિવસની (555 Days) ટર્મ ડિપોઝિટ સ્કીમ લોન્ચ કરી છે."
+            },
+            {
+                q: "4. BoB ગોલ્ડન ગોલ્ડ સ્કીમ હેઠળ નોન-કોલેબલ એફડી (Non-Callable FD) માટે રોકાણની સ્વીકૃત રકમની મર્યાદા કઈ છે?",
+                o: ["₹૫૦ લાખથી ઓછા", "₹૧ કરોડથી ઓછા", "₹૧ કરોડથી ₹૩ કરોડ વચ્ચે", "₹૩ કરોડથી વધુ"],
+                a: 2,
+                exp: "નોન-કોલેબલ એફડી ઓપ્શન માત્ર ₹૧ કરોડથી ₹૩ કરોડ સુધીની રિટેલ ટર્મ ડિપોઝિટ માટે જ માન્ય રાખવામાં આવ્યો છે."
+            },
+            {
+                q: "5. સમય પહેલાં એફડી (FD) તોડવા પર બેંક કયા રેટના આધારે પેનલ્ટી કટ કરે છે?",
+                o: ["ઓરિજિનલ કમિટમેન્ટેડ રેટ પરથી", "એફડી કરાવી તે દિવસે ચાલતા તે જ મુદતના રેટમાંથી", "વર્તમાન માર્કેટના સેવિંગ રેટમાંથી", "આરબીઆઈ રેપો રેટમાંથી"],
+                a: 1,
+                exp: "બેંક પ્રીમેચ્યોર વિડ્રોઅલ પર જે દિવસે એફડી કરાવી હોય, તે દિવસે જે શોર્ટ મુદતનો રેટ ચાલતો હોય તેમાંથી પેનલ્ટી માઇનસ કરે છે."
+            },
+            {
+                q: "6. તાજેતરમાં $૨૩૪ મિલિયનનું સીડ ફંડિંગ મેળવી ભારતનો ૧૩૦મો સત્તાવાર યુનિકોર્ન બનનાર સર્વમ AI કયા પ્રકારનો સ્ટાર્ટઅપ છે?",
+                o: ["એડટેક પ્લેટફોર્મ", "ફુલ-સ્ટેક સોવરિન એઆઈ", "સાયબર સિક્યુરિટી સોલ્યુશન્સ", "ઈ-કોમર્સ વેરહાઉસિંગ"],
+                a: 1,
+                exp: "બેંગલુરુ બેઝ્ડ સર્વમ AI (Sarvam AI) દેશનો અદ્યતન ફુલ-સ્ટેક સોવરિન એઆઈ (Sovereign AI) સ્ટાર્ટઅપ છે."
+            },
+            {
+                q: "7. પ્રાઇવેટ સ્ટાર્ટઅપ ઇકોસિસ્ટમમાં કોઈપણ કંપનીને 'યુનિકોર્ન' (Unicorn) નો દરજ્જો ક્યારે પ્રાપ્ત થાય છે?",
+                o: ["જ્યારે તેનું માર્કેટ કેપ迈 ₹૧,૦૦0 કરોડ થાય", "જ્યારે તેની નેટવર્થ $૫૦0 મિલિયન થાય", "જ્યારે તેની માર્કેટ વેલ્યુએશન $૧ બિલિયન થાય", "જ્યારે તેનો વાર્ષિક પ્રોફિટ $૧ બિલિયન થાય"],
+                a: 2,
+                exp: "ખાનગી રોકાણકારો વચ્ચે પર-શેર પ્રાઇસ નેગોશિયેશનના આધારે જે કંપનીનું મૂલ્યાંકન (Valuation) $1 Billion પાર કરે તે યુનિકોર્ન બને."
+            },
+            {
+                q: "8. યエス બેંક અને નોર્ધન આર્ક કેપિટલ વચ્ચે થયેલા ગ્રામીણ કો-લેન્ડિંગ કરારમાં કઈ આંતરરાષ્ટ્રીય બેંકે મધ્યસ્થી ભૂમિકા ભજવી છે?",
+                o: ["બેંક ઓફ અમેરિકા", "સુમિતોમો તોમો બેન્કિંગ કોર્પોરેશન", "એચએસબીસી ગ્લોબલ", "શાંઘાઈ બેંક ક્રેડિટ"],
+                a: 1,
+                exp: "જાપાનની નામાંકિત સુમિતોમો તોમો બેન્કિંગ કોર્પોરેશન (SMBC) દ્વારા આ બંને ભારતીય પ્લેયર્સ વચ્ચે કરાર સંપન્ન કરાયો છે."
+            },
+            {
+                q: "9. ભારતસરકારના ન્યુક્લિયર રોડમેપ અનુસાર, કયા વર્ષ સુધીમાં દેશમાં ૧૦૦ ગીગાવાટ (GW) અણુ ઊર્જા ક્ષમતાનો લક્ષ્યાંક નક્કી કરાયો છે?",
+                o: ["વર્ષ ૨૦૩૦ સુધીમાં", "વર્ષ ૨૦૩૫ સુધીમાં", "વર્ષ ૨૦૪૦ સુધીમાં", "વર્ષ ૨૦૪૭ સુધીમાં"],
+                a: 3,
+                exp: "ભારત સરકારે દેશને આત્મનિર્ભર ક્લીન એનર્જી આપવા માટે વર્ષ ૨૦૪૭ સુધીમાં ૧૦૦ GW ન્યુક્લિયર કેપેસિટીનો ટાર્ગેટ રાખ્યો છે."
+            },
+            {
+                q: "10. IIT હૈદરાબાદ સ્થાપિત 'Code-NE' સેન્ટર હેઠળ શરૂ કરાયેલા કયા પ્રોગ્રામમાં BARC અને NPCIL ના નિવૃત્ત વૈજ્ઞાનિકો તાલીમ આપશે?",
+                o: ["પરિવર્તન પ્રોગ્રામ", "અનુજ્ઞાન (Anugyan) પ્રોગ્રામ", "દર્પણ પ્રોગ્રામ", "અન્નચક્ર ટ્રેનિંગ"],
+                a: 1,
+                exp: "અનુજ્ઞાન પ્રોગ્રામ (Anugyan) એ ૩ મહિનાનો ખાસ રેસિડેન્શિયલ ટ્રેનિંગ પ્રોગ્રામ છે, જે ન્યુક્લિયર એન્જિનિયરિંગ માટે ડિઝાઇન કરાયો છે."
+            },
+            {
+                q: "11. ફ્રાન્સના નાઇસમાં યોજાયેલ 'ભારત ઇનોવેટ્સ 2026' ઇવેન્ટમાં કયા વૈશ્વિક નેતાએ પીએમ મોદી સાથે સત્તાવાર ઇન્સ્ટા રીલ શેર કરી હતી?",
+                o: ["જ્યોર્જિયા મેલોની", "ડોનાલ્ડ ટ્રમ્પ", "ઇમેન્યુઅલ મેક્રોન (Emmanuel Macron)", "ઋષિ સુનક"],
+                a: 2,
+                exp: "ફ્રેન્ચ પ્રેસિડેન્ટ ઇમેન્યુઅલ મેક્રોને ઓફિશિયલ ઇન્સ્ટા એકાઉન્ટ પર મૂવી સોન્ગ બેકગ્રાઉન્ડ સાથે પીએમ મોદીના સ્વાગતની રીલ શેર કરી હતી."
+            },
+            {
+                q: "12. NCRPB ના વર્ષ ૨૦૪૧ ના માસ્ટર પ્લાન હેઠળ દિલ્હી આસપાસ કેટલી નવી 'નમો સિટીઝ' ડેવલપ કરવાની મંજૂરી અપાઈ છે?",
+                o: ["૨ નવી સિટીઝ", "૩ નવી સિટીઝ", "૪ નવી સિટીઝ (4 Namo Cities)", "૬ નવી સિટીઝ"],
+                a: 2,
+                exp: "દિલ્હી પર વધી રહેલું વસ્તીનું ભારે ભારણ અટકાવવા આસપાસના ક્ષેત્રોમાં ૪ નવી સેટેલાઇટ 'નમો સિટીઝ' વિકસાવવામાં આવશે."
+            },
+            {
+                q: "13. દિલ્હી એનસીઆર (Delhi NCR) વિસ્તારના માળખાકીય વિકાસ માટે કેન્દ્ર સરકાર આગામી ૫ વર્ષમાં કેટલા ભંડોળનું આર્થિક પેકેજ આપશે?",
+                o: ["₹૧,૦૦૦ કરોડ", "₹૩,૦૦૦ કરોડ", "₹૫,૦૦૦ કરોડ (₹5,000 Crore)", "₹૧૦,૦૦૦ કરોડ"],
+                a: 2,
+                exp: "કેન્દ્ર સરકાર આગામી ૫ વર્ષમાં ₹૫,૦૦૦ કરોડનું આર્થિક પેકેજ લોન ગેરંટી અને ડાયરેક્ટ ગ્રાન્ટના બ્લેન્ડ સ્વરૂપે રાજ્યોને આપશે."
+            },
+            {
+                q: "14. વર્તમાન દિલ્હી એનસીઆર (NCR) સરહદ માળખા અંતર્ગત આસપાસના કેટલા પાડોશી જિલ્લાઓ (Districts) નો સમાવેશ થાય છે?",
+                o: ["૧૫ જિલ્લા", "૨૧ જિલ્લા", "૨૭ જિલ્લા (27 Districts)", "૩૨ જિલ્લા"],
+                a: 2,
+                exp: "એનસીઆર પ્લાનિંગ બોર્ડે સ્પષ્ટ કર્યું છે કે વર્તમાન સરહદો કે ૨૭ જિલ્લાઓ ધરાવતા ૫૫,૮૩૧ સ્ક્વેર કિમી એરિયામાં કોઈ ફેરફાર કરાયો નથી."
+            },
+            {
+                q: "15. કેન્દ્રીય મંત્રી પ્રહલાદ જોશીએ હાઇડ્રોજન ટ્રેકિંગ અને વેરિફિકેશન પારદર્શિતા માટે કયો નવો ડિજિટલ પોર્ટલ રજૂ કર્યો છે?",
+                o: ["ડેપો દર્પણ પોર્ટલ", "ગ્રીન હાઇડ્રોજન સર્ટિફિકેશન પોર્ટલ (GHCI)", "WT મારુત પોર્ટલ", "અન્નચક્ર ડિજિટલ ટૂલ"],
+                a: 1,
+                exp: "મિશનને બૂસ્ટ કરવા મિનિસ્ટ્રી ઓફ ન્યૂ એન્ડ રીન્યુએબલ એનર્જી દ્વારા ગ્રીન હાઇડ્રોજન સર્ટિફિકેશન પોર્ટલ (GHCI) બનાવાયું છે."
+            },
+            {
+                q: "16. ભારતીય સેનાએ અરુણાચલ પ્રદેશ LAC સરહદ પર સૈન્ય કમ્યુનિકેશન મજબૂત કરવા કઈ ટેલિકોમ કંપની સાથે કરાર કર્યો છે?",
+                o: ["રિલાયન્સ જીઓ", "ભારતીય એરટેલ (Bharti Airtel)", "વોડાફોન આઇડિયા", "બીએસએનએલ ગ્લોબલ"],
+                a: 1,
+                exp: "ઇન્ડિયન આર્મીએ અરુણાચલ પ્રદેશ બોર્ડર ક્ષેત્રની ગજરાજ કોપ્સ અને દાઓ ડિવિઝનની મોબાઇલ કનેક્ટિવિટી માટે ભારતીય એરટેલ સાથે ડીલ કરી છે."
+            },
+            {
+                q: "17. જાહેર ક્ષેત્રની ઓઇલ ઇન્ડિયા લિમિટેડ (OIL) એ કાર્બન કેપ્ચર અને જીઓથર્મલ એનર્જી સંશોધન માટે કયા દેશની PTRC સંस्था સાથે એમઓયુ કર્યા છે?",
+                o: ["અમેરિકા", "કેનેડા (Canada)", "ફ્રાન્સ", "રશિયા"],
+                a: 1,
+                exp: "ઓઇલ ઇન્ડિયા લિમિટેડે કેનેડાની પ્રખ્યાત 'Petroleum Technology Research Centre' (PTRC) સાથે વ્યૂહાત્મક કરાર કર્યા છે."
+            },
+            {
+                q: "18. ક્વોલિટી કાઉન્સિલ ઓફ ઇન્ડિયા (QCI) એ કઈ રાષ્ટ્રીય સંસ્થા સાથે લેધર અને ફૂટવેર સેક્ટરમાં સ્કાઇલિંગ-ટેસ્ટિંગ વધારવા કરાર કર્યા છે?",
+                o: ["IIT કાનપુર", "FDDI (Footwear Design & Dev Institute)", "CWC દિલ્હી", "FCI એગ્રી બોર્ડ"],
+                a: 1,
+                exp: "QCI દ્વારા ફૂટવેર સેક્ટરમાં ક્વોલિટી સર્ટિફિકેશન અને સ્કાઇલિંગ પ્રોસેસ સુધારવા FDDI સાથે હાથ મિલાવવામાં આવ્યા છે."
+            },
+            {
+                q: "19. બ્રિક્સ (BRICS) દેશો દ્વારા સ્થાપિત ન્યૂ ડેવલપમેન્ટ બેંક (NDB) માં જોડાનાર સર્વપ્રથમ સેન્ટ્રલ એશિયન દેશ કયો બન્યો છે?",
+                o: ["કાઝાકિસ્તાન", "ઉઝબેકિસ્તાન (Uzbekistan)", "કિર્ગિઝસ્થાન", "તાજિકિસ્તાન"],
+                a: 1,
+                exp: "શાંઘાઈ હેડક્વાર્ટર ધરાવતી NDB બેંકમાં સામેલ થનાર પ્રથમ મધ્ય એશિયાઈ દેશ સત્તાવાર રીતે ઉઝબેકિસ્તાન બન્યો છે."
+            },
+            {
+                q: "20. ટાઇમ્સ મેગેઝીનની '100 મોસ્ટ ઇન્ફ્લુએન્શિયલ પીપલ ઇન સ્પોર્ટ્સ 2026' ની ગ્લોબલ યાદીમાં સ્થાન મેળવનાર ઇકલૌતા ભારતીય એથ્લીટ કોણ છે?",
+                o: ["વિરાટ કોહલી", "હરમનપ્રીત કૌર", "સ્મૃતિ મંધાના (Smriti Mandhana)", "પીવી સિંધુ"],
+                a: 2,
+                exp: "ભારતીય મહિલા ક્રિકેટર સ્મૃતિ મંધાના આ વૈશ્વિક ૧૦૦ પ્રભાવશાળી રમતવીરોની યાદીમાં સ્થાન મેળવનાર એકમાત્ર ભારતીય એથ્લીટ છે."
+            },
+            {
+                q: "21. ટાઇમ્સ મેગેઝીન સ્પોર્ટ્સ લિસ્ટ ૨૦૨૬ ની 'આઇકોન' (Icon) કેટેગરીમાં કયા પ્રખ્યાત બાસ્કેટબોલ પ્લેયરને ટોચનું સ્થાન મળ્યું છે?",
+                o: ["માઇકલ જોર્ડન", "લીબ્રોન જેમ્સ (LeBron James)", "ટેમ્બા બાવુમા", "પ્રિન્સ હેરી"],
+                a: 1,
+                exp: "અમેરિકાના પ્રખ્યાત બાસ્કેટબોલ પ્લેયર લીબ્રોન જેમ્સ (LeBron James) ને સ્પોર્ટ્સ યાદીમાં સર્વોચ્ચ આઇકોન સ્થાન મળ્યું છે."
+            },
+            {
+                q: "22. દેહરાદૂન આઇએમએ (IMA) ની ૧૫૦મી પાસિંગ આઉટ પરેડમાં ઓલરાઉન્ડ સર્વશ્રેષ્ઠ કેડેટ તરીકે 'સ્વોર્ડ ઓફ ઓનર' કોને એનાયત કરાયો?",
+                o: ["કેડેટ પ્રિન્સ રાજ", "લેફ્ટનન્ટ વિશાલ કુમાર (Vishal Kumar)", "કેડેટ તેજસ ભટ્ટ", "ડૉ. સાઇબાલ જોશી"],
+                a: 1,
+                exp: "લેફ્ટનન્ટ વિશાલ કુમારે સર્વોચ્ચ 'સ્વોર્ડ ઓફ ઓનર' અને ઓવરઓલ મેરિટમાં ફર્સ્ટ આવી 'પ્રેસિડેન્ટ ગોલ્ડ મેડલ' એમ બંને પુરસ્કાર જીત્યા છે."
+            },
+            {
+                q: "23. રશિયામાં આયોજિત 'રશિયન ગ્રાન્ડ સેન્ડ માસ્ટર કપ 2026' ની ગ્લોબલ ટ્રોફી જીતનારા પ્રથમ ભારતીય રેતી શિલ્પકાર કોણ બન્યા છે?",
+                o: ["ઓ. શમા ભટ્ટ", "સુદર્શન પટનાયક (Sudarshan Patnaik)", "નારાયણ રામાસ્વામી", "વિજય ઓબેરોય"],
+                a: 1,
+                exp: "વર્ષ ૨૦૧૪ ના પદ્મશ્રી વિજેતા સુદર્શન પટનાયકે ક્લાઇમેટ ચેન્જ થીમ પર પૃથ્વીનું શિલ્પ બનાવી રશિયામાં આ કપ જીત્યો છે."
+            },
+            {
+                q: "24. નાણાકીય ક્ષેત્રમાં થયેલી નવી નિમણૂકો હેઠળ જનરલ ઇન્સ્યોરન્સ કોર્પોરેશન ઓફ ઇન્ડિયા (GIC Re) ના નવા CMD કોણ બન્યા છે?",
+                o: ["નારાયણ રામાસ્વામી", "હિતેશ રામેશચંદ્ર જોશી (Hitesh Joshi)", "અનુરાગ ગર્ગ", "અલખ શર્મા"],
+                a: 1,
+                exp: "હિતેશ રામેશચંદ્ર જોશીની જીઆઈસી રી (GIC Re) ના નવા ચેરમેન અને મેનેજિંગ ડિરેક્ટર તરીકે નિયુક્તિ કરવામાં આવી છે."
+            },
+            {
+                q: "25. રાજસ્થાનના પ્રખ્યાત માંડ ગાયન શૈલીના ગીત 'કેસરિયા બાલમ પધારો મારે દેશ' ના જનક કયા વિખ્યાત કલાકારનું તાજેતરમાં નિધન થયું છે?",
+                o: ["સુંદરી દેવી", "ગાવરી દેવી (Gavari Devi)", "નીતુ રાવ", "ગંગા બાવુમા"],
+                a: 1,
+                exp: "રાજસ્થાનની ઓલ્ડેસ્ટ લોક સંગીત ધરોહર સમાન અને વીર દુર્ગาดાસ રાઠોડ એવોર્ડ વિજેતા માંડ ગાયિકા ગાવરી દેવીનું અવસાન થયું છે."
+            }
+        ];
+
+        let currentQuizIndex = 0;
+        let currentQuizScore = 0;
+        let userRegisteredName = "";
+
+        function switchToQuizMode() {
+            const nameInput = document.getElementById('user-quiz-reg-name').value.trim();
+            
+            if(nameInput === "") {
+                alert("⚠️ ક્વિઝ શરૂ કરવા માટે કૃપા કરીને તમારું નામ લખો!");
+                return;
+            }
+            
+            userRegisteredName = nameInput;
+
+            document.getElementById('main-news-page-wrapper').style.display = 'none';
+            document.getElementById('quiz-view-panel').style.display = 'block';
+            
+            document.getElementById('quiz-active-questions-frame-block').style.display = 'block';
+            document.getElementById('quiz-result-final-pane').style.display = 'none';
+            
+            window.scrollTo(0,0);
+            
+            currentQuizIndex = 0;
+            currentQuizScore = 0;
+            document.getElementById('live-score-counter').innerText = currentQuizScore;
+            
+            loadSingleQuizQuestion(currentQuizIndex);
+        }
+
+        function switchBackToNewsMode() {
+            document.getElementById('quiz-view-panel').style.display = 'none';
+            document.getElementById('main-news-page-wrapper').style.display = 'block';
+            window.scrollTo(0,0);
+        }
+
+        function loadSingleQuizQuestion(index) {
+            const container = document.getElementById('quiz-questions-loader-target');
+            container.innerHTML = ""; 
+            
+            document.getElementById('quiz-next-action-btn').style.display = "none";
+            document.getElementById('quiz-step-progress-label').innerText = `Question ${index + 1} of 25`;
+
+            const item = quizDatabase[index];
+
+            const card = document.createElement('div');
+            card.className = "quiz-card-item";
+
+            const qTitle = document.createElement('div');
+            qTitle.className = "quiz-question";
+            qTitle.innerText = item.q;
+            card.appendChild(qTitle);
+
+            const optionsList = document.createElement('ul');
+            optionsList.className = "quiz-options-list";
+            optionsList.id = `single-q-opts-block`;
+
+            item.o.forEach((optText, optIdx) => {
+                const li = document.createElement('li');
+                li.className = "option-item";
+                li.innerText = optText;
+                
+                li.onclick = function() {
+                    evaluateSingleQuestionAnswer(optIdx, item.a, item.exp);
+                };
+
+                optionsList.appendChild(li);
+            });
+
+            card.appendChild(optionsList);
+
+            const expBox = document.createElement('div');
+            expBox.id = "live-explanation-feedback-box";
+            expBox.className = "quiz-explanation-box";
+            card.appendChild(expBox);
+
+            container.appendChild(card);
+        }
+
+        function evaluateSingleQuestionAnswer(selectedIdx, correctIdx, explanationText) {
+            const optionsBlock = document.getElementById('single-q-opts-block');
+            const optionsElements = optionsBlock.getElementsByTagName('li');
+
+            for (let i = 0; i < optionsElements.length; i++) {
+                optionsElements[i].classList.add('option-disabled');
+            }
+
+            if (selectedIdx === correctIdx) {
+                optionsElements[selectedIdx].classList.add('correct-state');
+                currentQuizScore++;
+                document.getElementById('live-score-counter').innerText = currentQuizScore;
+            } else {
+                optionsElements[selectedIdx].classList.add('wrong-state');
+                optionsElements[correctIdx].classList.add('correct-state');
+            }
+
+            const expBox = document.getElementById('live-explanation-feedback-box');
+            expBox.innerHTML = `<strong>💡 ટૂંકી સમજૂતી (Samjooti):</strong> ${explanationText}`;
+            expBox.style.display = "block";
+
+            const nextBtn = document.getElementById('quiz-next-action-btn');
+            if (currentQuizIndex < quizDatabase.length - 1) {
+                nextBtn.innerText = "Next Question →";
+            } else {
+                nextBtn.innerText = "Finish & See Score ✓";
+            }
+            nextBtn.style.display = "block";
+        }
+
+        function goToNextQuizQuestion() {
+            if (currentQuizIndex < quizDatabase.length - 1) {
+                currentQuizIndex++;
+                loadSingleQuizQuestion(currentQuizIndex);
+            } else {
+                showFinalResultsPaneLayout();
+            }
+        }
+
+        function showFinalResultsPaneLayout() {
+            document.getElementById('quiz-active-questions-frame-block').style.display = 'none';
+            document.getElementById('quiz-result-final-pane').style.display = 'block';
+            
+            document.getElementById('final-result-user-name-label').innerText = `👤 વિદ્યાર્થી: ${userRegisteredName}`;
+            document.getElementById('final-score-digits').innerText = currentQuizScore;
+        }
+
+        function sendResultToWhatsApp() {
+            const masterWhatsAppNumber = "916353298168"; 
+            const currentTime = new Date().toLocaleTimeString('gu-IN', { hour: '2-digit', minute: '2-digit' });
+            
+            const messagePayload = `*THE MAULIK EXPRESS QUIZ RESULT* 📊\n\n` +
+                                   `👤 *નામ:* ${userRegisteredName}\n` +
+                                   `📅 *તારીખ:* 20 June 2026\n` +
+                                   `⏱️ *સમય:* ${currentTime}\n` +
+                                   `🎯 *ફાઇનલ સ્કોર:* ${currentQuizScore} / 25\n\n` +
+                                   `📈 _માસ્ટર એક્ઝામ લેજર એન્ડ એનાલિટિક્સ સિસ્ટમ દ્વારા પ્રમાણિત._`;
+            
+            const encodedText = encodeURIComponent(messagePayload);
+            const whatsappWebUrl = `https://api.whatsapp.com/send?phone=${masterWhatsAppNumber}&text=${encodedText}`;
+            
+            window.open(whatsappWebUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
+    
+  </body>
+  
+</html>
