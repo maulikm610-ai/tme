@@ -1,0 +1,1881 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>22June1</title>
+    
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="gu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>THE MAULIK EXPRESS (TME) - Master Dual-Mode Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght=700&family=Inter:wght=400;500;600;700&family=Noto+Serif+Gujarati:wght=400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --card-bg: #1e293b;
+            --accent: #38bdf8;
+            --highlight-text: #fbbf24;
+            --danger: #f43f5e;
+            --text-muted: #94a3b8;
+            --paper-bg: #f4f4f0;
+            --sheet-bg: #fdfdfa;
+            --text-dark: #1e293b;
+            --border-color: #cbd5e1;
+            --yellow-highlighter: #fff200;
+            --success: #10b981;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Serif Gujarati', serif;
+            background-color: var(--paper-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .hl-yellow {
+            background-color: var(--yellow-highlighter);
+            color: #000000;
+            font-weight: 700;
+            padding: 2px 4px;
+            border-radius: 3px;
+            display: inline;
+        }
+
+        .dashboard-section {
+            background-color: var(--bg-dark);
+            color: #ffffff;
+            padding: 15px;
+            width: 100%;
+        }
+
+        @media (min-width: 600px) {
+            .dashboard-section { padding: 25px; }
+        }
+
+        .header-container {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            border-bottom: 1px solid var(--card-bg);
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        @media (min-width: 600px) {
+            .header-container {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+
+        .main-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .main-title span { color: var(--accent); }
+
+        .meta-info {
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        @media (min-width: 600px) {
+            .main-title { text-align: left; font-size: 2.3rem; }
+            .meta-info { text-align: right; font-size: 0.9rem; }
+        }
+
+        .meta-info strong { color: var(--highlight-text); }
+
+        .top-action-bar {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin: 15px 0 25px 0;
+            width: 100%;
+        }
+
+        @media (min-width: 650px) {
+            .top-action-bar {
+                flex-direction: row;
+                justify-content: center;
+                align-items: stretch;
+            }
+        }
+
+        .quiz-start-banner {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            border-radius: 12px;
+            padding: 20px;
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            text-align: center;
+            box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.3);
+        }
+
+        .quiz-start-banner h2 {
+            font-size: 1.2rem;
+            color: #ffffff;
+            font-family: 'Noto Serif Gujarati', serif;
+        }
+
+        .oneliner-banner {
+            background: linear-gradient(135deg, #854d0e, #a16207);
+            border-radius: 12px;
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            text-align: center;
+            box-shadow: 0 10px 15px -3px rgba(234, 179, 8, 0.2);
+        }
+
+        .oneliner-banner h2 {
+            font-size: 1.2rem;
+            color: #ffffff;
+            font-family: 'Noto Serif Gujarati', serif;
+        }
+
+        .quiz-name-input-box {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            width: 100%;
+            max-width: 260px;
+            margin: 0;
+        }
+
+        .quiz-name-input-box input {
+            padding: 10px 14px;
+            border-radius: 6px;
+            border: 2px solid #cbd5e1;
+            font-size: 0.9rem;
+            font-family: 'Inter', sans-serif;
+            text-align: center;
+            outline: none;
+        }
+
+        .quiz-name-input-box input:focus {
+            border-color: var(--accent);
+        }
+
+        .btn-quiz-master {
+            background-color: var(--highlight-text);
+            color: #000000;
+            font-size: 0.95rem;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.2s, background-color 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-quiz-master:hover {
+            transform: scale(1.03);
+            background-color: #fcd34d;
+        }
+
+        .btn-oneliner-master {
+            background-color: #ffffff;
+            color: #854d0e;
+            font-size: 0.95rem;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.2s, background-color 0.2s;
+            text-transform: uppercase;
+            width: 100%;
+            max-width: 220px;
+        }
+
+        .btn-oneliner-master:hover {
+            transform: scale(1.03);
+            background-color: #f8fafc;
+        }
+
+        .section-header {
+            font-family: 'Noto Serif Gujarati', serif;
+            font-size: 1.25rem;
+            margin: 20px 0 12px 0;
+            color: var(--accent);
+            border-left: 4px solid var(--accent);
+            padding-left: 8px;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        @media (min-width: 650px) {
+            .news-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        }
+        @media (min-width: 1000px) {
+            .news-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        .news-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            scroll-margin-top: 15px;
+        }
+
+        .news-card h3 {
+            font-size: 1rem;
+            margin-bottom: 6px;
+            color: #ffffff;
+            line-height: 1.35;
+        }
+
+        .news-card p {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            margin-bottom: 12px;
+            flex-grow: 1;
+            text-align: justify;
+            line-height: 1.4;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 8px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 10px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 8px 10px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.75rem;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+        }
+
+        .btn-flash {
+            background-color: rgba(251, 191, 36, 0.12);
+            color: var(--highlight-text);
+            border: 1px solid rgba(251, 191, 36, 0.25);
+        }
+
+        .btn-flash:hover {
+            background-color: var(--highlight-text);
+            color: var(--bg-dark);
+        }
+
+        .btn-detail {
+            background-color: rgba(56, 189, 248, 0.12);
+            color: var(--accent);
+            border: 1px solid rgba(56, 189, 248, 0.25);
+        }
+
+        .btn-detail:hover {
+            background-color: var(--accent);
+            color: var(--bg-dark);
+        }
+
+        .box-highlight-effect {
+            animation: card-flash-glow 2s cubic-bezier(0.4, 0, 0.2, 1);
+            border-color: var(--accent) !important;
+        }
+
+        @keyframes card-flash-glow {
+            0% { background-color: #1e3a8a; transform: scale(1.02); box-shadow: 0 0 15px rgba(56, 189, 248, 0.5); }
+            50% { transform: scale(1.02); box-shadow: 0 0 15px rgba(56, 189, 248, 0.2); }
+            100% { background-color: var(--card-bg); transform: scale(1); }
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(4px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 10px;
+        }
+
+        .modal-content {
+            background: #ffffff;
+            color: #1e293b;
+            width: 100%;
+            max-width: 630px;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            animation: modalSlideUp 0.2s ease-out;
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.3);
+        }
+
+        @keyframes modalSlideUp {
+            from { opacity: 0; transform: translateY(15px) scale(0.98); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(15, 23, 42, 0.6);
+            border: none;
+            color: #ffffff;
+            font-size: 1.2rem;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        .modal-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-bottom: 3px solid var(--accent);
+        }
+
+        @media (min-width: 600px) { .modal-img { height: 220px; } }
+
+        .modal-body {
+            padding: 20px;
+            max-height: 55vh;
+            overflow-y: auto;
+        }
+
+        .modal-body h2 {
+            font-family: 'Noto Serif Gujarati', serif;
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            color: #0f172a;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 6px;
+        }
+
+        .mindmap-node {
+            list-style-type: none;
+            margin-bottom: 12px;
+        }
+
+        .mindmap-node li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 10px;
+            color: #334155;
+            font-size: 0.92rem;
+            text-align: justify;
+            line-height: 1.5;
+        }
+
+        .mindmap-node li::before {
+            content: "⚡";
+            position: absolute;
+            left: 0;
+            top: 1px;
+            font-size: 0.9rem;
+            color: var(--danger);
+        }
+
+        .oneliner-node {
+            list-style-type: none;
+            margin-bottom: 10px;
+        }
+
+        .oneliner-node li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 12px;
+            color: #1e293b;
+            font-size: 0.92rem;
+            text-align: justify;
+            line-height: 1.5;
+            border-bottom: 1px dashed #e2e8f0;
+            padding-bottom: 8px;
+        }
+
+        .oneliner-node li::before {
+            content: "📌";
+            position: absolute;
+            left: 0;
+            top: 1px;
+            font-size: 0.95rem;
+        }
+
+        .modal-edge-box {
+            background: #f8fafc;
+            border-left: 4px solid #0f172a;
+            padding: 10px;
+            border-radius: 0 6px 6px 0;
+            margin-top: 12px;
+            font-size: 0.85rem;
+            color: #1e293b;
+        }
+
+        .broadsheet-section {
+            padding: 20px 10px;
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        @media (min-width: 600px) { .broadsheet-section { padding: 30px 20px; } }
+
+        .masthead {
+            text-align: center;
+            border-top: 4px double var(--text-dark);
+            border-bottom: 4px double var(--text-dark);
+            padding: 12px 0;
+            margin-bottom: 25px;
+        }
+
+        .masthead h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            letter-spacing: 1px;
+        }
+
+        @media (min-width: 600px) { .masthead h2 { font-size: 3.5rem; letter-spacing: 2px; } }
+
+        .masthead-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #475569;
+            margin-top: 6px;
+            border-top: 1px solid var(--text-dark);
+            padding-top: 5px;
+        }
+
+        @media (min-width: 600px) {
+            .masthead-meta { flex-direction: row; justify-content: space-between; }
+        }
+
+        .broadsheet-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.25rem;
+            margin-bottom: 15px;
+            border-bottom: 3px solid var(--text-dark);
+            padding-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .article {
+            background: var(--sheet-bg);
+            padding: 15px;
+            border: 1px solid #cbd5e1;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            scroll-margin-top: 15px;
+        }
+
+        @media (min-width: 600px) { .article { padding: 25px; } }
+
+        .article h3 {
+            font-family: 'Noto Serif Gujarati', serif;
+            font-size: 1.15rem;
+            margin-bottom: 8px;
+            color: #0f172a;
+            line-height: 1.35;
+        }
+
+        @media (min-width: 600px) { .article h3 { font-size: 1.5rem; } }
+
+        .article-meta {
+            font-size: 0.7rem;
+            color: #64748b;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+            border-bottom: 1px dashed #e2e8f0;
+            padding-bottom: 4px;
+        }
+
+        .article-content {
+            font-size: 0.95rem;
+            color: #334155;
+            text-align: justify;
+        }
+
+        @media (min-width: 600px) { .article-content { font-size: 1.02rem; } }
+
+        .article-content p {
+            margin-bottom: 12px;
+            text-indent: 15px;
+            line-height: 1.6;
+        }
+
+        .additional-edge {
+            background-color: #f8fafc;
+            border-left: 4px solid var(--text-dark);
+            border-right: 1px solid #e2e8f0;
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 12px;
+            margin: 15px 0 8px 0;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .additional-edge h4 {
+            margin: 0 0 6px 0;
+            color: #0f172a;
+            font-size: 0.9rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            margin-top: 12px;
+            background: #1e293b;
+            color: #ffffff;
+            font-size: 0.7rem;
+            padding: 6px 10px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .floating-top-btn {
+            position: fixed;
+            bottom: 15px;
+            right: 15px;
+            width: 40px;
+            height: 40px;
+            background-color: var(--accent);
+            color: var(--bg-dark);
+            border: none;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 99;
+        }
+
+        /* ----------------- NO SCROLL QUIZ VIEW PANEL ----------------- */
+        #quiz-view-panel {
+            display: none;
+            background-color: var(--paper-bg);
+            min-height: 100vh;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .quiz-container {
+            max-width: 750px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 14px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px dashed var(--border-color);
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+
+        .quiz-header h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            color: var(--bg-dark);
+        }
+
+        .score-box {
+            background: var(--bg-dark);
+            color: var(--highlight-text);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .btn-exit-quiz {
+            background: #64748b;
+            color: #ffffff;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        .btn-exit-quiz:hover { background: #475569; }
+
+        .quiz-card-item {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 10px;
+        }
+
+        .quiz-question {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .quiz-options-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .option-item {
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            padding: 10px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.92rem;
+            transition: all 0.15s ease;
+        }
+
+        .option-item:hover {
+            background: #f1f5f9;
+            border-color: #94a3b8;
+        }
+
+        .option-item.correct-state {
+            background-color: rgba(16, 185, 129, 0.15) !important;
+            border-color: var(--success) !important;
+            color: #065f46 !important;
+            font-weight: 600;
+        }
+
+        .option-item.correct-state::after {
+            content: " ✓ (સાચો જવાબ)";
+            color: var(--success);
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .option-item.wrong-state {
+            background-color: rgba(244, 63, 94, 0.15) !important;
+            border-color: var(--danger) !important;
+            color: #9f1239 !important;
+        }
+
+        .option-item.wrong-state::after {
+            content: " ✗ (ખોટો જવાબ)";
+            color: var(--danger);
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .option-disabled {
+            pointer-events: none;
+        }
+
+        .quiz-explanation-box {
+            display: none;
+            background-color: #f0fdf4;
+            border-left: 5px solid var(--success);
+            border-radius: 4px;
+            padding: 10px 12px;
+            margin-top: 12px;
+            font-size: 0.88rem;
+            color: #166534;
+            line-height: 1.4;
+        }
+
+        .quiz-explanation-box strong {
+            color: #14532d;
+            text-transform: uppercase;
+        }
+
+        /* Fixed Navigation inside Container without scrolling */
+        .quiz-nav-btn-group {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin-top: 15px;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 12px;
+        }
+
+        .btn-quiz-nav {
+            padding: 10px 18px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn-quiz-prev {
+            background-color: #64748b;
+            color: #ffffff;
+        }
+        .btn-quiz-prev:hover { background-color: #475569; }
+        .btn-quiz-prev:disabled {
+            background-color: #cbd5e1;
+            color: #94a3b8;
+            cursor: not-allowed;
+        }
+
+        .btn-quiz-next {
+            background-color: #2563eb;
+            color: #ffffff;
+        }
+        .btn-quiz-next:hover { background-color: #1d4ed8; }
+
+        #quiz-result-final-pane {
+            display: none;
+            text-align: center;
+            padding: 30px 15px;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        #quiz-result-final-pane h3 {
+            font-family: 'Noto Serif Gujarati', serif;
+            font-size: 1.5rem;
+            color: var(--bg-dark);
+            margin-bottom: 10px;
+        }
+
+        .final-score-display-card {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #2563eb;
+            margin: 15px 0;
+        }
+
+        .btn-submit-whatsapp-final {
+            background-color: #25d366;
+            color: #ffffff;
+            font-size: 1.05rem;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-transform: uppercase;
+            margin-top: 15px;
+        }
+
+        .btn-submit-whatsapp-final:hover {
+            background-color: #20ba56;
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="main-news-page-wrapper">
+        <button class="floating-top-btn" onclick="scrollToDashboard()" title="ડેશબોર્ડ પર જાઓ">↑</button>
+
+        <section class="dashboard-section" id="dashboard">
+            <div class="header-container">
+                <h1 class="main-title">THE MAULIK <span>EXPRESS</span></h1>
+                <div class="meta-info">
+                    Master Exam Ledger & Analytics<br>
+                    તારીખ: <strong>૨૨ જૂન ૨૦૨施行</strong> | કેન્દ્ર: <strong>અમદાવાદ</strong>
+                </div>
+            </div>
+
+            <div class="top-action-bar">
+                <div class="quiz-start-banner">
+                    <h2>📊 આજના કરંટ અફેર્સની લાઇવ ટેસ્ટ આપો (૨૨ જૂન ૨૦૨૬)</h2>
+                    <div style="display:flex; gap:10px; width:100%; justify-content:center; align-items:center; flex-wrap:wrap;">
+                        <div class="quiz-name-input-box">
+                            <input type="text" id="user-quiz-reg-name" placeholder="અહીં તમારું પૂરું નામ લખો..." autocomplete="off">
+                        </div>
+                        <button class="btn btn-quiz-master" onclick="switchToQuizMode()">⚡ Start 25 MCQ Quiz</button>
+                    </div>
+                </div>
+
+                <div class="oneliner-banner">
+                    <h2>⚡ Quick Revision</h2>
+                    <button class="btn-oneliner-master" onclick="openOneLinerModal()">📋 View 16 One-Liners</button>
+                </div>
+            </div>
+
+            <h2 class="section-header">મુખ્ય સમાચાર (Main Stories)</h2>
+            <div class="news-grid">
+                <div class="news-card" id="card-m1">
+                    <div>
+                        <h3>વર્લ્ડ બેંક દ્વારા હરિયાણા માટે રૂ. 4000 કરોડની મંજુરી</h3>
+                        <p>જલ સંરક્ષિત હરિયાણા પ્રોજેક્ટ અંતર્ગત વોટર કન્ઝર્વેશન અને કૃષિ સુધારા માટે આગામી ૬ વર્ષ સુધી ચાલનારો સીમાચિહ્નરૂપ કરાર.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('m1')">🃏 Flash Card</button>
+                        <a href="#art-m1" class="btn btn-detail" onclick="focusDetail('card-m1')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-m2">
+                    <div>
+                        <h3>પંચાયતી રાજ મંત્રાલયે લોન્ચ કર્યું 'નિર્ભયા ચેતના'</h3>
+                        <p>'નિર્ભય રહો' પ્રોગ્રામ હેઠળ ચૂંટાયેલા ૧૭.૫ લાખ પુરુષ પ્રતિનિધિઓમાં લિંગ સમાનતા અને સુરક્ષા વધારવા રાષ્ટ્રીય ટ્રેનિંગ અભિયાન.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('m2')">🃏 Flash Card</button>
+                        <a href="#art-m2" class="btn btn-detail" onclick="focusDetail('card-m2')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-m3">
+                    <div>
+                        <h3>PM મોદીએ એકસાથે 3 નેવલ જહાજો દેશને સમર્પિત કર્યા</h3>
+                        <p>કોલકાતાના શ્યામાપ્રસાદ મુખર્જી પોર્ટ ખાતે આઈએનએસ દૂનાગિરી, સંશોધક અને અગ્રયને સંયુક્ત રીતે નૌકાદળમાં સામેલ કરાયા.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('m3')">🃏 Flash Card</button>
+                        <a href="#art-m3" class="btn btn-detail" onclick="focusDetail('card-m3')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-m4">
+                    <div>
+                        <h3>દેશનો પ્રથમ કોમર્શિયલ સ્કેલ કોલ-ટુ-એમોનિયમ નાઈટ્રેટ પ્લાન્ટ</h3>
+                        <p>ઓડિશાના ઝારસુગુડામાં BHEL અને CIL ના સંયુક્ત સાહસ દ્વારા રૂ. ૨૫,૦૦૦ કરોડના ખર્ચે ક્લીન એનર્જી ઇનોવેશનનો શિલાન્યાસ.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('m4')">🃏 Flash Card</button>
+                        <a href="#art-m4" class="btn btn-detail" onclick="focusDetail('card-m4')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-m5">
+                    <div>
+                        <h3>NIXI ના ૨૩મા સ્થાપના દિવસે 4 નવા ડિજિટલ પોર્ટલ્સ લોન્ચ</h3>
+                        <p>ઇન્ટરનેટ ઇકોસિસ્ટમને પારદર્શક અને સુરક્ષિત બનાવવા એઆઈ-પાવર્ડ સ્ક્રીનિંગ, IP મેનેજમેન્ટ અને ઓક્શન ફ્રેમવર્ક રજૂ.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('m5')">🃏 Flash Card</button>
+                        <a href="#art-m5" class="btn btn-detail" onclick="focusDetail('card-m5')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-m6">
+                    <div>
+                        <h3>નેશનલ સ્પોર્ટ્સ બોર્ડ (NSB) માટે પસંદગી સમિતિ ગઠિત</h3>
+                        <p>કેબિનેટ સેક્રેટરી ટી.વી. સોમનાથનની અધ્યક્ષતામાં ૫ સભ્યોની સમિતિ ભારતીય સ્પોર્ટ્સ ગવર્નન્સનું માળખું નિયંત્રિત કરશે.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('m6')">🃏 Flash Card</button>
+                        <a href="#art-m6" class="btn btn-detail" onclick="focusDetail('card-m6')">📰 Detailed</a>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="section-header">એક્ઝિક્યુટિવ બ્રીફિંગ્સ (Executive Briefings)</h2>
+            <div class="news-grid">
+                <div class="news-card" id="card-b1">
+                    <div>
+                        <h3>I4C દ્વારા ગ્રાહક રક્ષણ માટે બે નવા પોર્ટલ જાહેર</h3>
+                        <p>ગૃહ મંત્રાલય હેઠળ ભૂલથી ફ્રીઝ થયેલા ખાતા અનફ્રીઝ કરવા અને સાયબર ફ્રોડના નાણાં પરત મેળવવાની વ્યવસ્થા ફાસ્ટ-ટ્રેક કરાઈ.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b1')">🃏 Flash Card</button>
+                        <a href="#art-b1" class="btn btn-detail" onclick="focusDetail('card-b1')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b2">
+                    <div>
+                        <h3>MoSPI દ્વારા આયોજિત 'સ્ટેટેથોન' હેકેથોન સંપન્ન</h3>
+                        <p>આંકડાકીય પડકારોના ઉકેલ માટે યુવા ઇનોવેટર્સે NSO અને શિક્ષણ મંત્રાલયના સહયોગથી ટેકનિકલ સોલ્યુશન્સ આપ્યા.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b2')">🃏 Flash Card</button>
+                        <a href="#art-b2" class="btn btn-detail" onclick="focusDetail('card-b2')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b3">
+                    <div>
+                        <h3>પ્રોફેસર વિમલ એન. પટેલ ITLOS ના જજ તરીકે ચૂંટાયા</h3>
+                        <p>આંતرરાષ્ટ્રીય સમુદ્રી કાયદા કોર્ટ (જર્મની) માં ૨૦૨૬ થી ૨૦૩૫ ના ૯ વર્ષના લાંબા ગાળા માટે ભારતનું પ્રતિનિધિત્વ કરશે.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b3')">🃏 Flash Card</button>
+                        <a href="#art-b3" class="btn btn-detail" onclick="focusDetail('card-b3')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b4">
+                    <div>
+                        <h3>કે.કે. મિસ્ત્રી HDFC બેંકના વચગાળાના વડા તરીકે ચાલુ રહેશે</h3>
+                        <p>અતનુ ચક્રવર્તીના રાજીનામા બાદ RBI એ સ્થિરતા જાળવવા કે.કે. મિસ્ત્રીનો કાર્યકાળ ૧૮ સપ્ટેમ્બર ૨૦૨૬ સુધી એક્સટેન્ડ કર્યો.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b4')">🃏 Flash Card</button>
+                        <a href="#art-b4" class="btn btn-detail" onclick="focusDetail('card-b4')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b5">
+                    <div>
+                        <h3>ભારતને ઇતિહાસમાં પ્રથમવાર FATF ની વાઇસ પ્રેસિડેન્સી મળી</h3>
+                        <p>વરિષ્ઠ અધિકારી વિવેક અગ્રવાલ મની લોન્ડરિંગ અને ટેરર ફાઇનાન્સિંગ વોચડોગ સંસ્થાના વૈશ્વિક વાઇસ પ્રેસિડેન્ટ નિયુક્ત.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b5')">🃏 Flash Card</button>
+                        <a href="#art-b5" class="btn btn-detail" onclick="focusDetail('card-b5')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b6">
+                    <div>
+                        <h3>ચેક રિપબ્લિક ગ્રાન્ડ પ્રિકસ બોક્સિંગમાં ભારતે ૧૨ મેડલ જીત્યા</h3>
+                        <p>ભારતીય બોક્સિંગ ટીમે શાનદાર પ્રદર્શન કરી ૮ ગોલ્ડ મેડલ દેશના નામે કર્યા, લવલીના અને પ્રીતિ પવાર અગ્રણી વિજેતા.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b6')">🃏 Flash Card</button>
+                        <a href="#art-b6" class="btn btn-detail" onclick="focusDetail('card-b6')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b7">
+                    <div>
+                        <h3>મહિલા હોકી ટીમે ન્યુઝીલેન્ડને hરાવી FIH નેشન્સ કપ જીત્યો</h3>
+                        <p>ઓકલેન્ડ ખાતે રમાયેલી ફાઇનલમાં અજેય રહીને ભારતે ઇતિહાસમાં બીજી વખત પ્રતિષ્ઠિત ટાઇટલ પોતાના નામે કર્યું.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b7')">🃏 Flash Card</button>
+                        <a href="#art-b7" class="btn btn-detail" onclick="focusDetail('card-b7')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b8">
+                    <div>
+                        <h3>નીરજ ચોપરા દોહા ડાયમંડ લીગમાં ચોથા સ્થાને રહ્યા</h3>
+                        <p>લાંબા ઇન્જરી બ્રેક બાદ દેશના સ્ટાર ભાલાફેંક ખેલાડીએ વાપસી કરી કોમનવેલ્થ ગેમ્સ ૨૦૨૬ માટે સત્તાવાર ક્વોલિફિકેશન મેળવ્યું.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b8')">🃏 Flash Card</button>
+                        <a href="#art-b8" class="btn btn-detail" onclick="focusDetail('card-b8')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b9">
+                    <div>
+                        <h3>નોર્વે સરકારે પ્રાથમિક શાળાઓમાં જનરેટિવ AI ટૂલ્સ બેન કર્યા</h3>
+                        <p>ધોરણ ૧ થી ૭ ના વિદ્યાર્થીઓની મૌલિક સર્જનાત્મકતા બચાવવા પાયાના શિક્ષણમાં આર્ટિફિશિયલ ઇન્ટેલિજન્સ પર પ્રતિબંધ.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b9')">🃏 Flash Card</button>
+                        <a href="#art-b9" class="btn btn-detail" onclick="focusDetail('card-b9')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b10">
+                    <div>
+                        <h3>યુએસ પ્રેસિડેન્ટને મળ્યું નવું વૈભવી પ્લેન 'એરફોર્સ વન'</h3>
+                        <p>કતાર દેશ દ્વારા અમેરિકી રાષ્ટ્રપતિ ડોનાલ્ડ ટ્રમ્પને ભેટ અપાયેલ બોઇંગ 747-8i જેેટ 'ફ્લાઇંગ વ્હાઇટ હાઉસ' તરીકે સામેલ.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b10')">🃏 Flash Card</button>
+                        <a href="#art-b10" class="btn btn-detail" onclick="focusDetail('card-b10')">📰 Detailed</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="broadsheet-section">
+            <div class="masthead">
+                <h2>THE MAULIK EXPRESS</h2>
+                <div class="masthead-meta">
+                    <span>VOL. II NO. 22 (EXAMINATION SPECIAL - FULL MASTER VERSION)</span>
+                    <span>અમદાવાદ, સોમવાર, ૨૨ જૂન ૨૦૨૬</span>
+                    <span>કિંમત: ₹ ૫.૦૦</span>
+                </div>
+            </div>
+
+            <div class="broadsheet-grid-wrapper">
+                <h3 class="broadsheet-title">મુખ્ય સમાચાર વિગતવાર (Main Stories Detail)</h3>
+
+                <article class="article" id="art-m1">
+                    <div class="article-meta">આંતરરાષ્ટ્રીય ફંડિંગ • જળ સંરક્ષણ નીતિ • રાજ્ય વહીવટ</div>
+                    <h3>૧. વર્લ્ડ બેંકે હરિયાણા સરકારના વોટર મેનેજમેન્ટ પ્રોજેક્ટ માટે રૂ. ૪,૦૦૦ કરોડની મંજુરી આપી</h3>
+                    <div class="article-content">
+                        <p>વિશ્વ બેંકે (World Bank) હરિયાણા રાજ્યમાં કુદરતી સંસાધનોની જાળવણી માટે ઘડાયેલા <span class="hl-yellow">જલ સંરક્ષિત હરિયાણા પ્રોજેક્ટ</span> માટે રૂ. ૪,૦૦૦ કરોડનું જંગી ભંડોળ મંજૂર કર્યું છે. આ આખાય મહત્વાકાંક્ષી પ્રોજેક્ટની કુલ નાણાકીય કિંમત <span class="hl-yellow">રૂ. ૫, ૭૧૪ કરોડ</span> છે, જેમાં બાકીની રકમ રાજ્ય સરકાર પોતાના હિસ્સામાંથી ભોગવશે. આ ખાસ ઇનિશિયેટિવ આગામી ૬ વર્ષના સમયગાળા એટલે કે <span class="hl-yellow">વર્ષ ૨૦૨૬ થી ૨૦૩૨</span> સુધી સંપૂર્ણપણે સક્રિય રહેશે.</p>
+                        <p>આ પ્રોજેક્ટના અસરકારક અમલીકરણ માટે સમગ્ર હરિયાણા રાજ્યને સત્તાવાર રીતે ૧૫ વિશિષ્ટ ક્લસ્ટર્સમાં વિભાજિત કરવામાં આવ્યું છે. આ યોજના હેઠળ મુખ્યત્વે બે ક્ષેત્રો પર સૌથી વધુ ધ્યાન કેન્દ્રિત કરવામાં આવશે, જેમાં વોટર કન્ઝર્વેશન (જળ સંરક્ષણ) અને એગ્રીકલ્ચર રિફોર્મ્સ (કૃષિ સુધારણા) સામેલ છે. તેનો ઉદ્દેશ્ય ભૂગર્ભ જળ સ્તર ઊંચું લાવવાનો છે.</p>
+                        <div class="additional-edge">
+                            <h4>📌 Additional Information & Exam Edge</h4>
+                            • <strong>પરીક્ષા લક્ષી તથ્યો:</strong> બેન્કિંગ પરીક્ષાઓ માટે સમયગાળો (૬ વર્ષ), વર્લ્ડ બેંકની સહાય (રૂ. ૪,૦૦૦ કરોડ), કુલ બજેટ (રૂ. ૫, miniature૧૪ કરોડ) અને ક્લસ્ટરની સંખ્યા (૧૫) અતિ મહત્વની માહિતી છે. આ પ્રોજેક્ટ ટકાઉ ખેતી અને પાણીના કાર્યક્ષમ ઉપયોગનું નવું મોડેલ સ્થાપિત કરશે.
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-m1')">Back to Dashboard ↑</button>
+                </article>
+
+                <article class="article" id="art-m2">
+                    <div class="article-meta">ગ્રામીણ સશક્તિકરણ • મિનિસ્ટ્રી ડેટાબેઝ • લિંગ સમાનતા સેમિનાર</div>
+                    <h3>૨. પંચાયતી રાજ મંત્રાલય દ્વારા રાષ્ટ્રીય કક્ષાએ 'નિર્ભયા ચેતના' ટ્રેનિંગ કેમ્પેઈન લોન્ચ કરાયું</h3>
+                    <div class="article-content">
+                        <p>કેન્દ્રીય પંચાયતી રાજ મંત્રાલયે દેશની ગ્રામીણ સ્થાનિક સંસ્થાઓમાં સુરક્ષા વ્યવસ્થા સુધારવા માટે <span class="hl-yellow">નિર્ભયા ચેતના</span> નામનું રાષ્ટ્રીય અભિયાન શરૂ કર્યું છે. આ કેમ્પેઈન મૂળ ૧૧ માર્ચ ૨૦૨૬ ના રોજ કેન્દ્રીય નિર્ભયા ફંડ અંતર્ગત લોન્ચ કરાયેલા વ્યાપક રાષ્ટ્રીય પ્રોગ્રામ 'નિર્ભય રહો' નો એક અગ્રણી પિલર છે. તેનો મુખ્ય ઉદ્દેશ્ય દેશભરની ગ્રામ પંચાયતોમાં ચૂંટણી જીતીને આવેલા અંદાજે <span class="hl-yellow">૧૭.૫ લાખ પુરુષ ચૂંટાયેલા પ્રતિનિધિઓ</span>માં મહિલા સુરક્ષા, લિંગ સમાનતા અને પોઝિટિવ મેસ્ક્યુલિનિટી પ્રત્યે પરિપ્રેક્ષ્ય બદલવાનો છે.</p>
+                        <p>આ અભિયાન અંતર્ગત નવી દિલ્હી ખાતે ત્રણ દિવસીય નેશનલ લેવલ ટ્રેનિંગ ઓફ ટ્રેનર્સ (ToT) સેમિનાર યોજાયો હતો. આ કાર્યક્રમ દ્વારા દેશભરમાં ગ્રાઉન્ડ લેવલે જાગૃતિ ફેલાવવા માટે કુલ <span class="hl-yellow">૨૮,૫૦૦ માસ્ટર ટ્રેનર્સ</span> ની મોટી ટીમ તૈયાર કરવામાં આવશે. શરૂઆતના તબક્કામાં આ પ્રશિક્ષણ અસમ, છત્તીસગઢ, હિમાચલ પ્રદેશ, મહારાષ્ટ્ર, ઓડિશા અને ઝારખંડ એમ ૬ મોડેલ રાજ્યોમાં શરૂ કરાશે.</p>
+                        <div class="additional-edge">
+                            <h4>📌 Additional Information & Exam Edge</h4>
+                            • <strong>યોજનાનું ત્રિસ્તરીય માળખું:</strong> 'નિર્ભય રહો' યોજનાના મુખ્ય ત્રણ અલગ સ્તંભો છે: (૧) નિર્ભયા ચેતના - પુરુષ સભ્યોમાં સંવેદનશીલતા લાવવી, (૨) નેત્રી - ચૂંટાયેલી મહિલા પંચાયત પ્રતિનિધિઓનું કાનૂની અને વહીવટી સશક્તિકરણ કરવું, (૩) દ્રષ્ટિ - ગ્રામીણ વિસ્તારોના સંવેદનશીલ સ્થળો પર સેફ્ટી માટે CCTV કેમેરા નેટવર્ક ઊભું કરવું.
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-m2')">Back to Dashboard ↑</button>
+                </article>
+
+                <article class="article" id="art-m3">
+                    <div class="article-meta">મેક ઇન ઇન્ડિયા ડિફેન્સ • નૌકાદળ શક્તિ • પશ્ચિમ બંગાળ ઇવેન્ટ</div>
+                    <h3>૩. વડાપ્રધાન નરેન્દ્ર મોદીએ કોલકાતામાં ત્રણ ભારતીય નૌસેના જહાજો દેશ સેવામાં સામેલ કર્યા</h3>
+                    <div class="article-content">
+                        <p>૨૧ જૂન (આંતرરાષ્ટ્રીય યોગ દિવસ) ના ઐતિહાસિક અવસરે પશ્ચિમ બંગાળના કોલકાતા સ્થિત <span class="hl-yellow">શ્યામાપ્રસાદ મુખર્જી પોર્ટ</span> ખાતે આયોજિત ભવ્ય સૈન્ય સમારોહમાં વડાપ્રધાન નરેન્દ્ર મોદીએ એકસાથે ત્રણ નવા ઇન્ડિયન નેવલ શિપ્સ (INS) નું સત્તાવાર કમિશનિંગ કર્યું છે. ભારતીય સંرક્ષણ ઇતિહાસમાં આ પ્રથમ સીમાચિહ્નરૂપ ઘટના છે જ્યારે દેશના વડાપ્રધાને એકસાથે ત્રણ યુદ્ધજહાજો નૌકાદળને સોંપ્યા હોય. આ ત્રણ જહાજોના નામ <span class="hl-yellow">INS દૂનાગિરી, INS સંશોધક અને INS અગ્રય</span> છે.</p>
+                        <p>આ ત્રણેય જહાજોનું સંપૂર્ણ ડિઝાઇનિંગ અને નિર્માણ ડિફેન્સ પીએસયુ કંપની <span class="hl-yellow">ગાર્ડન રીચ શિપબિલ્ડર્સ એન્ડ એન્જિનિયર્સ (GRSE), કોલકાતા</span> દ્વારા કરવામાં આવ્યું છે. વડાપ્રધાનની આ મુલાકાતથી નૌકાદળના સૈનિકોનો આત્મવિશ્વાસ વધ્યો છે.</p>
+                        <div class="additional-edge">
+                            <h4>📌 Additional Information & Exam Edge</h4>
+                            • <strong>વેસેલ ક્લાસ વિગત:</strong> પરીક્ષા માટે ત્રણેય જહાજોની શ્રેણી (Class) જાણવી જરૂરી છે. INS દૂનાગિરી એ અત્યાધુનિક સ્ટેલ્થ ફ્રિગેટ તરીકે પ્રોજેક્ટ 17A હેઠળ બનેલું છે. INS સંશોધક એ દરિયાઈ નકશા અને ડેટા માટેનું મોટું સર્વે વેસેલ (Survey Vessel) છે, જ્યારે INS અગ્રય એ દરિયા કિનારાની સુરક્ષા માટે અર્નાલા ક્લાસનું એન્ટી-સબમરીન ક્રાફ્ટ છે.
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-m3')">Back to Dashboard ↑</button>
+                </article>
+
+                <article class="article" id="art-m4">
+                    <div class="article-meta">સ્વદેશી ગેસિફિકેશન ટેકનોલોજી • ઇન્ડસ્ટ્રિયલ કેમિકલ્સ • આર્થિક આત્મનિર્ભરતા</div>
+                    <h3>૪. ઓડિશાના ઝારસુગુડામાં ભારતના પ્રથમ કોમર્શિયલ કોલ-ટુ-એમોનિયમ નાઈટ્રેટ પ્લાન્ટની નીવ રખાઈ</h3>
+                    <div class="article-content">
+                        <p>વડાપ્રધાન નરેન્દ્ર મોદીએ દેશની ઊર્જા સુરક્ષા વધારવાના ભાગરૂપે ઓડિશા રાજ્યના ઝારસુગુડા જિલ્લાના <span class="hl-yellow">ลખનપુર</span> ખાતે ભારતના સર્વપ્રથમ કોમર્શિયલ સ્કેલ કોલ-ટુ-એમોનિયમ નાઈટ્રેટ પ્રોજેક્ટનો શિલાન્યાસ કર્યો છે. આ અતિ મહત્વકાંક્ષી ઔદ્યોગિક પ્લાન્ટ અંદાજે <span class="hl-yellow">રૂ. ૨૫,૦૦૦ કરોડના જંગી મૂડી રોકાણ</span> સાથે સ્થાપિત કરવામાં આવી રહ્યો છે. આ પ્રોજેક્ટનું નિર્માણ 'भारत કોલ ગેસિફિકેશન એન્ડ કેમિકલ્સ લિમિટેડ' (BCGCL) કંપની દ્વારા કરાશે.</p>
+                        <p>આ કંપની ભારતની બે મોટી જાહેર ક્ષેત્રની મહારત્ન કંપનીઓ એટલે કે ભેલ (BHEL) અને કોલ ઇન્ડિયા લિમિટેડ (CIL) નું ઓફિશિયલ જોઈન્ટ વેન્ચર (JV) છે. આ ભવ્ય પ્લાન્ટની ઉત્પાદન ક્ષમતા <span class="hl-yellow">દૈનિક ૨,૦૦૦ ટન એમોનિયમ નાઈટ્રેટ</span> ની રહેશે, જેમાં BHEL દ્વારા વિકસાવાયેલી સ્વદેશી ગેસિફિકેશન ટેકનોલોજીનો ઉપયોગ થશે.</p>
+                        <div class="additional-edge">
+                            <h4>📌 Additional Information & Exam Edge</h4>
+                            • <strong>ઔદ્યોગિક મહત્વ:</strong> કોલ ગેસિફિકેશન એ કોયલાના ઉપયોગથી સ્વચ્છ ઊર્જા અને કેમિકલ્સ બનાવવાની વૈજ્ઞાનિક પદ્ધતિ છે. એમોનિયમ નાઈટ્રેટનો મોટો ઉપયોગ દેશના ખાતર ઉદ્યોગ અને કોમર્શિયલ માઇનિંગ વિસ્ફોટકોના નિર્માણમાં થાય છે. આ પ્લાન્ટ શરૂ થવાથી ભારતની વિદેશી આયાત નિર્ભરતા ઘટશે.
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-m4')">Back to Dashboard ↑</button>
+                </article>
+
+                <article class="article" id="art-m5">
+                    <div class="article-meta">ડિજિટલ નેટવર્ક ગવર્નન્સ • આઈપી એડ્રેસ ઓટોમેશન • ડોમેન ઓક્શન ફ્રેમવર્ક</div>
+                    <h3>૫. NIXI ના ૨૩મા સ્ถาપના દિવસ પર ઇન્ટરનેટ ઇકોસિસ્ટમ માટે 4 આધુનિક પોર્ટલ્સ લોન્ચ કરાયો</h3>
+                    <div class="article-content">
+                        <p>નેશનલ ઇન્ટરનેટ એક્સચેન્જ ઓફ ઇન્ડિયા (NIXI) એ ૧૯ જૂને દેશના આઇટી મંત્રાલય હેઠળ પોતાનો ૨૩મો સ્થાપના દિવસ મનાવ્યો. આ વિશેષ અવસરે ભારતીય ઇન્ટરનેટ ક્ષેત્રની ઓપરેશનલ એફિશિયન્સી અને પારદર્શિતા વધારવા માટે <span class="hl-yellow">ચાર નવા ડિજિટલ પોર્ટલ્સ</span> ખુલ્લા મૂકવામાં આવ્યા છે: (૧) એઆઈ-પાવર્ડ WHOIS સ્ક્રીનિંગ પ્લેટફોર્મ (શંકાસ્પદ ઇન ડોમેન વેબસાઇટ્સને ટ્રેક કરવા), (૨) IX પોર્ટલ (ઇન્ટરનેટ એક્સચેન્જ પોઇન્ટ વિઝિબિલિટી વધારવા), (૩) MyIRINN પોર્ટલ (IP એડ્રેસ એલોકેશન પ્રક્રિયાને ઓટોમેટ કરવા) અને (૪) .IN ઓક્શન પોર્ટલ (કમર્શિયલ પ્રીમિયમ ડોમેન ખરીદી માટે).</p>
+                        <p>વર્તમાન આંકડા અનુસાર, NIXI ભારતમાં અંદાજે <span class="hl-yellow">૩.૯ મિલિયન એક્ટિવ .IN ડોમેન્સ</span> નું સંચાલન કરે છે, જે દેશની ૨૨ સત્તાવાર બંધારણીય ભાષાઓમાં ઓપરેટ થાય છે.</p>
+                        <div class="additional-edge">
+                            <h4>📌 Additional Information & Exam Edge</h4>
+                            • <strong>ટેકનિકલ ડેટા:</strong> ભારતે ઇન્ટરનેટ ઇન્ફ્રાસ્ટ્રક્ચર સ્કેલિંગ ક્ષેત્રે ભવિષ્યના ડિજિટલ એસેટ્સને પ્રોટેક્ટ કરવા માટે <span class="hl-yellow">૭૮.३૪% IPv6 પેનિટ્રેશન રેટ</span> હાંસલ કર્યો છે, જે વિશ્વના અગ્રણી દેશો સમકક્ષ છે. ડિજિટલ ઇન્ડિયાના પ્રશ્નો માટે આ તમામ ચારેય પોર્ટલ્સના નામ અત્યંત મહત્વપૂર્ણ છે.
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-m5')">Back to Dashboard ↑</button>
+                </article>
+
+                <article class="article" id="art-m6">
+                    <div class="article-meta">સ્પોર્ટ્સ રેગ્યુલેશન • હાઈ-લેવલ કમિટી • રમતગમત વહીવટી સુધારા</div>
+                    <h3>૬. કેન્દ્ર સરકારે નેશનલ સ્પોર્ટ્સ બોર્ડ (NSB) ના સભ્યોની પસંદગી માટે ૫ સભ્યોની સમિતિ બનાવી</h3>
+                    <div class="article-content">
+                        <p>ભારત સરકાર દ્વારા નવીન રમતગમત નીતિ હેઠળ નવગઠિત નેશનલ સ્પોર્ટ્સ બોર્ડ (NSB) ના ચેરપર્સન અને સંચાલન મંડળના સભ્યોની સત્તાવાર ભલામણ કરવા માટે એક ઉચ્ચ સ્તરીય <span class="hl-yellow">૫ સભ્યોની સર્ચ-કમ-સિલેક્શન કમિટી</span> ની સ્થાપના કરવામાં આવી છે. દેશના વર્તમાન કેબિનેટ સેક્રેટરી <span class="hl-yellow">ટી.વી. સોમનાથન</span> ને આ મહત્વની સમિતિના ચેરપર્સન (અધ્યક્ષ) નિયુક્ત કરવામાં આવ્યા છે.</p>
+                        <p>આ સમિતિના અન્ય ચાર સભ્યોમાં રમતગમત મંત્રાલયના સેક્રેટરી હરિરંજન રાવ, લેફ્ટનન્ટ જનરલ (નિવૃત્ત) હરપાલ સિંહ, દેશના ખ્યાતનામ ઓલિમ્પિક શૂટર ગગન નાرંગ અને અર્જુન એવોર્ડ વિજેતા વેટલિફ્ટર કુંજુરાની દેવી સામેલ છે. આ બોર્ડ દેશની સર્વોચ્ચ નિયમનકારી ઓથોરિટી બનશે.</p>
+                        <div class="additional-edge">
+                            <h4>📌 Additional Information & Exam Edge</h4>
+                            • <strong>બોર્ડનું વૈધાનિક કાર્ય:</strong> નેશનલ સ્પોર્ટ્સ બોર્ડ રૂલ્સ ૨૦૨૬ હેઠળ સ્થપાનારું આ બોર્ડ દેશના તમામ વિવિધ રાષ્ટ્રીય રમત એસોસિએશનો (દા.ત. ફૂટબોલ, એથ્લેટિક્સ વગેરે) ને સત્તાવાર માન્યતા આપવા, રિન્યૂ કરવા અથવા સમીક્ષા કરવા માટે જવાબદાર સેન્ટ્રલ ઓથોરિટી તરીકે કાર્ય કરશે.
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-m6')">Back to Dashboard ↑</button>
+                </article>
+
+                <h3 class="broadsheet-title" style="margin-top: 30px;">એક્ઝિક્યુટિવ બ્રીફિંગ્સ વિગતવાર (Executive Briefings Detail)</h3>
+
+                <div class="article" id="art-b1">
+                    <div class="article-meta">સાયબર ફ્રોડ સોલ્યુશન • બેંક ખાતા સુરક્ષા • ગોલ્ડન અવર રૂલ</div>
+                    <h3>૧. I4C સાયબર સેન્ટર દ્વારા નાગરિક રાહત માટે બે નવી ડિજિટલ પ્રણાલી શરૂ કરાઈ</h3>
+                    <div class="article-content">
+                        <p>કેન્દ્રીય ગૃહ મંત્રાલય હેઠળ કાર્યરત ઇન્ડિયન સાયબર ક્રાઇમ કોઓર્ડિનેશન સેન્ટર (I4C) એ નાણાકીય સાયબર ગુનાઓ સામે બે નવા પોર્ટલ લોન્ચ કર્યા છે. પ્રથમ <span class="hl-yellow">ગ્રીવાન્સ રિડ્રેસલ મેકેનિઝમ</span> (જે તપાસ દરમિયાન સાયબર સેલ દ્વારા ભૂલથી કે શંકાના આધારે ફ્રીઝ કરાયેલા નિર્દોષ નાગરિકો કે દુકાનદારોના બેંક ખાતાઓ અનફ્રીઝ કરાવવા માટે છે). બીજું <span class="hl-yellow">મની રિસ્ટોરેશન મોડ્યુલ</span> (જે ફ્રોડ દ્વારા ચોરાયેલી રકમ વહેલી તકે મૂળ ખાતાધારકને પરત અપાવવા માટે બેંકો અને પોલીસ વચ્ચે રિયલ-ટાઇમ સંકલન સાધશે).</p>
+                        <div class="additional-edge">
+                            <h4>📌 Additional Information & Exam Edge</h4>
+                            ગ્રાહક સુરક્ષા કાયદા હેઠળ જો કોઈ નાગરિક સાથે ડિજિટલ ફ્રોડ થાય, તો ત્વરિત રાષ્ટ્રીય હેલ્પલાઇન નંબર <strong>1930</strong> પર કોલ કરીને ફંડની આગળની મુવમેન્ટ બ્લોક કરાવી શકાય છે, જેને સાયબર ગુનાની ભાષામાં 'ગોલ્ડન અવર રિપોર્ટિંગ' કહે છે.
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b1')">Back to Dashboard ↑</button>
+                </div>
+
+                <div class="article" id="art-b2">
+                    <div class="article-meta">રાષ્ટ્રીય આંકડા પદ્ધતિ • શિક્ષણ મંત્રાલય ભાગીદારી • ટેકનિકલ પુરસ્કાર</div>
+                    <h3>૨. ડેટા ઇનોવેશન પડકારોના ઉકેલ માટે આયોજિત ૩૬ કલાકની 'સ્ટેટેથોન' સ્પર્ધા પૂર્ણ થઈ</h3>
+                    <div class="article-content">
+                        <p>મિનિસ્ટ્રી ઓફ સ્ટેટિસ્ટિક્સ એન્ડ પ્રોગ્રામ ઇમ્પ્લીમેન્ટેશન (MoSPI) ના નેશનલ સ્ટેટિસ્ટિકલ ઓફિસ (NSO) દ્વારા શિક્ષણ મંત્રાલયના ઇનોવેશન સેલ સાથે મળીને ૩૬ કલાકની નેશનલ લેવલની હેકેથોન સ્પર્ધા <span class="hl-yellow">સ્ટેટેથોન (Statethon)</span> નું આયોજન કરાયું હતું. આ કોમ્પિટિશનનો મુખ્ય હેતુ દેશના સત્તાવાર આંકડાકીય પડકારો અને ડેટา કલેક્શન પ્રોસેસને આધુનિક ટેકનોલોજી દ્વારા સોલ્વ કરવાનો હતો. ૨૫ ફાઇનલિસ્ટ ટીમો વચ્ચે ૫ વિશિષ્ટ પ્રોબ્લેમ ડોમેન્સ માટે મુકાબલો થયો હતો, જેમાં આર્યાવર્ત ટેકનોલોજી અને ભારત ઇન્સ્ટિટ્યૂટ ઓફ એન્જિનિયરિંગની ટીમો અગ્રણી વિજેતા બની હતી.</p>
+                        <div class="additional-edge">
+                            <h4>📌 Additional Information & Exam Edge</h4>
+                            'વિકસિત ભારત માટે ડેટા જર્ની' થીમ પર આધારિત આ ઇવેન્ટ સરકારી ડેટા મેનેજમેન્ટમાં આર્ટિફિશિયલ ઇન્ટેલિજન્સ (AI) અને બિગ ડેટા એનાલિટિક્સના ઉપયોગ પર ભાર મૂકે છે.
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b2')">Back to Dashboard ↑</button>
+                </div>
+
+                <div class="article" id="art-b3">
+                    <div class="article-meta">આંતરરાષ્ટ્રીય અદાલત • UNCLOS કન્વેન્શન • વૈશ્વિક સીમા વિવાદો</div>
+                    <h3>૩. : પ્રોફેસર વિમલ એન. પટેલ આંતરરાષ્ટ્રીય સમુદ્રી કોર્ટ (ITLOS) ના ન્યાયાધીશ તરીકે ચૂંટાયા</h3>
+                    <div class="article-content">
+                        <p>ભારતના સુપ્રસિદ્ધ કાનૂની વિદ્વાન પ્રોફેસર <span class="hl-yellow">વિમલ એન. પટેલ</span> વૈશ્વિક સ્તરે પ્રતિષ્ઠિત સંસ્થા ઇન્ટરનેશનલ ટ્રિબ્યુનલ ફોર ધ લો ઓફ સી (ITLOS) માં જજ તરીકે બહુમતીથી ચૂંટાયા છે. તેમનો આ સત્તાવાર કાર્યકાળ ૧ ઓક્ટોબર ૨૦૨૬ થી શરૂ થઈને વર્ષ ૨૦૩૫ સુધી એટલે કે <span class="hl-yellow">૯ વર્ષના લાંબા સમયગાળા</span> માટે રહેશે. તેઓ ભારતના અગાઉના જજ નીરુ ચઢ્ઢાનું સ્થાન લેશે. એશિયન રીજન માટે ફાળવાયેલી બે સીટોમાંથી એક ભારતને અને બીજી વિયેતનામના પ્રતિનિધિ થી (Thi) ને મળી છે.</p>
+                        <div class="additional-edge">
+                            <h4>📌 Additional Information & Exam Edge</h4>
+                            ITLOS ની સ્થાપના 1982 ના સંયુક્ત રાષ્ટ્રના સમુદ્રી કાયદા કન્વેન્શન (UNCLOS) હેઠળ થઈ હતી. તેનું કાયમી મુખ્યાલય **હેમ્બર્ગ, જર્મની** ખાતે આવેલું છે અને તેમાં કુલ ૨૧ આંતરરાષ્ટ્રીય જજ હોય છે જે દરિયાઈ સરહદો અને શિપિંગ વિવાદો પર ચુકાદા આપે છે.
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b3')">Back to Dashboard ↑</button>
+                </div>
+
+                <div class="article" id="art-b4">
+                    <div class="article-meta">બેન્કિંગ કોર્પોરેટ ગવર્નન્સ • સેન્ટ્રલ બેંક પરમિશન • પ્રાઇવેટ લીડરશિપ</div>
+                    <h3>૪. કે.કે. મિસ્ત્રી HDFC બેંકના ઇન્ટરિમ ચેરપર્સન તરીકે કામગીરી ચાલુ રાખશે</h3>
+                    <div class="article-content">
+                        <p>દેશની સૌથી મોટી ખાનગી બેંક HDFC ના ચેરપર્સન અતનુ ચક્રવર્તીએ અચાનક નૈતિક આધારો પર પોતાના પદેથી રાજીનામું આપી દેતાં બેંકિંગ સેક્ટરમાં મોટી હલચલ મચી ગઈ હતી. માર્કેટ સેન્ટિમેન્ટ અને લીડરશિપની સ્થિરતા જાળવવા માટે રિઝર્વ બેંક ઓફ ઇન્ડિયાએ (RBI) તાત્કાલિક પગલાં લઈ <span class="hl-yellow">કે.કે. મિસ્ત્રી</span> ને બેંકના વચગાળાના (Interim) ચેરપર્સન નિયુક્ત કર્યા છે. RBI એ તેમના સત્તાવાર કાર્યકાળને લંબાવીને <span class="hl-yellow">૧૮ સપ્ટેમ્બર ૨૦૨૬</span> સુધી મંજૂરી આપી દીધી છે.</p>
+                        <div class="additional-edge">
+                            <h4>📌 Additional Information & Exam Edge</h4>
+                            બેન્કિંગ રેગ્યુલેશન એક્ટ મુજબ, કોઈપણ શિડ્યુલ્ડ કમર્શિયલ બેંકમાં કોર્પોરેટ ગવર્નન્સના નિયમો જાળવવા અને રોકાણકારોનો ભરોસો કાયમ રાખવા માટે બોર્ડ ઓફ ડિરેક્ટર્સમાં ચેરમેનની હાજરી અનિવાર્ય છે.
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b4')">Back to Dashboard ↑</button>
+                </div>
+
+                <div class="article" id="art-b5">
+                    <div class="article-meta">વૈશ્વિક મની લોન્ડરિંગ વોચડોગ • ભારતનું પ્રતિનિધિત્વ • પેરિસ મુખ્યાલય</div>
+                    <h3>૫. ઇતિહાસમાં પ્રથમવાર ભારતને FATF સંસ્થાનું વાઇસ પ્રેસિડેન્સી પદ પ્રાપ્ત થયું</h3>
+                    <div class="article-content">
+                        <p>આંતરરાષ્ટ્રીય સ્તરે મની લોન્ડરિંગ અને ટેરર ફાઇનાન્સિંગ પર કડક નજર રાખતી વૈશ્વિક સંસ્થા ફાઇનાન્શિયલ એક્શન ટાસ્ક ફોર્સ (FATF) નું વાઇસ પ્રેસિડેન્ટ પદ ભારતને ફાળવવામાં આવ્યું છે. ભારતના વરિષ્ઠ સિવિલ સર્વન્ટ અને સંસ્કૃતિ મંત્રાલયના સેક્રેટરી <span class="hl-yellow">વિવેક અગ્રવાલ</span> જુલાઈ ૨૦૨૬ થી જૂન ૨૦૨૭ સુધી એક વર્ષના ગાળા માટે FATF ના વાઇસ પ્રેસિડેન્ટ તરીકે વૈશ્વિક કમાન્ડ સંભાળશે. ભારત આ સંસ્થાનું સભ્ય બન્યું ત્યારથી પ્રથમ વખત આ પદ મળ્યું છે. તેઓ યુકેના ગાઇસ થોમ્પસનનું સ્થાન લેશે.</p>
+                        <div class="additional-edge">
+                            <h4>📌 Additional Information & Exam Edge</h4>
+                            વિવેક અગ્રવાલ અગાઉ ભારતની અતિ મહત્વની એજન્સી ફાઇનાન્શિયલ ઇન્ટેલિજન્સ યુનિટ (FIU-IND) ના ડાયરેક્ટર તરીકે લાંબો અનુભવ ધરાવે છે. FATF નું મુખ્યાલય **પેરિસ (ફ્રાન્સ)** માં આવેલું છે અને તેમાં ૪૦ સભ્ય દેશો સામેલ છે.
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b5')">Back to Dashboard ↑</button>
+                </div>
+
+                <div class="article" id="art-b6">
+                    <div class="article-meta">આંતરરાષ્ટ્રીય પંચર્સ મુકાબલો • મેડલ ટેલી ડેટા • : સ્પોર્ટ્સ અચીવમેન્ટ</div>
+                    <h3>૬. : ચેક રિપબ્લિક ગ્રાન્ડ પ્રિકસ બોક્સિંગ ટૂર્નામેન્ટમાં ભારતીય ટીમે ૮ ગોલ્ડ મેડલ જીત્યા</h3>
+                    <div class="article-content">
+                        <p>ચેક રિપબ્લિક (ચેકિયા) ખાતે રમાયેલી પ્રતિષ્ઠિત 'ગ્રાન્ડ પ્રિકસ ઉસ્તી નાદ લાબેમ' આંતરરાષ્ટ્રીય બોક્સિંગ ચેમ્પિયનશિપમાં ભારતીય મુક્કાબાજોએ શાનદાર રમતનું પ્રદર્શન કરીને કુલ <span class="hl-yellow">૧૨ મેડલ્સ</span> દેશના નામે કર્યા છે. આ વિજયી મેડલ ટેલીમાં <span class="hl-yellow">૮ ગોલ્ડ મેડલ</span>, ૩ સિલ્વર અને ૧ બ્રોન્ઝ મેડલ સામેલ છે. ગોલ્ડ મેડલ જીતનારા અગ્રણી સ્ટાર ખેલાડીઓમાં ઓલિમ્પિક વિજેતા લવલીના બોરગોહેન, પ્રીતિ પવાર, સાક્ષી ચૌધરી, પ્રિયા, જાદુમણી સિંહ, સચિન, અંકુશ અને નરેન્દ્રનો સમાવેશ થાય છે.</p>
+                        <div class="additional-edge">
+                            <h4>📌 Additional Information & Exam Edge</h4>
+                            સ્પોર્ટ્સ સેક્શનના પ્રશ્નો માટે વિજેતા ખેલાડીઓના નામ અને રમતનો પ્રકાર (બોક્સિંગ) યાદ રાખવો જરૂરી છે. ચેક રિપબ્લિકમાં યોજાયેલી આ ટૂર્નામેન્ટ વૈશ્વિક સ્તરે 'ગ્રાન્ડ પ્રિકસ' તરીકે ઓળખાય છે.
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b6')">Back to Dashboard ↑</button>
+                </div>
+
+                <div class="article" id="art-b7">
+                    <div class="article-meta">મહિલા હોકી ગૌરવ • અજેય ચેમ્પિયન રોડમેપ • પ્લેયર ઓફ ધ મેચ</div>
+                    <h3>૭. ભારતીય મહિલા હોકી ટીમે ન્યુઝીલેન્ડને ફાઇનલમાં માત આપી FIH નેશન્સ કપ જીત્યો</h3>
+                    <div class="article-content">
+                        <p>ન્યુઝીલેન્ડના ઓકલેન્ડ ખાતે રમાયેલી રોમાંચક ફાઇનલ મેચમાં ભારતીય મહિલા હોકી ટીમે યજમાન ન્યુઝીલેન્ડની ટીમને પરાજય આપીને બીજી વખત <span class="hl-yellow">FIH વિમેન્સ નેશન્સ કપ</span> નો ખિતાબ જીતી લીધો છે. ભારતીય ટીમ આખી ટૂર્નામેન્ટમાં એક પણ મેચ હાર્યા વિના અજેય રહીને ફાઇનલમાં પહોંચી હતી. ફાઇનલ મેચમાં શાનદાર પ્રદર્શન કરનાર ફોરવર્ડ પ્લેયર લાલરેમસિયામીને 'પ્લેયર ઓફ ધ મેચ' જાહેર કરાઇ હતી, જ્યારે દીપિકાએ ટૂર્નામેન્ટમાં સૌથી વધુ ૬ ગોલ કર્યા હતા.</p>
+                        <div class="additional-edge">
+                            <h4>📌 Additional Information & Exam Edge</h4>
+                            આ અગાઉ ભારતે વર્ષ ૨૦૨૨ માં સ્પેน ખાતે રમાયેલા પ્રથમ નેશન્સ કપમાં આ ટાઇટલ જીત્યું હતું. બીજી વખત ૨૦૨૬ માં ન્યુઝીલેન્ડ ખાતે આ સિદ્ધિ મેળવી હોકી પ્રો-લીગ માટે ક્વોલિફિકેશન મજબૂત કર્યું છે.
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b7')">Back to Dashboard ↑</button>
+                </div>
+
+                <div class="article" id="art-b8">
+                    <div class="article-meta">ભાલાફેંક એથ્લેટિક્સ • ઇન્જરી બાદ વાપસી • : કોમનવેલ્થ ક્વોલિફિકેશન</div>
+                    <h3>૮. નીરજ ચોપરા દોહા ડાયમંડ લીગ જેવલિન થ્રો ઇવેન્ટમાં ચોથા ક્રમે રહ્યા</h3>
+                    <div class="article-content">
+                        <p>ભારતના ઓલિમ્પિક ગોલ્ડ મેડલિસ્ટ સ્ટાર જેવલિન થ્રોઅર નીરજ ચોપરા આશરે ૮ મહિનાના લાંબા ઇન્જરી બ્રેક અને રિકવરી બાદ ટ્રેક પર પરત ફર્યા છે. દોહા ડાયમંડ લીગમાં રમાયેલી આંતરરાષ્ટ્રીય સ્પર્ધામાં તેઓ સામાન્ય અંતરથી પોડિયમ ફિનિશ (ટોપ ૩) ચૂકી ગયા હતા અને <span class="hl-yellow">ચોથા સ્થાને</span> રહ્યા હતા. જો કે, આ વાપસી મેચમાં જ તેમણે આગામી <span class="hl-yellow">૨૦૨૬ કોમનવેલ્થ ગેમ્સ (CWG)</span> માટેનું સત્તાવાર ક્વોલિફિકેશન સ્ટાન્ડર્ડ સફળતાપૂર્વક હાંસલ કરી લીધું છે.</p>
+                        <div class="additional-edge">
+                            <h4>📌 Additional Information & Exam Edge</h4>
+                            આ સ્પર્ધામાં શ્રીલંકાના ઝડપથી ઉભરી રહેલા નવા જેવલિન ખેલાડી રમેશ તરંગા પથિરાના પણ ભારે ચર્ચામાં રહ્યા છે, જેઓ ભવિષ્યમાં નીરજ ચોપરા માટે એશિયન સ્તરે મોટા પ્રતિસ્પર્ધી તરીકે જોવામાં આવી રહ્યા છે.
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b8')">Back to Dashboard ↑</button>
+                </div>
+
+                <div class="article" id="art-b9">
+                    <div class="article-meta">પાયાનું શિક્ષણ રક્ષણ • નોર્વે શૈક્ષણિક મોડેલ • વૈશ્વિક પ્રથમ દેશ નિયમ</div>
+                    <h3>૯. નોર્વે સરકારે પ્રાથમિક શાળાઓમાં સર્જનાત્મકતા બચાવવા જનરેટિવ AI ટૂલ્સ પર બેન મૂક્યો</h3>
+                    <div class="article-content">
+                        <p>ટેકનોલોજીના અતિરેક વચ્ચે બાળકોના પાયાના લર્નિંગ અને ઓરિજિનલ હેન્ડ-રિટન સર્જનાત્મક વિકાસ પર પડતી નકારાત્મક અસરો અટકાવવા માટે નોર્વેના વડાપ્રધાને મોટો નિર્ણય લીધો છે. નોર્વેમાં ધોરણ ૧ થી ૭ (ઉંમર ૬ થી ૧૩ વર્ષ) સુધીના પ્રાથમિક શાળાના વિદ્યાર્થીઓ માટે <span class="hl-yellow">જનરેટિવ AI ટૂલ્સના ઉપયોગ પર સંપૂર્ણ પ્રતિબંધ</span> મૂકવામાં આવ્યો છે. આ નવો નિયમ ઓગસ્ટ ૨૦૨૬ થી કડક રીતે લાગુ કરાશે. નોર્વે પ્રારંભિક શિક્ષણમાં AI નિયંત્રિત કરનારો વિશ્વનો પ્રથમ દેશ બન્યો છે.</p>
+                        <div class="additional-edge">
+                            <h4>📌 Additional Information & Exam Edge</h4>
+                            નોર્વેના નવા શૈક્ષણિક સ્ટાન્ડર્ડ મુજબ: ૬ થી ૧૩ વર્ષ (પ્રાથમિક) સંપૂર્ણ બેન, ૧૪ થી ૧૬ વર્ષ (લોઅર સેકન્ડરી) શિક્ષકની કડક દેખરેખ હેઠળ મર્યાદિત લર્નિંગ ઉપયોગ, અને ૧૭ થી ૧૯ વર્ષના વિદ્યાર્થીઓ માટે હાયર એજ્યુકેશન અને કરિયર બિલ્ડિંગ માટે એઆઈ વાપરવાની સક્રિય છૂટ અપાઈ છે.
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b9')">Back to Dashboard ↑</button>
+                </div>
+
+                <div class="article" id="art-b10">
+                    <div class="article-meta">અમેરિકી પ્રમુખ વિમાન • ફ્લાઇંગ વ્હાઇટ હાઉસ • ડિપ્લોમેટિક ગિફ્ટ</div>
+                    <h3>૧૦. : કતાર દેશે યુએસ પ્રેસિડેન્ટ ડોનાલ્ડ ટ્રમ્પને નવું વૈભવી એરફોર્સ વન જહાજ ભેટ આપ્યું</h3>
+                    <div class="article-content">
+                        <p>અમેરિકાના પ્રમુખ ડોનાલ્ડ ટ્રમ્પે મેરીલેન્ડ ખાતે યોજાયેલા સત્તાવાર લશ્કરી સમારોહમાં કતાર દેશ તરફથી ભેટ સ્વરૂપે મળેલા નવા રિફર્બિશ્ડ પ્રમુખપદના વિમાનનું અનાવરણ કર્યું છે. આ એક અત્યંત વૈભવી અને ટેકનોલોજીથી સજ્જ <span class="hl-yellow">બોઇંગ 747-8i જેેટ વિમાન</span> છે, જે અગાઉ કતારના અમીર (શાહી પરિવાર) ની માલિકીનું હતું. આ વિમાનને નૌકાદળ અને એરફોર્સની કમાન્ડ સિસ્ટમ સાથે જોડીને હવામાં ઉડતા <span class="hl-yellow">ફ્લાઇંગ વ્હાઇટ હાઉસ</span> માં બદલવામાં આવ્યું છે, જેથી જૂના પ્લેનનું ઓપરેશનલ દબાણ ઘટે.</p>
+                        <div class="additional-edge">
+                            <h4>📌 Additional Information & Exam Edge</h4>
+                            વૈશ્વિક ડિપ્લોમસીમાં અમેરિકી રાષ્ટ્રપતિ જે સત્તાવાર પ્લેન દ્વારા મુસાફરી કરે છે તેને સુરક્ષા એજન્સીઓ દ્વારા સત્તાવાર કોડનેમ <strong>Air Force One</strong> આપવામાં આવે છે, જે વિશ્વનું સૌથી અભેદ્ય અને સુરક્ષિત વિમાન મનાય છે.
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b10')">Back to Dashboard ↑</button>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <div id="quiz-view-panel">
+        <div class="quiz-container">
+            
+            <div id="quiz-active-questions-frame-block">
+                <div class="quiz-header">
+                    <div>
+                        <h2>THE MAULIK EXPRESS QUIZ</h2>
+                        <p style="font-size:0.8rem; color:var(--text-muted);" id="quiz-step-progress-label">Question 1 of 25</p>
+                    </div>
+                    <div style="display:flex; gap:10px; align-items:center;">
+                        <div class="score-box">Score: <span id="live-score-counter">0</span> / 25</div>
+                        <button class="btn-exit-quiz" onclick="switchBackToNewsMode()">← Exit</button>
+                    </div>
+                </div>
+                
+                <div id="quiz-questions-loader-target"></div>
+
+                <div class="quiz-nav-btn-group">
+                    <button class="btn-quiz-nav btn-quiz-prev" id="quiz-prev-action-btn" onclick="goToPrevQuizQuestion()" disabled>← Previous</button>
+                    <button class="btn-quiz-nav btn-quiz-next" id="quiz-next-action-btn" onclick="goToNextQuizQuestion()">Next →</button>
+                </div>
+            </div>
+
+            <div id="quiz-result-final-pane">
+                <h3>🎉 અભિનંદન! તમે ટેસ્ટ પૂર્ણ કરી છે</h3>
+                <p style="color:var(--text-muted); font-size:0.95rem;" id="final-result-user-name-label">👤 વિદ્યાર્થી: Maulik</p>
+                
+                <div class="final-score-display-card">
+                    <span id="final-score-digits">0</span> <span style="font-size:1.5rem; color:#64748b;">/ 25</span>
+                </div>
+                
+                <p style="font-size:0.9rem; color:#475569; max-width:500px; margin:0 auto 15px auto;">તમારું પરિણામ સેવ કરવા અને મોલિક સરના વૉટ્સએપ નંબર પર સબમિટ કરવા નીચેના લીલા બટન પર ક્લિક કરો.</p>
+                
+                <button class="btn-submit-whatsapp-final" onclick="sendResultToWhatsApp()">
+                    💬 Submit Result to WhatsApp
+                </button>
+                
+                <div style="margin-top: 25px;">
+                    <button class="btn-exit-quiz" style="background:var(--bg-dark); padding:10px 20px;" onclick="switchBackToNewsMode()">ન્યૂઝ પેજ પર પાછા જાઓ</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="flash-modal" onclick="closeModal(event)">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModalForce()">×</button>
+            <img src="" alt="Context Visual" class="modal-img" id="modal-img-element">
+            <div class="modal-body" id="modal-body-content"></div>
+        </div>
+    </div>
+
+    <script>
+        const mindmapData = {
+            m1: {
+                title: "વર્લ્ડ બેંક હરિયાણા વોટર પ્રોજેક્ટ રોડમેપ",
+                img: "https://images.unsplash.com/photo-1581242163695-19d0acfd486f?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "વર્લ્ડ બેંક દ્વારા જલ સંરક્ષિત હરિયાણા પ્રોજેક્ટ માટે રૂ. ૪,૦૦૦ કરોડની સહાય મંજૂર કરાઈ.",
+                    "પ્રોજેક્ટનું કુલ કદ રૂ. ૫,૭૧૪ કરોડ છે અને તે ૬ વર્ષના ગાળા (૨૦૨૬-૨૦૩૨) માટે અમલી રહેશે.",
+                    "સમગ્ર હરિયાણા રાજ્યને સત્તાવાર રીતે ૧૫ વિશિષ્ટ વહીવટી ક્લસ્ટર્સમાં વહેંચવામાં આવ્યું છે.",
+                    "મુખ્ય ફોકસ એગ્રીકલ્ચર રિફોર્મ્સ (કૃષિ સુધારણા) અને વોટર કન્ઝર્વેશન (જળ સંરક્ષણ) પર રહેશે."
+                ],
+                edge: "📌 Core Message: હરિયાણામાં ભૂગર્ભ જળ સ્તર સુધારવા માટે વર્લ્ડ બેંકનું મોટું આંતرરાષ્ટ્રીય રોકાણ."
+            },
+            m2: {
+                title: "નિર્ભયા ચેતના રાષ્ટ્રીય જાગૃતિ અભિયાન",
+                img: "https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "કેન્દ્રીય પંચાયતી રાજ મંત્રાલય દ્વારા પંચાયત સ્તરે આ મોટું અભિયાન શરૂ કરવામાં આવ્યું છે.",
+                    "૧૧ માર્ચ ૨૦૨૬ ના 'નિર્ભય રહો' મુખ્ય કાર્યક્રમ અંતર્ગત આ એક મહત્વનો પેટા-સ્તંભ છે.",
+                    "તાર્ગેટ: ગ્રામ પંચાયતોમાં ચૂંટણી જીતીને આવેલા આશરે ૧૭.૫ લાખ પુરુષ પ્રતિનિધિઓ સુધી સંવેદનશીલતા પહોંચાડવી.",
+                    "પ્રથમ તબક્કામાં અસમ, છત્તીસગઢ, હિમાચલ, มહારાષ્ટ્ર, ઓડિશા અને ઝારખંડ એમ ૬ રાજ્યો સામેલ."
+                ],
+                edge: "📌 Core Message: ગ્રામીણ સ્થાનિક સ્વરાજ્યની સંસ્થાઓમાં સમાનતા અને સુરક્ષાનું માળખું મજબૂત કરવું."
+            },
+            m3: {
+                title: "નૌસેના ઇતિહાસ - 3 જહાજોનું એકસાથે કમિશનિંગ",
+                img: "https://images.unsplash.com/photo-1507682531662-421b17ac4f31?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "PM નરેન્દ્ર મોદીએ કોલકાતાના શ્યામાપ્રસાદ મુખર્જી પોર્ટ પરથી જહાજો સેવામાં સામેલ કર્યા.",
+                    "સામેલ કરાયેલા ત્રણ જહાજોના નામ: INS દૂનાગિરી, INS સંશોધક અને INS અગ્રય છે.",
+                    "આ ત્રણેય અત્યાધુનિક જહાજોનું નિર્માણ કોલકાતા સ્થિત ડિફેન્સ PSU કંપની GRSE દ્વારા કરાયું છે.",
+                    "દૂનાગિરી એ પ્રોજેક્ટ 17A ફ્રિગેટ છે અને અગ્રય એ અર્નાલા ક્લાસનું એન્ટી-સબમરીન ક્રાફ્ટ છે."
+                ],
+                edge: "📌 Core Message: મેક ઇન ઇન્ડિયા ડિફેન્સ ઇનિશિયેટિવ હેઠળ દરિયાઈ સુરક્ષા ક્ષેત્રે ભારતની ઐતિહાસિક સ્વાયત્તતા."
+            },
+            m4: {
+                title: "દેશનો પ્રથમ કોલ-ટુ-એમોનિયમ નાઈટ્રેટ પ્રોજેક્ટ",
+                img: "https://images.unsplash.com/photo-1518744008436-713346a41d6d?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "ઓડિશાના ઝારસુગુડા જિલ્લાના લખનપુર ખાતે દેશના પ્રથમ કમર્શિયલ પ્લાન્ટનો શિલાન્યાસ.",
+                    "રૂ. ૨૫,૦૦૦ કરોડના તોતિંગ રોકાણ સાથે ભવ્ય પ્રોજેક્ટ સાકાર કરવામાં આવી રહ્યો છે.",
+                    "BHEL અને કોલ ઇન્ડિયા લિમિટેડ (CIL) ના ઓફિશિયલ જોઈન્ટ વેન્ચર BCGCL દ્વારા નિર્માણ.",
+                    "આ પ્લાન્ટ દૈનિક ૨,૦૦૦ ટન એમોનિયમ નાઈટ્રેટનું ઉત્પાદન કરશે, જેમાં ભેલની ટેકનોલોજી વપરાશે."
+                ],
+                edge: "📌 Core Message: કોલસાનો સ્વચ્છ ઉપયોગ કરીને ઔદ્યોગિક કેમિકલ્સ અને ખાતરમાં દેશને આત્મનિર્ભર બનાવવો."
+            },
+            m5: {
+                title: "NIXI 4 નવા ડિજિટલ પોર્ટલ્સ લોન્ચ મેટ્રિક્સ",
+                img: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "NIXI એ ૧૯ જૂને દેશના આઇટી મંત્રાલય હેઠળ પોતાનો ૨૩મો સ્થાપના દિવસ મનાવ્યો.",
+                    "નવા પોર્ટલ્સ: WHOIS એઆઈ સ્ક્રીનિંગ, IX પોર્ટલ વિઝિબિલિટી, MyIRINN IP મેનેજમેન્ટ અને .IN ઓક્શન.",
+                    "હાલમાં ભારતમાં ૩.૯ મિલિયન એક્ટિવ .IN ડોમેન્સ ૨૨ સત્તાવાર ભાષાઓમાં સંચાલિત થાય છે.",
+                    "ડિજિટલ ઈન્ફ્રાસ્ટ્રક્ચર મજબૂત કરવા દેશે ૭૮.૩૪% જેટલું ઊંચું IPv6 પેનિટ્રેશન હાંસલ કર્યું છે."
+                ],
+                edge: "📌 Core Message:  ઇન્ટરનેટ ઇકોસિસ્ટમને સાયબર સાયન્સ સ્ટાન્ડર્ડ મુજબ પારદર્શક અને સુરક્ષિત બનાવવું."
+            },
+            b1: {
+                title: "I4C સાયબર સિક્યુરિટી નવા પોર્ટલ્સ",
+                img: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "ગૃહ મંત્રાલય હેઠળ કાર્યરત I4C એ સાયબર ગુનાના ભોગ બનેલા નાગરિકો માટે બે નવી સિસ્ટમ શરૂ કરી.",
+                    "ભૂલથી ફ્રીઝ થયેલા ખાતા અનફ્રીઝ કરવા ગ્રીવાન્સ રિડ્રેસલ અને નાણાં પરત મેળવવા મની રિસ્ટોરેશન મોડ્યુલ લોન્ચ."
+                ],
+                edge: "📌 Core Message: બેંકો અને પોલીસ વચ્ચે સંકલન વધારીને નાગરિકોના નાણાકીય હિતોનું રક્ષણ કરવું."
+            },
+            b2: {
+                title: "MoSPI 'સ્ટેટેથોન' નેશનલ હેકેથોн",
+                img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "MoSPI ના NSO દ્વારા શિક્ષણ મંત્રાલયના ઇનોવેશન સેલ સાથે મળીને ૩૬ કલાકની સ્પર્ધા યોજાઈ.",
+                    "ડેટા-ડ્રિવન સોલ્યુશન્સ શોધવા ૨૫ ફાઇનલિસ્ટ ટીમો વચ્ચે ૫ પ્રોબ્લેમ ડોમેન્સમાં મુકાબલો થયો."
+                ],
+                edge: "📌 Core Message: દેશની સત્તાવાર આંકડાકીય પ્રણાલીને આધુનિક ટેકનોલોજી દ્વારા મજબૂત બનાવવી."
+            },
+            b3: {
+                title: "ITLOS આંતરરાષ્ટ્રીય જજ નિયુક્તિ",
+                img: "https://images.unsplash.com/photo-1436450412740-6b988f486c6b?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "ભારતના કાનૂની નિષ્ણાત પ્રોફેસર વિમલ એન. પટેલ વૈશ્વિક આંતرરાષ્ટ્રીય સમુદ્રી કાયદા અદાલતના જજ તરીકે ચૂંટાયા.",
+                    "તેમનો કાર્યકાળ ૨૦૨૬ થી ૨૦૩૫ સુધી ૯ વર્ષ માટે રહેશે. તેઓ નીરુ ચઢ્ઢાનું સ્થાન લેશે.",
+                    "ITLOS નું કાયમી મુખ્યાલય હેમ્બર્ગ, જર્મની ખાતે આવેલું છે અને તેમાં કુલ ૨૧ જજ હોય છે."
+                ],
+                edge: "📌 Core Message: વૈશ્વિક સમુદ્રી સીમા અને કાયદા (UNCLOS) ની અદાલતમાં ભારતનું ગૌરવપૂર્ણ પ્રતિનિધિત્વ."
+            },
+            b4: {
+                title: "HDFC બેંક કોર્પોરેટ ગવર્નન્સ લીડરશિપ",
+                img: "https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "અતનુ ચક્રવર્તીના અણધાર્યા રાજીનામા બાદ RBI એ સ્થિરતા માટે વચગાળાના ચેરપર્સનની નિયુક્તિ કરી.",
+                    "કે.કે. મિસ્ત્રીના કાર્યકાળને લંબાવીને ૧૮ સપ્ટેમ્બર ૨૦૨૬ સુધી કમાન્ડ સોંપવા સેન્ટ્રલ બેંકની મંજુરી."
+                ],
+                edge: "📌 Core Message: બેંકિંગ ગવર્નન્સ પ્રોટોકોલ જાળવવા અને રોકાણકારોનો ભરોસો કાયમ રાખવાનો નિર્ણય."
+            },
+            b5: {
+                title: "FATF ઇતિહાસ - ભારતને વાઇસ પ્રેસિડેન્સી પદ",
+                img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "ભારત સભ્ય બન્યું ત્યારથી પ્રથમ વખત મની લોન્ડરિંગ વોચડોગ સંસ્થામાં વાઇસ પ્રેસિડેન્ટનું પદ મળ્યું છે.",
+                    "વરિષ્ઠ અધિકારી વિવેક અગ્રવાલ જુલાઈ ૨૦૨૬ થી એક વર્ષ માટે આ ગ્લોબલ પોસ્ટ સંભાળશે.",
+                    "તેઓ યુકેના ગાઇસ થોમ્પસનનું સ્થાન લેશે. FATF નું હેડક્વાર્ટર પેરિસમાં આવેલું છે."
+                ],
+                edge: "📌 Core Message: આંતરરાષ્ટ્રીય સ્તરે ટેરર ફાઇનાન્સિંગ રોકવાની નીતિઓમાં ભારતની કેન્દ્રીય ભૂમિકા."
+            },
+            b6: {
+                title: "ગ્રાન્ડ પ્રિકસ બોક્સિંગ ચેમ્પિયનશિપ મેડલ્સ",
+                img: "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "ચેક રિપબ્લિકમાં આયોજિત ગ્રાન્ડ પ્રિકસ ટૂર્નામેન્ટમાં ભારતીય મુક્કાબાજોએ ઇતિહાસ રચ્યો છે.",
+                    "ભારતીય ટીમે શાનદાર પંચર્સનું પ્રદર્શન કરી કુલ ૧૨ મેડલ (૮ ગોલ્ડ, ૩ સિલ્વર, ૧ બ્રોન્ઝ) જીત્યા.",
+                    "સ્ટાર બોક્સર લવલીના બોરગોહેન અને પ્રીતિ પવારે ગોલ્ડ મેડલ જીતી દેશનું નામ રોશન કર્યું."
+                ],
+                edge: "📌 Core Message: આંતરરાષ્ટ્રીય સ્પોર્ટ્સ ઇવેન્ટમાં ભારતીય બોક્સિંગ ખેલાડીઓનો વૈશ્વિક દબદબો."
+            },
+            b7: {
+                title: "FIH વિમેન્સ નેશન્સ કપ હોકી ગૌરવ",
+                img: "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "ભારતીય મહિલા હોકી ટીમે ઓકલેન્ડ ફાઇનલમાં યજમાન ન્યુઝીલેન્ડને hરાવી ખિતાબ જીત્યો છે.",
+                    "આખી ટૂર્નામેન્ટમાં ભારત અજેય રહ્યું. ફોરવર્ડ લાલરેમસિયામી ફાઇનલમાં પ્લેયર ઓફ ધ મેચ બની.",
+                    "ભારતે ઇતિહાસમાં આ બીજી વાર ટાઇટલ જીત્યું છે (આ અગાઉ ૨૦૨૨ માં સ્પેન ખાતે જીત્યું હતું)."
+                ],
+                edge: "📌 Core Message: મહિલા હોકી ક્ષેત્રે ભારતની વધતી શક્તિ અને પ્રો-લીગ માટે મજબૂત દાવેદારી."
+            },
+            b8: {
+                title: "નીરજ ચોપરા જેવલિન થ્રો વાપસી રોડમેપ",
+                img: "https://images.unsplash.com/photo-1599586120429-902f6f26197b?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "૮ મહિનાના લાંબા ઇન્જરી બ્રેક બાદ દેશના આઇકોન નીરજ ચોપરાએ મેદાન પર વાપસી કરી છે.",
+                    "દોહા ડાયમંડ લીગ સ્પર્ધામાં તેઓ ચોથા ક્રમે રહ્યા પરંતુ ૨૦૨૬ CWG માટે ઓફિશિયલ ક્વોલિફિકેશન મેળવ્યું.",
+                    "શ્રીલંકાના ખેલાડી રમેશ તરંગા પથિરાના જેવલિન ઇવેન્ટમાં નવા પ્રતિસ્પર્ધી તરીકે ઉભરી રહ્યા છે."
+                ],
+                edge: "📌 Core Message: ઇન્જરીમાંથી સાજા થઇને સીધા વૈશ્વિક ટ્રેક પર સચોટ લક્ષ્ય હાંસલ કરવાની ક્ષમતા."
+            },
+            b9: {
+                title: "નોર્વે પ્રાથમિક શાળાઓમાં AI ટૂલ્સ પ્રતિબંધ",
+                img: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "નોર્વે સરકારે ધોરણ ૧ થી ૭ (૬ થી ૧૩ વર્ષ) ના બાળકો માટે જનરેટિવ AI ના ઉપયોગ પર બેન મૂક્યો.",
+                    "હેતુ: બાળકોની મૌલિક સર્જનાત્મકતા, વિચારવાની શક્તિ અને હેન્ડ-રિટન લર્નિંગ પ્રોસેસ બચાવવી.",
+                    "નોર્વે પ્રારંભિક શિક્ષણમાં ટેકનોલોજીના અતિરેક સામે નિયમો બનાવનારો વિશ્વનો પ્રથમ દેશ બન્યો."
+                ],
+                edge: "📌 Core Message: પાયાના શૈક્ષણિક વિકાસને AI ડિપેન્ડન્સીના નકારાત્મક પ્રભાવોથી સુરક્ષિત રાખવો."
+            },
+            b10: {
+                title: "યુએસ પ્રેસિડેન્ટ નવું એરફોર્સ વન પ્લેન",
+                img: "https://images.unsplash.com/photo-1540962351504-03099e0a754b?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "કતાર દેશ દ્વારા અમેરિકી પ્રમુખ ડોનાલ્ડ ટ્રમ્પને નવું વૈભવી જેેટ વિમાન ભેટ આપવામાં આવ્યું છે.",
+                    "બોઇંગ 747-8i જેેટ વિમાનને સંપૂર્ણ હાઇટેક લશ્કરી સુવિધાઓ સાથે રિમોડેલ કરાયું છે.",
+                    "આ જહાજ અમેરિકી રાષ્ટ્રપતિ માટે હવામાં ઉડતા 'ફ્લાઇંગ વ્હાઇટ હાઉસ' તરીકે સત્તાવાર સેવા આપશે."
+                ],
+                edge: "📌 Core Message: વૈશ્વિક ડિપ્લોમસી અને એરફોર્સ સુરક્ષા પ્રોટોકોલનું સર્વોચ્ચ અભેદ્ય ઉદાહરણ."
+            }
+        };
+
+        const onelinerData = [
+            "વર્લ્ડ બેંકે હરિયાણાના જલ સંરક્ષણ અને કૃષિ સુધારા પ્રોજેક્ટ માટે રૂ. ૪,૦૦0 કરોડનું ભંડોળ મંજૂર કર્યું છે.",
+            "જલ સંરક્ષિત હરિયાણા પ્રોજેક્ટની કુલ કિંમત રૂ. ૫,૭૧૪ કરોડ છે અને તે ૬ વર્ષ (૨૦૨૬-૨૦३૨) માટે અમલી રહેશે.",
+            "પંચાયતી રાજ મંત્રાલયે 'નિર્ભય રહો' યોજના હેઠળ પુરુષ સભ્યો માટે 'નિર્ભયા ચેતના' રાષ્ટ્રીય ટ્રેનિંગ શરૂ કરી.",
+            "રાષ્ટ્રીય નિર્ભયા ચેતના અભિયાન અંતર્ગત દેશભરમાં ગ્રાઉન્ડ લેવલે ૨૮,૫૦0 માસ્ટર ટ્રેનર્સ તૈયાર કરાશે.",
+            "PM નરેન્દ્ર મોદીએ કોલકાતામાં એકસાથે ૩ નેવલ જહાજો INS દૂનાગિરી, સંશોધક અને અગ્રય દેશ સેવામાં સામેલ કર્યા.",
+            "આ ત્રણેય યુદ્ધજહાજોનું સંપૂર્ણ નિર્માણ કોલકાતા સ્થિત જાણીતી ડિફેન્સ PSU કંપની GRSE દ્વારા કરાયું છે.",
+            "ઓડિશાના ઝારસુગુડા લખનપુર ખાતે દેશના પ્રથમ કોમર્શિયલ સ્કેલ કોલ-ટુ-એમોનિયમ નાઈટ્રેટ પ્લાન્ટની નીવ રખાઈ.",
+            "આ પ્લાન્ટ રૂ. ૨૫,૦૦૦ કરોડના ખર્ચે BHEL અને કોલ ઇન્ડિયાના સંયુક્ત સાહસ BCGCL દ્વારા બનાવવામાં આવશે.",
+            "NIXI એ તેના ૨૩મા સ્થાપના દિવસે ઇન્ટરનેટ સુરક્ષા માટે WHOIS સ્ક્રીનિંગ અને ઓક્શન સહિત 4 પોર્ટલ લોન્ચ કર્યા.",
+            "નેશનલ સ્પોર્ટ્સ બોર્ડ (NSB) ના સભ્યોની ભલામણ કરવા કેબિનેટ સેક્રેટરી ટી.વી. સોમનાથનની અધ્યક્ષતામાં કમિટી ગઠિત.",
+            "I4C એ સાયબર ફ્રોડના ખાતા અનફ્રીઝ કરવા ગ્રીવાન્સ રિડ્રેસલ અને નાણાં પરત મેળવવા મની રિસ્ટોરેશન પોર્ટલ લોન્ચ કર્યા.",
+            "પ્રોફેસર વિમલ એન. પટેલ જર્મની સ્થિત આંતરરાષ્ટ્રીય સમુદ્રી કાયદા અદાલત (ITLOS) ના જજ તરીકે ૯ વર્ષ માટે ચૂંટાયા.",
+            "HDFC બેંકના અતનુ ચક્રવર્તીના રાજીનામા બાદ RBI એ કે.કે. મિસ્ત્રીનો કાર્યકાળ ૧૮ સપ્ટેમ્બર ૨૦૨૬ સુધી એક્સટેન્ડ કર્યો.",
+            "વરિષ્ઠ અધિકારી વિવેક અગ્રવાલ વૈશ્વિક મની લોન્ડરિંગ વોચડોગ સંસ્થા FATF ના વાઇસ પ્રેસિડેન્ટ તરીકે નિયુક્ત થયા.",
+            "ભારતીય મહિલા હોકી ટીમે ન્યુઝીલેન્ડને ફાઇનલમાં માત આપીને ઇતિહાસમાં બીજી વખત FIH નેશન્સ કપ જીત્યો છે.",
+            "노ર્વે સરકારે પ્રાથમિક શાળાના બાળકોની મૌલિક સર્જનાત્મકતા બચાવવા જનરેટિવ AI ટૂલ્સ પર સંપૂર્ણ બેન મૂક્યો."
+        ];
+
+        function openOneLinerModal() {
+            document.getElementById('modal-img-element').src = "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=600&q=80";
+            let htmlContent = `<h2>⚡ TME Quick One-Liners Bulletins</h2><ol class="oneliner-node">`;
+            onelinerData.forEach(bullet => { htmlContent += `<li>${bullet}</li>`; });
+            htmlContent += `</ol>`;
+            document.getElementById('modal-body-content').innerHTML = htmlContent;
+            document.getElementById('flash-modal').style.display = 'flex';
+        }
+
+        function openFlashCard(id) {
+            const data = mindmapData[id];
+            if (!data) return;
+            document.getElementById('modal-img-element').src = data.img;
+            let htmlContent = `<h2>${data.title}</h2><ul class="mindmap-node">`;
+            data.nodes.forEach(node => { htmlContent += `<li>${node}</li>`; });
+            htmlContent += `</ul>`;
+            if (data.edge) { htmlContent += `<div class="modal-edge-box">${data.edge}</div>`; }
+            document.getElementById('modal-body-content').innerHTML = htmlContent;
+            document.getElementById('flash-modal').style.display = 'flex';
+        }
+
+        function closeModal(e) { if (e.target.id === 'flash-modal') { document.getElementById('flash-modal').style.display = 'none'; } }
+        function closeModalForce() { document.getElementById('flash-modal').style.display = 'none'; }
+        function focusDetail(cardId) { lastActiveCardId = cardId; }
+
+        function returnToDashboard(targetId) {
+            const currentCardId = targetId || lastActiveCardId;
+            if (!currentCardId) { scrollToDashboard(); return; }
+            const cardElement = document.getElementById(currentCardId);
+            if (cardElement) {
+                cardElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                cardElement.classList.add('box-highlight-effect');
+                setTimeout(() => { cardElement.classList.remove('box-highlight-effect'); }, 2000);
+            }
+        }
+
+        function scrollToDashboard() { document.getElementById('dashboard').scrollIntoView({ behavior: 'smooth' }); }
+
+        const quizDatabase = [
+            {
+                q: "1. તાજેતરમાં વર્લ્ડ બેંકે જલ સંરક્ષિત હરિયાણા પ્રોજેક્ટ માટે કેટલા કરોડ રૂપિયાની લોન મંજૂર કરી છે?",
+                o: ["રૂ. ૨,૫૦૦ કરોડ", "રૂ. ૩,૫૦૦ કરોડ", "રૂ. ૪,૦૦૦ કરોડ", "રૂ. ૫,૭૧૪ કરોડ"],
+                a: 2,
+                exp: "વર્લ્ડ બેંકે જલ સંરક્ષિત હરિયાણા પ્રોજેક્ટ માટે રૂ. ૪,૦૦૦ કરોડ મંજૂર કર્યા છે, જ્યારે પ્રોજેક્ટનું કુલ બજેટ રૂ. ૫,૭૧૪ કરોડ છે."
+            },
+            {
+                q: "2. વર્લ્ડ બેંક દ્વારા સહાયિત હરિયાણાનો વોટર પ્રોજેક્ટ કેટલા વર્ષના સમયગાળા (ટર્મ) માટે ડિઝાઇન કરાયો છે?",
+                o: ["૪ વર્ષ", "૫ વર્ષ", "૬... વર્ષ", "૮... વર્ષ"],
+                a: 2,
+                exp: "આ પ્રોજેક્ટ ૨૦૨૬ થી ૨૦૩૨ સુધીના કુલ ૬ વર્ષના સમયગાળા માટે અમલી રહેશે અને રાજ્યને ૧૫ ક્લસ્ટર્સમાં વહેંચાશે."
+            },
+            {
+                q: "3. પંચાયતી રાજ મંત્રાલય દ્વારા લોન્ચ કરાયેલ 'નિર્ભયા ચેતના' અભિયાન મુખ્યત્વે કોના વિચારો બદલવા પર કેન્દ્રિત છે?",
+                o: ["ગ્રામીણ શાળાના શિક્ષકો", "ચૂંટાયેલા પુરુષ પંચાયત પ્રતિનિધિઓ", "પંચાયતની મહિલા સભ્યો", "જિલ્લા વિકાસ અધિકારીઓ"],
+                a: 1,
+                exp: "આ અભિયાન હેઠળ પંચાયતોના આશરે ૧૭.૫... લાખ પુરુષ પ્રતિનિધિઓ સુધી મહિલા સુરક્ષા અને લિંગ સમાનતા અંગે જાગૃતિ લાવવાની છે."
+            },
+            {
+                q: "4. ૧૧ માર્ચ ૨૦૨૬ ના રોજ નિર્ભયા ફંડ હેઠળ કયો મુખ્ય વ્યાપક પ્રોગ્રામ લોન્ચ કરાયો હતો, જેનો પિલર નિર્ભયા ચેતના છે?",
+                o: ["નિર્ભય રહો", "નારી શક્તિ પંચાયત", "મહિલા દ્રષ્ટિ મિશન", "સક્ષમ નેત્રી અભિયાન"],
+                a: 0,
+                exp: "મુખ્ય પ્રોગ્રામનું નામ 'નિર્ભય રહો' છે, જેના ત્રણ પેટા-પિલર તરીકે ચેતના, નેત્રી અને દ્રષ્ટિ કાર્ય કરે છે."
+            },
+            {
+                q: "5. 'નિર્ભય રહો' પ્રોગ્રામનો કયો પિલર ગ્રામીણ પંચાયતોના સંવેદનશીલ સ્થળો પર CCTV કેમેરા લગાવવા સાથે સંબંધિત છે?",
+                o: ["નેત્રી પિલર", "ચેતના પિલર", "દ્રષ્ટિ પિલર", "શક્તિ પિલર"],
+                a: 2,
+                exp: "દ્રષ્ટિ પિલર હેઠળ ગ્રામીણ પંચાયતોમાં સુરક્ષા અને દેખરેખ વધારવા સીસીટીવી કેમેરા ઇન્સ્ટોલ કરવામાં આવશે."
+            },
+            {
+                q: "6. ૨૧ જૂન ૨૦૨૬ ના રોજ PM નરેન્દ્ર મોદીએ કયા બંદરેથી એકસાથે ત્રણ ભારતીય નૌસેના જહાજોનું કમિશનિંગ કર્યું?",
+                o: ["મુંબઈ નેવલ ડૉકયાર્ડ", "કોચીન શિપયાર્ડ", "શ્યામાપ્રસાદ મુખર્જી પોર્ટ, કોલકાતા", "વિશાખાપટ્ટનમ પોર્ટ"],
+                a: 2,
+                exp: "કોલકાતાના શ્યામાપ્રસાદ મુખર્જી પોર્ટ ખાતે આયોજિત ભવ્ય સરેમનીમાં પીએમ મોદીએ આ ત્રણેય જહાજો સામેલ કર્યા હતા."
+            },
+            {
+                q: "7. તાજેતરમાં પીએમ મોદી દ્વારા સામેલ કરાયેલા ત્રણ યુદ્ધજહાજોમાં નીચેનામાંથી કયું જહાજ સામેલ નથી?",
+                o: ["INS દૂનાગિરી", "INS સંશોધક", "INS વિક્રાંત", "INS અગ્રય"],
+                a: 2,
+                exp: "નવા સામેલ કરાયેલા ત્રણ જહાજો દૂનાગિરી, સંશોધક અને અગ્રય છે. વિક્રાંત એ દેશનું એરક્રાફ્ટ કેરિયર છે."
+            },
+            {
+                q: "8. કોલકાતામાં કઈ ડિફેન્સ પીએસયુ... કંપની દ્વારા આ ત્રણેય કમિશન થયેલા નેવલ જહાજોનું નિર્માણ કરવામાં આવ્યું છે?",
+                o: ["મઝગાંવ ડૉક લિમિટેડ", "ગાર્ડન રીચ શિપબિલ્ડર્સ એન્ડ એન્જિનિયર્સ (GRSE)", "ગોવા શિપયાર્ડ", "હિન્દુસ્તાન શિપયાર્ડ"],
+                a: 1,
+                exp: "આ ત્રણેય અત્યાધુનિક જહાજોનું નિર્માણ કોલકાતા સ્થિત GRSE શિપયાર્ડ દ્વારા સ્વદેશી રીતે કરવામાં આવ્યું છે."
+            },
+            {
+                q: "9. નૌસેના જહાજોની શ્રેણી બાબતે 'INS દૂનાગિરી' એ કયા પ્રોજેક્ટ હેઠળ બનેલું ફ્રિગેટ યુદ્ધજહાજ છે?",
+                o: ["પ્રોજેક્ટ 15B", "પ્રોજેક્ટ 75I", "પ્રોજેક્ટ 17A", "અર્નાલા શ્રેણી"],
+                a: 2,
+                exp: "INS દૂનાગિરી એ પ્રોજેક્ટ 17A હેઠળ નિર્મિત અત્યાધુનિક સ્ટેલ્થ ફ્રિગેટ (Stealth Frigate) યુદ્ધજહાજ છે."
+            },
+            {
+                q: "10. વડાપ્રધાન નરેન્દ્ર મોદીએ કયા રાજ્યમાં ભારતના પ્રથમ કોમર્શિયલ સ્કેલ કોલ-ટુ-એમોનિયમ નાઈટ્રેટ પ્લાન્ટની નીવ રાખી?",
+                o: ["ઝારખંડ", "છત્તીસગઢ", "ઓડિશા", "મધ્ય પ્રદેશ"],
+                a: 2,
+                exp: "ઓડિશાના ઝારસુગુડા જિલ્લાના લખનપુર ખાતે દેશના આ પ્રથમ કોમર્શિયલ ગેસિફિકેશન પ્લાન્ટની સ્થાપના થઇ રહી છે."
+            },
+            {
+                q: "11. ઓડિશામાં સ્થાપિત થનારો પ્રથમ કોલ-ટુ-એમોનિયમ નાઈટ્રેટ પ્રોજેક્ટ આશરે કેટલા મૂડી રોકાણથી સાકાર થશે?",
+                o: ["રૂ. ૧૦,૦૦0 કરોડ", "રૂ. ૧૫,૦૦0 કરોડ", "રૂ. ૨૦,૦૦0 કરોડ", "રૂ. ૨૫,૦૦0 કરોડ"],
+                a: 3,
+                exp: "આ પ્રોજેક્ટ આશરે રૂ. ૨૫,૦૦૦ કરોડના જંગી મૂડી રોકાણ સાથે દેશમાં આત્મનિર્ભર કેમિકલ્સ ઉત્પાદન વધારશે."
+            },
+            {
+                q: "14. भारत કોલ ગેસિફિકેશન એન્ડ કેમિકલ્સ લિમિટેડ (BCGCL) એ કઈ બે જાયન્ટ જાહેર ક્ષેત્રની કંપનીઓનું જોઈન્ટ વેન્ચર છે?",
+                o: ["NTPC અને ONGC", "BHEL અને CIL (કોલ ઇન્ડિયા)", "GAIL... અને SAIL", "BHEL... અને IOCL"],
+                a: 1,
+                exp: "ભેલ (BHEL) અને કોલ ઇન્ડિયા લિમિટેડ (CIL) વચ્ચે સ્થપાયેલા સંયુક્ત સાહસ દ્વારા આ પ્લાન્ટનું ઓપરેશન થશે."
+            },
+            {
+                q: "13. નેશનલ ઇન્ટરનેટ એક્સચેન્જ ઓફ ઇન્ડિયા (NIXI) એ ૧૯ જૂને પોતાનો કેટલામો ઓફિશિયલ સ્થાપના દિવસ ઉજવ્યો?",
+                o: ["૨૦મો દિવસ", "૨૧મો દિવસ", "૨૩મો દિવસ", "૨૫મો દિવસ"],
+                a: 2,
+                exp: "NIXI એ આઇટી મંત્રાલય હેઠળ પોતાનો ૨૩મો સ્થાપના દિવસ મનાવ્યો અને ઇન્ટરનેટ ઇકોસિસ્ટમ માટે 4 નવા પોર્ટલ લોન્ચ કર્યા."
+            },
+            {
+                q: "14. NIXI દ્વારા લોન્ચ કરાયેલા ડિજિટલ પોર્ટલ્સમાં શંકાસ્પદ ઇન ડોમેન્સ વેબસાઇટ્સને ટ્રેક કરવા કયું AI પ્લેટફોર્મ છે?",
+                o: ["IX વિઝિબિલિટી ગેટવે", "MyIRINN IP ઓટોમેશન", "WHOIS Screening Platform", ".IN ઓક્શન પોર્ટલ"],
+                a: 2,
+                exp: "એઆઈ-પાવર્ડ WHOIS સ્ક્રીનિંગ પ્લેટફોર્મ શંકાસ્પદ અને ફ્રોડ વેબસાઇટ્સને આઇડેન્ટિફાય કરી ત્વરિત રીમુવ કરશે."
+            },
+            {
+                q: "15. વર્તમાન આંકડા અનુસાર NIXI ભારતમાં કેટલી બંધારણીય ભાષાઓમાં એક્ટિવ ડોમેન્સનું સંચાલન કરે છે?",
+                o: ["૧૫ ભાષાઓ", "૧૮ ભાષાઓ", "૨૨ ભાષાઓ", "૨૪ ભાષાઓ"],
+                a: 2,
+                exp: "NIXI અંદાજે ૩.૯ મિલિયન એક્ટિવ .IN ડોમેન્સનું દેશની ૨૨ સત્તાવાર બંધારણીય ભાષાઓમાં સંચાલન કરે છે."
+            },
+            {
+                q: "16. ભારતે ડિજિટલ ઈન્ફ્રાસ્ટ્રક્ચર મજબૂત કરી કેટલા ટકા ઊંચો IPv6 પેનિટ્રેશન રેટ હાંસલ કર્યો છે?",
+                o: ["૫૫.૨૦%", "૬૫.૫૦%", "૭૮.૩૪%", "૮૫.૧૨%"],
+                a: 2,
+                exp: "દેશના ડિજિટલ એસેટ્સને સુરક્ષિત અને ફાસ્ટ બનાવવા દેશે ૭૮.૩૪% IPv6 પેનિટ્રેશન હાંસલ કર્યો છે."
+            },
+            {
+                q: "17. તાજેતરમાં ગઠિત નેશનલ સ્પોર્ટ્સ બોર્ડ (NSB) ની ૫ સભ્યોની પસંદગી સમિતિના અધ્યક્ષ (Chairperson) કોણ છે?",
+                o: ["ગગન નારંગ", "ટી.વી. સોમનાથન", "હરિરંજન રાવ", "કુંજુરાની દેવી"],
+                a: 1,
+                exp: "વર્તમાન કેબિનેટ સેક્રેટરી ટી.વી. સોમનાથન આ સમિતિના અધ્યક્ષ છે, જે સ્પોર્ટ્સ ગવર્નન્સ માટે સભ્યો ભલામણ કરશે."
+            },
+            {
+                q: "18. ઇન્ડિયન સાયબર ક્રાઇમ કોઓર્ડિનેશન સેન્ટર (I4C) કયા કેન્દ્રીય મંત્રાલય હેઠળ કાર્યરત સુરક્ષા એજન્સી છે?",
+                o: ["સંરક્ષણ મંત્રાલય", "ગૃહ મંત્રાલય", "કાયદા મંત્રાલય", "કોમર્સ મંત્રાલય"],
+                a: 1,
+                exp: "I4C એ કેન્દ્રીય ગૃહ મંત્રાલય (Ministry of Home Affairs) હેઠળ સાયબર ક્રાઇમ અટકાવવાનું સંકલન કરતી એજન્સી છે."
+            },
+            {
+                q: "19. સાયબર ઇન્વેસ્ટિગેશન દરમિયાન ભૂલથી ફ્રીઝ થયેલા બેંક ખાતાઓને ઝડપથી અનફ્રીઝ કરવા I4C એ કયું પોર્ટલ લોન્ચ કર્યું?",
+                o: ["મની રિસ્ટોરેશન મોડ્યુલ", "ગ્રીવાન્સ રિડ્રેસલ મેકેનિઝમ", "સાયબર કવચ ઓટોમેશન", "નેશનલ ફ્રીઝ ગેટવે"],
+                a: 1,
+                exp: "ગ્રીવાન્સ રિડ્રેસલ મેકેનિઝમ દ્વારા નાગરિકો ભૂલથી લોક થયેલા એકાઉન્ટ ઓનલાઈન અરજી કરી જલ્દી અનફ્રીઝ કરાવી શકશે."
+            },
+            {
+                q: "20. સત્તાવાર આંકડાકીય પડકારોના ટેકનિકલ ઉકેલ માટે MoSPI દ્વારા આયોજિત ૩૬ કલાકની રાષ્ટ્રીય હેકેથોનનું નામ શું હતું?",
+                o: ["ડેટાથોન ૨૦૨૬", "સ્ટેટેથોન (Statethon)", "વિકસિત ભારત હેકેથોન", "આંકડા ઇનોવેશન મુકાબલો"],
+                a: 1,
+                exp: "નેશનલ સ્ટેટિસ્ટિકલ ઓફિસ (NSO) દ્વારા આયોજિત આ ૩૬ કલાકની રાષ્ટ્રીય હેકેથોન સ્પર્ધાનું નામ 'સ્ટેટેથોન' હતું."
+            },
+            {
+                q: "21. ઇન્ટરનેશનલ... ટ્રિબ્યુનલ ફોર ધ લો ઓફ સી (ITLOS) ના જજ તરીકે ચૂંટાયેલા પ્રખ્યાત ભારતીય કાનૂની નિષ્ણાત કોણ છે?",
+                o: ["જસ્ટિસ ડી.વાય. ચંદ્રચૂડ", "પ્રો. વિમલ એન. પટેલ", "નીરુ ચઢ્ઢા", "હરીશ સાલ્વે"],
+                a: 1,
+                exp: "પ્રોફેસર વિમલ એન. પટેલ ૨૦૨૬ થી ૨૦૩૫ સુધી ૯ વર્ષના ગાળા માટે જર્મની (હેમ્બર્ગ) ખાતે આંતરરાષ્ટ્રીય જજ તરીકે સેવા આપશે."
+            },
+            {
+                q: "22. રિઝર્વ બેંકે કોનો કાર્યકાળ ૧૮ સપ્ટેમ્બર ૨૦૨૬ સુધી એક્સટેન્ડ કરી HDFC બેંકના ઇન્ટરિમ ચેરપર્સન પદે યથાવત રાખ્યા છે?",
+                o: ["અતનુ ચક્રવર્તી", "કે.કે. મિસ્ત્રી", "વી. વૈદ્યનાથન", "શશીધર જગદીશન"],
+                a: 1,
+                exp: "અતનુ ચક્રવર્તીના સડન રાજીનામા બાદ માર્કેટ સ્ટેબિલિટી માટે RBI એ કે.કે. મિસ્ત્રીનો વચગાળાનો કાર્યકાળ લંબાવ્યો છે."
+            },
+            {
+                q: "23. ભારતના વરિષ્ઠ સિવિલ સર્વન્ટ વિવેક અગ્રવાલની કઈ વૈશ્વિક નાણાકીય વોચડોગ સંસ્થાના વાઇસ... પ્રેસિડેન્ટ તરીકે નિયુક્તિ થઇ છે?",
+                o: ["IMF ગ્લોબલ બોર્ડ", "વિશ્વ બેંક કાઉન્સિલ", "FATF (પેરિસ)", "ADB મનિલા"],
+                a: 2,
+                exp: "भारत સભ્ય બન્યું ત્યારથી પ્રથમ વાર વિવેક અગ્રવાલના રૂપમાં ભારતને FATF સંસ્થાનું વાઇસ પ્રેસિડેન્સી પદ મળ્યું છે."
+            },
+            {
+                q: "24. ભારતીય મહિલા હોકી ટીમે ઓકલેન્ડ ફાઇનલમાં કયા દેશને હરાવી બીજી વખત FIH નેશન્સ કપનો ખિતાબ જીત્યો?",
+                o: ["સ્પેન", "ન્યુઝીલેન્ડ", "અમેરિકા", "આર્જેન્ટિના"],
+                a: 1,
+                exp: "ભારતીય મહિલા હોકી ટીમે ફાઇનલમાં યજમાન ન્યુઝીલેન્ડને હરાવી ટાઇટલ જીત્યું. લાલરેમસિયામી પ્લેયર ઓફ ધ મેચ બની હતી."
+            },
+            {
+                q: "25. કયા દેશે બાળકોના પાયાના શિક્ષણ અને સર્જનાત્મકતા બચાવવા પ્રાથમિક શાળાઓમાં જનરેટિવ AI ટૂલ્સ પર પ્રતિબંધ મૂક્યો છે?",
+                o: ["સ્વીડન", "ફિનલેન્ડ", "નોર્વે", "ડેનમાર્ક"],
+                a: 2,
+                exp: "노ર્વે સરકારે ધોરણ ૧ થી ૭ (૬ થી ૧૩... વર્ષ) ના વિદ્યાર્થીઓ માટે પ્રાથમિક શાળાઓમાં જનરેટિવ AI ના ઉપયોગ પર સંપૂર્ણ... પ્રતિબંધ મૂક્યો છે."
+            }
+        ];
+
+        let currentQuizIndex = 0;
+        let currentQuizScore = 0;
+        let userRegisteredName = "";
+        let userSelectedAnswers = new Array(quizDatabase.length).fill(null); 
+
+        function switchToQuizMode() {
+            const nameInput = document.getElementById('user-quiz-reg-name').value.trim();
+            if(nameInput === "") { alert("⚠️ ક્વિઝ શરૂ કરવા માટે કૃપા કરીને તમારું નામ લખો!"); return; }
+            userRegisteredName = nameInput;
+
+            document.getElementById('main-news-page-wrapper').style.display = 'none';
+            document.getElementById('quiz-view-panel').style.display = 'block';
+            document.getElementById('quiz-active-questions-frame-block').style.display = 'block';
+            document.getElementById('quiz-result-final-pane').style.display = 'none';
+            
+            currentQuizIndex = 0;
+            currentQuizScore = 0;
+            userSelectedAnswers.fill(null); 
+            document.getElementById('live-score-counter').innerText = currentQuizScore;
+            
+            loadSingleQuizQuestion(currentQuizIndex);
+        }
+
+        function switchBackToNewsMode() {
+            document.getElementById('quiz-view-panel').style.display = 'none';
+            document.getElementById('main-news-page-wrapper').style.display = 'block';
+            window.scrollTo(0,0);
+        }
+
+        function loadSingleQuizQuestion(index) {
+            window.scrollTo(0,0); 
+            document.getElementById('quiz-step-progress-label').innerText = `Question ${index + 1} of ${quizDatabase.length}`;
+            
+            const prevBtn = document.getElementById('quiz-prev-action-btn');
+            prevBtn.disabled = (index === 0);
+
+            const nextBtn = document.getElementById('quiz-next-action-btn');
+            if (index === quizDatabase.length - 1) {
+                nextBtn.innerText = "Finish & Submit ✓";
+                nextBtn.style.backgroundColor = "#10b981";
+            } else {
+                nextBtn.innerText = "Next →";
+                nextBtn.style.backgroundColor = "#2563eb";
+            }
+
+            const container = document.getElementById('quiz-questions-loader-target');
+            container.innerHTML = ""; 
+
+            const item = quizDatabase[index];
+            const card = document.createElement('div');
+            card.className = "quiz-card-item";
+
+            const qTitle = document.createElement('div');
+            qTitle.className = "quiz-question";
+            qTitle.innerText = item.q;
+            card.appendChild(qTitle);
+
+            const optionsList = document.createElement('ul');
+            optionsList.className = "quiz-options-list";
+            optionsList.id = `single-q-opts-block`;
+
+            const alreadyAnsweredIdx = userSelectedAnswers[index];
+
+            item.o.forEach((optText, optIdx) => {
+                const li = document.createElement('li');
+                li.className = "option-item";
+                li.innerText = optText;
+                
+                if (alreadyAnsweredIdx !== null) {
+                    li.classList.add('option-disabled');
+                    if (optIdx === item.a) {
+                        li.classList.add('correct-state');
+                    } else if (optIdx === alreadyAnsweredIdx) {
+                        li.classList.add('wrong-state');
+                    }
+                } else {
+                    li.onclick = function() { evaluateSingleQuestionAnswer(optIdx, item.a, item.exp); };
+                }
+                optionsList.appendChild(li);
+            });
+            card.appendChild(optionsList);
+
+            const expBox = document.createElement('div');
+            expBox.id = "live-explanation-feedback-box";
+            expBox.className = "quiz-explanation-box";
+            
+            if (alreadyAnsweredIdx !== null) {
+                expBox.innerHTML = `<strong>💡 ટૂંકી સમજૂતી (Samjooti):</strong> ${item.exp}`;
+                expBox.style.display = "block";
+            }
+            card.appendChild(expBox);
+            container.appendChild(card);
+        }
+
+        function evaluateSingleQuestionAnswer(selectedIdx, correctIdx, explanationText) {
+            userSelectedAnswers[currentQuizIndex] = selectedIdx;
+
+            const optionsBlock = document.getElementById('single-q-opts-block');
+            const optionsElements = optionsBlock.getElementsByTagName('li');
+
+            for (let i = 0; i < optionsElements.length; i++) {
+                optionsElements[i].classList.add('option-disabled');
+            }
+
+            if (selectedIdx === correctIdx) {
+                optionsElements[selectedIdx].classList.add('correct-state');
+                currentQuizScore++;
+                document.getElementById('live-score-counter').innerText = currentQuizScore;
+            } else {
+                optionsElements[selectedIdx].classList.add('wrong-state');
+                optionsElements[correctIdx].classList.add('correct-state');
+            }
+
+            const expBox = document.getElementById('live-explanation-feedback-box');
+            expBox.innerHTML = `<strong>💡 ટૂંકી સમજૂતી (Samjooti):</strong> ${explanationText}`;
+            expBox.style.display = "block";
+        }
+
+        function goToPrevQuizQuestion() {
+            if (currentQuizIndex > 0) {
+                currentQuizIndex--;
+                loadSingleQuizQuestion(currentQuizIndex);
+            }
+        }
+
+        function goToNextQuizQuestion() {
+            if (currentQuizIndex < quizDatabase.length - 1) {
+                currentQuizIndex++;
+                loadSingleQuizQuestion(currentQuizIndex);
+            } else {
+                showFinalResultsPaneLayout();
+            }
+        }
+
+        function showFinalResultsPaneLayout() {
+            document.getElementById('quiz-active-questions-frame-block').style.display = 'none';
+            document.getElementById('quiz-result-final-pane').style.display = 'block';
+            document.getElementById('final-result-user-name-label').innerText = `👤 વિદ્યાર્થી: ${userRegisteredName}`;
+            document.getElementById('final-score-digits').innerText = currentQuizScore;
+        }
+
+        function sendResultToWhatsApp() {
+            const masterWhatsAppNumber = "916353298168"; 
+            const currentTime = new Date().toLocaleTimeString('gu-IN', { hour: '2-digit', minute: '2-digit' });
+            
+            const messagePayload = `*THE MAULIK EXPRESS QUIZ RESULT* 📊\n\n` +
+                                   `👤 *નામ:* ${userRegisteredName}\n` +
+                                   `📅 *તારીખ:* 22 June 2026\n` +
+                                   `⏱️ *સમય:* ${currentTime}\n` +
+                                   `🎯 *ફાઇનલ સ્કોર:* ${currentQuizScore} / 25\n\n` +
+                                   `📈 _માસ્ટર એક્ઝામ લેજર એન્ડ એનાલિટિક્સ સિસ્ટમ દ્વારા પ્રમાણિત._`;
+            
+            const encodedText = encodeURIComponent(messagePayload);
+            const whatsappWebUrl = `https://api.whatsapp.com/send?phone=${masterWhatsAppNumber}&text=${encodedText}`;
+            window.open(whatsappWebUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
+    
+  </body>
+  
+</html>
