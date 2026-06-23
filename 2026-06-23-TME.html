@@ -1,0 +1,1753 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>23 June</title>
+    
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="gu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>THE MAULIK EXPRESS (TME) - Master Dual-Mode Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght=700&family=Inter:wght=400;500;600;700&family=Noto+Serif+Gujarati:wght=400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --card-bg: #1e293b;
+            --accent: #38bdf8;
+            --highlight-text: #fbbf24;
+            --danger: #f43f5e;
+            --text-muted: #94a3b8;
+            --paper-bg: #f4f4f0;
+            --sheet-bg: #fdfdfa;
+            --text-dark: #1e293b;
+            --border-color: #cbd5e1;
+            --yellow-highlighter: #fff200;
+            --success: #10b981;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Serif Gujarati', serif;
+            background-color: var(--paper-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .hl-yellow {
+            background-color: var(--yellow-highlighter);
+            color: #000000;
+            font-weight: 700;
+            padding: 2px 4px;
+            border-radius: 3px;
+            display: inline;
+        }
+
+        .dashboard-section {
+            background-color: var(--bg-dark);
+            color: #ffffff;
+            padding: 15px;
+            width: 100%;
+        }
+
+        @media (min-width: 600px) {
+            .dashboard-section { padding: 25px; }
+        }
+
+        .header-container {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            border-bottom: 1px solid var(--card-bg);
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        @media (min-width: 600px) {
+            .header-container {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+
+        .main-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .main-title span { color: var(--accent); }
+
+        .meta-info {
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        @media (min-width: 600px) {
+            .main-title { text-align: left; font-size: 2.3rem; }
+            .meta-info { text-align: right; font-size: 0.9rem; }
+        }
+
+        .meta-info strong { color: var(--highlight-text); }
+
+        .top-action-bar {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin: 15px 0 25px 0;
+            width: 100%;
+        }
+
+        @media (min-width: 650px) {
+            .top-action-bar {
+                flex-direction: row;
+                justify-content: center;
+                align-items: stretch;
+            }
+        }
+
+        .quiz-start-banner {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            border-radius: 12px;
+            padding: 20px;
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            text-align: center;
+            box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.3);
+        }
+
+        .quiz-start-banner h2 {
+            font-size: 1.2rem;
+            color: #ffffff;
+            font-family: 'Noto Serif Gujarati', serif;
+        }
+
+        .oneliner-banner {
+            background: linear-gradient(135deg, #854d0e, #a16207);
+            border-radius: 12px;
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            text-align: center;
+            box-shadow: 0 10px 15px -3px rgba(234, 179, 8, 0.2);
+        }
+
+        .oneliner-banner h2 {
+            font-size: 1.2rem;
+            color: #ffffff;
+            font-family: 'Noto Serif Gujarati', serif;
+        }
+
+        .quiz-name-input-box {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            width: 100%;
+            max-width: 260px;
+            margin: 0;
+        }
+
+        .quiz-name-input-box input {
+            padding: 10px 14px;
+            border-radius: 6px;
+            border: 2px solid #cbd5e1;
+            font-size: 0.9rem;
+            font-family: 'Inter', sans-serif;
+            text-align: center;
+            outline: none;
+        }
+
+        .quiz-name-input-box input:focus {
+            border-color: var(--accent);
+        }
+
+        .btn-quiz-master {
+            background-color: var(--highlight-text);
+            color: #000000;
+            font-size: 0.95rem;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.2s, background-color 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-quiz-master:hover {
+            transform: scale(1.03);
+            background-color: #fcd34d;
+        }
+
+        .btn-oneliner-master {
+            background-color: #ffffff;
+            color: #854d0e;
+            font-size: 0.95rem;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.2s, background-color 0.2s;
+            text-transform: uppercase;
+            width: 100%;
+            max-width: 220px;
+        }
+
+        .btn-oneliner-master:hover {
+            transform: scale(1.03);
+            background-color: #f8fafc;
+        }
+
+        .section-header {
+            font-family: 'Noto Serif Gujarati', serif;
+            font-size: 1.25rem;
+            margin: 20px 0 12px 0;
+            color: var(--accent);
+            border-left: 4px solid var(--accent);
+            padding-left: 8px;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        @media (min-width: 650px) {
+            .news-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        }
+        @media (min-width: 1000px) {
+            .news-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        .news-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            scroll-margin-top: 15px;
+        }
+
+        .news-card h3 {
+            font-size: 1rem;
+            margin-bottom: 6px;
+            color: #ffffff;
+            line-height: 1.35;
+        }
+
+        .news-card p {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            margin-bottom: 12px;
+            flex-grow: 1;
+            text-align: justify;
+            line-height: 1.4;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 8px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 10px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 8px 10px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.75rem;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+        }
+
+        .btn-flash {
+            background-color: rgba(251, 191, 36, 0.12);
+            color: var(--highlight-text);
+            border: 1px solid rgba(251, 191, 36, 0.25);
+        }
+
+        .btn-flash:hover {
+            background-color: var(--highlight-text);
+            color: var(--bg-dark);
+        }
+
+        .btn-detail {
+            background-color: rgba(56, 189, 248, 0.12);
+            color: var(--accent);
+            border: 1px solid rgba(56, 189, 248, 0.25);
+        }
+
+        .btn-detail:hover {
+            background-color: var(--accent);
+            color: var(--bg-dark);
+        }
+
+        .box-highlight-effect {
+            animation: card-flash-glow 2s cubic-bezier(0.4, 0, 0.2, 1);
+            border-color: var(--accent) !important;
+        }
+
+        @keyframes card-flash-glow {
+            0% { background-color: #1e3a8a; transform: scale(1.02); box-shadow: 0 0 15px rgba(56, 189, 248, 0.5); }
+            50% { transform: scale(1.02); box-shadow: 0 0 15px rgba(56, 189, 248, 0.2); }
+            100% { background-color: var(--card-bg); transform: scale(1); }
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(4px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 10px;
+        }
+
+        .modal-content {
+            background: #ffffff;
+            color: #1e293b;
+            width: 100%;
+            max-width: 630px;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            animation: modalSlideUp 0.2s ease-out;
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.3);
+        }
+
+        @keyframes modalSlideUp {
+            from { opacity: 0; transform: translateY(15px) scale(0.98); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(15, 23, 42, 0.6);
+            border: none;
+            color: #ffffff;
+            font-size: 1.2rem;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        .modal-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-bottom: 3px solid var(--accent);
+        }
+
+        @media (min-width: 600px) { .modal-img { height: 220px; } }
+
+        .modal-body {
+            padding: 20px;
+            max-height: 55vh;
+            overflow-y: auto;
+        }
+
+        .modal-body h2 {
+            font-family: 'Noto Serif Gujarati', serif;
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            color: #0f172a;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 6px;
+        }
+
+        .mindmap-node {
+            list-style-type: none;
+            margin-bottom: 12px;
+        }
+
+        .mindmap-node li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 10px;
+            color: #334155;
+            font-size: 0.92rem;
+            text-align: justify;
+            line-height: 1.5;
+        }
+
+        .mindmap-node li::before {
+            content: "⚡";
+            position: absolute;
+            left: 0;
+            top: 1px;
+            font-size: 0.9rem;
+            color: var(--danger);
+        }
+
+        .oneliner-node {
+            list-style-type: none;
+            margin-bottom: 10px;
+        }
+
+        .oneliner-node li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 12px;
+            color: #1e293b;
+            font-size: 0.92rem;
+            text-align: justify;
+            line-height: 1.5;
+            border-bottom: 1px dashed #e2e8f0;
+            padding-bottom: 8px;
+        }
+
+        .oneliner-node li::before {
+            content: "📌";
+            position: absolute;
+            left: 0;
+            top: 1px;
+            font-size: 0.95rem;
+        }
+
+        .modal-edge-box {
+            background: #f8fafc;
+            border-left: 4px solid #0f172a;
+            padding: 10px;
+            border-radius: 0 6px 6px 0;
+            margin-top: 12px;
+            font-size: 0.85rem;
+            color: #1e293b;
+        }
+
+        .broadsheet-section {
+            padding: 20px 10px;
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        @media (min-width: 600px) { .broadsheet-section { padding: 30px 20px; } }
+
+        .masthead {
+            text-align: center;
+            border-top: 4px double var(--text-dark);
+            border-bottom: 4px double var(--text-dark);
+            padding: 12px 0;
+            margin-bottom: 25px;
+        }
+
+        .masthead h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            letter-spacing: 1px;
+        }
+
+        @media (min-width: 600px) { .masthead h2 { font-size: 3.5rem; letter-spacing: 2px; } }
+
+        .masthead-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #475569;
+            margin-top: 6px;
+            border-top: 1px solid var(--text-dark);
+            padding-top: 5px;
+        }
+
+        @media (min-width: 600px) {
+            .masthead-meta { flex-direction: row; justify-content: space-between; }
+        }
+
+        .broadsheet-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.25rem;
+            margin-bottom: 15px;
+            border-bottom: 3px solid var(--text-dark);
+            padding-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .article {
+            background: var(--sheet-bg);
+            padding: 15px;
+            border: 1px solid #cbd5e1;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            scroll-margin-top: 15px;
+        }
+
+        @media (min-width: 600px) { .article { padding: 25px; } }
+
+        .article h3 {
+            font-family: 'Noto Serif Gujarati', serif;
+            font-size: 1.15rem;
+            margin-bottom: 8px;
+            color: #0f172a;
+            line-height: 1.35;
+        }
+
+        @media (min-width: 600px) { .article h3 { font-size: 1.5rem; } }
+
+        .article-meta {
+            font-size: 0.7rem;
+            color: #64748b;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+            border-bottom: 1px dashed #e2e8f0;
+            padding-bottom: 4px;
+        }
+
+        .article-content {
+            font-size: 0.95rem;
+            color: #334155;
+            text-align: justify;
+        }
+
+        @media (min-width: 600px) { .article-content { font-size: 1.02rem; } }
+
+        .article-content p {
+            margin-bottom: 12px;
+            text-indent: 15px;
+            line-height: 1.6;
+        }
+
+        .additional-edge {
+            background-color: #f8fafc;
+            border-left: 4px solid var(--text-dark);
+            border-right: 1px solid #e2e8f0;
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 12px;
+            margin: 15px 0 8px 0;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .additional-edge h4 {
+            margin: 0 0 6px 0;
+            color: #0f172a;
+            font-size: 0.9rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            margin-top: 12px;
+            background: #1e293b;
+            color: #ffffff;
+            font-size: 0.7rem;
+            padding: 6px 10px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .floating-top-btn {
+            position: fixed;
+            bottom: 15px;
+            right: 15px;
+            width: 40px;
+            height: 40px;
+            background-color: var(--accent);
+            color: var(--bg-dark);
+            border: none;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 99;
+        }
+
+        /* ----------------- NO SCROLL QUIZ VIEW PANEL ----------------- */
+        #quiz-view-panel {
+            display: none;
+            background-color: var(--paper-bg);
+            min-height: 100vh;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .quiz-container {
+            max-width: 750px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 14px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px dashed var(--border-color);
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+
+        .quiz-header h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            color: var(--bg-dark);
+        }
+
+        .score-box {
+            background: var(--bg-dark);
+            color: var(--highlight-text);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .btn-exit-quiz {
+            background: #64748b;
+            color: #ffffff;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        .btn-exit-quiz:hover { background: #475569; }
+
+        .quiz-card-item {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 10px;
+        }
+
+        .quiz-question {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .quiz-options-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .option-item {
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            padding: 10px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.92rem;
+            transition: all 0.15s ease;
+        }
+
+        .option-item:hover {
+            background: #f1f5f9;
+            border-color: #94a3b8;
+        }
+
+        .option-item.correct-state {
+            background-color: rgba(16, 185, 129, 0.15) !important;
+            border-color: var(--success) !important;
+            color: #065f46 !important;
+            font-weight: 600;
+        }
+
+        .option-item.correct-state::after {
+            content: " ✓ (સાચો જવાબ)";
+            color: var(--success);
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .option-item.wrong-state {
+            background-color: rgba(244, 63, 94, 0.15) !important;
+            border-color: var(--danger) !important;
+            color: #9f1239 !important;
+        }
+
+        .option-item.wrong-state::after {
+            content: " ✗ (ખોટો જવાબ)";
+            color: var(--danger);
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .option-disabled {
+            pointer-events: none;
+        }
+
+        .quiz-explanation-box {
+            display: none;
+            background-color: #f0fdf4;
+            border-left: 5px solid var(--success);
+            border-radius: 4px;
+            padding: 10px 12px;
+            margin-top: 12px;
+            font-size: 0.88rem;
+            color: #166534;
+            line-height: 1.4;
+        }
+
+        .quiz-explanation-box strong {
+            color: #14532d;
+            text-transform: uppercase;
+        }
+
+        /* Fixed Navigation inside Container without scrolling */
+        .quiz-nav-btn-group {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin-top: 15px;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 12px;
+        }
+
+        .btn-quiz-nav {
+            padding: 10px 18px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn-quiz-prev {
+            background-color: #64748b;
+            color: #ffffff;
+        }
+        .btn-quiz-prev:hover { background-color: #475569; }
+        .btn-quiz-prev:disabled {
+            background-color: #cbd5e1;
+            color: #94a3b8;
+            cursor: not-allowed;
+        }
+
+        .btn-quiz-next {
+            background-color: #2563eb;
+            color: #ffffff;
+        }
+        .btn-quiz-next:hover { background-color: #1d4ed8; }
+
+        #quiz-result-final-pane {
+            display: none;
+            text-align: center;
+            padding: 30px 15px;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        #quiz-result-final-pane h3 {
+            font-family: 'Noto Serif Gujarati', serif;
+            font-size: 1.5rem;
+            color: var(--bg-dark);
+            margin-bottom: 10px;
+        }
+
+        .final-score-display-card {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #2563eb;
+            margin: 15px 0;
+        }
+
+        .btn-submit-whatsapp-final {
+            background-color: #25d366;
+            color: #ffffff;
+            font-size: 1.05rem;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-transform: uppercase;
+            margin-top: 15px;
+        }
+
+        .btn-submit-whatsapp-final:hover {
+            background-color: #20ba56;
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="main-news-page-wrapper">
+        <button class="floating-top-btn" onclick="scrollToDashboard()" title="ડેશબોર્ડ પર જાઓ">↑</button>
+
+        <section class="dashboard-section" id="dashboard">
+            <div class="header-container">
+                <h1 class="main-title">THE MAULIK <span>EXPRESS</span></h1>
+                <div class="meta-info">
+                    Master Exam Ledger & Analytics<br>
+                    તારીખ: <strong>૨૩ જૂન ૨૦૨૬</strong> | કેન્દ્ર: <strong>અમદાવાદ</strong>
+                </div>
+            </div>
+
+            <div class="top-action-bar">
+                <div class="quiz-start-banner">
+                    <h2>📊 આજના કરંટ અફેર્સની લાઇવ ટેસ્ટ આપો (૨૩ જૂન ૨૦૨૬)</h2>
+                    <div style="display:flex; gap:10px; width:100%; justify-content:center; align-items:center; flex-wrap:wrap;">
+                        <div class="quiz-name-input-box">
+                            <input type="text" id="user-quiz-reg-name" placeholder="અહીં તમારું પૂરું નામ લખો..." autocomplete="off">
+                        </div>
+                        <button class="btn btn-quiz-master" onclick="switchToQuizMode()">⚡ Start 25 MCQ Quiz</button>
+                    </div>
+                </div>
+
+                <div class="oneliner-banner">
+                    <h2>⚡ Quick Revision</h2>
+                    <button class="btn-oneliner-master" onclick="openOneLinerModal()">📋 View 16 One-Liners</button>
+                </div>
+            </div>
+
+            <h2 class="section-header">મુખ્ય સમાચાર (Main Stories)</h2>
+            <div class="news-grid">
+                <div class="news-card" id="card-m1">
+                    <div>
+                        <h3>NPCI દ્વારા ક્રાંતિકારી 'Dronix' પ્લેટફોર્મ લોન્ચ કરાયું</h3>
+                        <p>બ્લોકચેન અને ડિસ્ટ્રિબ્યુટેડ લેજર ઇકોસિસ્ટમ માટે નવું ઓપન-સોર્સ પ્રાઇવેટ એન્ટરપ્રાઇઝ નેટવર્ક. અગાઉના ફેલ્કન કરતાં વધુ આધુનિક ફ્રેમવર્ક.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('m1')">🃏 Flash Card</button>
+                        <a href="#art-m1" class="btn btn-detail" onclick="focusDetail('card-m1')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-m2">
+                    <div>
+                        <h3>સુપ્રીમ કોર્ટે 'Right to Walk' ને મૂળભૂત અધિકાર જાહેર કર્યો</h3>
+                        <p>ફુટપાથ અને પેડેસ્ટ્રિયન પાથ પર સલામત ચાલવાનો હક આર્ટિકલ ૧૯ અને આર્ટિકલ ૨૧ હેઠળ ફંડામેન્ટલ રાઇટ છે. સ્થાનિક સંસ્થાઓ પર કડક આદેશ.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('m2')">🃏 Flash Card</button>
+                        <a href="#art-m2" class="btn btn-detail" onclick="focusDetail('card-m2')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-m3">
+                    <div>
+                        <h3>રાજસ્થાનમાં પ્રથમ મલ્ટી-લેન ફ્રી-ફ્લો ટોલિંગ સિસ્ટમ શરૂ</h3>
+                        <p>NHAI દ્વારા એએનપીઆર (ANPR) કેમેરા આધારિત ઓટોમેટેડ ટોલિંગ કલેક્શન. ઓછા બેલેન્સ પર ૭૨ કલાકમાં પેમેન્ટ નહીં તો ડબલ ચાર્જ.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('m3')">🃏 Flash Card</button>
+                        <a href="#art-m3" class="btn btn-detail" onclick="focusDetail('card-m3')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-m4">
+                    <div>
+                        <h3>મંત્રાલયે લોન્ચ કર્યું અપગ્રેડેડ 'She-Box 2.0' પોર્ટલ</h3>
+                        <p>મહિલા બાળ વિકાસ મંત્રાલય દ્વારા પોશ (POSH) એક્ટ હેઠળ સેક્સ્યુઅલ હરેસમેન્ટની સેફ રિપોર્ટિંગ માટે સિંગલ વિન્ડો અને મિશન શક્તિ જોડાણ.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('m4')">🃏 Flash Card</button>
+                        <a href="#art-m4" class="btn btn-detail" onclick="focusDetail('card-m4')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-m5">
+                    <div>
+                        <h3>ગૃહ મંત્રાલયે પોલીસ વિભાગ માટે 'અભિજ્ઞાન' એપ લોન્ચ કરી</h3>
+                        <p>ફિલ્ડ પર રહેલી એજન્સીઓ માટે માત્ર ૩૫ સેકન્ડમાં શંકાસ્પદોના ફિંગરપ્રિન્ટ્સ સ્કેન કરી ૧.૩ કરોડ ગુનેગારોના નેફિસ (NAFIS) ડેટા સાથે મેચિંગ.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('m5')">🃏 Flash Card</button>
+                        <a href="#art-m5" class="btn btn-detail" onclick="focusDetail('card-m5')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-m6">
+                    <div>
+                        <h3>મેઘાલયમાં ઉત્તર-પૂર્વ ભારતનો સૌથી મોટો સ્પાઇસ પ્લાન્ટ શરૂ</h3>
+                        <p>નાણાં મંત્રી નિર્મલા સીતારામન દ્વારા લુમદાઇતખલા ખાતે ₹૩૨ કરોડના ખર્ચે બનેલા ઓર્ગેનિક મસાલા પ્રોસેસિંગ યુનિટનું ઉદ્ઘાટન.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('m6')">🃏 Flash Card</button>
+                        <a href="#art-m6" class="btn btn-detail" onclick="focusDetail('card-m6')">📰 Detailed</a>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="section-header">એક્ઝિક્યુટિવ બ્રીફિંગ્સ (Executive Briefings)</h2>
+            <div class="news-grid">
+                <div class="news-card" id="card-b1">
+                    <div>
+                        <h3>SC-OBC સ્કોલરશિપમાંથી ડોમિસાઇલ પ્રમાણપત્ર હટાવાયું</h3>
+                        <p>સામાજિક ન્યાય મંત્રાલય દ્વારા નિયમો હળવા કરાયા. ઉમંગ એપ્લિકેશનના 'સેતુ' (SETU) પ્લેટફોર્મ અને આધાર વેરિફિકેશનથી જ લિંકિંગ થશે.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b1')">🃏 Flash Card</button>
+                        <a href="#art-b1" class="btn btn-detail" onclick="focusDetail('card-b1')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b2">
+                    <div>
+                        <h3>NCSC દ્વારા 'પ્રોજેક્ટ સુપર 50' નું આયોજન</h3>
+                        <p>નેશનલ કમિશન ફોર શેડ્યુલ કાસ્ટ દ્વારા દિલ્હી હેડક્વાર્ટર ખાતે આદિવાસી અને એસસી યુવાનો માટે સિવિલ સર્વિસ ગાઇડન્સ સેમિનાર યોજાયો.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b2')">🃏 Flash Card</button>
+                        <a href="#art-b2" class="btn btn-detail" onclick="focusDetail('card-b2')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b3">
+                    <div>
+                        <h3>આરોગ્ય મંત્રાલયે ૧૬ એફડીસી (FDC) દવાઓ પર પ્રતિબંધ મૂક્યો</h3>
+                        <p>ડ્રગ્સ એન્ડ કોસ્મેટિક્સ એક્ટના સેક્શન ૨૬A હેઠળ એલોવેરા સાથે ટેસ્ટિંગ વગર મિક્સ કરાતા ૧૬ હાનિકારક સ્કીન કેર પ્રોડક્ટ્સ બેન કરાયા.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b3')">🃏 Flash Card</button>
+                        <a href="#art-b3" class="btn btn-detail" onclick="focusDetail('card-b3')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b4">
+                    <div>
+                        <h3>ટેલિગ્રામ પરથી કાયદાકીય પ્રતિબંધ સત્તાવાર રીતે હટાવાયો</h3>
+                        <p>આઈટી એક્ટ ૨૦00 ના સેક્શન ૬૯A હેઠળ કરાયેલી તપાસ પૂર્ણ થતાં સેવાઓ બહાલ. માર્કેટમાં વૈકલ્પિક પ્લેટફોર્મની હાજરીથી રાહત.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b4')">🃏 Flash Card</button>
+                        <a href="#art-b4" class="btn btn-detail" onclick="focusDetail('card-b4')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b5">
+                    <div>
+                        <h3>મહારાષ્ટ્ર સરકાર અને ગૂગલ વચ્ચે ઐતિહાસિક જોડાણ</h3>
+                        <p>રાજ્યના ૪ લાખથી વધુ સરકારી શાળાઓના શિક્ષકોને આર્ટિફિશિયલ ઇન્ટેલિજન્સ (AI) અને ટેકનોલોજીથી સજ્જ કરવા ટ્રેનિંગ અપાશે.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b5')">🃏 Flash Card</button>
+                        <a href="#art-b5" class="btn btn-detail" onclick="focusDetail('card-b5')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b6">
+                    <div>
+                        <h3>મંગોલિયામાં બહુરાષ્ટ્રીય સૈન્ય અભ્યાસ 'ખાન ક્વેસ્ટ ૨૦૨૬' શરૂ</h3>
+                        <p>ઉલાનબતાર ખાતે ૧૮ દેશોની આર્મી વચ્ચે યુદ્ધાભ્યાસ. ભારતીય સેના તરફથી જાટ રેજીમેન્ટ (Jat Regiment) ની ૪૦ સભ્યોની ટુકડી સામેલ.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b6')">🃏 Flash Card</button>
+                        <a href="#art-b6" class="btn btn-detail" onclick="focusDetail('card-b6')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b7">
+                    <div>
+                        <h3>સંરક્ષણ મંત્રાલય અને ભારત ફોર્જ વચ્ચે ₹૪૨૫ કરોડનો કરાર</h3>
+                        <p>ઇન્ડિયન નેવીના કોલકાતા ક્લાસ યુદ્ધજહાજો (Warships) માટે ૧૨ સેટ્સ મેરિન ગેસ ટર્બાઇન જનરેટર્સ ખરીદવાનો ઓર્ડર અપાયો.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b7')">🃏 Flash Card</button>
+                        <a href="#art-b7" class="btn btn-detail" onclick="focusDetail('card-b7')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b8">
+                    <div>
+                        <h3>જમ્મુ-કાશ્મીર પોલીસને 'પાસપોર્ટ સેવા પુરસ્કાર' મળ્યો</h3>
+                        <p>એક વર્ષમાં ૧,૬૪,૩૫૪ પાસપોર્ટ એપ્લિકેશનનું સૌથી ઝડપી અને પારદર્શક વેરિફિકેશન કરવા બદલ દિલ્હી કોન્ફરન્સમાં સન્માન.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b8')">🃏 Flash Card</button>
+                        <a href="#art-b8" class="btn btn-detail" onclick="focusDetail('card-b8')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b9">
+                    <div>
+                        <h3>વરિષ્ઠ આઈએસ (IIS) અધિકારી દીપાંકર મુખોપાધ્યાયનું નિધન</h3>
+                        <p>ઓલ ઇન્ડિયા રેડિયો (આકાશવાણી) ના પૂર્વ સ્પેશિયલ રિપ્રેઝન્ટેટિવ અને બ્રોડકાસ્ટિંગ ક્ષેત્રના દિગ્ગજનું કોલકાતામાં અવસાન.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b9')">🃏 Flash Card</button>
+                        <a href="#art-b9" class="btn btn-detail" onclick="focusDetail('card-b9')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b10">
+                    <div>
+                        <h3>૧૯ જૂને સમગ્ર દેશમાં 'નેશનલ રીડિંગ ડે' મનાવવામાં આવ્યો</h3>
+                        <p>કેરળના લાયબ્રેરી મુવમેન્ટના જનક પી. એન. પાનીકરની પુણ્યતિથિ નિમિત્તે રીડિંગ વીક અને રીડિંગ મંથ અભિયાનનો પ્રારંભ કરાયો.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b10')">🃏 Flash Card</button>
+                        <a href="#art-b10" class="btn btn-detail" onclick="focusDetail('card-b10')">📰 Detailed</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="broadsheet-section">
+            <div class="masthead">
+                <h2>THE MAULIK EXPRESS</h2>
+                <div class="masthead-meta">
+                    <span>VOL. II NO. 23 (EXAMINATION SPECIAL - FULL MASTER VERSION)</span>
+                    <span>અમદાવાદ, સોમવાર, ૨૩ જૂન ૨૦૨૬</span>
+                    <span>કિંમત: ₹ ૫.૦૦</span>
+                </div>
+            </div>
+
+            <div class="broadsheet-grid-wrapper">
+                <h3 class="broadsheet-title">મુખ્ય સમાચાર વિગતવાર (Main Stories Detail)</h3>
+
+                <article class="article" id="art-m1">
+                    <div class="article-meta">ડિજિટલ પેમેન્ટ ગવર્નન્સ • ઓપન સોર્સ આર્કિટેક્ચર • લિનક્સ ફાઉન્ડેશન</div>
+                    <h3>૧. એનપીસીઆઈ (NPCI) એ બ્લોકચેન અને ટોકનાઇઝેશન માટે નવું 'Dronix' પ્લેટફોર્મ લોન્ચ કર્યું</h3>
+                    <div class="article-content">
+                        <p>નેશનલ પેમેન્ટ્સ કોર્પોરેશન ઓફ ઇન્ડિયા (NPCI) એ દેશના બેન્કિંગ અને ડિજિટલ ફાઇનાન્સ માર્કેટમાં સુરક્ષા વધારવા માટે સત્તાવાર રીતે <span class="hl-yellow">Dronix (ડ્રોનિક્સ)</span> નામનું આધુનિક એન્ટરપ્રાઇઝ-ગ્રેડ પ્રાઇવેટ બ્લોકચેન અને ડિસ્ટ્રિબ્યુટેડ લેજર ટેકનોલોજી (DLT) પ્લેટફોર્મ રોલ આઉટ કર્યું છે. આ નવું માળખું બેંકો અને નાણાકીય સંસ્થાઓ વચ્ચે ઇન્ટરનલ ટ્રાન્ઝેક્શન્સ અને ટોકનાઇઝેશન પ્રક્રિયાને વધુ ઝડપી બનાવશે.</p>
+                        <p>આ પ્લેટફોર્મ લિનક્સ ફાઉન્ડેશન (Linux Foundation) ના ઓપરેશનલ ઓપન-સોર્સ ફ્રેમવર્ક <span class="hl-yellow">હાઇપર લેજર ફેબ્રિક (Hyperledger Fabric)</span> ની ટેકનિકલ લેયર્સમાં વહિવટી સુધારા અને મોડિફિકેશન કરીને તૈયાર કરવામાં આવ્યું છે. એક્ઝામિનેશન પોઇન્ટ ઓફ વ્યુથી મોસ્ટ ઇમ્પોર્ટન્ટ ફેક્ટ એ છે કે આ એનપીસીઆઈનું બીજું મોટું બ્લોકચેન ઇનોવેશન છે. આ અગાઉ એનપીસીઆઈ દ્વારા <span class="hl-yellow">Falcon (ફેલ્કન)</span> પ્લેટફોર્મ લોન્ચ કરાયું હતું જે મુખ્યત્વે મેનેજર તરીકે આખી ઇકોસિસ્ટમનું મોનિટરિંગ કરતું હતું, જ્યારે નવું 'ડ્રોનિક્સ' વાસ્તવિક ટ્રાન્ઝેક્શન્સ એક્ઝિક્યુટ કરવાનું કાર્ય સંભાળશે.</p>
+                        <div class="additional-edge">
+                            <h4>📌 Additional Information & Exam Edge</h4>
+                            • <strong>પ્રાઇવેટ બ્લોકચેન વર્કિંગ:</strong> યુપીઆઈ (UPI) સામાન્ય જનતા માટે ઓપન પ્લેટફોર્મ છે, પરંતુ 'Dronix' એ સંપૂર્ણપણે પ્રાઇવેટ બ્લોકચેન છે. તેનો ઉપયોગ માત્ર પ્રમાણિત બેંકો, સેન્ટ્રલ બેંક ડિજિટલ કરન્સી (CBDC) ના સંચાલન અને કોર્પોરેટ સ્માર્ટ કોન્ટ્રેક્ટ્સ સુરક્ષિત કરવા માટે જ થશે.
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-m1')">Back to Dashboard ↑</button>
+                </article>
+
+                <article class="article" id="art-m2">
+                    <div class="article-meta">બંધારણીય જોગવાઈ • માનવ ગૌરવ પ્રોટોકોલ • સિવિલ જજમેન્ટ પેનલ</div>
+                    <h3>૨. સુપ્રસિદ્ધ કાનૂની ચુકાદામાં સુપ્રિમ કોર્ટે ફુટપાથ પર સલામત ચાલવાના અધિકારને 'મૂળભૂત હક' ગણાવ્યો</h3>
+                    <div class="article-content">
+                        <p>ભારતીય સુપ્રિમ કોર્ટની ડિવિઝન બેન્ચે દેશના નાગરિકોની જાહેર સુરક્ષા અને માનવ ગૌરવને અકબંધ રાખવા માટે એક ઐતિહાસિક લેન્ડમાર્ક ચુકાદો આપતાં <span class="hl-yellow">Right to Walk (ચાલવાના અધિકાર)</span> ને બંધારણીય રીતે મૂળભૂત અધિકાર (Fundamental Right) જાહેર કર્યો છે. કોર્ટે એક ગંભીર અકસ્માત કેસની સુનાવણી દરમિયાન હાઈકોર્ટના વળતર ઘટાડવાના આદેશને ફગાવી વળતરની રકમમાં મોટો વધારો કર્યો હતો.</p>
+                        <p>સર્વોચ્ચ અદાલતે આ કાયદાકીય અધિકારને બંધારણના ભાગ-૩ માં આપેલા બે મહત્વના આર્ટિકલ્સ સાથે લિંક કર્યો છે: પ્રથમ, <span class="hl-yellow">આર્ટિકલ ૧૯(૧)</span> જે દેશના દરેક નાગરિકને ફ્રીડમ ઓફ મુવમેન્ટ (મુક્ત હરવા-ફરવાનો અધિકાર) આપે છે. બીજું, <span class="hl-yellow">આર્ટિકલ ૨૧</span> જે રાષ્ટ્રીય સ્તરે રાઇટ ટુ લાઇફ (જીવવાનો અધિકાર અને વ્યક્તિગત સ્વતંત્રતા) સુનિશ્ચિત કરે છે. કોર્ટે સ્પષ્ટ આદેશ આપ્યો છે કે રસ્તાઓ માત્ર મોટર વાહનો માટે જ નથી, તેથી ફૂટપાથ, ઝેબ્રા ક્રોસિંગ અને પેડેસ્ટ્રિયન પાથ બનાવવાની કાનૂની જવાબદારી મ્યુનિસિપલ કોર્પોરેશન, શહેરી વિકાસ સત્તામંડળો અને ગ્રામ પંચાયતોની રહેશે.</p>
+                        <div class="additional-edge">
+                            <h4>📌 Additional Information & Exam Edge</h4>
+                            • <strong>હાઉસવાઇફ ઇનકમ જજમેન્ટ લિંક:</strong> સુપ્રિમ કોર્ટે તાજેતરમાં અન્ય એક ક્રાંતિકારી ચુકાદામાં જણાવ્યું હતું કે ઘરકામ કરતી મહિલાઓ (હાઉસવાઇફ) ની આર્થિક કિંમત અજોડ છે, અને અકસ્માત વળતરની ગણતરી માટે તેમની કાલ્પનિક આવક સત્તાવાર રીતે <strong>₹૫,૦૦૦ પ્રતિ માસ</strong> ગણવી જોઈએ. આ બંને ચુકાદા સામાજિક ન્યાયના ક્ષેત્રમાં સીમાચિહ્નરૂપ છે.
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-m2')">Back to Dashboard ↑</button>
+                </article>
+
+                <article class="article" id="art-m3">
+                    <div class="article-meta">નેશનલ હાઇવે ઓથોરિટી • ઓટોમેટેડ નંબર પ્લેટ રેકગ્નિશન • પેનલ્ટી મેટ્રિક્સ</div>
+                    <h3>૩. NHAI દ્વારા રાજસ્થાન રાજ્યના પ્રથમ બેરિયર-ફ્રી 'મલ્ટી-લેન ફ્રી-ફ્લો' ટોલિંગ સિસ્ટમનો પ્રારંભ</h3>
+                    <div class="article-content">
+                        <p>નેશનલ હાઈવે ઓથોરિટી ઓફ ઇન્ડિયા (NHAI) એ વાહનોના ટ્રાફિક જામની સમસ્યા નિવારવા અને પ્રદૂષણ ઘટાડવાના ભાગરૂપે રાજસ્થાન રાજ્યના પ્રથમ <span class="hl-yellow">Multi-Lane Free-Flow Tolling System</span> નો સત્તાવાર પ્રારંભ કર્યો છે. આ સિસ્ટમ હેઠળ હાઈવે પર વાહનોને રોકવા માટે કોઈ ફિઝિકલ બૂમ બેરિયર્સ કે ગેટ્સ હોતા નથી, અને ગાડીઓ પોતાની સામાન્ય હાઈવે સ્પીડ પર સીધી પસાર થઈ શકે છે.</p>
+                        <p>આ આધુનિક સિસ્ટમ મુખ્યત્વે બે ટેકનોલોજીના જોડાણ પર કાર્ય કરે છે: હાઈવે ગેટ પર લાગેલા હાઈ-સ્પીડ સ્કેનર્સ દ્વારા સ્ટાન્ડર્ડ ફાસ્ટૅગ (FASTag) સ્કેનિંગ અને <span class="hl-yellow">ANPR (Automatic Number Plate Recognition)</span> કેમેરા દ્વારા નંબર પ્લેટ રીડિંગ. જો કોઈ વાહનના ફાસ્ટૅગમાં ઓછું બેલેન્સ હશે, તો સિસ્ટમ દ્વારા ઓટોમેટિક ડિજિટલ ઈ-નોટિસ જનરેટ થશે. વાહનચાલકે <span class="hl-yellow">૭૨ કલાકની અંદર</span> ઓનલાઈન પેમેન્ટ સેટલ કરવાનું રહેશે, જો ૭૨ કલાકમાં પેમેન્ટ નહીં થાય તો ડબલ ચાર્જ વસૂલાશે અને તે વ્યક્તિના નામે નોંધાયેલા અન્ય તમામ વાહનોના ફાસ્ટૅગ પણ બ્લેકલિસ્ટ કરી દેવાશે.</p>
+                        <div class="additional-edge">
+                            <h4>📌 Additional Information & Exam Edge</h4>
+                            • <strong>નેશનલ હિસ્ટ્રી નોડ:</strong> સમગ્ર ભારતમાં આ ત્રીજી એવી લોકેશન સાઇટ છે જ્યાં ફ્રી-ફ્લો સિસ્ટમ કાર્યરત કરાઈ છે. આ અગાઉ દેશમાં સર્વપ્રથમવાર <strong>ચોરાસી (ગુજરાત)</strong> અને ત્યારબાદ <strong>મુંડકા-બક્કરવાલા (દિલ્હી)</strong> ખાતે આ પાયલોટ પ્રોજેક્ટ સફળતાપૂર્વક લોન્ચ કરાયો હતો.
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-m3')">Back to Dashboard ↑</button>
+                </article>
+
+                <article class="article" id="art-m4">
+                    <div class="article-meta">પોશ (POSH) એક્ટ પ્રોટોકોલ • ડિસેન્ટ્રલાઇઝ્ડ મોનિટરિંગ • મિશન શક્તિ પેનલ</div>
+                    <h3>૪. મહિલા અને બાળ વિકાસ મંત્રાલયે કાર્યસ્થળો પર સુરક્ષા માટે 'She-Box 2.0' પોર્ટલ જાહેર કર્યું</h3>
+                    <div class="article-content">
+                        <p>દેશના સંગઠિત, અસંગઠિત, જાહેર અને ખાનગી તમામ ક્ષેત્રોમાં કામ કરતી મહિલા કર્મચારીઓની સુરક્ષા સુનિશ્ચિત કરવા માટે કેન્દ્રીય મહિલા અને બાળ વિકાસ મંત્રાલયે કાયદાકીય પોશ (POSH - Prevention of Sexual Harassment) એક્ટ અંતર્ગત અપગ્રેડેડ પ્લેટફોર્મ <span class="hl-yellow">She-Box 2.0 (શી-બોક્સ)</span> પોર્ટલ લોન્ચ કર્યું છે. આ નવું પોર્ટલ જૂના વર્ઝન કરતા વધુ સુરક્ષિત અને વહીવટી સરળતા ધરાવે છે.</p>
+                        <p>આ પોર્ટલની મુખ્ય વિશેષતા એ છે કે તેમાં સેન્ટ્રલાઇઝ્ડ સિસ્ટમને બદલે <span class="hl-yellow">ડિસેન્ટ્રલાઇઝ્ડ મોનિટરિંગ સિસ્ટમ</span> લાગુ કરાઈ છે, જેમાં સ્ટેટ અને ડિસ્ટ્રિક્ટ નોડલ ઓફિસર્સ સ્થાનિક સ્તરે જ ફરિયાદોની ત્વરિત તપાસ કરી શકશે. આ પોર્ટલ દેશની <span class="hl-yellow">૨૨ સત્તાવાર ભાષાઓ</span>માં ઉપલબ્ધ બનાવવામાં આવ્યું છે અને તેમાં પીડિતાની ઓળખ સંપૂર્ણ ગુપ્ત (Confidential) રાખવામાં આવશે. આ પોર્ટલ કેન્દ્ર સરકારના હાઇ-પ્રોફાઇલ અમ્બ્રેલા પ્રોગ્રામ <span class="hl-yellow">Mission Shakti (મિશન શક્તિ)</span> ના 'સંબલ' (Sambhal) સ્તંભ હેઠળ ઓપરેટ થાય છે.</p>
+                        <div class="additional-edge">
+                            <h4>📌 Additional Information & Exam Edge</h4>
+                            • <strong>મિશન શક્તિ આર્મ્સ ડેટા:</strong> મિશન શક્તિના બે પ્રમુખ વ્યૂહાત્મક આર્મ્સ છે: (૧) <strong>સંબલ (Sambhal):</strong> જે મહિલાઓની તાત્કાલિક સેફ્ટી, સિક્યુરિટી અને કાનૂની રક્ષણ માટે કામ કરે છે (જેમ કે શી-બોક્સ, વન સ્ટોપ સેન્ટર, ૧૮૧ હેલ્પલાઇન). (૨) <strong>સમર્થ્યા (Samarthya):</strong> જે મહિલાઓના લોન્ગ-ટર્મ આર્થિક સશક્તિકરણ, સ્કિલિંગ અને સોશિયલ ડેવલપમેન્ટ માટે ફંડિંગ પૂરું પાડે છે.
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-m4')">Back to Dashboard ↑</button>
+                </article>
+
+                <article class="article" id="art-m5">
+                    <div class="article-meta">નેશનલ ઓટોમેટેડ ફિંગરપ્રિન્ટ • સાયબર ક્રાઇમ ઇન્વેસ્ટિગેશન • ગૃહ મંત્રાલય એપ</div>
+                    <h3>૫. કેન્દ્રીય ગૃહ મંત્રી અમિત શાહે ગુનેગારોને ત્વરિત પકડવા માટે 'અભિજ્ઞાન' મોબાઇલ એપ લોન્ચ કરી</h3>
+                    <div class="article-content">
+                        <p>દેશની ક્રિમિનલ ઇન્વેસ્ટિગેશન પ્રણાલીને હાઇટેક બનાવતાં કેન્દ્રીય ગૃહ મંત્રાલયે તપાસ એજન્સીઓ અને ફિલ્ડ પર તૈનાત પોલીસ જવાનો માટે સત્તાવાર ડિજિટલ હથિયાર સ્વરૂપે <span class="hl-yellow">અભિજ્ઞાન (Abhigyan)</span> મોબાઇલ એપ્લિકેશન લોન્ચ કરી છે. આ એપ દ્વારા પોલીસ ઘટનાસ્થળ પર જ કોઈપણ શંકાસ્પદ વ્યક્તિના ફિંગરપ્રિન્ટ્સ સ્માર્ટફોન કેમેરા કે બાયોમેટ્રિક સ્કેનરથી સ્કેન કરી શકશે.</p>
+                        <p>આ એપ માત્ર <span class="hl-yellow">૩૫ સેકન્ડની અંદર</span> દેશભરના અંદાજે <span class="hl-yellow">૧૩ મિલિયન (૧.૩ કરોડ)</span> સજા પામેલા કેદીઓ અને કન્વિકટ્સના રાષ્ટ્રીય ડેટાબેઝ સાથે લિંકિંગ મેચિંગ કરીને તે વ્યક્તિની આખી ક્રિમિનલ હિસ્ટ્રી પોલીસ સ્ક્રીન પર લાવી દેશે. આ પ્લેટફોર્મને નેશનલ ક્રાઇમ રેકોર્ડ્સ બ્યુરો (NCRB) ના સેન્ટ્રલ સર્વર <span class="hl-yellow">NAFIS (National Automated Fingerprint Identification System)</span> સાથે સીધું ઇન્ટિગ્રેટ કરવામાં આવ્યું છે.</p>
+                        <div class="additional-edge">
+                            <h4>📌 Additional Information & Exam Edge</h4>
+                            • <strong>ટેકનિકલ સ્પીડ માઈલસ્ટોન:</strong> અગાઉ ગુનાના સ્થળેથી ફિંગરપ્રિન્ટ્સ મેળવી લેબોરેટરીમાં મોકલવામાં અને રિપોર્ટ આવવામાં કલાકો કે દિવસો જતા હતા, જે કામ હવે 'અભિજ્ઞાન' એપ માત્ર ૩૫ સેકન્ડમાં કરીને ઓન-સ્પોર્ટ ધરપકડ સુનિશ્ચિત કરે છે. સંરક્ષણ અને પોલીસ ગવર્નન્સ માટે આ હોટ ટોપિક છે.
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-m5')">Back to Dashboard ↑</button>
+                </article>
+
+                <article class="article" id="art-m6">
+                    <div class="article-meta">ઓર્ગેનિક એગ્રીકલ્ચર બૂસ્ટ • રી-ભોઈ ડિસ્ટ્રિક્ટ રોડમેપ • કેન્દ્રીય બજેટ ફંડિંગ</div>
+                    <h3>૬. નાણાં મંત્રી નિર્મલા સીતારામને મેઘાલયમાં ઉત્તર-પૂર્વના સૌથી મોટા ઓર્ગેનિક સ્પાઇસ પ્લાન્ટનું ઉદ્ઘાટન કર્યું</h3>
+                    <div class="article-content">
+                        <p>કેન્દ્રીય નાણાં અને કોર્પોરેટ બાબતોના મંત્રી નિર્મલા સીતારામને મેઘાલય રાજ્યના રી-ભોઈ (Ri-Bhoi) જિલ્લાના ભોઈ રિમ્બોંગ બ્લોક હેઠળ આવેલા <span class="hl-yellow">લુમદાઇતખલા (Lumdaitkhla)</span> ખાતે ઉત્તર-પૂર્વ ભારતનો સૌથી મોટો અને અદ્યતન <span class="hl-yellow">ઓર્ગેનિક સ્પાઇસ પ્રોસેસિંગ પ્લાન્ટ</span> દેશને સમર્પિત કર્યો છે. આ પ્લાન્ટની સ્થાપના અંદાજે <span class="hl-yellow">₹૩૨ કરોડની કુલ બજેટરી કિંમત</span> સાથે કરવામાં આવી છે.</p>
+                        <p>આ પ્લાન્ટની ઓપરેશનલ કેપેસિટી વાર્ષિક <span class="hl-yellow">૧૦,૦૦૦ મેટ્રિક ટન</span> ઓર્ગેનિક મસાલા (જેમ કે આદુ, હળદર, મરચાં) ને પ્રોસેસ અને પેકેજ કરવાની છે. આ નોર્થ-ઈસ્ટ વિસ્તારનો સર્વપ્રથમ સત્તાવાર 'ઓર્ગેનિકલી સર્ટિફાઇડ' સ્પાઇસ પ્રોસેસિંગ યુનિટ છે, જે સ્થાનિક ખેડૂતોના ઓર્ગેનિક પાકને વૈશ્વિક બજાર સુધી નિકાસ કરવામાં મદદરૂપ બનશે.</p>
+                        <div class="additional-edge">
+                            <h4>📌 Additional Information & Exam Edge</h4>
+                            • <strong>મેઘાલય ઓર્ગેનિક પ્રોફાઇલ:</strong> મેઘાલય અને સિક્કિમ જેવા રાજ્યો પોતાના જૈવિક ગુણો અને ખાસ કરીને 'લાકાડોંગ હળદર' (Lakadong Turmeric) માટે વૈશ્વિક સ્તરે પ્રખ્યાત છે. એક્ઝામિનર લોકેશનનું નામ (Lumdaitkhla) અને ₹૩૨ કરોડનું નાણાકીય રોકાણ સીધું એમસીક્યૂમાં પૂછી શકે છે.
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-m6')">Back to Dashboard ↑</button>
+                </article>
+
+                <h3 class="broadsheet-title" style="margin-top: 30px;">એક્ઝિક્યુટિવ બ્રીફિંગ્સ વિげてવાર (Executive Briefings Detail)</h3>
+
+                <div class="article" id="art-b1">
+                    <div class="article-meta">સામાજિક ન્યાય મંત્રાલય • ઉમંગ એપ લિંકિંગ • વહીવટી સરળતા</div>
+                    <h3>૧. આદિવાસી અને પછાત વર્ગની સ્કોલરશિપ માટે 'ડોમિસાઇલ સર્ટિફિકેટ' ની જરૂરિયાત નાબૂદ કરાઈ</h3>
+                    <div class="article-content">
+                        <p>કેન્દ્રીય સામાજિક ન્યાય અને સશક્તિકરણ મંત્રાલયે મોટો વહીવટી નિર્ણય લેતાં અનુસૂચિત જાતિ (SC) અને અન્ય પછાત વર્ગો (OBC) ના વિદ્યાર્થીઓ માટે પ્રી-મેટ્રિક અને પોસ્ટ-મેટ્રિક સ્કોલરશિપ મેળવવા માટેના કાયદાકીય નિયમોમાંથી <span class="hl-yellow">Domicile Certificate (રહેવાસી પ્રમાણપત્ર)</span> ની અનિવાર્યતા સત્તાવાર રીતે હટાવી દીધી છે. જે વિદ્યાર્થીઓ પોતાના ગૃહ રાજ્યથી દૂર રહીને અન્ય રાજ્યોમાં અભ્યાસ કરે છે તેમને ડોક્યુમેન્ટ વેરિફિકેશનમાં થતી હેરાનગતિ રોકવા આ કદમ ઉઠાવવામાં આવ્યું છે. આ આખી ઓપરેશનલ સિસ્ટમ ડિજિટલ ઇન્ડિયાના <span class="hl-yellow">સેતુ - SETU (Scholarship for Education Transformation and Upliftment)</span> પ્લેટફોર્મ દ્વારા ઓટોમેટેડ આધાર વેરિફિકેશનથી જ લિંક રહેશે, જે ગવર્નમેન્ટના સત્તાવાર 'ઉમંગ' (Umang) એપ્લિકેશન સાથે ઇન્ટિગ્રેટ થયેલું છે.</p>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b1')">Back to Dashboard ↑</button>
+                </div>
+
+                <div class="article" id="art-b2">
+                    <div class="article-meta">એસસી યુવા સશક્તિકરણ • મિલિટ્રી ટ્રેનિંગ ગાઇડન્સ • દિલ્હી સેમિનાર</div>
+                    <h3>૨. નેશનલ કમિશન ફોર શેડ્યુલ કાસ્ટ (NCSC) દ્વારા 'પ્રોજેક્ટ સુપર 50' સફળતાપૂર્વક યોજાયો</h3>
+                    <div class="article-content">
+                        <p>નાગરિક સેવાઓની પરીક્ષાઓની તૈયારી કરતા પછાત વર્ગના પ્રતિભાવંત વિદ્યાર્થીઓને સચોટ દિશા આપવા માટે નેશનલ કમિશન ફોર શેડ્યુલ કાસ્ટ (NCSC) દ્વારા નવી દિલ્હી સ્થિત સેન્ટ્રલ હેડક્વાર્ટર ખાતે ખાસ <span class="hl-yellow">પ્રોજેક્ટ સુપર 50 (Project Super 50)</span> ગાઇડન્સ એન્ડ મેન્ટરશિપ પ્રોગ્રામનું આયોજન કરવામાં આવ્યું હતું. આ રાષ્ટ્રીય કાર્યક્રમની સત્તાવાર થીમ <span class="hl-yellow">"Guide, Mentor, Empower"</span> રાખવામાં આવી હતી, જેનો મુખ્ય ઉદ્દેશ્ય સિવિલ સર્વિસ પરીક્ષા (UPSC) માં એસસી સમુદાયના યુવાનોનું પ્રતિનિધિત્વ અને પાસિંગ રેશિયો વધારવાનો છે.</p>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b2')">Back to Dashboard ↑</button>
+                </div>
+
+                <div class="article" id="art-b3">
+                    <div class="article-meta">ડ્રગ્સ એન્ડ કોસ્મેટિક્સ એક્ટ • હ્યુમન સેફ્ટી પ્રોટોકોલ • ફિક્સ ડોઝ કોમ્બિનેશન</div>
+                    <h3>૩. કેન્દ્ર સરકારે એલોવેરા મિશ્રણ ધરાવતી ૧૬ હાનિકારક એફડીસી (FDC) દવાઓ પર કાયમી બેન મૂક્યો</h3>
+                    <div class="article-content">
+                        <p>કેન્દ્રીય આરોગ્ય અને પરિવાર કલ્યાણ મંત્રાલયે માનવ સ્વાસ્થ્ય પર થતી વિપરીત અસરોને ધ્યાનમાં રાખીને બજારમાં મળતી <span class="hl-yellow">૧૬ ફિક્સ ડોઝ કોમ્બિનેશન (FDC)</span> દવાઓ અને સ્કીન કેર પ્રોડક્ટ્સના ઉત્પાદન, વેચાણ અને વિતરણ પર તાત્કાલિક અસરથી પ્રતિબંધ લાદી દીધો છે. આ કડક કાયદાકીય કારવાઈ સત્તાવાર રીતે <span class="hl-yellow">Drugs and Cosmetics Act, 1940 ના સેક્શન ૨૬A</span> હેઠળ કરવામાં આવી છે. આ બેન કરાયેલા પ્રોડક્ટ્સમાં લેબોરેટરી ક્લિનિકલ ટેસ્ટિંગ વગર એલોવેરા (Aloe Vera) સાથે ઓલિવ ઓઇલ, વિટામિન-ઈ, જોજોબા ઓઇલ કે ટી-ટ્રી ઓઇલ મિક્સ કરીને વેચાતી ક્રીમ અને લોશનનો સમાવેશ થાય છે, જે ચામડી માટે હાનિકારક સાબિત થઈ શકે છે.</p>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b3')">Back to Dashboard ↑</button>
+                </div>
+
+                <div class="article" id="art-b4">
+                    <div class="article-meta">આઈટી એક્ટ સેક્શન ૬૯A • ડિજિટલ રાઇટ્સ પ્રોટેક્શન • કોમ્યુનિકેશન બહાલ</div>
+                    <h3>૪. કેન્દ્રીય આઈટી મંત્રાલયે વિવાદિત તપાસ પૂર્ણ થતાં ટેલિગ્રામ (Telegram) પરથી પ્રતિબંધ હટાવ્યો</h3>
+                    <div class="article-content">
+                        <p>દેશની રાષ્ટ્રીય સુરક્ષા અને ડેટા પ્રાઇવસીના કથિત ભંગ બદલ ચાલી રહેલી હાઇ-લેવલ તપાસના સંદર્ભમાં લાદવામાં આવેલો પ્રતિબંધ હટાવીને કેન્દ્ર સરકારે ટેલિગ્રામ (Telegram) ની ડિજિટલ સેવાઓ દેશમાં સત્તાવાર રીતે બહાલ કરી દીધી છે. અગાઉ આ પ્રતિબંધ <span class="hl-yellow">Information Technology Act, 2000 ના સેક્શન ૬૯A</span> હેઠળ લગાવવામાં આવ્યો હતો. આ સેક્શન સરકારને દેશની સંપ્રભુતા, અખંડિતતા અને વિદેશી રાજ્યો સાથેના મૈત્રીપૂર્ણ સંબંધોને નુકસાન પહોંચાડતા કોઈપણ ઓનલાઈન ડિજિટલ પ્લેટફોર્મને બ્લોક કરવાની સત્તા આપે છે. કાયદાકીય જોગવાઈ મુજબ, સરકાર જ્યારે આવી કોઈ મોટી એપ બ્લોક કરે ત્યારે બજારમાં ગ્રાહકોના ફ્રીડમ ઓફ એક્સપ્રેશન માટે વૈકલ્પિક ઓપ્શન્સ (જેમ કે વોટ્સએપ, સિગ્નલ) હાજર હોવા અનિવાર્ય છે.</p>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b4')">Back to Dashboard ↑</button>
+                </div>
+
+                <div class="article" id="art-b5">
+                    <div class="article-meta">આર્ટિફિશિયલ ઇન્ટેલિજન્સ ટ્રેનિંગ • ડિજિટલ એજ્યુકેશન મિશન • ગૂગલ ઇન્ડિયા કોલેબોરેશન</div>
+                    <h3>૫. મહારાષ્ટ્ર સરકારે ૪ લાખથી વધુ શિક્ષકોને એઆઈ (AI) ની તાલીમ આપવા ગૂગલ સાથે કરાર કર્યો</h3>
+                    <div class="article-content">
+                        <p>શિક્ષણ વ્યવસ્થાને આધુનિક ટેકનોલોજી સાથે સાંકળવાના હેતુથી મહારાષ્ટ્રના શિક્ષણ વિભાગે વૈશ્વિક ટેક કંપની ગૂગલ (Google) સાથે એક અગત્યના વ્યૂહાત્મક કરાર પર હસ્તાક્ષર કર્યા છે. આ સમજૂતી હેઠળ મહારાષ્ટ્ર રાજ્યની વિવિધ સરકારી અને ગ્રાન્ટ-ઈન-એડ શાળાઓમાં ભણાવતા <span class="hl-yellow">૪ લાખથી વધુ શિક્ષકો</span>ને આર્ટિફિશિયલ ઇન્ટેલિજન્સ (AI) ટૂલ્સ, ડિજિટલ લર્નિંગ મોડ્યુલ્સ અને મોર્ડન એજ્યુકેશન આસિસ્ટન્સ સિસ્ટમની વિશેષ પ્રોફેસનલ તાલીમ આપવામાં આવશે.</p>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b5')">Back to Dashboard ↑</button>
+                </div>
+
+                <div class="article" id="art-b6">
+                    <div class="article-meta">ગ્લોબલ પીસકીપિંગ એક્સરસાઇઝ • ઉલાનબતાર મિલિટ્રી નોડ • જાટ રેજીમેન્ટ ગૌરવ</div>
+                    <h3>૬. મંગોલિયામાં શરૂ થઈ બહુરાષ્ટ્રીય સૈન્ય એક્સરસાઇઝ 'Khaan Quest 2026'; ભારતીય જાટ રેજીમેન્ટ સામેલ</h3>
+                    <div class="article-content">
+                        <p>વૈશ્વિક શાંતિ રક્ષક સૈન્ય મિશનોની ઓપરેશનલ ક્ષમતા વધારવા માટે મંગોલિયા દેશની રાજધાની ઉલાનબતાર નજીક આવેલા ફાઇવ હિલ્સ ટ્રેનિંગ એરિયા (Five Hills) ખાતે પ્રતિષ્ઠિત ઇન્ટરનેશનલ સૈન્ય યુદ્ધાભ્યાસ <span class="hl-yellow">Khaan Quest 2026 (ખાન ક્વેસ્ટ)</span> નો સત્તાવાર પ્રારંભ ૨૦ જૂનથી થયો છે જે ૩ જુલાઈ સુધી ચાલશે. આ વર્ષે એક્ઝિબિશનમાં વિશ્વના ૧૮ દેશોના ૧,૧૦૦ થી વધુ સૈનિકો ભાગ લઈ રહ્યા છે. ભારતીય સેનાનું પ્રતિનિધિત્વ કરવા માટે સેનાની પ્રખ્યાત <span class="hl-yellow">Jat Regiment (જાટ રેજીમેન્ટ) ની ૪૦ સભ્યોની એડવાન્સ મિલિટ્રી ટુકડી</span> મંગોલિયા પહોંચી છે. આ સૈન્ય અભ્યાસની શરૂઆત મૂળ વર્ષ ૨૦૦૩ માં યુએસએ (USA) અને મંગોલિયા વચ્ચે દ્વિપક્ષીય સ્તરે થઈ હતી, જે ૨૦૦૬ થી મલ્ટીનેશનલ માઈલસ્ટોન બની છે.</p>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b6')">Back to Dashboard ↑</button>
+                </div>
+
+                <div class="article" id="art-b7">
+                    <div class="article-meta">મેરિન ગેસ ટર્બાઇન • કોલકાતા ક્લાસ વોરશિપ • સંરક્ષણ પીએસયુ ઓર્ડર</div>
+                    <h3>૭. સંરક્ષણ મંત્રાલયે મેરિન ગેસ ટર્બાઇન જનરેટર્સ માટે ભારત ફોર્જ સાથે ₹૪૨૫ કરોડનો કોન્ટ્રેક્ટ કર્યો</h3>
+                    <div class="article-content">
+                        <p>ભારતીય નૌસેનાની ઓપરેશનલ સજ્જતા અને આત્મનિર્ભરતા વધારવા માટે કેન્દ્રીય સંરક્ષણ મંત્રાલયે સ્વદેશી અગ્રણી કંપની ભારત ફોર્જ (Bharat Forge) સાથે <span class="hl-yellow">₹૪૨૫ કરોડના સત્તાવાર કોન્ટ્રેક્ટ</span> પર સહી કરી છે. આ કરાર હેઠળ કંપની ભારતીય નૌકાદળના શક્તિશાળી 'કોલકાતા ક્લાસ યુદ્ધજહાજો' (Kolkata Class Warships) ના પાવર બેકઅપ માટે <span class="hl-yellow">૧.૨૫ મેગાવોટ (MW) ની ક્ષમતા ધરાવતા ૧૨ સેટ્સ મેરિન ગેસ ટર્બાઇન જનરેટર્સ</span> નું સપ્લાય અને ડિસ્ટ્રિબ્યુશન કરશે.</p>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b7')">Back to Dashboard ↑</button>
+                </div>
+
+                <div class="article" id="art-b8">
+                    <div class="article-meta">નવી દિલ્હી પાસપોર્ટ કોન્ફરન્સ • સૈન્ય સ્ટાન્ડર્ડ વેરિફિકેશન • સરકારી સેવા એવોર્ડ</div>
+                    <h3>૮. પાસપોર્ટ વેરિફિકેશનમાં શ્રેષ્ઠ પ્રદર્શન બદલ જમ્મુ-કાશ્મીર પોલીસને સત્તાવાર રાષ્ટ્રીય પુરસ્કાર મળ્યો</h3>
+                    <div class="article-content">
+                        <p>નવી દિલ્હી ખાતે યોજાયેલી રીજનલ પાસપોર્ટ ઓફિસર્સ કોન્ફરન્સ દરમિયાન કેન્દ્ર સરકાર દ્વારા જમ્મુ-કાશ્મીર પોલીસને <span class="hl-yellow">Institutional Performance Award for State Police in Passport Seva</span> ના પ્રતિષ્ઠિત પુરસ્કારથી સન્માનિત કરવામાં આવી છે. જમ્મુ-કાશ્મીર પોલીસે એક વર્ષના રેકોર્ડબ્રેક સમયગાળામાં કોઈ પણ વહીવટી વિલંબ વિના <span class="hl-yellow">૧,૬૪,૩૫૪ પાસપોર્ટ એપ્લિકેશન્સ</span> નું સૌથી ઝડપી કાયદાકીય વેરિફિકેશન પૂર્ણ કરીને દેશભરમાં ટોચનું સ્થાન મેળવ્યું છે. બેન્કિંગ એક્ઝામ્સની જનરલ અવેરનેસ માટે મહત્વનો ફેક્ટ એ છે કે સરકારી કે બેંક કર્મચારીઓ જ્યારે નોકરીમાં જોઈન થયા બાદ પાસપોર્ટ માટે એપ્લાય કરે છે, ત્યારે તેમની અલગથી પોલીસ વેરિફિકેશન કરવાની જરૂર રહેતી નથી, કારણ કે જોઈનિંગ સમયે જ તેમની સત્તાવાર વિભાગીય પોલીસ વેરિફિકેશન થઈ ચૂકેલી હોય છે.</p>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b8')">Back to Dashboard ↑</button>
+                </div>
+
+                <div class="article" id="art-b9">
+                    <div class="article-meta">ઇન્ડિયન ઇન્ફોર્મેશન સર્વિસ • આકાશવાણી સિંગાપોર નોડ • મીડિયા ઓબિચ્યુઅરી</div>
+                    <h3>૯. આકાશવાણીના પૂર્વ વરિષ્ઠ સીએચઆર અધિકારી દીપાંકર મુખોપાધ્યાયનું કોલકાતામાં નિધન થયું</h3>
+                    <div class="article-content">
+                        <p>ભારતીય માધ્યમ અને બ્રોડકાસ્ટિંગ ક્ષેત્રના અત્યંત વરિષ્ઠ નિવૃત્ત અધિકારી <span class="hl-yellow">દીપાંકર મુખોપાધ્યાય</span> નું લાંબી બીમારી બાદ પશ્ચિમ બંગાળના કોલકાતા ખાતે સત્તાવાર અવસાન થયું છે. તેઓ ઇન્ડિયન ઇન્ફોર્મેશન સર્વિસ (IIS) ના ટોચના અધિકારી હતા, જેમણે કેન્દ્રીય માહિતી અને પ્રસારણ મંત્રાલય હેઠળ ઓલ ઇન્ડિયા રેડિયો (આકાશવાણી) માં લાંબો સમય સેવા આપી હતી. તેઓ ઓલ ઇન્ડિયા રેડિયોના ઓફિશિયલ સ્પેશિયલ રિપ્રેઝન્ટેટિવ તરીકે સિંગાપોર (Singapore) ખાતે પણ તૈનાત રહી ચૂક્યા હતા.</p>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b9')">Back to Dashboard ↑</button>
+                </div>
+
+                <div class="article" id="art-b10">
+                    <div class="article-meta">ફાધર ઓફ લાયબ્રેરી મુવમેન્ટ • કેરળ સાક્ષરતા રોડમેપ • રાષ્ટ્રીય રીડિંગ વીક</div>
+                    <h3>૧૦. ૧૯ જૂને દેશભરમાં 'નેશનલ રીડિંગ ડે' મનાવાયો; લાયબ્રેરી મુવમેન્ટના જનક પી. એન. પાનીકરને શ્રદ્ધાંજલિ</h3>
+                    <div class="article-content">
+                        <p>સમગ્ર દેશમાં શિક્ષણ અને વાંચન સંસ્કૃતિને પ્રોત્સાહન આપવા માટે ૧૯ જૂનના રોજ સત્તાવાર રીતે <span class="hl-yellow">National Reading Day (રાષ્ટ્રીય વાંચન દિવસ)</span> ની ઉજવણી કરવામાં આવી હતી. આ દિવસ કેરળના પ્રખ્યાત સામાજિક સુધારક <span class="hl-yellow">પી. એન. પાનીકર (P N Panicker)</span> ની પુણ્યતિથિ નિમિત્તે ઉજવાય છે, જેમને ભારતમાં 'ફાધર ઓફ ઇન્ડિયા લાયબ્રેરી મુવમેન્ટ' કહેવામાં આવે છે. તેમણે વર્ષ ૧૯૪૫ માં ટ્રેવનકોર ગ્રંથશાલા સંગમ એસોસિએશન સ્થાપી હજારો ગ્રંથાલયો ખોલ્યા હતા, જે આજે કેરળના સર્વોચ્ચ સાક્ષરતા દર (Literacy Rate) નું મુખ્ય કારણ છે. વડાપ્રધાન નરેન્દ્ર મોદીએ આ દિવસને ૨૦૧૭ માં રાષ્ટ્રીય કક્ષાએ લોન્ચ કર્યો હતો. સરકારી કેલેન્ડર મુજબ ૧૯ થી ૨૫ જૂન સુધી નેશનલ રીડિંગ વીક અને ૧运行 જૂન થી ૧૮ જુલાઈ સુધી નેશનલ રીડિંગ મંથ ઉજવવામાં આવે છે.</p>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b10')">Back to Dashboard ↑</button>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <div id="quiz-view-panel">
+        <div class="quiz-container">
+            
+            <div id="quiz-active-questions-frame-block">
+                <div class="quiz-header">
+                    <div>
+                        <h2>THE MAULIK EXPRESS QUIZ</h2>
+                        <p style="font-size:0.8rem; color:var(--text-muted);" id="quiz-step-progress-label">Question 1 of 25</p>
+                    </div>
+                    <div style="display:flex; gap:10px; align-items:center;">
+                        <div class="score-box">Score: <span id="live-score-counter">0</span> / 25</div>
+                        <button class="btn-exit-quiz" onclick="switchBackToNewsMode()">← Exit</button>
+                    </div>
+                </div>
+                
+                <div id="quiz-questions-loader-target"></div>
+
+                <div class="quiz-nav-btn-group">
+                    <button class="btn-quiz-nav btn-quiz-prev" id="quiz-prev-action-btn" onclick="goToPrevQuizQuestion()" disabled>← Previous</button>
+                    <button class="btn-quiz-nav btn-quiz-next" id="quiz-next-action-btn" onclick="goToNextQuizQuestion()">Next →</button>
+                </div>
+            </div>
+
+            <div id="quiz-result-final-pane">
+                <h3>🎉 અભિનંદન! તમે ટેસ્ટ પૂર્ણ કરી છે</h3>
+                <p style="color:var(--text-muted); font-size:0.95rem;" id="final-result-user-name-label">👤 વિદ્યાર્થી: Maulik</p>
+                
+                <div class="final-score-display-card">
+                    <span id="final-score-digits">0</span> <span style="font-size:1.5rem; color:#64748b;">/ 25</span>
+                </div>
+                
+                <p style="font-size:0.9rem; color:#475569; max-width:500px; margin:0 auto 15px auto;">તમારું પરિણામ સેવ કરવા અને મોલિક સરના વૉટ્સએપ નંબર પર સબમિટ કરવા નીચેના લીલા બટન પર ક્લિક કરો.</p>
+                
+                <button class="btn-submit-whatsapp-final" onclick="sendResultToWhatsApp()">
+                    💬 Submit Result to WhatsApp
+                </button>
+                
+                <div style="margin-top: 25px;">
+                    <button class="btn-exit-quiz" style="background:var(--bg-dark); padding:10px 20px;" onclick="switchBackToNewsMode()">ન્યૂઝ પેજ પર પાછા જાઓ</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="flash-modal" onclick="closeModal(event)">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModalForce()">×</button>
+            <img src="" alt="Context Visual" class="modal-img" id="modal-img-element">
+            <div class="modal-body" id="modal-body-content"></div>
+        </div>
+    </div>
+
+    <script>
+        const mindmapData = {
+            m1: {
+                title: "NPCI Dronix Blockchain Platform Matrix",
+                img: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "NPCI દ્વારા બ્લોકચેન અને ટોકનાઇઝેશનને વેગ આપવા 'Dronix' પ્લેટફોર્મ ખુલ્લું મૂકાયું.",
+                    "આ પ્લેટફોર્મ લિનક્સ ફાઉન્ડેશનના પ્રખ્યાત 'હાઇપર લેજર ફેબ્રિક' ઓપન સોર્સ પર આધારિત છે.",
+                    "NPCI નો આ બીજો પ્રોજેક્ટ છે; અગાઉ લૉન્ચ થયેલું 'Falcon' પ્લેટફોર્મ માત્ર મેનેજર તરીકે કાર્ય કરતું હતું.",
+                    "Dronix એક એન્ટરપ્રાઇઝ-ગ્રેડ પ્રાઇવેટ નેટવર્ક હોવાથી બેંકો અને CBDC ના આંતરિક ઉપયોગ માટે જ રહેશે."
+                ],
+                edge: "📌 Exam Edge: Dronix પ્લેટફોર્મ બેન્કિંગ સેક્ટરમાં સેન્ટ્રલ સ્માર્ટ કોન્ટ્રેક્ટ્સ અને સુરક્ષિત ડેટા લેજર સપ્લાય કરશે."
+            },
+            m2: {
+                title: "Supreme Court Right to Walk Landmark Ruling",
+                img: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "સુપ્રિમ કોર્ટે ફુટપાથ પર સુરક્ષિત ચાલવાના હકને સત્તાવાર રીતે મૂળભૂત અધિકાર જાહેર કર્યો.",
+                    "આ કાયદાકીય અધિકાર આર્ટિકલ ૧૯ (મુક્ત હરવા-ફરવા) અને આર્ટિકલ ૨૧ (જીવવાનો અધિકાર) સાથે જોડાયેલો છે.",
+                    "કોર્ટે મ્યુનિસિપલ કોર્પોરેશનો અને ગ્રામ પંચાયતોને પેડેસ્ટ્રિયન પાથ બનાવવાની કાનૂની ફરજ પાડી છે.",
+                    "અન્ય ચુકાદો: અકસ્માત કેસમાં હાઉસવાઇફની કાલ્પનિક આવક ₹૫,૦૦૦ પ્રતિ માસ ગણવાનો બેન્ચમાર્ક સેટ થયો."
+                ],
+                edge: "📌 Legal Update: રસ્તાઓ માત્ર વાહનો માટે મોનોપોલાઇઝ ન કરી શકાય, ચાલનારા નાગરિકોનો હક પ્રાથમિક છે."
+            },
+            m3: {
+                title: "NHAI Rajasthan Free-Flow Tolling Framework",
+                img: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "NHAI દ્વારા રાજસ્થાનમાં કોઈ ગેટ કે બૂમ બેરિયર વગરની પ્રથમ પ્રીમિયમ ફ્રી-ફ્લો સિસ્ટમ શરૂ થઈ.",
+                    "આ સિસ્ટમ એએનપીઆર (ANPR) કેમેરા નંબર પ્લેટ રીડિંગ અને સ્ટાન્ડર્ડ ફાસ્ટૅગ લોજિક પર ચાલે છે.",
+                    "ઓછા બેલેન્સ પર ૭૨ કલાકનો સમય અપાશે; ચૂકવણી ન થતાં ચાર્જ ડબલ થશે અને બધા વાહનો બ્લેકલિસ્ટ થશે."
+                ],
+                edge: "📌 History Location: ભારતમાં આ ત્રીજી સાઇટ છે; આ અગાઉ ચોરાસી (ગુજરાત) અને મુંડકા (દિલ્હી) માં શરૂ થયેલી."
+            },
+            m4: {
+                title: "POSH Act She-Box 2.0 Digital Portal Node",
+                img: "https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "મહિલા બાળ વિકાસ મંત્રાલયે સેક્સ્યુઅલ હરેસમેન્ટની સેફ રિપોર્ટિંગ માટે She-Box ૨.૦ લૉન્ચ કર્યું.",
+                    "આ અપગ્રેડેડ વર્ઝનમાં સ્ટેટ અને ડિસ્ટ્રિક્ટ નોડલ ઓફિસર્સ માટે ડિસેન્ટ્રલાઇઝ્ડ મોનિટરિંગ આપ્યું છે.",
+                    "આ પોર્ટલ દેશની ૨૨ સત્તાવાર બંધારણીય ભાષાઓમાં કન્ફિગરેશન સાથે રિયલ-ટાઇમ હિસ્ટ્રી ટ્રેક કરશે."
+                ],
+                edge: "📌 Mission Shakti: આ યોજના મિશન શક્તિના 'સંબલ' (તાત્કાલિક સુરક્ષા અને લીગલ પ્રોટેક્શન) આર્મ હેઠળ કાર્યરત છે."
+            },
+            m5: {
+                title: "Abhigyan App Fingerprint Matching System",
+                img: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "ગૃહ મંત્રાલયે ઓન-ફિલ્ડ પોલીસ એજન્સીઓ માટે ગુનેગારોને પકડવા 'અભિજ્ઞાન' એપ જાહેર કરી.",
+                    "આ એપ્લિકેશન સ્માર્ટફોન સ્કેન દ્વારા માત્ર ૩૫ સેકન્ડમાં શંકાસ્પદોનો પૂરો ક્રિમિનલ ડેટા સામે લાવી દેશે.",
+                    "આ સિસ્ટમ NCRB ના ૧.૩ કરોડ કેદીઓના રાષ્ટ્રીય સર્વર NAFIS સાથે સીધી ઇન્ટિગ્રેટ થયેલી છે."
+                ],
+                edge: "📌 Technology Speed: ઘટનાસ્થળ પર જ બાયોમેટ્રિક હિસ્ટ્રી પુલ-અપ કરવાની આ ભારતની સૌથી ઝડપી પ્રણાલી છે."
+            },
+            m6: {
+                title: "North East India Largest Organic Spice Plant",
+                img: "https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "નાણાં મંત્રી નિર્મલા સીતારામને મેઘાલયના રી-ભોઈ જિલ્લાના લુમદાઇતખલામાં મોટો પ્લાન્ટ ખૂલ્લો મૂક્યો.",
+                    "₹૩૨ કરોડના નાણાકીય બજેટ સાથે બનેલા આ યુનિટની કેપેસિટી વાર્ષિક ૧૦,૦૦૦ મેટ્રિક ટન મસાલા પ્રોસેસ કરવાની છે.",
+                    "આ નોર્થ-ઈસ્ટ ઝોનનો સર્વપ્રથમ સત્તાવાર રીતે 'ઓર્ગેનિકલી સર્ટિફાઇડ' પ્રોસેસિંગ યુનિટ માઈલસ્ટોન છે."
+                ],
+                edge: "📌 Development Focus: આદુ અને લાકાડોંગ હળદર જેવા જૈવિક પાકોને વૈશ્વિક બજાર સુધી એક્સપોર્ટ કરવામાં મદદ મળશે."
+            }
+        };
+
+        const onelinerData = [
+            "NPCI એ હાઇપર લેજર ફેબ્રિક ઓપન-સોર્સ આધારિત નવું પ્રાઇવેટ બ્લોકચેન પ્લેટફોર્મ 'Dronix' લોન્ચ કર્યું.",
+            "NPCI દ્વારા અગાઉ લોન્ચ કરાયેલું 'Falcon' પ્લેટફોર્મ માત્ર મેનેજર તરીકે આખી સિસ્ટમ કંટ્રોલ કરતું હતું.",
+            "સુપ્રિમ કોર્ટે આર્ટિકલ ૧૯ અને આર્ટિકલ ૨૧ હેઠળ ફુટપાથ પર સુરક્ષિત ચાલવાના હકને મૂળભૂત અધિકાર ગણાવ્યો.",
+            "અકસ્માત કેસમાં વળતરની સચોટ ગણતરી માટે હાઉસવાઇફની કાલ્પનિક આવક ₹૫,૦૦0 પ્રતિ માસ ગણવામાં આવશે.",
+            "NHAI એ રાજસ્થાન રાજ્યનું પ્રથમ બેરિયર-ફ્રી 'મલ્ટી-લેન ફ્રી-ફ્લો' ટોલિંગ સિસ્ટમ મંડી નજીક શરૂ કર્યું.",
+            "ટોલ ફ્રી-ફ્લો સિસ્ટમ ભારતમાં સૌપ્રથમ ચૌરાસી (ગુજરાત) અને ત્યારબાદ મુંડકા (દિલ્હી) માં સ્થાપિત કરાઈ હતી.",
+            "ફ્રી-ફ્લો ઈ-નોટિસ મળ્યાના ૭૨ કલાકમાં પેમેન્ટ સેટલ નહીં થાય તો ટોલ ચાર્જ ડબલ વસૂલવામાં આવશે.",
+            "મહિલા બાળ વિકાસ મંત્રાલયે પોશ એક્ટ હેઠળ સુરક્ષિત કમ્પ્લાયન્સ માટે 'She-Box 2.0' પોર્ટલ રજૂ કર્યું.",
+            "She-Box ૨.૦ પોર્ટલ મિશન શક્તિના 'સંબલ' (તાત્કાલિક કાનૂની રક્ષણ અને સુરક્ષા) સ્તંભ હેઠળ કાર્ય કરે છે.",
+            "ગૃહ મંત્રાલયની નવી 'અભિજ્ઞાન' એપ માત્ર ૩૫ સેકન્ડમાં શંકાસ્પદોના ફિંગરપ્રિન્ટ્સ મેચ કરવાની ક્ષમતા ધરાવે છે.",
+            "અભિજ્ઞાન એપ સેન્ટ્રલ બ્યુરો NCRB ના ૧.૩ કરોડ કેદીઓના રાષ્ટ્રીય સર્વર NAFIS સાથે કનેક્ટેડ છે.",
+            "નાણાં મંત્રીએ મેઘાલયના લુમદાઇતખલામાં ₹૩૨ કરોડના ખર્ચે નોર્થ-ઈસ્ટનો સૌથી મોટો ઓર્ગેનિક સ્પાઇસ પ્લાન્ટ શરૂ કર્યો.",
+            "મહારાષ્ટ્ર સરકારે રાજ્યના ૪ લાખથી વધુ સરકારી શિક્ષકોને AI અને ટેકનોલોજીની તાલીમ આપવા ગૂગલ સાથે ડીલ કરી.",
+            "મંગોલિયાના ઉલાનબતારમાં શરૂ થયેલા 'ખાન ક્વેસ્ટ ૨૦૨૬' યુદ્ધાભ્યાસમાં ભારત તરફથી જાટ રેજીમેન્ટ સામેલ થઈ.",
+            "સંરક્ષણ મંત્રાલયે નેવીના વોરશિપ્સ માટે ૧૨ સેટ્સ મેરિન ગેસ ટર્બાઇન ખરીદવા ભારત ફોર્જ સાથે ₹૪૨૫ કરોડનો કરાર કર્યો.",
+            "જમ્મુ-કાશ્મીર પોલીસને એક વર્ષમાં ૧,૬૪,૩૫૪ પાસપોર્ટ વેરિફિકેશન ઝડપી પૂર્ણ કરવા બદલ રાષ્ટ્રીય પુરસ્કાર મળ્યો.",
+            "૨૨ જૂનના રોજ આંતરરાષ્ટ્રીય સ્તરે ઊંટના આર્થિક અને સાંસ્કૃતિક મહત્વને પ્રોત્સાહન આપવા 'વર્લ્ડ કેમલ ડે' મનાવાયો.",
+            "૧૯ જૂને કેરળ લાયબ્રેરી મુવમેન્ટના જનક પી. એન. પાનીકરની પુણ્યતિથિ નિમિત્તે 'નેશનલ રીડિંગ ડે' ઉજવાયો."
+        ];
+
+        function openOneLinerModal() {
+            document.getElementById('modal-img-element').src = "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=600&q=80";
+            let htmlContent = `<h2>⚡ TME Quick One-Liners Bulletins</h2><ol class="oneliner-node">`;
+            onelinerData.forEach(bullet => { htmlContent += `<li>${bullet}</li>`; });
+            htmlContent += `</ol>`;
+            document.getElementById('modal-body-content').innerHTML = htmlContent;
+            document.getElementById('flash-modal').style.display = 'flex';
+        }
+
+        function openFlashCard(id) {
+            const data = mindmapData[id];
+            if (!data) return;
+            document.getElementById('modal-img-element').src = data.img;
+            let htmlContent = `<h2>${data.title}</h2><ul class="mindmap-node">`;
+            data.nodes.forEach(node => { htmlContent += `<li>${node}</li>`; });
+            htmlContent += `</ul>`;
+            if (data.edge) { htmlContent += `<div class="modal-edge-box">${data.edge}</div>`; }
+            document.getElementById('modal-body-content').innerHTML = htmlContent;
+            document.getElementById('flash-modal').style.display = 'flex';
+        }
+
+        function closeModal(e) { if (e.target.id === 'flash-modal') { document.getElementById('flash-modal').style.display = 'none'; } }
+        function closeModalForce() { document.getElementById('flash-modal').style.display = 'none'; }
+        function focusDetail(cardId) { lastActiveCardId = cardId; }
+
+        function returnToDashboard(targetId) {
+            const currentCardId = targetId || lastActiveCardId;
+            if (!currentCardId) { scrollToDashboard(); return; }
+            const cardElement = document.getElementById(currentCardId);
+            if (cardElement) {
+                cardElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                cardElement.classList.add('box-highlight-effect');
+                setTimeout(() => { cardElement.classList.remove('box-highlight-effect'); }, 2000);
+            }
+        }
+
+        function scrollToDashboard() { document.getElementById('dashboard').scrollIntoView({ behavior: 'smooth' }); }
+
+        const quizDatabase = [
+            {
+                q: "1. NPCI દ્વારા બ્લોકચેન અને ટોકનાઇઝેશન ઇકોસિસ્ટમને સપોર્ટ કરવા માટે કયું નવું ઓપન સોર્સ પ્લેટફોર્મ લોન્ચ કરાયું છે?",
+                o: ["Falcon (ફેલ્કન)", "Dronix (ડ્રોનિક્સ)", "Mantra (મંત્રા)", "Agniveg (અગ્નિવેગ)"],
+                a: 1,
+                exp: "NPCI એ હાઇપર લેજર ફેબ્રિક ઓપન સોર્સ આર્કિટેક્ચર પર આધારિત નવું પ્રાઇવેટ લેજર પ્લેટફોર્મ Dronix લોન્ચ કર્યું chhe."
+            },
+            {
+                q: "2. NPCI ના બ્લોકચેન રોડમેપમાં અગાઉ લોન્ચ કરાયેલું 'Falcon' પ્લેટફોર્મ મુખ્યત્વે કયું કાર્ય સંભાળતું હતું?",
+                o: ["વાસ્તવિક ટ્રાન્ઝેક્શન્સ એક્ઝિક્યુશન", "મેનેજર તરીકે સિસ્ટમ મેનેજમેન્ટ", "જનરલ પબ્લિક ડિજિટલ યુપીઆઈ લિંકિંગ", "સાયબર ક્રાઇમ ઓડોટોમેટેડ બ્લોકિંગ"],
+                a: 1,
+                exp: "Falcon પ્લેટફોર્મ આખી ઇકોસિસ્ટમનું મોનિટરિંગ અને મેનેજમેન્ટ કરતું હતું, જ્યારે નવું 'Dronix' વાસ્તવિક ટ્રાન્ઝેક્શન્સ રન કરશે."
+            },
+            {
+                q: "3. Dronix પ્લેટફોર્મ કઈ વૈશ્વિક સંસ્થાના ઓપન સોર્સ ફ્રેમવર્ક 'હાઇપર લેજર ફેબ્રિક' (Hyperledger Fabric) પર આધારિત છે?",
+                o: ["માઇક્રોસોફ્ટ ફાઉન્ડેશન", "લિનક્સ ફાઉન્ડેશન (Linux Foundation)", "ગુગલ એઆઈ લેબ્સ", "વર્લ્ડ આઈટી ફોરમ"],
+                a: 1,
+                exp: "હાઇપર લેજર ફેબ્રિક એ લિનક્સ ફાઉન્ડેશનનો ઓપન-સોર્સ પ્રોજેક્ટ છે જેમાં મોડિફિકેશન કરીને ડ્રોનિક્સ બનાવાયું છે."
+            },
+            {
+                q: "4. સુપ્રિમ કોર્ટે ફુટપાથ પર સુરક્ષિત અને સ્વચ્છ વાતાવરણમાં 'Right to Walk' ને કયા આર્ટિકલ હેઠળ મૂળભૂત અધિકાર ગણાવ્યો chhe?",
+                o: ["આર્ટિકલ ૧૪ અને ૧૫", "આર્ટિકલ ૧૫ અને ૧૭", "આર્ટિકલ ૧૯ અને ૨૧", "આર્ટિકલ ૨૫ અને ૨૮"],
+                a: 2,
+                exp: "સુપ્રિમ કોર્ટે તેને આર્ટિકલ ૧૯ (ફ્રીડમ ઓફ મુવમેન્ટ) અને આર્ટિકલ ૨૧ (રાઇટ ટુ લાઇફ એન્ડ પર્સનલ લિબર્ટી) હેઠળ ફંડામેન્ટલ રાઇટ ગણાવ્યો છે."
+            },
+            {
+                q: "5. અકસ્માત વળતર કેસોમાં સુપ્રિમ કોર્ટના નવા આદેશ અનુસાર હાઉસવાઇફ (ઘરકામ કરતી મહિલા) ની કાલ્પનિક આવક દર મહિને કેટલી ગણવી જોઇએ?",
+                o: ["₹૨,૫૦૦ પ્રતિ માસ", "₹૩,૫૦૦ પ્રતિ માસ", "₹૫,૦૦૦ પ્રતિ માસ", "₹૭,૫૦૦ પ્રતિ માસ"],
+                a: 2,
+                exp: "કોર્ટે સામાજિક ન્યાયના પ્રોટોકોલ હેઠળ ગણતરી માટે હાઉસવાઇફની કાલ્પનિક માસિક આવક ₹૫,૦૦0 ફિક્સ કરી છે."
+            },
+            {
+                q: "6. NHAI દ્વારા તાજેતરમાં કયા રાજ્યમાં કોઈ ફિઝિકલ બૂમ બેરિયર કે ગેટ વગરની પ્રથમ 'મલ્ટી-લેન ફ્રી-ફ્લો' ટોલિંગ સિસ્ટમ શરૂ કરાઈ?",
+                o: ["ગુજરાત", "દિલ્હી", "રાજસ્થાન", "મહારાષ્ટ્ર"],
+                a: 2,
+                exp: "NHAI એ રાજસ્થાન રાજ્યની સર્વપ્રથમ બેરિયર-ફ્રી હાઈવે ફ્રી-ફ્લો ટોલિંગ સિસ્ટમ સત્તાવાર રીતે ચાલુ કરી chhe."
+            },
+            {
+                q: "7. હાઈવે ફ્રી-ફ્લો સિસ્ટમમાં વાહનોની નંબર પ્લેટ આપોઆપ રીડ કરવા માટે કઈ અદ્યતન કેમેરા ટેકનોલોજીનો ઉપયોગ થાય છે?",
+                o: ["NAFIS સ્કેનર સિસ્ટમ", "ANPR (Automatic Number Plate Recognition)", "C-KYC કેમેરા લોજિક", "SETU ઓટોમેટેડ ટ્રેકર"],
+                a: 1,
+                exp: "ANPR કેમેરા ટેકનોલોજી દ્વારા વાહનની નંબર પ્લેટ હાઈવે સ્પીડ પર પણ ઓટોમેટેડ સ્કેન થઈ જાય chhe."
+            },
+            {
+                q: "8. ફ્રી-ફ્લો સિસ્ટમ હેઠળ જો ફાસ્ટૅગમાં ઓછું બેલેન્સ હોય, તો ગ્રાહકે ડિજિટલ નોટિસ મળ્યાના કેટલા કલાકમાં પેમેન્ટ ચૂકવવાનું રહેશે?",
+                o: ["૨૪ કલાકની અંદર", "૪૮ કલાકની અંદર", "૭૨ કલાકની અંદર (72 Hours)", "૯૬ કલાકની અંદર"],
+                a: 2,
+                exp: "વાહનચાલકે ૭૨ કલાકમાં પેમેન્ટ ઓનલાઈન સેટલ કરવાનું રહેશે, નહિતર ડબલ ચાર્જ વસૂલાશે અને બધા વાહનો બ્લેકલિસ્ટ થશે."
+            },
+            {
+                q: "9. સમગ્ર ભારતમાં રાજસ્થાન પહેલાં કયા બે મુખ્ય શહેરો/લોકેશન સાઇટ્સ પર ફ્રી-ફ્લો ટોલિંગ સિસ્ટમ કાર્યરત કરાઈ ચૂકી chhe?",
+                o: ["અમદાવાદ અને મુંબઈ", "ચોરાસી (ગુજરાત) અને મુંડકા-બક્કરવાલા (દિલ્હી)", "જયપુર અને લખનૌ", "ગાંધીનગર અને ચંદીગઢ"],
+                a: 1,
+                exp: "ભારતમાં આ અગાઉ સૌપ્રથમ ચોરાસી (ગુજરાત) અને ત્યારબાદ મુંડકા-બક્કરવાલા (દિલ્હી) ખાતે આ પ્રોજેક્ટ લૉન્ચ કરાયો હતો."
+            },
+            {
+                q: "10. મહિલા અને બાળ વિકાસ મંત્રાલયે સેક્સ્યુઅલ હરેસમેન્ટની સેફ કમ્પ્લાયન્સ રિપોર્ટિંગ માટે કયું નવું પોર્ટલ રજૂ કર્યું છે?",
+                o: ["Netri 2.0 Portal", "She-Box 2.0 Portal", "Drishti Digital Box", "Anugyan Safety Hub"],
+                a: 1,
+                exp: "પોશ (POSH) એક્ટ હેઠળ મહિલા કર્મચારીઓની સુરક્ષા અને વહીવટી સરળતા માટે She-Box ૨.૦ પોર્ટલ લૉન્ચ કરાયું છે."
+            },
+            {
+                q: "11. નવી She-Box 2.0 પ્રણાલી કેન્દ્ર સરકારના કયા અમ્બ્રેલા પ્રોગ્રામના 'સંબલ' (Sambhal) સ્તંભ હેઠળ ઓપરેટ થાય chhe?",
+                o: ["મિશન પોષણ ૨.૦", "મિશન શક્તિ (Mission Shakti)", "ડિજિટલ શક્તિ અભિયાન", "નારી સક્ષમ કોરિડોર"],
+                a: 1,
+                exp: "She-Box પોર્ટલ મિશન શક્તિના 'સંબલ' (સેફ્ટી, સિક્યુરિટી અને તાત્કાલિક કાનૂની રક્ષણ) સ્તંભ હેઠળ કાર્ય કરે છે."
+            },
+            {
+                q: "12. કેન્દ્રીય ગૃહ મંત્રાલયે ઓન-ફિલ્ડ પોલીસ એજન્સીઓ માટે શંકાસ્પદોના ફિંગરપ્રિન્ટ્સ સ્કેન કરવા કઈ મોબાઇલ એપ લોન્ચ કરી?",
+                o: ["સેતુ એપ", "ઉમંગ ડિજિટલ એપ", "અભિજ્ઞાન (Abhigyan) એપ", "નેફિસ ટ્રેકર એપ"],
+                a: 2,
+                exp: "પોલીસ જવાનો ફિલ્ડ પર જ શંકાસ્પદોના ફિંગરપ્રિન્ટ્સ સ્કેન કરી હિસ્ટ્રી ચેક કરી શકે તે માટે 'અભિજ્ઞાન' એપ લૉન્ચ કરાઈ છે."
+            },
+            {
+                q: "13. ગૃહ મંત્રાલયની નવી 'અભિજ્ઞાન' એપ કેટલા સમયની અંદર સેન્ટ્રલ સર્વર પરથી મેચિંગ હિસ્ટ્રી લાવી દેવાની ક્ષમતા ધરાવે chhe?",
+                o: ["૧૫ સેકન્ડમાં", "૩૫ સેકન્ડમાં (35 Seconds)", "૬૦ સેકન્ડમાં", "૫ મિનિટમાં"],
+                a: 1,
+                exp: "આ હાઇટેક એપ માત્ર ૩૫ સેકન્ડની અંદર નેશનલ ડેટાબેઝ સર્વર NAFIS સાથે મેચિંગ કરીને ક્રિમિનલ હિસ્ટ્રી સામે લાવી દે chhe."
+            },
+            {
+                q: "14. અભિજ્ઞાન મોબાઇલ એપ્લિકેશન દેશભરના કેટલા કરોડ સજા પામેલા કેદીઓના સેન્ટ્રલ ડેટાબેઝ NAFIS સાથે જોડાયેલી chhe?",
+                o: ["૫૦ લાખ", "૧ કરોડ", "૧.૩ કરોડ (13 Million)", "૨.૫ કરોડ"],
+                a: 2,
+                exp: "આ એપ NCRB ના ૧.૩ કરોડ (૧૩ મિલિયન) સજા પામેલા ગુનેગારો અને કેદીઓના રાષ્ટ્રીય ડેટાબેઝ સાથે ઇન્ટિગ્રેટ થયેલી છે."
+            },
+            {
+                q: "15. નાણાં મંત્રી નિર્મલા સીતારામને કયા રાજ્યના રી-ભોઈ જિલ્લાના લુમદાઇતખલામાં ઉત્તર-પૂર્વના સૌથી મોટા સ્પાઇસ પ્લાન્ટનું ઉદ્ઘાટન કર્યું?",
+                o: ["આસામ", "સિક્કિમ", "મેઘાલય (Meghalaya)", "અરુણાચલ પ્રદેશ"],
+                a: 2,
+                exp: "નાણાં મંત્રીએ મેઘાલયના લુમદાઇતખલા ખાતે ₹૩૨ કરોડના ખર્ચે બનેલા ઓર્ગેનિક સ્પાઇસ પ્રોસેસિંગ પ્લાન્ટનું ઉદ્ઘાટન કર્યું."
+            },
+            {
+                q: "16. સામાજિક ન્યાય મંત્રાલયે SC-OBC સ્કોલરશિપ મેળવવા માટે નીચેનામાંથી કયા ડોક્યુમેન્ટની અનિવાર્યતા સત્તાવાર નાબૂદ કરી chhe?",
+                o: ["આધાર કાર્ડ પ્રમાણપત્ર", "ડોમિસાઇલ સર્ટિફિકેટ (Domicile)", "જાતિનો દાખલો", "બેંક પાસબુક નકલ"],
+                a: 1,
+                exp: "બીજા રાજ્યોમાં ભણતા વિદ્યાર્થીઓની વહીવટી સરળતા માટે સામાજિક ન્યાય મંત્રાલયે ડોમિસાઇલ સર્ટિફિકેટની જરૂરિયાત હટાવી છે."
+            },
+            {
+                q: "17. નેશનલ કમિશન ફોર શેડ્યુલ કાસ્ટ (NCSC) દ્વારા દિલ્હીમાં એસસી યુવાનો માટે કયો ખાસ સિવિલ સર્વિસ ગાઇડન્સ પ્રોગ્રામ યોજાયો?",
+                o: ["પ્રોજેક્ટ સુપર ૩૦", "પ્રોજેક્ટ સુપર 50 (Super 50)", "મિશન ડિજિટલ આર્મી", "સેતુ સક્ષમ પેનલ"],
+                a: 1,
+                exp: "NCSC દ્વારા 'Guide, Mentor, Empower' થીમ સાથે દિલ્હી હેડક્વાર્ટર ખાતે પ્રોજેક્ટ સુપર ૫૦ સેમિનાર યોજાયો હતો."
+            },
+            {
+                q: "18. આરોગ્ય મંત્રાલયે હ્યુમન સેફ્ટી કમ્પ્લાયન્સ માટે ડ્રગ્સ એન્ડ કોસ્મેટિક્સ એક્ટ, 1940 ના કયા સેક્શન હેઠળ ૧૬ દવાઓ બેન કરી?",
+                o: ["સેક્શન ૧૨A", "સેક્શન ૨૧B", "સેક્શન ૨૬A (Section 26A)", "સેક્શન ૪૬X"],
+                a: 2,
+                exp: "આરોગ્ય મંત્રાલયે ડ્રગ્સ એન્ડ કોસ્મેટિક્સ એક્ટ ૧૯૪0 ના સેક્શન ૨૬A હેઠળ એલોવેરા મિશ્રણ વાળી ૧૬ એફડીસી દવાઓ પર પ્રતિબંધ મૂક્યો છે."
+            },
+            {
+                q: "19. તાજેતરમાં તપાસ પૂર્ણ થતાં કેન્દ્ર સરકારે કઈ જાણીતી સોશિયલ મીડિયા મેસેજિંગ એપ્લિકેશન પરથી કાયદાકીય પ્રતિબંધ હટાવ્યો chhe?",
+                o: ["ફેસબુક મેસેન્જર", "ટેલિગ્રામ (Telegram)", "રેડ્ડિટ ઇન્ડિયા", "સિગ્નલ પ્રાઇવેટ"],
+                a: 1,
+                exp: "Information Technology Act, 2000 ના સેક્શન ૬૯A હેઠળ ચાલી રહેલી તપાસ પૂર્ણ થતાં ટેલિગ્રામ સેવાઓ દેશમાં બહાલ કરાઈ chhe."
+            },
+            {
+                q: "20. મહારાષ્ટ્ર સરકારે રાજ્યના ૪ લાખથી વધુ સરકારી શાળાઓના શિક્ષકોને AI ટૂલ્સની તાલીમ આપવા કઈ ગ્લોબલ કંપની સાથે કરાર કર્યો?",
+                o: ["માઇક્રોસોફ્ટ", "ગૂગલ (Google)", "એમેઝોન ઇન્ડિયા", "મેટા પ્લેટફોર્મ્સ"],
+                a: 1,
+                exp: "મહારાષ્ટ્રના શિક્ષણ વિભાગે ૪ લાખ શિક્ષકોને આધુનિક આર્ટિફિશિયલ ઇન્ટેલિજન્સ ટ્રેનિંગ આપવા ગૂગલ સાથે ઐતિહાસિક ડીલ કરી છે."
+            },
+            {
+                q: "21. મંગોલિયાના ઉલાનબતાર ખાતે શરૂ થયેલા બહુરાષ્ટ્રીય સૈન્ય યુદ્ધાભ્યાસ 'Khaan Quest 2026' માં ભારત તરફથી કઈ રેજીમેન્ટે ભાગ લીધો?",
+                o: ["મરાઠા લાઇટ ઇન્ફન્ટ્રી", "રાજપૂતાના રાઇફલ્સ", "જાટ રેજીમેન્ટ (Jat Regiment)", "ગોરખા રાઇફલ્સ"],
+                a: 2,
+                exp: "ખાન ક્વેસ્ટ ૨૦૨૬ બહુરાષ્ટ્રીય એક્ઝામિનેશનમાં ભારતીય આર્મી તરફથી જાટ રેજીમેન્ટની ૪૦ સભ્યોની ટુકડી સામેલ થઈ છે."
+            },
+            {
+                q: "22. સંરક્ષણ મંત્રાલયે નેવીના કોલકાતા ક્લાસ યુદ્ધજહાજો માટે મેરિન ગેસ ટર્બાઇન ખરીદવા કઈ સ્વદેશી કંપની સાથે ₹૪૨૫ કરોડનો કરાર કર્યો?",
+                o: ["ટાટા એડવાન્સ ડિફેન્સ", "ભારત ફોર્જ (Bharat Forge)", "એલ એન્ડ ટી મિલિટ્રી", "રિલાયન્સ નેવલ આર્મ્સ"],
+                a: 1,
+                exp: "ઇન્ડિયન નેવીના વોરશિપ્સ માટે ૧.૨૫ MW ક્ષમતાના ૧૨ મેરિન ગેસ ટર્બાઇન જનરેટર્સ ખરીદવા ભારત ફોર્જ સાથે ડીલ કરાઈ chhe."
+            },
+            {
+                q: "23. પાસપોર્ટ એપ્લિકેશન્સનું એક વર્ષમાં ૧,૬૪,૩૫૪ રેકોર્ડબ્રેક વેરિફિકેશન ઝડપી પૂર્ણ કરવા બદલ કઈ રાજ્ય પોલીસને પુરસ્કાર મળ્યો?",
+                o: ["ગુજરાત પોલીસ", "પંજાબ પોલીસ", "જમ્મુ-કાશ્મીર પોલીસ", "કેરળ સાયબર સેલ"],
+                a: 2,
+                exp: "દિલ્હી કોન્ફરન્સમાં સૌથી પારદર્શક અને ફાસ્ટ પાસપોર્ટ સેવા વેરિફિકેશન માટે જમ્મુ-કાશ્મીર પોલીસને એવોર્ડ એનાયત કરાયો."
+            },
+            {
+                q: "24. ૨૨ જૂનના રોજ આંતરરાષ્ટ્રીય સ્તરે કયા પ્રાણીના આર્થિક, દૂધ અને સસ્ટેનેબલ મહત્વને વેગ આપવા 'વર્લ્ડ ડે' મનાવાયો?",
+                o: ["વર્લ્ડ એલિફન્ટ ડે", "વર્લ્ડ ટાઇગર ડે", "વર્લ્ડ કેમલ ડે (World Camel Day)", "વર્લ્ડ હોર્સ કોરિડોર"],
+                a: 2,
+                exp: "૨૨ જૂને વૈશ્વિક સ્તરે ઊંટના રક્ષણ અને સંવર્ધન માટે 'વર્લ્ડ કેમલ ડે' મનાવવામાં આવે chhe."
+            },
+            {
+                q: "25. ભારતમાં 'લાયબ્રેરી મુવમેન્ટના જનક' (Father of Library Movement) કોને ગણવામાં આવે છે, જેમની યાદમાં ૧૯ જૂને રીડિંગ ડે ઉજવાય chhe?",
+                o: ["અભિષેક સિંહ", "પી. એન. પાનીકર (P N Panicker)", "દીપાંકર મુખોપાધ્યાય", "સૌરભ વિજય"],
+                a: 1,
+                exp: "પી. એન. પાનીકરે કેરળમાં હજારો પુસ્તકાલયો ખોલી સાક્ષરતા ક્રાંતિ લાવી હતી, તેથી તેમની પુણ્યતિથિએ 'નેશનલ રીડિંગ ડે' મનાવાય છે."
+            }
+        ];
+
+        let currentQuizIndex = 0;
+        let currentQuizScore = 0;
+        let userRegisteredName = "";
+        let userSelectedAnswers = new Array(quizDatabase.length).fill(null); 
+
+        function switchToQuizMode() {
+            const nameInput = document.getElementById('user-quiz-reg-name').value.trim();
+            if(nameInput === "") { alert("⚠️ ક્વિઝ શરૂ કરવા માટે કૃપા કરીને તમારું નામ લખો!"); return; }
+            userRegisteredName = nameInput;
+
+            document.getElementById('main-news-page-wrapper').style.display = 'none';
+            document.getElementById('quiz-view-panel').style.display = 'block';
+            document.getElementById('quiz-active-questions-frame-block').style.display = 'block';
+            document.getElementById('quiz-result-final-pane').style.display = 'none';
+            
+            currentQuizIndex = 0;
+            currentQuizScore = 0;
+            userSelectedAnswers.fill(null); 
+            document.getElementById('live-score-counter').innerText = currentQuizScore;
+            
+            loadSingleQuizQuestion(currentQuizIndex);
+        }
+
+        function switchBackToNewsMode() {
+            document.getElementById('quiz-view-panel').style.display = 'none';
+            document.getElementById('main-news-page-wrapper').style.display = 'block';
+            window.scrollTo(0,0);
+        }
+
+        function loadSingleQuizQuestion(index) {
+            window.scrollTo(0,0); 
+            document.getElementById('quiz-step-progress-label').innerText = `Question ${index + 1} of ${quizDatabase.length}`;
+            
+            const prevBtn = document.getElementById('quiz-prev-action-btn');
+            prevBtn.disabled = (index === 0);
+
+            const nextBtn = document.getElementById('quiz-next-action-btn');
+            if (index === quizDatabase.length - 1) {
+                nextBtn.innerText = "Finish & Submit ✓";
+                nextBtn.style.backgroundColor = "#10b981";
+            } else {
+                nextBtn.innerText = "Next →";
+                nextBtn.style.backgroundColor = "#2563eb";
+            }
+
+            const container = document.getElementById('quiz-questions-loader-target');
+            container.innerHTML = ""; 
+
+            const item = quizDatabase[index];
+            const card = document.createElement('div');
+            card.className = "quiz-card-item";
+
+            const qTitle = document.createElement('div');
+            qTitle.className = "quiz-question";
+            qTitle.innerText = item.q;
+            card.appendChild(qTitle);
+
+            const optionsList = document.createElement('ul');
+            optionsList.className = "quiz-options-list";
+            optionsList.id = `single-q-opts-block`;
+
+            const alreadyAnsweredIdx = userSelectedAnswers[index];
+
+            item.o.forEach((optText, optIdx) => {
+                const li = document.createElement('li');
+                li.className = "option-item";
+                li.innerText = optText;
+                
+                if (alreadyAnsweredIdx !== null) {
+                    li.classList.add('option-disabled');
+                    if (optIdx === item.a) {
+                        li.classList.add('correct-state');
+                    } else if (optIdx === alreadyAnsweredIdx) {
+                        li.classList.add('wrong-state');
+                    }
+                } else {
+                    li.onclick = function() { evaluateSingleQuestionAnswer(optIdx, item.a, item.exp); };
+                }
+                optionsList.appendChild(li);
+            });
+            card.appendChild(optionsList);
+
+            const expBox = document.createElement('div');
+            expBox.id = "live-explanation-feedback-box";
+            expBox.className = "quiz-explanation-box";
+            
+            if (alreadyAnsweredIdx !== null) {
+                expBox.innerHTML = `<strong>💡 ટૂંકી સમજૂતી (Samjooti):</strong> ${item.exp}`;
+                expBox.style.display = "block";
+            }
+            card.appendChild(expBox);
+            container.appendChild(card);
+        }
+
+        function evaluateSingleQuestionAnswer(selectedIdx, correctIdx, explanationText) {
+            userSelectedAnswers[currentQuizIndex] = selectedIdx;
+
+            const optionsBlock = document.getElementById('single-q-opts-block');
+            const optionsElements = optionsBlock.getElementsByTagName('li');
+
+            for (let i = 0; i < optionsElements.length; i++) {
+                optionsElements[i].classList.add('option-disabled');
+            }
+
+            if (selectedIdx === correctIdx) {
+                optionsElements[selectedIdx].classList.add('correct-state');
+                currentQuizScore++;
+                document.getElementById('live-score-counter').innerText = currentQuizScore;
+            } else {
+                optionsElements[selectedIdx].classList.add('wrong-state');
+                optionsElements[correctIdx].classList.add('correct-state');
+            }
+
+            const expBox = document.getElementById('live-explanation-feedback-box');
+            expBox.innerHTML = `<strong>💡 ટૂંકી સમજૂતી (Samjooti):</strong> ${explanationText}`;
+            expBox.style.display = "block";
+        }
+
+        function goToPrevQuizQuestion() {
+            if (currentQuizIndex > 0) {
+                currentQuizIndex--;
+                loadSingleQuizQuestion(currentQuizIndex);
+            }
+        }
+
+        function goToNextQuizQuestion() {
+            if (currentQuizIndex < quizDatabase.length - 1) {
+                currentQuizIndex++;
+                loadSingleQuizQuestion(currentQuizIndex);
+            } else {
+                showFinalResultsPaneLayout();
+            }
+        }
+
+        function showFinalResultsPaneLayout() {
+            document.getElementById('quiz-active-questions-frame-block').style.display = 'none';
+            document.getElementById('quiz-result-final-pane').style.display = 'block';
+            document.getElementById('final-result-user-name-label').innerText = `👤 વિદ્યાર્થી: ${userRegisteredName}`;
+            document.getElementById('final-score-digits').innerText = currentQuizScore;
+        }
+
+        function sendResultToWhatsApp() {
+            const masterWhatsAppNumber = "916353298168"; 
+            const currentTime = new Date().toLocaleTimeString('gu-IN', { hour: '2-digit', minute: '2-digit' });
+            
+            const messagePayload = `*THE MAULIK EXPRESS QUIZ RESULT* 📊\n\n` +
+                                   `👤 *નામ:* ${userRegisteredName}\n` +
+                                   `📅 *તારીખ:* 23 June 2026\n` +
+                                   `⏱️ *સમય:* ${currentTime}\n` +
+                                   `🎯 *ફાઇનલ સ્કોર:* ${currentQuizScore} / 25\n\n` +
+                                   `📈 _માસ્ટર એક્ઝામ લેજર એન્ડ એનાલિટિક્સ સિસ્ટમ દ્વારા પ્રમાણિત._`;
+            
+            const encodedText = encodeURIComponent(messagePayload);
+            const whatsappWebUrl = `https://api.whatsapp.com/send?phone=${masterWhatsAppNumber}&text=${encodedText}`;
+            window.open(whatsappWebUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
+    
+  </body>
+  
+</html>
