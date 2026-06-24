@@ -1,0 +1,1753 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>24 June</title>
+    
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="gu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>THE MAULIK EXPRESS (TME) - Master Dual-Mode Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght=700&family=Inter:wght=400;500;600;700&family=Noto+Serif+Gujarati:wght=400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --card-bg: #1e293b;
+            --accent: #38bdf8;
+            --highlight-text: #fbbf24;
+            --danger: #f43f5e;
+            --text-muted: #94a3b8;
+            --paper-bg: #f4f4f0;
+            --sheet-bg: #fdfdfa;
+            --text-dark: #1e293b;
+            --border-color: #cbd5e1;
+            --yellow-highlighter: #fff200;
+            --success: #10b981;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Serif Gujarati', serif;
+            background-color: var(--paper-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .hl-yellow {
+            background-color: var(--yellow-highlighter);
+            color: #000000;
+            font-weight: 700;
+            padding: 2px 4px;
+            border-radius: 3px;
+            display: inline;
+        }
+
+        .dashboard-section {
+            background-color: var(--bg-dark);
+            color: #ffffff;
+            padding: 15px;
+            width: 100%;
+        }
+
+        @media (min-width: 600px) {
+            .dashboard-section { padding: 25px; }
+        }
+
+        .header-container {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            border-bottom: 1px solid var(--card-bg);
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        @media (min-width: 600px) {
+            .header-container {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+
+        .main-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .main-title span { color: var(--accent); }
+
+        .meta-info {
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        @media (min-width: 600px) {
+            .main-title { text-align: left; font-size: 2.3rem; }
+            .meta-info { text-align: right; font-size: 0.9rem; }
+        }
+
+        .meta-info strong { color: var(--highlight-text); }
+
+        .top-action-bar {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin: 15px 0 25px 0;
+            width: 100%;
+        }
+
+        @media (min-width: 650px) {
+            .top-action-bar {
+                flex-direction: row;
+                justify-content: center;
+                align-items: stretch;
+            }
+        }
+
+        .quiz-start-banner {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            border-radius: 12px;
+            padding: 20px;
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            text-align: center;
+            box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.3);
+        }
+
+        .quiz-start-banner h2 {
+            font-size: 1.2rem;
+            color: #ffffff;
+            font-family: 'Noto Serif Gujarati', serif;
+        }
+
+        .oneliner-banner {
+            background: linear-gradient(135deg, #854d0e, #a16207);
+            border-radius: 12px;
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            text-align: center;
+            box-shadow: 0 10px 15px -3px rgba(234, 179, 8, 0.2);
+        }
+
+        .oneliner-banner h2 {
+            font-size: 1.2rem;
+            color: #ffffff;
+            font-family: 'Noto Serif Gujarati', serif;
+        }
+
+        .quiz-name-input-box {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            width: 100%;
+            max-width: 260px;
+            margin: 0;
+        }
+
+        .quiz-name-input-box input {
+            padding: 10px 14px;
+            border-radius: 6px;
+            border: 2px solid #cbd5e1;
+            font-size: 0.9rem;
+            font-family: 'Inter', sans-serif;
+            text-align: center;
+            outline: none;
+        }
+
+        .quiz-name-input-box input:focus {
+            border-color: var(--accent);
+        }
+
+        .btn-quiz-master {
+            background-color: var(--highlight-text);
+            color: #000000;
+            font-size: 0.95rem;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.2s, background-color 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-quiz-master:hover {
+            transform: scale(1.03);
+            background-color: #fcd34d;
+        }
+
+        .btn-oneliner-master {
+            background-color: #ffffff;
+            color: #854d0e;
+            font-size: 0.95rem;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.2s, background-color 0.2s;
+            text-transform: uppercase;
+            width: 100%;
+            max-width: 220px;
+        }
+
+        .btn-oneliner-master:hover {
+            transform: scale(1.03);
+            background-color: #f8fafc;
+        }
+
+        .section-header {
+            font-family: 'Noto Serif Gujarati', serif;
+            font-size: 1.25rem;
+            margin: 20px 0 12px 0;
+            color: var(--accent);
+            border-left: 4px solid var(--accent);
+            padding-left: 8px;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        @media (min-width: 650px) {
+            .news-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        }
+        @media (min-width: 1000px) {
+            .news-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        .news-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            scroll-margin-top: 15px;
+        }
+
+        .news-card h3 {
+            font-size: 1rem;
+            margin-bottom: 6px;
+            color: #ffffff;
+            line-height: 1.35;
+        }
+
+        .news-card p {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            margin-bottom: 12px;
+            flex-grow: 1;
+            text-align: justify;
+            line-height: 1.4;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 8px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 10px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 8px 10px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.75rem;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+        }
+
+        .btn-flash {
+            background-color: rgba(251, 191, 36, 0.12);
+            color: var(--highlight-text);
+            border: 1px solid rgba(251, 191, 36, 0.25);
+        }
+
+        .btn-flash:hover {
+            background-color: var(--highlight-text);
+            color: var(--bg-dark);
+        }
+
+        .btn-detail {
+            background-color: rgba(56, 189, 248, 0.12);
+            color: var(--accent);
+            border: 1px solid rgba(56, 189, 248, 0.25);
+        }
+
+        .btn-detail:hover {
+            background-color: var(--accent);
+            color: var(--bg-dark);
+        }
+
+        .box-highlight-effect {
+            animation: card-flash-glow 2s cubic-bezier(0.4, 0, 0.2, 1);
+            border-color: var(--accent) !important;
+        }
+
+        @keyframes card-flash-glow {
+            0% { background-color: #1e3a8a; transform: scale(1.02); box-shadow: 0 0 15px rgba(56, 189, 248, 0.5); }
+            50% { transform: scale(1.02); box-shadow: 0 0 15px rgba(56, 189, 248, 0.2); }
+            100% { background-color: var(--card-bg); transform: scale(1); }
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(4px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 10px;
+        }
+
+        .modal-content {
+            background: #ffffff;
+            color: #1e293b;
+            width: 100%;
+            max-width: 630px;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            animation: modalSlideUp 0.2s ease-out;
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.3);
+        }
+
+        @keyframes modalSlideUp {
+            from { opacity: 0; transform: translateY(15px) scale(0.98); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(15, 23, 42, 0.6);
+            border: none;
+            color: #ffffff;
+            font-size: 1.2rem;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        .modal-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-bottom: 3px solid var(--accent);
+        }
+
+        @media (min-width: 600px) { .modal-img { height: 220px; } }
+
+        .modal-body {
+            padding: 20px;
+            max-height: 55vh;
+            overflow-y: auto;
+        }
+
+        .modal-body h2 {
+            font-family: 'Noto Serif Gujarati', serif;
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            color: #0f172a;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 6px;
+        }
+
+        .mindmap-node {
+            list-style-type: none;
+            margin-bottom: 12px;
+        }
+
+        .mindmap-node li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 10px;
+            color: #334155;
+            font-size: 0.92rem;
+            text-align: justify;
+            line-height: 1.5;
+        }
+
+        .mindmap-node li::before {
+            content: "⚡";
+            position: absolute;
+            left: 0;
+            top: 1px;
+            font-size: 0.9rem;
+            color: var(--danger);
+        }
+
+        .oneliner-node {
+            list-style-type: none;
+            margin-bottom: 10px;
+        }
+
+        .oneliner-node li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 12px;
+            color: #1e293b;
+            font-size: 0.92rem;
+            text-align: justify;
+            line-height: 1.5;
+            border-bottom: 1px dashed #e2e8f0;
+            padding-bottom: 8px;
+        }
+
+        .oneliner-node li::before {
+            content: "📌";
+            position: absolute;
+            left: 0;
+            top: 1px;
+            font-size: 0.95rem;
+        }
+
+        .modal-edge-box {
+            background: #f8fafc;
+            border-left: 4px solid #0f172a;
+            padding: 10px;
+            border-radius: 0 6px 6px 0;
+            margin-top: 12px;
+            font-size: 0.85rem;
+            color: #1e293b;
+        }
+
+        .broadsheet-section {
+            padding: 20px 10px;
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        @media (min-width: 600px) { .broadsheet-section { padding: 30px 20px; } }
+
+        .masthead {
+            text-align: center;
+            border-top: 4px double var(--text-dark);
+            border-bottom: 4px double var(--text-dark);
+            padding: 12px 0;
+            margin-bottom: 25px;
+        }
+
+        .masthead h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            letter-spacing: 1px;
+        }
+
+        @media (min-width: 600px) { .masthead h2 { font-size: 3.5rem; letter-spacing: 2px; } }
+
+        .masthead-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #475569;
+            margin-top: 6px;
+            border-top: 1px solid var(--text-dark);
+            padding-top: 5px;
+        }
+
+        @media (min-width: 600px) {
+            .masthead-meta { flex-direction: row; justify-content: space-between; }
+        }
+
+        .broadsheet-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.25rem;
+            margin-bottom: 15px;
+            border-bottom: 3px solid var(--text-dark);
+            padding-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .article {
+            background: var(--sheet-bg);
+            padding: 15px;
+            border: 1px solid #cbd5e1;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            scroll-margin-top: 15px;
+        }
+
+        @media (min-width: 600px) { .article { padding: 25px; } }
+
+        .article h3 {
+            font-family: 'Noto Serif Gujarati', serif;
+            font-size: 1.15rem;
+            margin-bottom: 8px;
+            color: #0f172a;
+            line-height: 1.35;
+        }
+
+        @media (min-width: 600px) { .article h3 { font-size: 1.5rem; } }
+
+        .article-meta {
+            font-size: 0.7rem;
+            color: #64748b;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+            border-bottom: 1px dashed #e2e8f0;
+            padding-bottom: 4px;
+        }
+
+        .article-content {
+            font-size: 0.95rem;
+            color: #334155;
+            text-align: justify;
+        }
+
+        @media (min-width: 600px) { .article-content { font-size: 1.02rem; } }
+
+        .article-content p {
+            margin-bottom: 12px;
+            text-indent: 15px;
+            line-height: 1.6;
+        }
+
+        .additional-edge {
+            background-color: #f8fafc;
+            border-left: 4px solid var(--text-dark);
+            border-right: 1px solid #e2e8f0;
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 12px;
+            margin: 15px 0 8px 0;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .additional-edge h4 {
+            margin: 0 0 6px 0;
+            color: #0f172a;
+            font-size: 0.9rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            margin-top: 12px;
+            background: #1e293b;
+            color: #ffffff;
+            font-size: 0.7rem;
+            padding: 6px 10px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .floating-top-btn {
+            position: fixed;
+            bottom: 15px;
+            right: 15px;
+            width: 40px;
+            height: 40px;
+            background-color: var(--accent);
+            color: var(--bg-dark);
+            border: none;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 99;
+        }
+
+        /* ----------------- NO SCROLL QUIZ VIEW PANEL ----------------- */
+        #quiz-view-panel {
+            display: none;
+            background-color: var(--paper-bg);
+            min-height: 100vh;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .quiz-container {
+            max-width: 750px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 14px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px dashed var(--border-color);
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+
+        .quiz-header h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            color: var(--bg-dark);
+        }
+
+        .score-box {
+            background: var(--bg-dark);
+            color: var(--highlight-text);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .btn-exit-quiz {
+            background: #64748b;
+            color: #ffffff;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        .btn-exit-quiz:hover { background: #475569; }
+
+        .quiz-card-item {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 10px;
+        }
+
+        .quiz-question {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .quiz-options-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .option-item {
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            padding: 10px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.92rem;
+            transition: all 0.15s ease;
+        }
+
+        .option-item:hover {
+            background: #f1f5f9;
+            border-color: #94a3b8;
+        }
+
+        .option-item.correct-state {
+            background-color: rgba(16, 185, 129, 0.15) !important;
+            border-color: var(--success) !important;
+            color: #065f46 !important;
+            font-weight: 600;
+        }
+
+        .option-item.correct-state::after {
+            content: " ✓ (સાચો જવાબ)";
+            color: var(--success);
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .option-item.wrong-state {
+            background-color: rgba(244, 63, 94, 0.15) !important;
+            border-color: var(--danger) !important;
+            color: #9f1239 !important;
+        }
+
+        .option-item.wrong-state::after {
+            content: " ✗ (ખોટો જવાબ)";
+            color: var(--danger);
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .option-disabled {
+            pointer-events: none;
+        }
+
+        .quiz-explanation-box {
+            display: none;
+            background-color: #f0fdf4;
+            border-left: 5px solid var(--success);
+            border-radius: 4px;
+            padding: 10px 12px;
+            margin-top: 12px;
+            font-size: 0.88rem;
+            color: #166534;
+            line-height: 1.4;
+        }
+
+        .quiz-explanation-box strong {
+            color: #14532d;
+            text-transform: uppercase;
+        }
+
+        /* Fixed Navigation inside Container without scrolling */
+        .quiz-nav-btn-group {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin-top: 15px;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 12px;
+        }
+
+        .btn-quiz-nav {
+            padding: 10px 18px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn-quiz-prev {
+            background-color: #64748b;
+            color: #ffffff;
+        }
+        .btn-quiz-prev:hover { background-color: #475569; }
+        .btn-quiz-prev:disabled {
+            background-color: #cbd5e1;
+            color: #94a3b8;
+            cursor: not-allowed;
+        }
+
+        .btn-quiz-next {
+            background-color: #2563eb;
+            color: #ffffff;
+        }
+        .btn-quiz-next:hover { background-color: #1d4ed8; }
+
+        #quiz-result-final-pane {
+            display: none;
+            text-align: center;
+            padding: 30px 15px;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        #quiz-result-final-pane h3 {
+            font-family: 'Noto Serif Gujarati', serif;
+            font-size: 1.5rem;
+            color: var(--bg-dark);
+            margin-bottom: 10px;
+        }
+
+        .final-score-display-card {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #2563eb;
+            margin: 15px 0;
+        }
+
+        .btn-submit-whatsapp-final {
+            background-color: #25d366;
+            color: #ffffff;
+            font-size: 1.05rem;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-transform: uppercase;
+            margin-top: 15px;
+        }
+
+        .btn-submit-whatsapp-final:hover {
+            background-color: #20ba56;
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="main-news-page-wrapper">
+        <button class="floating-top-btn" onclick="scrollToDashboard()" title="ડેશબોર્ડ પર જાઓ">↑</button>
+
+        <section class="dashboard-section" id="dashboard">
+            <div class="header-container">
+                <h1 class="main-title">THE MAULIK <span>EXPRESS</span></h1>
+                <div class="meta-info">
+                    Master Exam Ledger & Analytics<br>
+                    તારીખ: <strong>૨૪ જૂન ૨૦૨૬</strong> | કેન્દ્ર: <strong>અમદાવાદ</strong>
+                </div>
+            </div>
+
+            <div class="top-action-bar">
+                <div class="quiz-start-banner">
+                    <h2>📊 આજના કરંટ અફેર્સની લાઇવ ટેસ્ટ આપો (૨૪ જૂન ૨૦૨૬)</h2>
+                    <div style="display:flex; gap:10px; width:100%; justify-content:center; align-items:center; flex-wrap:wrap;">
+                        <div class="quiz-name-input-box">
+                            <input type="text" id="user-quiz-reg-name" placeholder="અહીં તમારું પૂરું નામ લખો..." autocomplete="off">
+                        </div>
+                        <button class="btn btn-quiz-master" onclick="switchToQuizMode()">⚡ Start 25 MCQ Quiz</button>
+                    </div>
+                </div>
+
+                <div class="oneliner-banner">
+                    <h2>⚡ Quick Revision</h2>
+                    <button class="btn-oneliner-master" onclick="openOneLinerModal()">📋 View 16 One-Liners</button>
+                </div>
+            </div>
+
+            <h2 class="section-header">મુખ્ય સમાચાર (Main Stories)</h2>
+            <div class="news-grid">
+                <div class="news-card" id="card-m1">
+                    <div>
+                        <h3>BSE દ્વારા ભારતનો પ્રથમ એથિકલ 'સાત્વિક ૧૦૦' ઇન્ડેક્સ લોન્ચ</h3>
+                        <p>એથિકલ અને કલ્ચરલ વેલ્યુઝ પર આધારિત ૧૦૦ ઇન્ડેક્સ. આલ્કોહોલ, ટોબેકો, વેપન્સ અને મીટ પ્રોસેસિંગ કંપનીઓ કાયમી બાકાત.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('m1')">🃏 Flash Card</button>
+                        <a href="#art-m1" class="btn btn-detail" onclick="focusDetail('card-m1')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-m2">
+                    <div>
+                        <h3>ADB અને સ્કૂલનેટ ઇન્ડિયા વચ્ચે $10 મિલિયનનો કરાર</h3>
+                        <p>દેશની ૩,૦૦0 સરકારી શાળાઓમાં ડિજિટલ ક્લાસરૂમ, કમ્પ્યુટર લેબ અને ટીચર્સ ટ્રેનિંગ માટે સિનિયર-સબોડિનેટ ફાઇનાન્સિંગ મંજૂર.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('m2')">🃏 Flash Card</button>
+                        <a href="#art-m2" class="btn btn-detail" onclick="focusDetail('card-m2')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-m3">
+                    <div>
+                        <h3>ઇન્ડિયા બન્યું શિપ રિસાયક્લિંગમાં દુનિયાનું શીર્ષ રાષ્ટ્ર</h3>
+                        <p>UNCTAD ના લેટેસ્ટ રિપોર્ટ મુજબ વૈશ્વિક શિપ રિસાયક્લિંગમાં ભારતે ૩૫.૪% નો વિશાળ માર્કેટ શેર મેળવી પ્રથમ ક્રમ હાંસલ કર્યો.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('m3')">🃏 Flash Card</button>
+                        <a href="#art-m3" class="btn btn-detail" onclick="focusDetail('card-m3')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-m4">
+                    <div>
+                        <h3>નેફિડ (NAFED) ના ડિજિટલ ઓક્શન પોર્ટલ 'nfx.in' નો પ્રારંભ</h3>
+                        <p>ગૃહ મંત્રી અમિત શાહ દ્વારા ખેડૂતો માટે ઓનલાઈન ટ્રેડિંગ પ્લેટફોર્મ સાથે જ 'દ્રષ્ટિ' અને કલ્યાણ સ્કોલરશિપ લોન્ચ કરાઈ.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('m4')">🃏 Flash Card</button>
+                        <a href="#art-m4" class="btn btn-detail" onclick="focusDetail('card-m4')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-m5">
+                    <div>
+                        <h3>પ્રો. જૈનેન્દ્ર જૈને ફિઝિક્સમાં વૈશ્વિક 'વુલ્ફ પ્રાઇઝ' જીત્યો</h3>
+                        <p>ક્વાન્ટમ મેટર સંશોધન બદલ ઇઝરાયેલના રાષ્ટ્રપતિ દ્વારા સન્માનિત. નોબેલ પ્રાઇઝ પછીનો બીજો સર્વોચ્ચ વૈજ્ઞાનિક પુરસ્કાર.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('m5')">🃏 Flash Card</button>
+                        <a href="#art-m5" class="btn btn-detail" onclick="focusDetail('card-m5')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-m6">
+                    <div>
+                        <h3>ઓસ્માનિયા યુનિવર્સિટીને 4 વૈશ્વિક ISO સર્ટિફિકેટ મળ્યા</h3>
+                        <p>શૈક્ષણિક ગવર્નન્સ, એનર્જી, એન્વાયરમેન્ટ અને ફૂડ સેફ્ટી ક્ષેત્રે એકસાથે ૪ આંતરરાષ્ટ્રીય સર્ટિફિકેટ મેળવનારી દેશની પ્રથમ યુનિવર્સિટી.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('m6')">🃏 Flash Card</button>
+                        <a href="#art-m6" class="btn btn-detail" onclick="focusDetail('card-m6')">📰 Detailed</a>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="section-header">એક્ઝિક્યુટિવ બ્રીફિંગ્સ (Executive Briefings)</h2>
+            <div class="news-grid">
+                <div class="news-card" id="card-b1">
+                    <div>
+                        <h3>ઇરડાઇ (IRDAI) એ આર્ટિફિશિયલ ઇન્ટેલિજન્સ કમિટી બનાવી</h3>
+                        <p>ઇન્સ્યોરન્સ સેક્ટરમાં AI નો ઉપયોગ વધારવા પ્રોફેસર સંદીપ કે. શુક્લાના અધ્યક્ષપદે ૭ સભ્યોની એક્સપર્ટ પેનલ ગઠિત કરાઈ.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b1')">🃏 Flash Card</button>
+                        <a href="#art-b1" class="btn btn-detail" onclick="focusDetail('card-b1')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b2">
+                    <div>
+                        <h3>મધ્ય પ્રદેશની 'ખુરસાની ઇમલી' ને સત્તાવાર GI ટેગ મળ્યો</h3>
+                        <p>ધાર જિલ્લાના ઐતિહાસિક માંડુ ટાઉનમાં જોવા મળતા પૌરાણિક બાઓબાબ વૃક્ષની વિશિષ્ટ ખાટી-મીઠી ઇમલીને ભૌગોલિક ઓળખ મળી.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b2')">🃏 Flash Card</button>
+                        <a href="#art-b2" class="btn btn-detail" onclick="focusDetail('card-b2')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b3">
+                    <div>
+                        <h3>દેશમાં ઓર્ગન ડોનેશન પ્લેજની સંખ્યા ૫ લાખને પાર</h3>
+                        <p>આરોગ્ય મંત્રાલય Eust NOTTO ના રિપોર્ટ મુજબ મૃત્યુ બાદ અંગદાન કરવાની ઓનલાઈન પ્રતિજ્ઞામાં ભારતે નવો રેકોર્ડ બનાવ્યો.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b3')">🃏 Flash Card</button>
+                        <a href="#art-b3" class="btn btn-detail" onclick="focusDetail('card-b3')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b4">
+                    <div>
+                        <h3>PM મોદીની વિદેશ યાત્રા: વૈશ્વિક નેતાઓને કલ્ચરલ ગિફ્ટ્સ</h3>
+                        <p>મેક્રોનને આંધ્રપ્રદેશની કલમકારી પેઇન્ટિંગ, ફર્સ્ટ લેડીને તેલંગાણાની પોચમપલ્લી સિલ્ક સ્ટોલ અને સ્લોવાકિયાના સ્પીકરને આયુર્વેદિક ગ્રંથો ભેટ અપાયા.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b4')">🃏 Flash Card</button>
+                        <a href="#art-b4" class="btn btn-detail" onclick="focusDetail('card-b4')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b5">
+                    <div>
+                        <h3>IITM પુણે અને ARIES વચ્ચે ક્લાયમેટ સ્ટેશન માટે કરાર</h3>
+                        <p>ઉત્તરાખંડના દેવસ્થલ ખાતે હાઇ-એલ્ટિટ્યુડ લોન્ગ-ટર્મ ક્લાયમેટ મોનિટરિંગ ઓબ્ઝર્વેશન સ્ટેશન સ્થાપિત કરવામાં આવશે.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b5')">🃏 Flash Card</button>
+                        <a href="#art-b5" class="btn btn-detail" onclick="focusDetail('card-b5')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b6">
+                    <div>
+                        <h3>કલ્યાણી સ્ટ્રેટેજિક અને AM જનરલ વચ્ચે લશ્કરી સંધિ</h3>
+                        <p>ભારત ફોર્જની સબ્સિડિયરી કંપની અમેરિકાની એએમ જનરલ સાથે મળી નેક્સ્ટ જનરેશન માઉન્ટેડ આર્ટિલરી ગન પ્લેટફોર્મ બનાવશે.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b6')">🃏 Flash Card</button>
+                        <a href="#art-b6" class="btn btn-detail" onclick="focusDetail('card-b6')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b7">
+                    <div>
+                        <h3>USA એ હોવિત્ઝર તોપો માટે $230 મિલિયનનું પેકેજ આપ્યું</h3>
+                        <p>ભારતીય આર્મીની M777A2 અલ્ટ્રા-લાઇટવેઇટ તોપોના મેઇન્ટેનન્સ અને સ્પેરપાર્ટ્સ સપ્લાય માટે યુએસ સંરક્ષણ મંત્રાલયની ફાઇનલ મંજૂરી.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b7')">🃏 Flash Card</button>
+                        <a href="#art-b7" class="btn btn-detail" onclick="focusDetail('card-b7')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b8">
+                    <div>
+                        <h3>MIFF ૨૦૨૬: પોલિશ ડોક્યુમેન્ટ્રી 'Silver' ને ગોલ્ડન કોન્ચ પુરસ્કાર</h3>
+                        <p>મુંબઈ ઇન્ટરનેશનલ ફિલ્મ ફેસ્ટિવલમાં નતાલિયા ડાયરેક્ટેડ ફિલ્મને બેસ્ટ ઇન્ટરનેશનલ શૉર્ટ ડોક્યુમેન્ટ્રી એવોર્ડ મળ્યો.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b8')">🃏 Flash Card</button>
+                        <a href="#art-b8" class="btn btn-detail" onclick="focusDetail('card-b8')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b9">
+                    <div>
+                        <h3>કેન્દ્રીય રાજ્ય મંત્રી જ્યોર્જ કુરિયનનું સત્તાવાર રાજીનામું</h3>
+                        <p>राज्यસભા ટર્મ જૂન ૨૧ ના રોજ સમાપ્ત થતાં અને પક્ષ દ્વારા રી-નોમિનેશન ન મળતા આર્ટિકલ ૭૫ મુજબ પદ પરથી રાજીનામું આપ્યું.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b9')">🃏 Flash Card</button>
+                        <a href="#art-b9" class="btn btn-detail" onclick="focusDetail('card-b9')">📰 Detailed</a>
+                    </div>
+                </div>
+
+                <div class="news-card" id="card-b10">
+                    <div>
+                        <h3>રાજેન્દ્ર સબૂ બન્યા યુકો બેંક (UCO Bank) ના ઇન્ટરિમ એમડી-સીઈઓ</h3>
+                        <p>એક્ઝિક્યુટિવ ડિરેક્ટર સબૂને અશ્વિની કુમારની નિવૃત્તિ બાદ ૩૧ ઓગસ્ટ સુધી બેંકની કમાન સંભાળવાનો DFS નો આદેશ.</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-flash" onclick="openFlashCard('b10')">🃏 Flash Card</button>
+                        <a href="#art-b10" class="btn btn-detail" onclick="focusDetail('card-b10')">📰 Detailed</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="broadsheet-section">
+            <div class="masthead">
+                <h2>THE MAULIK EXPRESS</h2>
+                <div class="masthead-meta">
+                    <span>VOL. II NO. 23 (EXAMINATION SPECIAL - FULL MASTER VERSION)</span>
+                    <span>અમદાવાદ, બુધવાર, ૨૪ જૂન ૨૦૨૬</span>
+                    <span>કિંમત: ₹ ૫.૦૦</span>
+                </div>
+            </div>
+
+            <div class="broadsheet-grid-wrapper">
+                <h3 class="broadsheet-title">મુખ્ય સમાચાર વિગતવાર (Main Stories Detail)</h3>
+
+                <article class="article" id="art-m1">
+                    <div class="article-meta">સ્ટોક એક્સચેન્જ ઇન્ડેક્સ • એથિકલ ઇન્વેસ્ટમેન્ટ • ફ્રી-ફ્લોટ માર્કેટ કેપ</div>
+                    <h3>૧. BSE એ લોન્ચ કર્યો ભારતનો પ્રથમ એથિકલ સ્ટોક ઇન્ડેક્સ 'BSE સાત્વિક 100'</h3>
+                    <div class="article-content">
+                        <p>બોમ્બે સ્ટોક એક્સચેન્જ (BSE) ની પેટા કંપની બીએસઈ ઇન્ડેક્સ સર્વિસે ભારતીય મૂડી બજારના ઇતિહાસમાં એક મોટો ક્રાંતિકારી સીમાચિહ્ન સ્થાપિત કરતાં દેશનો સર્વપ્રથમ એથિકલ અને કલ્ચરલ વેલ્યુ આધારિત ઇક્વિટી ઇન્ડેક્સ <span class="hl-yellow">BSE સાત્વિક 100</span> સત્તાવાર રીતે લોન્ચ કર્યો છે[cite: 6]. આ થીમેટિક બેન્ચમાર્ક ઇન્ડેક્સ મુખ્યત્વે બીએસઈ ૫૦૦ ઇન્ડેક્સમાં લિસ્ટેડ અગ્રણી કંપનીઓમાંથી ફિલ્ટર કરીને બનાવવામાં આવ્યો છે[cite: 6].</p>
+                        <p>આ સાત્વિક ઇન્ડેક્સની મુખ્ય શરત એ છે કે તેમાં એથિકલ કલ્ચરલ ગાઇડલાઇન્સનું પાલન કરતી <span class="hl-yellow">૧૦૦ આઇકોનિક કંપનીઓ</span> ને જ સ્થાન મળ્યું છે[cite: 6]. જે કંપનીઓ પ્રત્યક્ષ કે પરોક્ષ રીતે ટોબેકો (તમાકુ), આલ્કોહોલ (દારૂ), ગેમ્બલિંગ (જુગાર), હથિયારો અથવા મીટ પ્રોસેસિંગ (માંસ ઉદ્યોગ) ના વ્યવસાય સાથે જોડાયેલી છે, તેમને આ લિસ્ટમાંથી કાયમી ધોરણે બાકાત રાખવામાં આવી છે[cite: 6]. આ ઇન્ડેક્સમાં એચડીએફસી બેંક, આઇસીઆઇસીઆઇ બેંક, રિલાયન્સ ઇન્ડસ્ટ્રીઝ, ભારતીય એરટેલ અને એલ એન્ડ ટી જેવી અગ્રણી બ્લુચિપ કંપનીઓ સામેલ છે[cite: 6]. આ ઇન્ડેક્સની ગણતરી કરવા માટે <span class="hl-yellow">ફ્લોટ-એડજસ્ટેડ માર્કેટ કેપિટલાઇઝેશન</span> મેથડનો ઉપયોગ કરાશે, જેમાં પ્રમોટર્સના શેર્સ બાદ કરી બજારમાં ખરીદ-વેચાણ માટે ઉપલબ્ધ ફ્રી પબ્લિક શેર્સને જ ગણતરીમાં લેવાય છે[cite: 6]. આ ઇન્ડેક્સની દર વર્ષે જૂન અને ડિસેમ્બર મહિનામાં સમીક્ષા કરવામાં આવશે[cite: 6].</p>
+                        <div class="additional-edge">
+                            <h4>📌 Additional Information & Exam Edge</h4>
+                            • <strong>માર્કેટ કેપિટલાઇઝેશન કન્સેપ્ટ:</strong> પ્રમોટર્સ હોલ્ડિંગને બાદ કરીને માત્ર પબ્લિક ટ્રેડિંગ માટે ઓપન શેર્સ ગુણ્યા વર્તમાન બજાર કિંમતના આધારે જે આંકડો નીકળે તેને ફ્રી-ફ્લોટ માર્કેટ કેપ કહેવાય છે[cite: 6]. સેબી ગ્રેડ એ પરીક્ષાઓ માટે આ ઇન્ડેક્સની એક્સક્લુઝન કેટેગરીઝ (તમાકુ, આલ્કોહોલ વગેરે) અને સમીક્ષાનો સમયગાળો મોસ્ટ ઇમ્પોર્ટન્ટ છે[cite: 6].
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-m1')">Back to Dashboard ↑</button>
+                </article>
+
+                <article class="article" id="art-m2">
+                    <div class="article-meta">નાનાકીય સહાય • સરકારી શાળા ડિજિટલાઇઝેશન • ડેટ ફાઇનાન્સ માળખું</div>
+                    <h3>૨. એશિયન ડેવલપમેન્ટ બેંક (ADB) અને સ્કૂલનેટ ઇન્ડિયા વચ્ચે $૧૦ મિલિયનનો વૈશ્વિક લોન કરાર</h3>
+                    <div class="article-content">
+                        <p>ભારતના ડિજિટલ શૈક્ષણિક માળખાને મજબૂત કરવા માટે એશિયન ડેવલપમેન્ટ બેંક (ADB) અને અગ્રણી સંસ્થા સ્કૂલનેટ ઇન્ડિયા લિમિટેડ (SIL) વચ્ચે <span class="hl-yellow">$૧૦ મિલિયન (આશરે ₹૮૩ કરોડ)</span> નો મોટો નાણાકીય કરાર સંપન્ન થયો છે[cite: 6]. આ ફંડિંગનો મુખ્ય હેતુ દેશના પછાત વિસ્તારોમાં આવેલી <span class="hl-yellow">૩,૦૦0 સરકારી શાળાઓ</span> ને સ્માર્ટ ડિજિટલ ક્લાસરૂમ, આધુનિક કમ્પ્યુટર લેબ અને શિક્ષકોના ઓપરેશનલ ટ્રેનિંગ પ્રોગ્રામ સાથે સજ્જ કરવાનો છે[cite: 6].</p>
+                        <p>A કરાર હેઠળ મળનારી ૧૦ મિલિયન ડોલરની લોનને ટેકનિકલ માળખા અનુસાર બે સમાન ભાગોમાં વહેંચવામાં આવી છે[cite: 6]. પ્રથમ <span class="hl-yellow">$૫ મિલિયન</span> એડીબીના ઓર્ડિનરી કેપિટલ રિસોર્સિસમાંથી 'સિનિયર સિક્યોર્ડ નોન-કન્વર્ટિબલ ડિબેન્ચર' સ્વરૂપે અપાશે[cite: 6]. બાકીના <span class="hl-yellow">$૫ મિલિયન</span> જાપાન ઇન્ટરનેશનલ કોઓપરેશન એજન્સી (JICA) દ્વારા બેક્ડ 'リーディング એશિયા પ્રાઇવેટ ઇન્ફ્રાસ્ટ્રક્ચર ફંડ' માંથી 'સબોડિનેટ લોન' તરીકે અપાશે[cite: 6].</p>
+                        <div class="additional-edge">
+                            <h4>📌 Additional Information & Exam Edge</h4>
+                            • <strong>Senior vs Subordinated Debt:</strong> સૈદ્ધાંતિક બેન્કિંગ પરિભાષા મુજબ, જો કોઈ કંપની ભવિષ્યમાં ડૂબી કે નાદાર થઈ જાય, તો તેના એસેટ્સ વેચીને સૌથી પહેલાં 'સિનિયર ડેપ્ટ' ના નાણાં પરત ચૂકવવામાં આવે છે, તેથી તે ઓછું જોખમી છે[cite: 6]. 'સબોડિનેટ ડેપ્ટ' માં જોખમ વધુ હોવાથી તેના પર વ્યાજનો દર સામાન્ય રીતે સિનિયર ડેપ્ટ કરતાં ૧% થી ૨% જેટલો વધુ ઓફર કરવામાં આવે છે[cite: 6].
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-m2')">Back to Dashboard ↑</button>
+                </article>
+
+                <article class="article" id="art-m3">
+                    <div class="article-meta">UNCTAD વૈશ્વિક રિપોર્ટ • હાંગકોંગ ઇન્ટરનેશનલ કન્વેન્શન • શિપ બ્રેકિંગ ક્રેડિટ</div>
+                    <h3>૩. યુએનના અહેવાલમાં ભારત વિશ્વનો સૌથી મોટો 'Ship Recycling' દેશ જાહેર: ૩૫.૪% માર્કેટ શેર</h3>
+                    <div class="article-content">
+                        <p>યુનાઇટેડ નેશન્સ કોન્ફરન્સ ઓન ટ્રેડ એન્ડ ડેવલપમેન્ટ (<span class="hl-yellow">UNCTAD</span>) દ્વારા જાહેર કરાયેલા વર્ષ ૨૦૨૫ ના સત્તાવાર ગ્લોબલ મેرિટાઇમ રિપોર્ટ અનુસાર, ભારત વૈશ્વિક સ્તરે જૂના જહાજોના ભંગાર અને પુનઃуપયોગ ક્ષેત્રે <span class="hl-yellow">દુનિયાનો નંબર વન શિપ રિસાયક્લિંગ દેશ</span> બની ગયો છે[cite: 6]. ભારતે વૈશ્વિક માર્કેટમાં પ્રચંડ હરણફાળ ભરીને <span class="hl-yellow">૩૫.૪% નો વૈશ્વિક બજાર હિસ્સો</span> કન્ફર્મ કર્યો છે, જે અગાઉના વર્ષે ૩0.0૧% હતો[cite: 6].</p>
+                        <p>રિપોર્ટ મુજબ, ભારતે આ વર્ષે ૨.૯૯ મિલિયન ગ્રોસ ટન વજનના જહાજો રિસાયકલ કર્યા છે[cite: 6]. ભારતમાં હાલમાં ૧૧૫ સક્રિય શિપ રિસાયક્લિંગ યાર્ડ્સ આવેલા છે, જે 'Recycling of Ships Act, 2019' અને આંતरરાષ્ટ્રીય <span class="hl-yellow">હાંગકોંગ ઇન્ટરનેશનલ કન્વેન્શન (HKC)</span> ના કડક સ્ટાન્ડર્ડ મુજબ ઓપરેટ થાય છે[cite: 6]. આ વૈશ્વિક કરાર ૨૬ જૂન ૨૦૨૫ થી ફરજિયાત થયો હતો[cite: 6]. ભારત સરકારે આ ઉદ્યોગને પ્રોત્સાહન આપવા માટે 'શિપ બ્રેકિંગ ક્રેડિટ નોટ સ્કીમ' જાહેર કરી છે, જેમાં વેસેલ ઓનર્સને પોતાની શિપની સ્ક્રેપ વેલ્યુના ૪૦% ક્રેડિટ નોટ મળે છે, જેનો ઉપયોગ તેઓ ભારતીય યાર્ડમાંથી નવી શિપ ખરીદતી વખતે ૫% સુધીની સત્તાવાર સબસિડી મેળવવા માટે કરી શકે છે[cite: 6]. ભારતની આ આખી શિપ બ્રેકિંગ ઇન્ડસ્ટ્રીનું મુખ્ય વૈશ્વિક કેન્દ્ર <span class="hl-yellow">અલંગ, ગુજરાત</span> ખાતે આવેલું છે[cite: 6].</p>
+                        <div class="additional-edge">
+                            <h4>📌 Additional Information & Exam Edge</h4>
+                            • <strong>UNCTAD અને અલંગ પ્રોફાઇલ:</strong> અલંગ યાર્ડ વિશ્વનું સૌથી મોટું શિપ બ્રેકિંગ યાર્ડ છે[cite: 6]. UNCTAD નું મુખ્યાલય જિનીવા (સ્વિટ્ઝરલેન્ડ) માં આવેલું છે. એક્ઝામિનર ભારતીય માર્કેટ શેર (35.4%) અને હોંગકોંગ કન્વેન્શન અમલી બન્યાની તારીખ પૂછી શકે છે[cite: 6].
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-m3')">Back to Dashboard ↑</button>
+                </article>
+
+                <article class="article" id="art-m4">
+                    <div class="article-meta">ઓનલાઈન એગ્રીકલ્ચર ઓક્શન • ઇન્વેન્ટરી મેનેજમેન્ટ પોર્ટલ • સોશિયલ વેલ્ફેર સ્કોલરશિપ</div>
+                    <h3>૪. ગૃહ મંત્રી અમિત શાહે નેફિડ (NAFED) ના ડિજિટલ ઓક્શન પોર્ટલ 'nfx.in' અને દ્રષ્ટિ એપ્લિકેશન લોન્ચ કરી</h3>
+                    <div class="article-content">
+                        <p>કેન્દ્રીય ગૃહ અને સહકારિતા મંત્રી અમિત શાહ દ્વારા નવી દિલ્હી ખાતેથી નેશનલ એગ્રીકલ્ચરલ કોઓપરેટિવ માર્કેટિંગ ફેડરેશન ઓફ ઇન્ડિયા (NAFED) ના ટ્રેડિશનલ ઓફલાઇન ઓક્શન માળખાને ડિજિટલ પ્લેટફોર્મ પર શિફ્ટ કરવા માટે સત્તાવાર <span class="hl-yellow">nfx.in</span> ડિજિટલ ઓક્શન પોર્ટલ ખુલ્લું મૂકવામાં આવ્યું છે[cite: 6]. આ ઓનલાઈન પોર્ટલ દ્વારા ખેડૂતો પાસેથી ખરીદાયેલા કૃષિ પાકોની હરાજી સંપૂર્ણ ઓટોમેટેડ અને પારદર્શક રીતે ઓનલાઈન ટ્રેડર્સ વચ્ચે કરવામાં આવશે[cite: 6].</p>
+                        <p>આ મુખ્ય ઓક્શન પ્લેટફોર્મ સાથે મંત્રીએ અન્ય બે મહત્વના પ્રોજેક્ટ્સ પણ લોન્ચ કર્યા છે: પ્રથમ, <span class="hl-yellow">દ્રષ્ટિ (Drishti) પોર્ટલ</span>, જે નેફિડ પાસે ઉપલબ્ધ બફર સ્ટોક અને તમામ ઇન્વેન્ટરીનું રિયલ-ટાઇમ અને સચોટ ઓટોમેટેડ મેનેજમેન્ટ કરશે[cite: 6]. બીજું, <span class="hl-yellow">નેફિડ કલ્યાણ સ્કોલરશિપ</span>, જે દેશના ગરીબ ખેડૂત પરિવારોના બાળકોને ઉચ્ચ નાણાકીય શિક્ષણ મેળવવા માટે વિશેષ સ્કોલરશિપ ફંડ પૂરું પાડશે[cite: 6].</p>
+                        <div class="additional-edge">
+                            <h4>📌 Additional Information & Exam Edge</h4>
+                            • <strong>નેફિડ પ્રોફાઇલ:</strong> NAFED ની સ્થાપના ૨ ઓક્ટોબર ૧૯૫૮ ના રોજ થઈ હતી[cite: 6]. તે કૃષિ માર્કેટિંગ માટેની સર્વોચ્ચ સહકારી સંસ્થા છે[cite: 6]. એક્ઝામ માટે દ્રષ્ટિ પોર્ટલનું મુખ્ય કાર્ય (Inventory Management) વારંવાર પૂછાવાલાયક ટોપિક છે[cite: 6].
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-m4')">Back to Dashboard ↑</button>
+                </article>
+
+                <article class="article" id="art-m5">
+                    <div class="article-meta">ક્વાન્ટમ મેટર સાયન્સ • વુલ્ફ ફાઉન્ડેશન ઇઝરાયેલ • વૈશ્વિક એવોર્ડ ડેટા</div>
+                    <h3>૫. ઇન્ડિયન ઓરિજિનના વૈજ્ઞાનિક પ્રોફેસર જૈનેન્દ્ર કે. જૈને ફિઝિક્સ ક્ષેત્રે પ્રતિષ્ઠિત 'Wolf Prize' જીતી ઇતિહાસ રચ્યો</h3>
+                    <div class="article-content">
+                        <p>પરમાણુ અને ભૌતિક વિજ્ઞાનના ક્ષેત્રમાં વૈશ્વિક સ્તરે ભારતનું નામ રોશન કરતાં ભારતીય મૂળના પ્રખ્યાત ભૌતિકશાસ્ત્રી <span class="hl-yellow">જૈનેન્દ્ર કે. જૈન</span> ને વર્ષ ૨૦૨૬ ના પ્રતિષ્ઠિત <span class="hl-yellow">Wolf Prize in Physics</span> થી સન્માનિત કરવામાં આવ્યા છે[cite: 6]. ઇઝરાયેલના રાષ્ટ્રપતિ ઇસાક હર્ઝોગ દ્વારા જેરૂસલેમ ખાતે આયોજિત વિશેષ દીક્ષાંત સમારોહમાં તેમને આ મેડલ એનાયત કરાયો હતો[cite: 6].</p>
+                        <p>પ્રોફેસર જૈનેન્દ્ર જૈનને આ પુરસ્કાર વર્ષ ૧૯૮૯ માં તેમણે કરેલી ક્રાંતિકારી શોધ <span class="hl-yellow">ક્વાન્ટમ મેટર</span> અને કમ્પોઝિટ ફર્મિઓન્સ મોડેલ માટે આપવામાં આવ્યો છે[cite: 6]. વૈજ્ઞાનિક જગતમાં આ એવોર્ડનું મૂલ્ય અત્યંત ઊંચું છે, કારણ કે આંતરરાષ્ટ્રીય સ્તરે નોબેલ પ્રાઇઝ પછી વુલ્ફ પ્રાઇઝને સાયન્સની દુનિયાનો બીજો સૌથી સર્વોચ્ચ પુરસ્કાર માનવામાં આવે છે[cite: 6]. આ પુરસ્કારની સ્થાપના વર્ષ ૧૯૭૮ માં ઇઝરાયેલના વુલ્ફ ફાઉન્ડેશન દ્વારા કરવામાં આવી હતી[cite: 6].</p>
+                        <div class="additional-edge">
+                            <h4>📌 Additional Information & Exam Edge</h4>
+                            • <strong>શોધનું ભૌતિક મહત્વ:</strong> ક્વાન્ટમ હોલ ઇફેક્ટ પર થયેલું આ સંશોધન નેક્સ્ટ જનરેશન સુપરકમ્પ્યુટર્સ અને સેમિકન્ડક્ટર ચીપ્સ બનાવવામાં પાયાનું માળખું પૂરું પાડે છે[cite: 6]. ઇન્ટરનેશનલ એવોર્ડ્સ સેક્શનમાં વિજેતાનું નામ મોસ્ટ ઇમ્પોર્ટન્ટ છે[cite: 6].
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-m5')">Back to Dashboard ↑</button>
+                </article>
+
+                <article class="article" id="art-m6">
+                    <div class="article-meta">શૈક્ષણિક ઓટોમેશન • આઇએસઓ ઓડિટ સ્ટાન્ડર્ડ્સ • તેલંગાણા એજ્યુકેશન માઈલસ્ટોન</div>
+                    <h3>૬. હૈદરાબાદની ઓસ્માનિયા યુનિવર્સિટી 4 આંતરરાષ્ટ્રીય ISO સર્ટિફિકેટ મેળવનારી દેશની પ્રથમ સંસ્થા બની</h3>
+                    <div class="article-content">
+                        <p>તેલંગાણાની રાજધાની હૈદરાબાદ સ્થિત ઐતિહાસિક <span class="hl-yellow">ઓસ્માનિયા યુનિવર્સિટી</span> એ શૈક્ષણિક અને વહીવટી ક્ષેત્રે એક અસાધારણ રાષ્ટ્રીય રેકોર્ડ બનાવતાં આંતરરાષ્ટ્રીય સ્ટાન્ડર્ડ ઓર્ગેનાઇઝેશન દ્વારા એકસાથે <span class="hl-yellow">ચાર વિશિષ્ટ ISO સર્ટિફિકેશન્સ</span> મેળવનારી ભારતની સર્વપ્રથમ સરકારી યુનિવર્સિટી બનવાનું બહુમાન મેળવ્યું છે[cite: 6].</p>
+                        <p>યુનિવર્સિટીને જે ૪ કેટેગરીઝમાં સર્ટિફિકેટ મળ્યા છે તેની સત્તાવાર આંકડાકીય વિગતો આ મુજબ છે: (૧) <span class="hl-yellow">ISO 21001:2018</span> - એજ્યુકેશન ઓર્ગેનાઇઝેશન મેનેજમેન્ટ સિસ્ટમ માટે, (૨) <span class="hl-yellow">ISO 14001:2015</span> - એન્વાયરમેન્ટ (પર્યાવરણ સંરક્ષણ) માટે, (૩) <span class="hl-yellow">ISO 50001:2018</span> - એનર્જી મેનેજમેન્ટ માટે, અને (૪) <span class="hl-yellow">ISO 22000:2018</span> - ફૂડ સેફ્ટી મેનેજમેન્ટ (કેમ્પસ મેસ શુદ્ધ ભોજન વ્યવસ્થા) માટે એનાયત કરાયા છે[cite: 6].</p>
+                        <div class="additional-edge">
+                            <h4>📌 Additional Information & Exam Edge</h4>
+                            • <strong>ISO કોડ ટ્રેਕਰ ફેક્ટ:</strong> સામાન્ય રીતે યુનિવર્સિટીઝને માત્ર એજ્યુકેશન સ્ટાન્ડર્ડનું સર્ટિફિકેટ મળતું હોય છે[cite: 6]. ઓસ્માનિયાએ ફૂડ અને એનર્જી ઓડિટ પણ પાસ કરીને નવો રેકોર્ડ સ્થાપ્યો છે[cite: 6]. બેંકિંગ અને અન્ય એક્ઝામ્સ માટે આ ચારેય આઈએસઓ નંબર્સ મેચ ધ ફોલોઇંગ પ્રશ્નોમાં પૂછાઈ શકે છે[cite: 6].
+                        </div>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-m6')">Back to Dashboard ↑</button>
+                </article>
+
+                <h3 class="broadsheet-title" style="margin-top: 30px;">એક્ઝિક્યુટિવ બ્રીફિંગ્સ વિગતવાર (Executive Briefings Detail)</h3>
+
+                <div class="article" id="art-b1">
+                    <div class="article-meta">વીમા નિયમનકારી ઓથોરિટી • ટેકનોલોજી એડોપ્શન • એક્સપર્ટ પેનલ</div>
+                    <h3>૧. ઇરડાઇ (IRDAI) એ ઇન્સ્યોરન્સ સેક્ટરમાં AI ના અમલીકરણ માટે ૭ સભ્યોની એક્સપર્ટ કમિટી બનાવી</h3>
+                    <div class="article-content">
+                        <p>ઇન્સ્યોરન્સ રેગ્યુલેટરી અન્ડ ડેવલપમેન્ટ ઓથોરિટી ઓફ ઇન્ડિયા (IRDAI) દ્વારા વીમા ક્ષેત્રમાં આર્ટિફિશિયલ ઇન્ટેલિજન્સ (AI) ના પ્રોફેશનલ ઉપયોગ, ક્લેઇમ સેટલમેન્ટ પ્રક્રિયા ઝડપી બનાવવા અને ગ્રાહક સુરક્ષા ફ્રેમવર્ક નક્કી કરવા માટે <span class="hl-yellow">૭ સભ્યોની ઉચ્ચ સ્તريય એક્સપર્ટ કમિટી</span> નું ગઠન કરવામાં આવ્યું છે[cite: 6]. આ કમિટીના ચેરપર્સન તરીકે પ્રતિષ્ઠિત સંસ્થા IIT હૈદરાબાદના પ્રોફેસર <span class="hl-yellow">સંદીપ કે. શુક્લા</span> ની નિયુક્તિ કરાઈ છે[cite: 6]. કમિટીના અન્ય મહત્વના સભ્યોમાં દીપક ગાયકવાડ, આશુતોષ બહુગુણા અને સ્ટીવ ડિસૂઝા સામેલ છે[cite: 6].</p>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b1')">Back to Dashboard ↑</button>
+                </div>
+
+                <div class="article" id="art-b2">
+                    <div class="article-meta">ભૌગોલિક ઓળખ સર્ટિફિકેટ • પૌરાણિક વનસ્પતિ વારસો • ઇતિહાસ ટ્રેકર</div>
+                    <h3>૨. મધ્ય પ્રદેશના માંડુ ટાઉનની પ્રખ્યાત 'ખુરસાની ઇમલી' ને સત્તાવાર જીઆઈ (GI Tag) દરજ્જો મળ્યો</h3>
+                    <div class="article-content">
+                        <p>મધ્યપ્રદેશ રાજ્યના ધાર જિલ્લામાં આવેલા ઐતિહાસિક પર્યટન સ્થળ માંડુની વિરિષ્ઠ ઓળખ સમાન <span class="hl-yellow">ખુરસાની ઇમલી</span> ને સત્તાવાર રીતે જિયોગ્રાફિકલ ઇન્ડિકેશન (GI) ટેગ એનાયત કરાયો છે[cite: 6]. આ ઇમલી વાસ્તવમાં આફ્રિકાના મૂળ વતન ધરાવતા વિશાળ <span class="hl-yellow">Baobab Tree (બાઓબાબ વૃક્ષ)</span> નું ફળ છે[cite: 6]. ઐતિહાસિક દસ્તાવેજો મુજબ, આશરે ૬૦૦ વર્ષ પહેલાં સુલતાન મહમૂદ ખીલજીના શાસનકાળ દરમિયાન અફઘાન અને અરબ વેપારીઓ આ વૃક્ષના બીજ માંડુ લાવ્યા હતા[cite: 6].</p>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b2')">Back to Dashboard ↑</button>
+                </div>
+
+                <div class="article" id="art-b3">
+                    <div class="article-meta">નાશનલ ઓર્ગન ટ્રાન્સપ્લાન્ટ • હેલ્થ મિનિસ્ટ્રી રિપોર્ટ • મેડિકલ ડેટાબેઝ</div>
+                    <h3>૩. ભારતમાં અંગદાન કરવાની ઓનલાઈન પ્રતિજ્ઞા લેનારા નાગરિકોની સંખ્યા ૫ લાખને પાર પહોંચી</h3>
+                    <div class="article-content">
+                        <p>કેન્દ્રીય આરોગ્ય અને પરિવાર કલ્યાણ મંત્રાલય દ્વારા જાહેર કરાયેલા આંકડા મુજબ, ભારતમાં સત્તાવાર રીતે અંગદાન કરવાની ઓનલાઈન શપથ લેનારા જાગૃત નાગરિકોની સંખ્યા <span class="hl-yellow">૫ લાખ નો આંકડો પાર</span> કરી ગઈ છે[cite: 6]. આ આખી ઓપરેશનલ પ્રક્રિયા દેશની સર્વોચ્ચ નોડલ સંસ્થા <span class="hl-yellow">NOTTO</span> ના ડિજિટલ રજિસ્ટ્રી પ્લેટફોર્મ દ્વારા મોનિટર કરવામાં આવે છે, જે અંતર્ગત નાગરિકો પોતાના મૃત્યુ બાદ અંગો દાન કરવાની કાનૂની સંમતિ આપે છે[cite: 6].</p>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b3')">Back to Dashboard ↑</button>
+                </div>
+
+                <div class="article" id="art-b4">
+                    <div class="article-meta">ડિપ્લોમેટિક ગિફ્ટ એનાલિસિસ • સાંસ્કૃતિક વારસો • સ્ટેટ આર્ટવર્ક પ્રોફાઇલ</div>
+                    <h3>૪. પીએમ મોદીની ફ્રાન્સ અને સ્લોવાકિયા મુલાકાત: ગ્લોબલ નેતાઓને અપાઈ ભારતીય કલ્ચરલ ગિફ્ટ્સ</h3>
+                    <div class="article-content">
+                        <p>વડાપ્રધાન નરેન્દ્ર મોદીએ તાજેતરની પોતાની યુરોપ યાત્રા દરમિયાન ફ્રાન્સ અને સ્લોવાકિયાના રાષ્ટ્રીય વડાઓ સાથે મુલાકાત કરી ભારતની સમૃદ્ધ હસ્તકલાને રજૂ કરતી ભવ્ય ભેટ આપી હતી[cite: 6]. ફ્રેન્ચ પ્રેસિડેન્ટ ઇમેન્યુઅલ મેક્રોનને આંધ્રપ્રદેશનું પ્રખ્યાત હેન્ડ-પેઇન્ટેડ <span class="hl-yellow">કળમકારી મહાભારત આર્ટવર્ક</span> ભેટ અપાયું હતું, જ્યારે ફર્સ્ટ લેડી બ્રિજિટ મેક્રોનને તેલંગાણાની હેન્ડ-વૂવન <span class="hl-yellow">પોચમપલ્લી સિલ્ક સ્ટોલ</span> એનાયત કરાઈ હતી[cite: 6]. સ્લોવાકિયાના પ્રમુખને પ્રતાપગઢની 'થેવા મોટિફ કફલિંક્સ' અને સ્પીકરને પ્રાચીન તબીબી ગ્રંથો <span class="hl-yellow">સુશ્રુત સંહિતા અને ચરક સંહિતા</span> ની વિશેષ પ્રતિકૃતિઓ ભેટ આપી હતી[cite: 6].</p>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b4')">Back to Dashboard ↑</button>
+                </div>
+
+                <div class="article" id="art-b5">
+                    <div class="article-meta">હાઇ-એલ્ટિટ્યુડ હવામાન સંશોધન • ઉત્તરાખંડ વેધશાળા • આઈઆઈટીએમ પેનલ</div>
+                    <h3>૫. IITM પુણે અને ARIES સંસ્થા વચ્ચે દેવસ્થલ ખાતે ક્લાયમેટ મોનિટરિંગ સ્ટેશન માટે કરાર</h3>
+                    <div class="article-content">
+                        <p>દેશમાં લાંબા ગાળાના પર્યાવરણીય અને હવામાન પરિવર્તનના સચોટ ડેટા એકત્ર કરવા માટે ઇન્ડિયન ઇન્સ્ટિટ્યૂટ ઓફ ટ્રોપિકલ મેટોરોલોજી (<span class="hl-yellow">IITM, Pune</span>) અને આર્યભટ્ટ રિસર્ચ ઇન્સ્ટિટ્યૂટ ઓફ ઓબ્ઝર્વેશનલ સાયન્સ (<span class="hl-yellow">ARIES</span>) વચ્ચે વ્યૂહાત્મક સમજૂતી કરાર થયા છે[cite: 6]. આ કરાર હેઠળ ઉત્તરાખંડના પર્વતીય વિસ્તારમાં આવેલા <span class="hl-yellow">દેવસ્થલ</span> ખાતે એક અત્યંત અદ્યતન હાઇ-એલ્ટિટ્યુડ લોન્ગ-ટર્મ ક્લાયમેટ મોનિટરિંગ ઓબ્ઝર્વેશન સ્ટેશન સ્થાપિત કરવામાં આવશે[cite: 6].</p>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b5')">Back to Dashboard ↑</button>
+                </div>
+
+                <div class="article" id="art-b6">
+                    <div class="article-meta">भारत ફોર્જ સબ્સિડિયરી • માઉન્ટેડ આર્ટિલરી ગન • સૈન્ય હથિયાર કોરિડોર</div>
+                    <h3>૬. કલ્યાણી સ્ટ્રેટેજિક સિસ્ટમ્સે નેક્સ્ટ જનરેશન આર્ટિલરી તોપો માટે US ની AM જનરલ સાથે કરાર કર્યો</h3>
+                    <div class="article-content">
+                        <p>ભારત ફોર્જની પ્રખ્યાત સંرક્ષણ સબ્સિડિયરી કંપની <span class="hl-yellow">કલ્્યાણી સ્ટ્રેટેજિક સિસ્ટમ્સ લિમિટેડ</span> એ અમેરિકાની અગ્રણી મિલિટ્રી વ્હીકલ મેન્યુફેક્ચરર કંપની <span class="hl-yellow">AM General</span> સાથે વૈશ્વિક વ્યૂહાત્મક કરાર પર હસ્તાક્ષર કર્યા છે[cite: 6]. આ સમજૂતી કરાર હેઠળ બંને કંપનીઓ સંયુક્ત રીતે આધુનિક સૈન્ય ઓપરેશન માટે નેક્સ્ટ જનરેશન <span class="hl-yellow">માઉન્ટેડ આર્ટિલરી ગન પ્લેટફોર્મ</span> નું ડેવલપમેન્ટ અને વૈશ્વિક માર્કેટિંગ કરશે[cite: 6].</p>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b6')">Back to Dashboard ↑</button>
+                </div>
+
+                <div class="article" id="art-b7">
+                    <div class="article-meta">યુએસ સંરક્ષણ મિલિટ્રી સપોર્ટ • તોપખાના સ્પેરપાર્ટ્સ • મિલિટ્રી એપોઇન્ટમેન્ટ ડેટા</div>
+                    <h3>૭. યુએસએ (USA) એ ભારતીય આર્મીની M777A2 હોવિત્ઝર તોપો માટે $૨૩૦ મિલિયનનું પેકેજ મંજૂર કર્યું</h3>
+                    <div class="article-content">
+                        <p>અમેરિકાના સંરક્ષણ મંત્રાલયે ભારતીય સેનાના તોપખાના દળની તાકાત જાળવી રાખવા માટે <span class="hl-yellow">$૨૩૦ મિલિયન (આશરે ₹١,૯૦૦ કરોડ)</span> ના લોન્ગ-ટર્મ સસ્ટેનમેન્ટ પેકેજને સત્તાવાર મંજૂરી આપી દીધી છે[cite: 6]. આ આર્થિક પેકેજનો ઉપયોગ ભારતીય આર્મી પાસે રહેલી <span class="hl-yellow">M777A2 અલ્ટ્રા-લાઇટવેઇટ હોવિત્ઝર</span> તોપોના સ્પેરપાર્ટ્સ, ઓવરહોલિંગ અને જવાનોની અદ્યતન ટ્રેનિંગ માટે કરાશે[cite: 6]. આ તોપોનું નિર્માણ વૈશ્વિક ડિફેન્સ પ્લેયર <span class="hl-yellow">BAE Systems</span> દ્વારા કરવામાં આવે છે[cite: 6].</p>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b7')">Back to Dashboard ↑</button>
+                </div>
+
+                <div class="article" id="art-b8">
+                    <div class="article-meta">ફિલ્મ ફેસ્ટિવલ એવોર્ડ લિસ્ટ • ઇન્ટરનેશનલ ડોક્યુમેન્ટ્રી વિનર • કલ્ચરલ મીડિયા ટ્રેਕਰ</div>
+                    <h3>૮. ૧૯મા મુંબઈ ઇન્ટરનેશનલ ફિલ્મ ફેસ્ટિવલ (MIFF) સંપન્ન: પોલિશ ડોક્યુમેન્ટ્રી 'Silver' ને ગોલ્ડન કોન્ચ મળ્યો</h3>
+                    <div class="article-content">
+                        <p>મુંબઈ ખાતે આયોજિત ૧૯મો મુંબઈ ઇન્ટરનેશનલ ફિલ્મ ફેસ્ટિવલ (MIFF ૨૦૨૬) સત્તાવાર રીતે સમાપ્ત થયો છે[cite: 6]. આ ફેસ્ટિવલમાં સિનેમા જગતનો સર્વોચ્ચ અને પ્રતિષ્ઠિત પુરસ્કાર <span class="hl-yellow">Golden Conch (બેસ્ટ ઇન્ટરનેશનલ ડોક્યુમેન્ટ્રી)</span> પોલેન્ડ દેશની પ્રખ્યાત શોર્ટ ફિલ્મ <span class="hl-yellow">Silver</span> ને એનાયત કરાયો છે, જેનું ડાયરેક્શન નતાલિયા કોનિયાર્ઝ દ્વારા કરાયું હતું[cite: 6]. આ ઉપરાંત બેસ્ટ ઇન્ટરનેશનલ શોર્ટ ફિક્શન ફિલ્મનો 'સિલ્વર કોન્ચ' એવોર્ડ ઈરાનની ફિલ્મ 'અંડર ધ સ્નો' ને મળ્યો હતો[cite: 6].</p>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b8')">Back to Dashboard ↑</button>
+                </div>
+
+                <div class="article" id="art-b9">
+                    <div class="article-meta">કેબિનેટ પ્રશાસનિક નિયમો • સંસદીય સભ્યપદ કમ્પ્લાયન્સ • રાજીનામું ડેટાબેઝ</div>
+                    <h3>９. કેન્દ્રીય રાજ્ય મંત્રી જ્યોર્જ કુરિયને સંસદીય સભ્યપદ પૂર્ણ થતાં પદ પરથી રાજીનામું આપ્યું</h3>
+                    <div class="article-content">
+                        <p>કેન્દ્રીય અલ્પસંખ્યક બાબતો અને મત્સ્યોદ્યોગ-પશુપાલન મંત્રાલયના સત્તાવાર રાજ્ય મંત્રી <span class="hl-yellow">જ્યોર્જ કુરિયન</span> એ પોતાના પદ પરથી સત્તાવાર રાજીનામું આપી દીધું છે[cite: 6]. બંધારણીય જોગવાઈ <span class="hl-yellow">આર્ટિકલ ૭૫</span> મુજબ, દેશના કોઈપણ મંત્રીએ પદ પર રહેવા માટે સંસદના બંને ગૃહમાંથી કોઈ એકના સભ્ય હોવું અનિવાર્ય છે[cite: 6]. જ્યોર્જ કુરિયનનો રાજ્યસભા કાર્યકાળ ૨૧ જૂન ૨૦૨૬ ના રોજ સમાપ્ત થઈ ગયો હોવાથી તેમણે રાજીનામું આપ્યું છે[cite: 6].</p>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b9')">Back to Dashboard ↑</button>
+                </div>
+
+                <div class="article" id="art-b10">
+                    <div class="article-meta">જાહેર ક્ષેત્રની બેંક લીડરશિપ • પ્રમોશન હિસ્ટ્રી નોડ • ઓબીસી બેંક ઓરિજિન</div>
+                    <h3>૧૦. રાજેન્દ્ર કુમાર સબૂને યુકો બેંક (UCO Bank) ના એમડી અને સીઈઓનો વચગાળાનો ચાર્જ સોંપાયો</h3>
+                    <div class="article-content">
+                        <p>નાણાકીય મંત્રાલયના DFS વિભાગના સત્તાવાર આદેશ અનુસાર, કોલકાતા હેડક્વાર્ટર ધરાવતી જાહેર ક્ષેત્રની પ્રખ્યાત યુકો બેંક (UCO Bank) ના નવા વચગાળાના મેનેજિંગ ડિરેક્ટર અને સીઈઓ તરીકે વરિષ્ઠ બેંકર <span class="hl-yellow">રાજેન્દ્ર કુમાર સબૂ</span> ની નિયuક્તિ કરવામાં આવી છે[cite: 6]. તેઓ અગાઉ એક્ઝિક્યુટિવ ડિરેક્ટર (ED) તરીકે કાર્યરત હતા અને નિવૃત્ત થઈ રહેલા અશ્વિની કુમારનું સ્થાન લેશે[cite: 6]. સબૂ આ સર્વોચ્ચ પોસ્ટ પર આગામી <span class="hl-yellow">૩૧ ઓગસ્ટ ૨૦૨૬ સુધી</span> એડિશનલ ચાર્જ સંભાળશે[cite: 6]. રાજેન્દ્ર સબૂએ વર્ષ ૧૯૯૪ માં ઓરિએન્ટલ બેંક ઓફ કોમર્સ (OBC) માં એક સામાન્ય પ્રોબેશનરી ઓફિસર (PO) તરીકે પોતાની કરિયર શરૂ કરી હતી[cite: 6].</p>
+                    </div>
+                    <button class="btn btn-back" onclick="returnToDashboard('card-b10')">Back to Dashboard ↑</button>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <div id="quiz-view-panel">
+        <div class="quiz-container">
+            
+            <div id="quiz-active-questions-frame-block">
+                <div class="quiz-header">
+                    <div>
+                        <h2>THE MAULIK EXPRESS QUIZ</h2>
+                        <p style="font-size:0.8rem; color:var(--text-muted);" id="quiz-step-progress-label">Question 1 of 25</p>
+                    </div>
+                    <div style="display:flex; gap:10px; align-items:center;">
+                        <div class="score-box">Score: <span id="live-score-counter">0</span> / 25</div>
+                        <button class="btn-exit-quiz" onclick="switchBackToNewsMode()">← Exit</button>
+                    </div>
+                </div>
+                
+                <div id="quiz-questions-loader-target"></div>
+
+                <!-- Fixed Control Panel Area Inside Card - Fixed Screen Scrolling Issues -->
+                <div class="quiz-nav-btn-group">
+                    <button class="btn-quiz-nav btn-quiz-prev" id="quiz-prev-action-btn" onclick="goToPrevQuizQuestion()" disabled>← Previous</button>
+                    <button class="btn-quiz-nav btn-quiz-next" id="quiz-next-action-btn" onclick="goToNextQuizQuestion()">Next →</button>
+                </div>
+            </div>
+
+            <div id="quiz-result-final-pane">
+                <h3>🎉 અભિનંદન! તમે ટેસ્ટ પૂર્ણ કરી છે</h3>
+                <p style="color:var(--text-muted); font-size:0.95rem;" id="final-result-user-name-label">👤 વિદ્યાર્થી: Maulik</p>
+                
+                <div class="final-score-display-card">
+                    <span id="final-score-digits">0</span> <span style="font-size:1.5rem; color:#64748b;">/ 25</span>
+                </div>
+                
+                <p style="font-size:0.9rem; color:#475569; max-width:500px; margin:0 auto 15px auto;">તમારું પરિણામ સેવ કરવા અને મોલિક સરના વૉટ્સએપ નંબર પર સબમિટ કરવા નીચેના લીલા બટન પર ક્લિક કરો.</p>
+                
+                <button class="btn-submit-whatsapp-final" onclick="sendResultToWhatsApp()">
+                    💬 Submit Result to WhatsApp
+                </button>
+                
+                <div style="margin-top: 25px;">
+                    <button class="btn-exit-quiz" style="background:var(--bg-dark); padding:10px 20px;" onclick="switchBackToNewsMode()">ન્યૂઝ પેજ પર પાછા જાઓ</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="flash-modal" onclick="closeModal(event)">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModalForce()">×</button>
+            <img src="" alt="Context Visual" class="modal-img" id="modal-img-element">
+            <div class="modal-body" id="modal-body-content"></div>
+        </div>
+    </div>
+
+    <script>
+        const mindmapData = {
+            m1: {
+                title: "BSE સાત્વિક 100 ઇન્ડેક્સ રોડમેપ",
+                img: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "BSE ઇન્ડેક્સ સર્વિસે ભારતનો પ્રથમ એથિકલ ઇક્વિટી બેન્ચર લોન્ચ કર્યો.",
+                    "બીએસઈ ૫૦૦ ઇન્ડેક્સમાંથી શુદ્ધ ફિલ્ટર કરીને ૧૦૦ એથિકલ કંપનીઓ પસંદ કરાઈ.",
+                    "એક્સક્લુઝન લિસ્ટ: તમાકુ, દારૂ, જુગાર, હથિયાર અને માંસ ઉદ્યોગની કંપનીઓ કાયમી પ્રતિબંધિત.",
+                    "ગણતરી મેથડ: આ ઇન્ડેક્સ સંપૂર્ણપણે ફ્રી-ફ્લોટ માર્કેટ કેપિટલાઇઝેશન પદ્ધતિ પર કાર્ય કરે છે."
+                ],
+                edge: "📌 Review Cycle: દર વર્ષે જૂન અને ડિસેમ્બર મહિનામાં કંપનીઓના પર્ફોર્મન્સ આધારે રિવ્યૂ થશે."
+            },
+            m2: {
+                title: "ADB Schoolnet India $10M Loan Deal",
+                img: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "એડીબી અને સ્કૂલનેટ ઇન્ડિયા વચ્ચે ૩,૦૦૦ સરકારી શાળાઓને ડિજિટલ કરવા $૧૦ મિલિયનનો કરાર થયો.",
+                    "LOન બે ભાગમાં વિભાજિત: $૫ મિલિયન સિનિયર સિક્યોર્ડ ડિબેન્ચર અને $૫ મિલિયન સબોડિનેટ લોન.",
+                    "સબોડિનેટ ડેપ્ટ (Subordinated Debt) માં જોખમ વધુ હોવાથી વ્યાજનો દર સામાન્ય રીતે ઊંચો હોય છે."
+                ],
+                edge: "📌 Co-Funding: સબોડિનેટ લોન ભાગીદાર જાપાનની પ્રતિષ્ઠિત સંસ્થા JICA દ્વારા બેક્ડ પ્લેટફોર્મ છે."
+            },
+            m3: {
+                title: "UNCTAD Global Ship Recycling Supremacy",
+                img: "https://images.unsplash.com/photo-1507682531662-421b17ac4f31?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "UNCTAD ના રિપોર્ટ મુજબ ભારત ૩૫.૪% માર્કેટ શેર મેળવી દુનિયાનો ટોચનો શિપ રિસાયક્લિંગ દેશ બન્યો.",
+                    "ભારતમાં હાલ ૧૧૫ સક્રિય યાર્ડ્સ છે જે હોંગકોંગ ઇન્ટરનેશનલ કન્વેન્શન (HKC) નિયમોનું પાલન કરે છે.",
+                    "ક્રેડિટ સ્કીમ: જહાજ માલિકોને ૪૦% ક્રેડિટ નોટ મળશે જે નવી શિપ ખરીદવા ૫% સુધીની સબસીડી આપશે."
+                ],
+                edge: "📌 Central Hub: ગુજરાતનું અલંગ સમગ્ર વિશ્વમાં જહાજ તોડવાના ઉદ્યોગનું કેન્દ્રબિંદુ છે."
+            },
+            m4: {
+                title: "NAFED nfx.in Digital Auction Infrastructure",
+                img: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "ગૃહ મંત્રી અમિત શાહ દ્વારા નેફિડના ટ્રેડિંગને ઓનલાઈન કરવા nfx.in ઓક્શન પોર્ટલ લોન્ચ કરાયું.",
+                    "સાથે લોન્ચ થયેલું 'દ્રષ્ટિ' (Drishti) પોર્ટલ બફર સ્ટોકનું સચોટ ઓટોમેટેડ ઇન્વેન્ટરી મેનેજમેન્ટ કરશે.",
+                    "કલ્યાણ સ્કોલરશિપ દ્વારા ગરીબ ખેડૂતોના બાળકોને ઉચ્ચ નાણાકીય શિક્ષણ ભંડોળ આસિસ્ટન્સ અપાશે."
+                ],
+                edge: "📌 History Node: NAFED ની સ્થાપના ૨ ઓક્ટોબર ૧૯૫٨ ના રોજ ગાંધી જયંતીના અવસરે થઈ હતી."
+            },
+            m5: {
+                title: "Prof Jainendra Jain Wolf Prize Physics Matrix",
+                img: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "ભારતીય મૂળના પ્રોફેસર જૈનેન્દ્ર કે. જૈનને ક્વાન્ટમ મેટર શોધ બદલ 'વુલ્ફ પ્રાઇઝ' મળ્યો.",
+                    "ઇઝરાયેલના વુલ્ફ ફાઉન્ડેશન દ્વારા અપાતો આ એવોર્ડ સાયન્સ ક્ષેત્રે નોબેલ પ્રાઇઝ પછી બીજો સર્વોચ્ચ છે.",
+                    "આ ક્રાંતિકારી શોધ વર્ષ ૧૯八૯ માં કમ્પોઝિટ ફર્મિઓન્સ માળખું સમજાવવા માટે કરવામાં આવી હતી."
+                ],
+                edge: "📌 Event Node: ઇઝરાયેલના રાષ્ટ્રપતિ ઇસાક હર્ઝોગ દ્વારા જેરૂસલેમ ખાતે આ મેડલ અર્પણ કરાયો."
+            },
+            m6: {
+                title: "Osmania University Historic 4 ISO Certifications",
+                img: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=600&q=80",
+                nodes: [
+                    "હૈદરાબાદની ઓસ્માનિયા યુનિવર્સિટી એકસાથે ૪ ગ્લોબલ ISO સર્ટિફિકેટ મેળવનારી દેશની પ્રથમ સંસ્થા બની.",
+                    "કોડ્સ: ISO 21001 (શિક્ષણ), ISO 14001 (પર્યાવરણ), ISO 50001 (એનર્જી) અને ISO 22000 (ફૂડ સેફ્ટી).",
+                    "કેમ્પસ હોસ્ટેલ મેસમાં ફૂડ ઓડિટ અને સોલર એનર્જી સેવિંગ પેરામીટર્સ ઓટોમેશન પાસ કરી રેકોર્ડ બનાવ્યો."
+                ],
+                edge: "📌 Rank Focus: ભારતની ઉચ્ચ સરકારી શૈક્ષણિક સંસ્થાઓમાં આ એક અભૂતપૂર્વ ડેટા ગવર્નન્સ અચીવમેન્ટ છે."
+            }
+        };
+
+        const onelinerData = [
+            "BSE એ ભારતીય બજારમાં એથિકલ રોકાણ માટે 'BSE સાત્વિક 100' ઇન્ડેક્સ લોન્ચ કર્યો chhe.",
+            "સાત્વિક ઇન્ડેક્સ તમાકુ, દારૂ, જુગાર, હથિયાર અને માંસ પ્રોસેસિંગના વેપારને કાયમી બાકાત રાખે છે.",
+            "BSE સાત્વિક ૧૦0 ઇન્ડેક્સ સંપૂર્ણપણે ફ્રી-ફ્લોટ માર્કેટ કેપિટલાઇઝેશન પદ્ધતિ પર કેલ્ક્યુલેટ થાય chhe.",
+            "ADB એ દેશની ૩,૦૦૦ સરકારી શાળાઓને સ્માર્ટ કરવા સ્કૂલનેટ ઇન્ડિયા સાથે $૧0 મિલિયનનો કરાર કર્યો.",
+            "નાદારીના સમયે સબોડિનેટ લોન કરતાં સિનિયર ડેપ્ટના નાણાં પહેલાં પરત ચૂકવાય છે.",
+            "UNCTAD ના અહેવાલ મુજબ વૈશ્વિક શિપ રિસાયક્લિંગમાં ભારતે ૩૫.૪% નો તોતિંગ બજાર હિસ્સો મેળવ્યો chhe.",
+            "ગુજરાતનું અલંગ ઇન્ટરનેશનલ વેસલ્સના શિપ બ્રેકિંગ ઉદ્યોગ માટે વિશ્વનું મુખ્ય કેન્દ્ર છે.",
+            "ગૃહ મંત્રીએ નેફિડ (NAFED) ના ઓનલાઈન ટ્રેડિંગ માટે 'nfx.in' ડિજિટલ ઓક્શન પોર્ટલ લોન્ચ કર્યું chhe.",
+            "નેફિડનું નવું 'દ્રષ્ટિ' (Drishti) પોર્ટલ સરકારી બફર સ્ટોકનું ઓટોમેટેડ ઇન્વેન્ટરી મેનેજમેન્ટ કરશે.",
+            "ભારતીય મૂળના વિજ્ઞાની પ્રો. જૈનેન્દ્ર કે. જૈનને ક્વાન્ટમ મેટર શોધ બદલ ફિઝિક્સનું 'વુલ્ફ પ્રાઇઝ' મળ્યું.",
+            "સાયન્સની દુનિયામાં ઇઝરાયેલનું વુલ્ફ પ્રાઇઝ નોબેલ પ્રાઇઝ પછીનો બીજો સર્વોચ્ચ પુરસ્કાર છે.",
+            "હૈદરાબાદની ઓસ્માનિયા યુનિવર્સિટી એકસાથે ૪ ગ્લોબલ ISO સર્ટિફિકેટ મેળવનારી દેશની પ્રથમ સંસ્થા બની.",
+            "IRDAI એ વીમા ક્ષેત્રમાં AI રેગુલેશન માટે પ્રો. સંદીપ કે. શુક્લાના અધ્યક્ષપદે ૭ સભ્યોની કમિટી બનાવી.",
+            "મધ્યપ્રદેશના ધાર જિલ્લાના માંડુ ટાઉનમાં જોવા મળતી પૌરાણિક 'ખુરસાની ઇમલી' ને GI ટેગ અપાયો chhe.",
+            "NOTTO ના રજિસ્ટ્રી ડેટાબેઝ મુજબ ભારતમાં કાનૂની અંગદાન પ્લેજની કુલ સંખ્યા ૫ લાખને પાર થઈ છે.",
+            "IITM પુણે અને ARIES સંસ્થા ઉત્તરાખંડના દેવસ્થલ ખાતે ક્લાયમેટ મોનિટરિંગ સ્ટેશન સ્થાપશે.",
+            "સંરક્ષણ મંત્રાલયે નેવીના વોરશિપ્સ માટે ૧૨ ગેસ ટર્બાઇન ખરીદવા ભારત ફોર્જ સાથે ₹૪૨૫ કરોડની ડીલ કરી.",
+            "રાજેન્દ્ર કુમાર સબૂને DFS ના આદેશથી યુકો બેંક (UCO Bank) ના ઇન્ટરિમ એમડી અને સીઈઓ બનાવાયા."
+        ];
+
+        function openOneLinerModal() {
+            document.getElementById('modal-img-element').src = "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=600&q=80";
+            let htmlContent = `<h2>⚡ TME Quick One-Liners Bulletins</h2><ol class="oneliner-node">`;
+            onelinerData.forEach(bullet => { htmlContent += `<li>${bullet}</li>`; });
+            htmlContent += `</ol>`;
+            document.getElementById('modal-body-content').innerHTML = htmlContent;
+            document.getElementById('flash-modal').style.display = 'flex';
+        }
+
+        function openFlashCard(id) {
+            const data = mindmapData[id];
+            if (!data) return;
+            document.getElementById('modal-img-element').src = data.img;
+            let htmlContent = `<h2>${data.title}</h2><ul class="mindmap-node">`;
+            data.nodes.forEach(node => { htmlContent += `<li>${node}</li>`; });
+            htmlContent += `</ul>`;
+            if (data.edge) { htmlContent += `<div class="modal-edge-box">${data.edge}</div>`; }
+            document.getElementById('modal-body-content').innerHTML = htmlContent;
+            document.getElementById('flash-modal').style.display = 'flex';
+        }
+
+        function closeModal(e) { if (e.target.id === 'flash-modal') { document.getElementById('flash-modal').style.display = 'none'; } }
+        function closeModalForce() { document.getElementById('flash-modal').style.display = 'none'; }
+        function focusDetail(cardId) { lastActiveCardId = cardId; }
+
+        function returnToDashboard(targetId) {
+            const currentCardId = targetId || lastActiveCardId;
+            if (!currentCardId) { scrollToDashboard(); return; }
+            const cardElement = document.getElementById(currentCardId);
+            if (cardElement) {
+                cardElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                cardElement.classList.add('box-highlight-effect');
+                setTimeout(() => { cardElement.classList.remove('box-highlight-effect'); }, 2000);
+            }
+        }
+
+        function scrollToDashboard() { document.getElementById('dashboard').scrollIntoView({ behavior: 'smooth' }); }
+
+        const quizDatabase = [
+            {
+                q: "1. બોમ્બે સ્ટોક એક્સચેન્જ દ્વારા લોન્ચ કરાયેલા દેશના સર્વપ્રથમ એથિકલ ઇન્ડેક્સનું નામ શું છે?",
+                o: ["બીએસઈ ક્લીન ૫૦", "બીએસઈ સાત્વિક ૧૦૦", "બીએસઈ વેલ્યુ ઇન્ડિયા", "બીએસઈ સોવરિન એથિક્સ"],
+                a: 1,
+                exp: "BSE ઇન્ડેક્સ સર્વિસે સત્તાવાર રીતે કલ્ચરલ અને એથિકલ ગાઇડલાઇન્સ ધરાવતો 'BSE સાત્વિક 100' લોન્ચ કર્યો છે."
+            },
+            {
+                q: "2. બીએસઈ સાત્વિક ૧૦૦ ઇન્ડેક્સમાં સ્થાન મેળવવા માટે કંપનીઓને કયા મૂળ ઇન્ડેક્સમાંથી પસંદ કરવામાં આવે છે?",
+                o: ["બીએસઈ સન્સેક્સ ૩૦", "બીએસઈ સ્મોલકેપ ૨૫૦", "બીએસઈ ૫૦૦ ઇન્ડેક્સ", "બીએસઈ મિડકેપ ૧૦૦"],
+                a: 2,
+                exp: "નવા થીમેટિક ઇન્ડેક્સ માટે પાત્ર કંપનીઓની પસંદગી મૂળ 'BSE 500' ઇન્ડેક્સમાંથી કરવામાં આવે છે."
+            },
+            {
+                q: "3. કઈ વ્યાપારી શ્રેણીની કંપનીઓને કાયદાકીય રીતે બીએસઈ સાત્વિક ૧૦૦ ઇન્ડેક્સમાંથી બાકાત રાખવામાં આવી છે?",
+                o: ["તમાકુ અને આલ્કોહોલ", "જુગાર અને હથિયારો", "માંસ પ્રોસેસિંગ", "આપેલા તમામ વિકલ્પો"],
+                a: 3,
+                exp: "સાત્વિક ગાઇડલાઇન્સ મુજબ તમાકુ, દારૂ, જુગાર, હથિયાર અને માંસ ઉદ્યોગ સાથે જોડાયેલી કંપનીઓ કાયમી પ્રતિબંધિત છે."
+            },
+            {
+                q: "4. બીએસઈ સાત્વિક ૧૦૦ ઇન્ડેક્સનું મૂલ્યાંકન કઈ નાણાકીય પદ્ધતિના આધારે કરવામાં આવે છે?",
+                o: ["ટોટલ માર્કેટ કેપિટલાઇઝેશન", "બુક વેલ્યુ એડજસ્ટેડ મેથડ", "ફ્રી-ફ્લોટ માર્કેટ કેપિટલાઇઝેશન", "નોમિનલ એસેટ વેલ્યુએશન"],
+                a: 2,
+                exp: "આ ઇન્ડેક્સની ગણતરી માર્કેટમાં પબ્લિક ટ્રેડિંગ માટે ઓપન શેર્સના આધારે એટલે કે ફ્રી-ફ્લોટ માર્કેટ કેપ પદ્ધતિથી થાય છે."
+            },
+            {
+                q: "5. એશિયન ડેવલપમેન્ટ બેંકે (ADB) સરકારી શાળાઓને સ્માર્ટ કરવા સ્કૂલનેટ ઇન્ડિયા સાથે કેટલા મિલિયન ડોલરની લોન મંજૂર કરી?",
+                o: ["પાંચ મિલિયન ડોલર", "દસ મિલિયન ડોલર", "પંદર મિલિયન ડોલર", "પચ્ચીસ મિલિયન ડોલર"],
+                a: 1,
+                exp: "એડીબીએ ૩,૦૦૦ સરકારી શાળાઓમાં ડિજિટલ ક્લાસરૂમ અને કમ્પ્યુટર લેબ બનાવવા ૧૦ મિલિયન ડોલરની લોન મંજૂર કરી છે."
+            },
+            {
+                q: "6. બેન્કિંગ અને ડેટ ફાઇનાન્સના નિયમો મુજબ, નાદારીના સમયે નાણાં પરત મેળવવામાં કોને પ્રાથમિકતા મળે છે?",
+                o: ["સબોડિનેટ લોન ધારકોને", "સિનિયર ડેપ્ટ ધારકોને", "ઇક્વિટી શેર હોલ્ડર્સને", "તમામ પ્લેયર્સને સમાન હક"],
+                a: 1,
+                exp: "કંપની બંધ કે નાદાર થાય ત્યારે કાયદેસર રીતે 'સિનિયર ડેપ્ટ' ના નાણાં પહેલા ચૂકવાય છે, જે સબોડિનેટ કરતાં ઓછું જોખમી છે."
+            },
+            {
+                q: "7. UNCTAD ના લેટેસ્ટ રિપોર્ટ ૨૦૨૫ અનુસાર, વૈશ્વિક સ્તરે જહાજો તોડવાના ઉદ્યોગમાં કયો દેશ પ્રથમ ક્રમે રહ્યો છે?",
+                o: ["બાંગ્લાદેશ", "ચીન", "ભારત", "પાકિસ્તાન"],
+                a: 2,
+                exp: "ભારત વૈશ્વિક શિપ રિસાયક્લિંગ માર્કેટમાં ૩૫.૪% ના પ્રચંડ બજાર હિસ્સા સાથે દુનિયાનો ટોચનો દેશ જાહેર થયો છે."
+            },
+            {
+                q: "8. ભારતમાં જહાજો તોડવા અને રિસાયકલ કરવાનો આખો ઉદ્યોગ કયા આંતરરાષ્ટ્રીય કરારનું પાલન કરે છે?",
+                o: ["જિનીવા મેરિટાઇમ પ્રોટોકોલ", "હાંગકોંગ ઇન્ટરનેશનલ કન્વેન્શન", "મનિલા સ્પેસ એકોર્ડ", "પેરિસ ક્લાયમેટ ટ્રેકર"],
+                a: 1,
+                exp: "ઇન્ડિયન શિપ બ્રેકિંગ યાર્ડ્સ ૨૬ જૂન ૨૦૨૫ થી વૈશ્વિક સ્તરે સત્તાવાર બનેલા હાંગકોંગ ઇન્ટરનેશનલ કન્વેન્શનનું પાલન કરે છે."
+            },
+            {
+                q: "9. ભારત સરકારની 'શિપ બ્રેકિંગ ક્રેડિટ નોટ સ્કીમ' હેઠળ જહાજ માલિકોને ભંગાર કિંમતના કેટલા ટકા ક્રેડિટ નોટ મળે છે?",
+                o: ["વીસ ટકા", "ત્રીસ ટકા", "ચાલીસ ટકા", "પચ્ચીસ ટકા"],
+                a: 2,
+                exp: "વેસેલ ઓનર્સને જહાજની ભંગાર કિંમતના ૪૦% ક્રેડિટ નોટ મળે છે, જે નવી શિપ ખરીદવા ૫% સુધીની સબસીડી આપે છે."
+            },
+            {
+                q: "10. સમગ્ર ભારતમાં આંતરરાષ્ટ્રીય જહાજો તોડવા અને શિપ રિસાયક્લિંગ ઉદ્યોગનું મુખ્ય વૈશ્વિક કેન્દ્ર કયું લોકેશન છે?",
+                o: ["કોચીન", "કંડલા", "અલંગ", "વિશાખાપટ્ટનમ"],
+                a: 2,
+                exp: "ભાવનગર નજીક આવેલું અલંગ (ગુજરાત) સમગ્ર વિશ્વમાં જહાજ તોડવાના ઉદ્યોગનું કાયમી કેન્દ્રબિંદુ છે."
+            },
+            {
+                q: "11. કેન્દ્રીય ગૃહ મંત્રી અમિત શાહે તાજેતરમાં નેફિડ (NAFED) ના ઓનલાઈન ટ્રેડિંગ માટે કયું નવું ડિજિટલ ઓક્શન પોર્ટલ લોન્ચ કર્યું?",
+                o: ["નેફિડટ્રેડ ઓઆરજી", "એનએફએક્સ ડોટ ઇન", "દ્રષ્ટિટ્રેડ ડોટ ઇન", "સેતુસ્કોલરશિપ ડોટ કોમ"],
+                a: 1,
+                exp: "પરંપરાગત ઓફલાઇન હરાજી બંધ કરી પારદર્શિતા લાવવા માટે સત્તાવાર 'nfx.in' ઓક્શન પોર્ટલ શરૂ કરાયું છે."
+            },
+            {
+                q: "12. NAFED દ્વારા સ્ટોક અને બફર જથ્થાના સચોટ ઓટોમેટેડ ઇન્વેન્ટરી મેનેજમેન્ટ માટે કયું પોર્ટલ ઓપરેટ કરવામાં આવશે?",
+                o: ["દ્રષ્ટિ પોર્ટલ", "આઈઆરઆઈએનએન પોર્ટલ", "ડબ્લ્યુએચઓઆઈએસ પ્લેટફોર્મ", "કર્મયોગી પોર્ટલ"],
+                a: 0,
+                exp: "નેફિડનું નવું 'દ્રષ્ટિ' (Drishti) પોર્ટલ તમામ પાકોનું રિયલ-ટાઇમ અને સચોટ ઇન્વેન્ટરી મેનેજમેન્ટ કરશે."
+            },
+            {
+                q: "13. નેશનલ એગ્રીકલ્ચરલ કોઓપરેティブ માર્કેટિંગ ફેડરેશન ઓફ ઇન્ડિયા (NAFED) ની સ્થાપના કયા વર્ષે થઈ હતી?",
+                o: ["વર્ષ ૧૯૪૭", "વર્ષ ૧૯૫૦", "વર્ષ ૧૯૫૮", "વર્ષ ૨૦૦૦"],
+                a: 2,
+                exp: "નેફિડની સ્થાપના ૨ ઓક્ટોબર ૧૯稳૮ ના રોજ ગાંધી જયંતીના પવિત્ર અવસરે કરવામાં આવી હતી."
+            },
+            {
+                q: "14. ભૌતિક વિજ્ઞાન ક્ષેત્રે ક્વાન્ટમ મેટરની શોધ બદલ કયા ભારતીય મૂળના વિજ્ઞાનીને 'Wolf Prize' મળ્યો?",
+                o: ["પ્રોફેસર સંદીપ શુક્લા", "પ્રોફેસર જૈનેન્દ્ર કે. જૈન", "ડૉક્ટર દીપાંકર જોશી", "પ્રોફેસર વિમલ એન. પટેલ"],
+                a: 1,
+                exp: "પ્રોફેસર જૈનેન્દ્ર કે. જૈનને વર્ષ ૧૯૮૯ ના ક્વાન્ટમ મેટર સંશોધન બદલ ઇઝરાયેલનો પ્રખ્યાત વુલ્ફ પ્રાઇઝ મળ્યો છે."
+            },
+            {
+                q: "15. સાયન્સની દુનિયામાં ઇઝરાયેલના વુલ્ફ ફાઉન્ડેશન દ્વારા અપાતો આ એવોર્ડ કયા પુરસ્કાર પછી બીજા ક્રમનો સર્વોચ્ચ મનાય છે?",
+                o: ["પુલિત્ઝર પ્રાઇઝ", "એબેલ પ્રાઇઝ", "નોબેલ પ્રાઇઝ", "ફીલ્ડ્સ મેડલ"],
+                a: 2,
+                exp: "સાયન્સની દુનિયામાં વુલ્ફ પ્રાઇઝને પ્રતિષ્ઠિત નોબેલ પ્રાઇઝ પછીનો વિશ્વનો બીજો સર્વોચ્ચ એવોર્ડ ગણવામાં આવે છે."
+            },
+            {
+                q: "16. શૈક્ષણિક ઓર્ગેનાઇઝેશન ગવર્નન્સ માટે તાજેતરમાં કયો સત્તાવાર આઇએસઓ કોડ ઓસ્માનિયા યુનિવર્સિટીને મળ્યો છે?",
+                o: ["આઈએસઓ ૧૪૦૦૧", "આઈએસઓ ૨૧MDA૧", "આઈએસઓ ૫૦૦૦૧", "આઈએસઓ ૨૨૦૦૦"],
+                a: 1,
+                exp: "શૈક્ષણિક સંસ્થાઓના ઓર્ગેનાઇઝેશન મેનેજમેન્ટ સ્ટાન્ડર્ડ ઓડિટ માટે 'ISO 21001:2018' સર્ટિફિકેટ અપાશે."
+            },
+            {
+                q: "17. ઓસ્માનિયા યુનિવર્સિટીએ પર્યાવરણ અને ગ્રીન કેમ્પસ ઇકોસિસ્ટમ માટે કયો આંતરરાષ્ટ્રીય ISO કોડ મેળવ્યો?",
+                o: ["આઈએસઓ ૨૧૦૦૧", "આઈએસઓ ૧૪૦૦૧", "આઈએસઓ ૫૦૦૦૧", "આઈએસઓ ૨૨૦૦૦"],
+                a: 1,
+                exp: "પર્યાવરણ ઓડિટ અને ઇકો-ફ્રેન્ડલી સ્ટાન્ડર્ડ્સ પાસ કરવા બદલ યુનિવર્સિટીને 'ISO 14001:2015' પ્રાપ્ત થયું છે."
+            },
+            {
+                q: "18. વીમા નિયમનકારી સંસ્થા ઇરડાઇ (IRDAI) એ ઇન્સ્યોરન્સ ક્ષેત્રમાં AI રેગ્યુલેશન માટે કોના અધ્યક્ષપદે ૭ સભ્યોની કમિટી બનાવી?",
+                o: ["પ્રોફેસર જૈનેન્દ્ર જૈન", "પ્રોફેસર સંદીપ કે. શુક્લા", "શ્રી રાજેન્દ્ર સબૂ", "શ્રી અશ્વિની કુમાર"],
+                a: 1,
+                exp: "IIT હૈદરાબાદના સત્તાવાર ડાયરેક્ટર પ્રોફેસર સંદીપ કે. શુક્લાને આ હાઇ-લેવલ કમિટીના હેડ બનાવવામાં આવ્યા છે."
+            },
+            {
+                q: "19. તાજેતરમાં મધ્ય પ્રદેશના ધાર જિલ્લાના માંડુ ટાઉનમાં જોવા મળતા કયા પૌરાણિક વૃક્ષના ફળને GI ટેગ આપવામાં આવ્યો?",
+                o: ["મહાકાય પીપલ વૃક્ષ", "બાઓબાબ વૃક્ષ", "લાકાડોંગ મેન્ગો વૃક્ષ", "ઓર્ગેનિક તેલંગાણા સિલ્ક"],
+                a: 1,
+                exp: "ઐતિહાસિક માંડુ ટાઉનની ખુરસાની ઇમલી એ 'Baobab Tree' નું ફળ છે જેને ૬૦૦ વર્ષ પહેલા વેપારીઓ આફ્રિકાથી લાવ્યા હતા."
+            },
+            {
+                q: "20. NOTTO ના સત્તાવાર ડિજિટલ ડેટાબેઝ મુજબ ભારતમાં અત્યાર સુધીમાં ઓર્ગન ડોનેશન પ્લેજની કુલ સંખ્યા કેટલા લાખ વટાવી ગઈ છે?",
+                o: ["એક લાખ", "ત્રણ લાખ", "પાંચ લાખ", "દસ લાખ"],
+                a: 2,
+                exp: "મૃત્યુ બાદ માનવતાના હિતમાં અંગદાન કરવાની ઓનલાઈન પ્રતિજ્ઞા લેનારા લોકોની સંખ્યા ભારતમાં ૫ લાખને પાર થઈ છે."
+            },
+            {
+                q: "21. વડાપ્રધાન મોદીએ તાજેતરમાં ફ્રાન્સના પ્રેસિડેન્ટ ઇમેન્યુઅલ મેક્રોનને કયા રાજ્યની હેન્ડ-પેઇન્ટેડ કળમકારી પેઇન્ટિંગ ભેટ આપી?",
+                o: ["તેલંગાણા", "આંધ્રપ્રદેશ", "રાજસ્થાન", "ઓડિશા"],
+                a: 1,
+                exp: "પીએમ મોદીએ મેક્રોનને આંધ્રપ્રદેશનું પ્રખ્યાત હેન્ડ-પેઇન્ટેડ 'કળમકારી મહાભારત આર્ટવર્ક' ભેટ આપ્યું હતું."
+            },
+            {
+                q: "22. પર્વતીય વિસ્તારોમાં ગ્લોબલ વોર્મિંગ ટ્રેક કરવા IITM પુણે અને ARIES સંસ્થા કયા લોકેશન સાઇટ પર ક્લાયમેટ સ્ટેશન સ્થાપશે?",
+                o: ["મનાલી", "દેવસ્થલ", "લેહ", "કોચીન બોર્ડર"],
+                a: 1,
+                exp: "ઉત્તરાખંડના હાઇ-એલ્ટિટ્યુડ લોકેશન 'દેવસ્થલ' ખાતે આ મહત્વપૂર્ણ પર્યાવરણીય સ્ટેશન સ્થાપિત કરાશે."
+            },
+            {
+                q: "23. કલ્યાણી સ્ટ્રેટેજિક સિસ્ટમ્સે નેક્સ્ટ જનરેશન માઉન્ટેડ આર્ટિલરી તોપો વિકસાવવા કયા દેશની AM General કંપની સાથે ડીલ કરી?",
+                o: ["ફ્રાન્સ", "અમેરિકા", "ઇઝરાયેલ", "બેલારુસ"],
+                a: 1,
+                exp: "ભારત ફોર્જની સબ્સિડિયરીએ અમેરિકાની પ્રખ્યાત લશ્કરી વાહન ઉત્પાદક કંપની AM General સાથે કરાર કર્યો છે."
+            },
+            {
+                q: "24. યુએસ સંરક્ષણ મંત્રાલયે ભારતીય આર્મીની કઈ તોપોના સ્પેરપાર્ટ્સ અને મેઇન્ટેનન્સ માટે $૨૩૦ મિલિયન મંજૂર કર્યા?",
+                o: ["આઈએનએસ દૂનાગિરી તોપો", "એમ૭૭૭એ૨ હોવિત્ઝર", "બોફોર્સ એડવાન્સ તોપ", "પીસકીપર ટર્બોજેટ તોપ"],
+                a: 1,
+                exp: "અમેરિકાએ BAE Systems દ્વારા ઉત્પાદિત M777A2 અલ્ટ્રા-લાઇટવેઇટ તોપોના મોનિટરિંગ પેકેજને ફાઇનલ મંજૂરી આપી છે."
+            },
+            {
+                q: "25. નાણાકીય મંત્રાલયના DFS વિભાગે અશ્વિની કુમારની નિવૃત્તિ બાદ યુકો બેંક (UCO Bank) ના ઇન્ટરિમ એમડી-સીઈઓ કોને બનાવ્યા?",
+                o: ["વિવેક અગ્રવાલ", "રાજેન્દ્ર કુમાર સબૂ", "સંદીપ કે. શુક્લા", "સૌરભ વિજય"],
+                a: 1,
+                exp: "બેંકના વરિષ્ઠ એક્ઝિક્યુટિવ ડિરેક્ટર રાજેન્દ્ર કુમાર સબૂને ૩૧ ઓગસ્ટ ૨૦૨૬ સુધી યુકો બેંકનો એડિશનલ ચાર્જ સોંપાયો છે."
+            }
+        ];
+
+        let currentQuizIndex = 0;
+        let currentQuizScore = 0;
+        let userRegisteredName = "";
+        let userSelectedAnswers = new Array(quizDatabase.length).fill(null); 
+
+        function switchToQuizMode() {
+            const nameInput = document.getElementById('user-quiz-reg-name').value.trim();
+            if(nameInput === "") { alert("⚠️ ક્વિઝ શરૂ કરવા માટે કૃપા કરીને તમારું નામ લખો!"); return; }
+            userRegisteredName = nameInput;
+
+            document.getElementById('main-news-page-wrapper').style.display = 'none';
+            document.getElementById('quiz-view-panel').style.display = 'block';
+            document.getElementById('quiz-active-questions-frame-block').style.display = 'block';
+            document.getElementById('quiz-result-final-pane').style.display = 'none';
+            
+            currentQuizIndex = 0;
+            currentQuizScore = 0;
+            userSelectedAnswers.fill(null); 
+            document.getElementById('live-score-counter').innerText = currentQuizScore;
+            
+            loadSingleQuizQuestion(currentQuizIndex);
+        }
+
+        function switchBackToNewsMode() {
+            document.getElementById('quiz-view-panel').style.display = 'none';
+            document.getElementById('main-news-page-wrapper').style.display = 'block';
+            window.scrollTo(0,0);
+        }
+
+        function loadSingleQuizQuestion(index) {
+            window.scrollTo(0,0); 
+            document.getElementById('quiz-step-progress-label').innerText = `Question ${index + 1} of ${quizDatabase.length}`;
+            
+            const prevBtn = document.getElementById('quiz-prev-action-btn');
+            prevBtn.disabled = (index === 0);
+
+            const nextBtn = document.getElementById('quiz-next-action-btn');
+            if (index === quizDatabase.length - 1) {
+                nextBtn.innerText = "Finish & Submit ✓";
+                nextBtn.style.backgroundColor = "#10b981";
+            } else {
+                nextBtn.innerText = "Next →";
+                nextBtn.style.backgroundColor = "#2563eb";
+            }
+
+            const container = document.getElementById('quiz-questions-loader-target');
+            container.innerHTML = ""; 
+
+            const item = quizDatabase[index];
+            const card = document.createElement('div');
+            card.className = "quiz-card-item";
+
+            const qTitle = document.createElement('div');
+            qTitle.className = "quiz-question";
+            qTitle.innerText = item.q;
+            card.appendChild(qTitle);
+
+            const optionsList = document.createElement('ul');
+            optionsList.className = "quiz-options-list";
+            optionsList.id = `single-q-opts-block`;
+
+            const alreadyAnsweredIdx = userSelectedAnswers[index];
+
+            item.o.forEach((optText, optIdx) => {
+                const li = document.createElement('li');
+                li.className = "option-item";
+                li.innerText = optText;
+                
+                if (alreadyAnsweredIdx !== null) {
+                    li.classList.add('option-disabled');
+                    if (optIdx === item.a) {
+                        li.classList.add('correct-state');
+                    } else if (optIdx === alreadyAnsweredIdx) {
+                        li.classList.add('wrong-state');
+                    }
+                } else {
+                    li.onclick = function() { evaluateSingleQuestionAnswer(optIdx, item.a, item.exp); };
+                }
+                optionsList.appendChild(li);
+            });
+            card.appendChild(optionsList);
+
+            const expBox = document.createElement('div');
+            expBox.id = "live-explanation-feedback-box";
+            expBox.className = "quiz-explanation-box";
+            
+            if (alreadyAnsweredIdx !== null) {
+                expBox.innerHTML = `<strong>💡 ટૂંકી સમજૂતી (Samjooti):</strong> ${item.exp}`;
+                expBox.style.display = "block";
+            }
+            card.appendChild(expBox);
+            container.appendChild(card);
+        }
+
+        function evaluateSingleQuestionAnswer(selectedIdx, correctIdx, explanationText) {
+            userSelectedAnswers[currentQuizIndex] = selectedIdx;
+
+            const optionsBlock = document.getElementById('single-q-opts-block');
+            const optionsElements = optionsBlock.getElementsByTagName('li');
+
+            for (let i = 0; i < optionsElements.length; i++) {
+                optionsElements[i].classList.add('option-disabled');
+            }
+
+            if (selectedIdx === correctIdx) {
+                optionsElements[selectedIdx].classList.add('correct-state');
+                currentQuizScore++;
+                document.getElementById('live-score-counter').innerText = currentQuizScore;
+            } else {
+                optionsElements[selectedIdx].classList.add('wrong-state');
+                optionsElements[correctIdx].classList.add('correct-state');
+            }
+
+            const expBox = document.getElementById('live-explanation-feedback-box');
+            expBox.innerHTML = `<strong>💡 ટૂંકી સમજૂતી (Samjooti):</strong> ${explanationText}`;
+            expBox.style.display = "block";
+        }
+
+        function goToPrevQuizQuestion() {
+            if (currentQuizIndex > 0) {
+                currentQuizIndex--;
+                loadSingleQuizQuestion(currentQuizIndex);
+            }
+        }
+
+        function goToNextQuizQuestion() {
+            if (currentQuizIndex < quizDatabase.length - 1) {
+                currentQuizIndex++;
+                loadSingleQuizQuestion(currentQuizIndex);
+            } else {
+                showFinalResultsPaneLayout();
+            }
+        }
+
+        function showFinalResultsPaneLayout() {
+            document.getElementById('quiz-active-questions-frame-block').style.display = 'none';
+            document.getElementById('quiz-result-final-pane').style.display = 'block';
+            document.getElementById('final-result-user-name-label').innerText = `👤 વિદ્યાર્થી: ${userRegisteredName}`;
+            document.getElementById('final-score-digits').innerText = currentQuizScore;
+        }
+
+        function sendResultToWhatsApp() {
+            const masterWhatsAppNumber = "916353298168"; 
+            const currentTime = new Date().toLocaleTimeString('gu-IN', { hour: '2-digit', minute: '2-digit' });
+            
+            const messagePayload = `*THE MAULIK EXPRESS QUIZ RESULT* 📊\n\n` +
+                                   `👤 *નામ:* ${userRegisteredName}\n` +
+                                   `📅 *તારીખ:* 24 June 2026\n` +
+                                   `⏱️ *સમય:* ${currentTime}\n` +
+                                   `🎯 *ફાઇનલ સ્કોર:* ${currentQuizScore} / 25\n\n` +
+                                   `📈 _માસ્ટર એક્ઝામ લેજર એન્ડ એનાલિટિક્સ સિસ્ટમ દ્વારા પ્રમાણિત._`;
+            
+            const encodedText = encodeURIComponent(messagePayload);
+            const whatsappWebUrl = `https://api.whatsapp.com/send?phone=${masterWhatsAppNumber}&text=${encodedText}`;
+            window.open(whatsappWebUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
+    
+  </body>
+  
+</html>
